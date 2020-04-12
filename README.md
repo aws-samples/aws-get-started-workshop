@@ -1,4 +1,4 @@
-# Get Started with AWS for Formal Workloads
+# Workshops to Get Started with AWS for Formal Workloads
 
 This project provides a guided workshop to help customers accelerate the process of getting an initial formal foundation established in AWS in support of their development, pre-production test, and production environments so that customers can quickly get their first few workloads into production to start deriving value from their initial stage of adopting the AWS cloud platform.
 
