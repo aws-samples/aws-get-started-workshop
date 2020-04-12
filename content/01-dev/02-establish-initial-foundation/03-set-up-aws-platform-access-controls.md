@@ -224,7 +224,7 @@ Next, you'll create a custom permission set in AWS SSO to represent the initial 
 
 ### Download and Customize Sample IAM Policy
 
-1. Download the sample policy [`acme-base-team-dev.json`](/code-samples/01-iam-policies/acme-base-team-dev.json) to your desktop.
+1. Download the sample policy [`acme-base-team-dev-saml.json`](/code-samples/01-iam-policies/acme-base-team-dev-saml.json) to your desktop.
 2. Open the file and replace all occurrences of **`acme`** with a reference to your own organization's identifier.
 
 {{% notice tip %}}

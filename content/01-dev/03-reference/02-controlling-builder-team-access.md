@@ -124,7 +124,7 @@ In support of the requirements described above, two IAM policies are used:
 
 |Policy|Purpose|Usage|Sample Code|
 |------|-------|-----|-----------|
-|**Team Development IAM Policy**|A JSON format IAM policy used for control human user access to team development AWS accounts.|This policy is used to create a custom permission set in AWS SSO that is associated with team development groups and team development AWS accounts.|[`acme-base-team-dev.json`](/code-samples/01-iam-policies/acme-base-team-dev.json)|
+|**Team Development IAM Policy**|A JSON format IAM policy used for control human user access to team development AWS accounts.|This policy is used to create a custom permission set in AWS SSO that is associated with team development groups and team development AWS accounts.|[`acme-base-team-dev-saml.json`](/code-samples/01-iam-policies/acme-base-team-dev-saml.json)|
 |**Team Development IAM Permissions Boundary**|A customer managed IAM permissions boundary policy that is used to control permissions of IAM service roles created by team development users in their team development AWS accounts.|This AWS CloudFormation template forms the basis of a CloudFormation StackSet that is applied to all team development AWS accounts.|[`acme-base-team-dev-boundary.yml`](/code-samples/01-iam-policies/acme-base-team-dev-boundary.yml)|
 
 #### Provisioning the Policies
@@ -161,7 +161,7 @@ In this scenario, we're delegating a degree of permissions management to builder
 
 ### Base Policy Walkthrough
 
-[`acme-base-team-dev.json`](/code-samples/01-iam-policies/acme-base-team-dev.json)
+[`acme-base-team-dev-saml.json`](/code-samples/01-iam-policies/acme-base-team-dev-saml.json)
 
 Each section of the sample policy is explained here.
 
