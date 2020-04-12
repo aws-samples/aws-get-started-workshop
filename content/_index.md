@@ -1,6 +1,6 @@
 ---
 title: "Getting Started"
-chapter: true
+disableToc: true
 weight: 1
 ---
 {{% comment %}}
