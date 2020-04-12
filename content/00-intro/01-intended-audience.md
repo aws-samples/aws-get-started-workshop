@@ -4,6 +4,11 @@ disableToc: true
 weight: 10
 ---
 
+{{% comment %}}
+Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+SPDX-License-Identifier: CC-BY-SA-4.0
+{{% /comment %}}
+
 ## Your Initial Cloud Foundation Team
 This guide is primarily intended to be used by your organization's technologists who will be responsible for establishing and maintaining your inital AWS environment. These technologists will make up the initial form of your "cloud foundation" or "cloud platform" team.
 

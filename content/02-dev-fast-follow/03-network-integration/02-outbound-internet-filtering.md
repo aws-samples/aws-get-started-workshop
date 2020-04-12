@@ -5,6 +5,11 @@ disableToc: true
 weight: 20
 ---
 
+{{% comment %}}
+Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+SPDX-License-Identifier: CC-BY-SA-4.0
+{{% /comment %}}
+
 This section addresses options and resources to enable you to further secure Internet integration in support of your initial development environments.
 
 {{% notice note %}}

@@ -5,6 +5,11 @@ disableToc: true
 weight: 60
 ---
 
+{{% comment %}}
+Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+SPDX-License-Identifier: CC-BY-SA-4.0
+{{% /comment %}}
+
 {{< toc >}}
 
 ## General
@@ -15,7 +20,7 @@ See [Project Information]({{< relref "05-project" >}})
 
 ### Q: How can I see what has materially changed in the guide?
 
-See [Change History]({{< relref "05-change-history.md" >}})
+See [Change History]({{< relref "04-change-history.md" >}})
 
 ## Federated Access to AWS Platform
 

@@ -5,9 +5,14 @@ disableToc: true
 weight: 10
 ---
 
+{{% comment %}}
+Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+SPDX-License-Identifier: CC-BY-SA-4.0
+{{% /comment %}}
+
 ### Q: How I can contribute?
 
-See [Contributing]({{< relref "03-contributing.md" >}})
+See [Contributing]({{< relref "03-contributors.md" >}})
 
 ## Q: Isn't this information already addressed in formal AWS documentation?
 

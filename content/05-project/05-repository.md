@@ -1,5 +1,6 @@
 ---
-title: 'Project Information'
+title: "Repository"
+pre: "<i class='fab fa-github'></i> "
 disableToc: true
 weight: 50
 ---
@@ -9,6 +10,4 @@ Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 SPDX-License-Identifier: CC-BY-SA-4.0
 {{% /comment %}}
 
-Information about the project that owns documenting this guidance.
-
-{{% children showhidden="false" %}}
+[https://github.com/aws-samples/aws-get-started-workshop](https://github.com/aws-samples/aws-get-started-workshop)

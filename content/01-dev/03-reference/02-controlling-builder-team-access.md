@@ -5,6 +5,11 @@ disableToc: true
 weight: 20
 ---
 
+{{% comment %}}
+Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+SPDX-License-Identifier: CC-BY-SA-4.0
+{{% /comment %}}
+
 The sample IAM policies described in this document are intended to be used as a starting point for how you might control builder team access in team development AWS accounts so that builders have the freedom to get many things done on their own, but are constrained from adversely impacting the security and stability of the underlying foundation.
 
 Your organization is expected to understand these sample policies in detail before potentially applying them.  

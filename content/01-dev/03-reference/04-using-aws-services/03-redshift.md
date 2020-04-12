@@ -5,6 +5,11 @@ disableToc: true
 weight: 30
 ---
 
+{{% comment %}}
+Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+SPDX-License-Identifier: CC-BY-SA-4.0
+{{% /comment %}}
+
 This document highlights special considerations when using [Amazon Redshift](https://aws.amazon.com/redshift/) in your team development AWS accounts.
 
 {{% notice note %}}

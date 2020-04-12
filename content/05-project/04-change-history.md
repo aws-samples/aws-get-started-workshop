@@ -2,8 +2,13 @@
 title: 'History of Changes'
 menuTitle: 'Changes'
 disableToc: true
-weight: 50
+weight: 40
 ---
+
+{{% comment %}}
+Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+SPDX-License-Identifier: CC-BY-SA-4.0
+{{% /comment %}}
 
 A history of notable changes to the guide.
 

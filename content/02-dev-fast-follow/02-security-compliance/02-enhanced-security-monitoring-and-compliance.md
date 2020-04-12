@@ -4,6 +4,11 @@ disableToc: true
 weight: 20
 ---
 
+{{% comment %}}
+Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+SPDX-License-Identifier: CC-BY-SA-4.0
+{{% /comment %}}
+
 This section addresses requirements, options, and resources to enable your Security and Cloud Administrators to extend the degree of preventative, detective, and corrective controls.
 
 Support for custom AWS account baselines can be the means to roll out such controls, but this section focuses on what controls are of most interest.

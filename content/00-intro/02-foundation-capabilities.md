@@ -5,6 +5,11 @@ disableToc: true
 weight: 20
 ---
 
+{{% comment %}}
+Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+SPDX-License-Identifier: CC-BY-SA-4.0
+{{% /comment %}}
+
 This guide helps you establish a set of AWS foundational capabilities to help support your use of development, test, and production hosting environments for your first few initial workloads.  
 
 Other capabilities that are specific to your workloads and your desired Software Development Lifecycle (SDLC) and operational processes including supporting tools are not currently addressed by this guide. You'll layer those capabilities and solutions on top of the initial foundation addressed in this guide.

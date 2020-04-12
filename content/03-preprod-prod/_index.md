@@ -5,8 +5,13 @@ disableToc: true
 weight: 30
 ---
 
+{{% comment %}}
+Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+SPDX-License-Identifier: CC-BY-SA-4.0
+{{% /comment %}}
+
 {{% notice note %}}
-**Review Note:** The pre-production test and production envrionment section is only sketched out topically at this stage. We expect to begin addressing this section after drafting the higher priority [Development Fast Follow Capabilities]({{< relref "02-dev-fast-follow" >}}) section. If you have comments and suggestions about this guide, see [Contributing]({{< relref "03-contributing" >}}).
+**Review Note:** The pre-production test and production envrionment section is only sketched out topically at this stage. We expect to begin addressing this section after drafting the higher priority [Development Fast Follow Capabilities]({{< relref "02-dev-fast-follow" >}}) section. If you have comments and suggestions about this guide, see [Contributing]({{< relref "03-contributors" >}}).
 {{% /notice %}}
 
 Once you've established your initial foundation and delivered the initial set of development environments to teams, your next step is to extend your foundation by introducting a set of capabilities that organizations typically require before moving workloads into production.

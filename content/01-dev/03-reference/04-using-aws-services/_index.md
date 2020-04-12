@@ -4,6 +4,12 @@ menuTitle: "Using AWS Services"
 disableToc: true
 weight: 40
 ---
+
+{{% comment %}}
+Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+SPDX-License-Identifier: CC-BY-SA-4.0
+{{% /comment %}}
+
 The following documents address how builders can access a variety of AWS services in a self-service manner in their team development AWS accounts.
 
 ## Special Considerations

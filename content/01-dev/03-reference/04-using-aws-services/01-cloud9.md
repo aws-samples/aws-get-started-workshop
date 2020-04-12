@@ -5,6 +5,11 @@ disableToc: true
 weight: 10
 ---
 
+{{% comment %}}
+Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+SPDX-License-Identifier: CC-BY-SA-4.0
+{{% /comment %}}
+
 {{% notice note %}}
 **Review Note:** Since we recently changed the guidance to disallow use of public subnets in team development AWS accounts and AWS Cloud9 does not currently support deployment of Cloud9 environments in private subnets, we need to remove this section from the guide.
 {{% /notice %}}

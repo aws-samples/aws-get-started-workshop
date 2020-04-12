@@ -4,6 +4,11 @@ disableToc: true
 weight: 10
 ---
 
+{{% comment %}}
+Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+SPDX-License-Identifier: CC-BY-SA-4.0
+{{% /comment %}}
+
 This section addresses options and resources to enable network connectivity between your on-premises networks and AWS environment.
 
 {{% notice note %}}

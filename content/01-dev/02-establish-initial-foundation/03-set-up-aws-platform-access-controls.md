@@ -5,6 +5,11 @@ disableToc: true
 weight: 30
 ---
 
+{{% comment %}}
+Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+SPDX-License-Identifier: CC-BY-SA-4.0
+{{% /comment %}}
+
 In this step your Security and Cloud Administrators will decide on and implement the initial approach to controlling access to the AWS platform.
 
 This step should take about 45 minutes to complete.

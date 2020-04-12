@@ -4,6 +4,11 @@ disableToc: true
 weight: 30
 ---
 
+{{% comment %}}
+Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+SPDX-License-Identifier: CC-BY-SA-4.0
+{{% /comment %}}
+
 The following users are created as part of setting up AWS accounts and establishing your initial foundation on AWS.  After an initial set of human users are onboarded to the platform with the appropriate permissions, the following accounts will rarely be used. A best practice is to store the credentials for these accounts in your enterprise standard secrets or password management solution and grant and audit access to these credentials to a very limited set of foundation team members.
 
 {{% notice note %}}

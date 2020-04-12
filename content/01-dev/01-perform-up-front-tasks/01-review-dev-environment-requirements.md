@@ -5,6 +5,11 @@ disableToc: true
 weight: 10
 ---
 
+{{% comment %}}
+Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+SPDX-License-Identifier: CC-BY-SA-4.0
+{{% /comment %}}
+
 This section introduces the typical requirements for your inital formal development environments and the supporting foundation. Organizations typically require at least the following capabilities when establishing their initial formal development environments. A separate set of sections address a series of [development fast follow capabilities]({{< relref "02-dev-fast-follow" >}}) that might be required up front depending on your organization's needs.
 
 ## Cloud Adoption Framework Perspectives
@@ -22,6 +27,8 @@ The following requirements are organized based on a series of perspectives defin
 
 ### Governance
 * Cross-functional departments such as Security, Compliance, Operations, and Finance are important stakeholders in the use of the AWS platform and must be part of the initial planning, design, and implementation effort.
+* Sufficient access controls and permissions to protect the cloud foundation resources from inadvertent and intentional modification by unauthorized users.
+* Clearly defined roles and responsibilities for managing the use of AWS.
 
 ## Technical Perspectives
 
@@ -53,6 +60,4 @@ The following requirements are organized based on a series of perspectives defin
 * Inhibit use of long-term access keys to access AWS services.
 
 ### Operations
-* Sufficient access controls and permissions to protect the cloud foundation resources from inadvertent and intentional modification by unauthorized users.
-* Clearly defined roles and responsibilities for managing the use of AWS.
 * A sufficient set of runbooks and playbooks to support common operational needs and scenarios.

@@ -4,6 +4,11 @@ disableToc: true
 weight: 30
 ---
 
+{{% comment %}}
+Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+SPDX-License-Identifier: CC-BY-SA-4.0
+{{% /comment %}}
+
 This section addresses options and resources to enable your internal users federated access to your AWS environment by using an identity proivider external to AWS. 
 
 ## Out of Scope: Application Level Federated Access

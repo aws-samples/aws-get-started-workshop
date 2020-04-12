@@ -3,6 +3,10 @@ title: "Getting Started"
 chapter: true
 weight: 1
 ---
+{{% comment %}}
+Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+SPDX-License-Identifier: CC-BY-SA-4.0
+{{% /comment %}}
 
 # Getting Started with AWS for Formal Workloads
 

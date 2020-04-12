@@ -4,6 +4,11 @@ disableToc: true
 weight: 20
 ---
 
+{{% comment %}}
+Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+SPDX-License-Identifier: CC-BY-SA-4.0
+{{% /comment %}}
+
 This section addresses options and resources to enable your foundation team to define and efficiently roll out new and updated cloud resources or "baselines" across your AWS accounts to further secure the overall environment and deliver useful common capabilities to your internal teams. 
 
 ## Content to be Rolled Out Across AWS Accounts Covered Separately

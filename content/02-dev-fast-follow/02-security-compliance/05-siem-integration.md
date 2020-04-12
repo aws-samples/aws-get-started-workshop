@@ -4,6 +4,11 @@ disableToc: true
 weight: 50
 ---
 
+{{% comment %}}
+Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+SPDX-License-Identifier: CC-BY-SA-4.0
+{{% /comment %}}
+
 This section addresses options and resources to enable your Security team to integrate centrally captured AWS platform log and event information with new or existing enterprise Security Information and Event Management (SIEM) services.
 
 ## Requirements

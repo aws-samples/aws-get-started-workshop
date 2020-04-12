@@ -5,6 +5,11 @@ disableToc: true
 weight: 10
 ---
 
+{{% comment %}}
+Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+SPDX-License-Identifier: CC-BY-SA-4.0
+{{% /comment %}}
+
 In this step your Cloud Administrators will use the standard AWS new account creation process to create a new “master” AWS account. 
 
 This step should take about 20 minutes.

@@ -5,6 +5,11 @@ disableToc: true
 weight: 50
 ---
 
+{{% comment %}}
+Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+SPDX-License-Identifier: CC-BY-SA-4.0
+{{% /comment %}}
+
 In this step your Cloud Administrators will review the initial development network design, create a new Network AWS account, provision a common centrally managed development network, and share the private subnets will all team development AWS accounts in your AWS organization.
 
 This step should take about 60 minutes to complete.

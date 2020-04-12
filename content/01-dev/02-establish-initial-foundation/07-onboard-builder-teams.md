@@ -5,6 +5,11 @@ disableToc: true
 weight: 70
 ---
 
+{{% comment %}}
+Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+SPDX-License-Identifier: CC-BY-SA-4.0
+{{% /comment %}}
+
 In this step either Security or Cloud Administrators will onboard a limited set of initial builders who will have access to their team development environments. The outcome is that a small team of builders has the knowledge to start using their team development AWS accounts, where to find basic usage documentation, and who to contact for support.
 
 This step should take about 60 minutes to complete.
