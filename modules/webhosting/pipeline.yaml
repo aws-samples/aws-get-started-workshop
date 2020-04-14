@@ -12,7 +12,7 @@ Parameters:
   WebsiteBucket:
     Type: String
     Description: Website S3 bucket name
-    Default: getstarted.modernize.awsworkshop.io  
+    Default: getstarted.modernize.awsworkshop.io
   GitHubRepo:
     Type: String
     Description: repo name
@@ -135,7 +135,7 @@ Resources:
               ActionTypeId:
                 Category: Source
                 Owner: ThirdParty
-                Version: 1
+                Version: '1'
                 Provider: GitHub
               Configuration:
                 Owner: !Ref GitHubOwner
@@ -152,7 +152,7 @@ Resources:
               ActionTypeId:
                 Category: Build
                 Owner: AWS
-                Version: 1
+                Version: '1'
                 Provider: CodeBuild
               Configuration:
                 ProjectName: !Ref CodeBuildProject
@@ -168,7 +168,7 @@ Resources:
       Authentication: GITHUB_HMAC
       AuthenticationConfiguration:
         SecretToken: '{{resolve:secretsmanager:GitHub/WorkshopOwnerToken:SecretString:OwnerToken}}'
-      RegisterWithThirdParty: 'true'
+      RegisterWithThirdParty: true
       Filters:
       - JsonPath: "$.ref"
         MatchEquals: refs/heads/{Branch}
