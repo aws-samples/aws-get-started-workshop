@@ -31,4 +31,6 @@ phases:
       - ./hugo -D
       - echo Deploy Copy Website to S3 Bucket
       - aws s3 cp public/ s3://${WEB_SITE_BUCKET}/ --recursive
-      - aws cloudfront create-invalidation --distribution-id E351FSO83AAYUW --paths /\*
+      # Need to fix up the pipeline CloudFormation template to provide permissions to perform
+      # the invalidation... Also take the distro ID as a parameter...
+      # - aws cloudfront create-invalidation --distribution-id E351FSO83AAYUW --paths /\*
