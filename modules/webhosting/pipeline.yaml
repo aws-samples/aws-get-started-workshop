@@ -12,7 +12,7 @@ Parameters:
   WebsiteBucket:
     Type: String
     Description: Website S3 bucket name
-    Default: getstarted.modernize.awsworkshop.io
+    Default: getstarted.awsworkshop.io
   GitHubRepo:
     Type: String
     Description: repo name
