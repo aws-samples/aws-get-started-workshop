@@ -2,25 +2,36 @@ AWSTemplateFormatVersion: "2010-09-09"
 Description: This template will launch the Modernization Workshop CI/CD Pipeline.
 
 # It should only be necessary to update the parameters
-# run this stack as below but sub for {WORKSHOP NAME} with the workshop/company name
+# run this stack as below but sub for {WORKSHOP NAME} with the workshop/company name and set the value
+# of CloudFrontDistroId resulting from the S3 + CloudFront CloudFormation template.
+
 # aws cloudformation create-stack --stack-name {WORKSHOP NAME}-Website-Pipeline --template-body file://pipeline.yaml --capabilities CAPABILITY_NAMED_IAM
+
 Parameters:
   ProjectName:
     Type: String
     Description: Project Name
     Default: getstarted
+
   WebsiteBucket:
     Type: String
     Description: Website S3 bucket name
     Default: getstarted.awsworkshop.io
+
+  CloudFrontDistroId:
+    Type: String
+    Description: CloudFront distribution ID
+
   GitHubRepo:
     Type: String
     Description: repo name
     Default: aws-get-started-workshop
+
   FullRepoURL:
     Type: String
     Description: The full url to the repo
     Default: https://github.com/aws-samples/aws-get-started-workshop.git  
+
   GitHubOwner:
     Type: String
     Description: GitHub owner name
@@ -43,25 +54,29 @@ Resources:
           PolicyDocument:
             Version: 2012-10-17
             Statement:
-              - Resource: "*"
-                Effect: Allow
+              - Effect: Allow
                 Action:
                   - logs:CreateLogGroup
                   - logs:CreateLogStream
                   - logs:PutLogEvents
-              - Resource: !Sub arn:aws:s3:::${ArtifactBucket}/*
-                Effect: Allow
+                Resource: "*"
+              - Effect: Allow
                 Action:
                   - s3:GetObject
                   - s3:PutObject
                   - s3:GetObjectVersion
-              - Resource: !Sub arn:aws:s3:::${WebsiteBucket}/*
-                Effect: Allow
+                Resource: !Sub arn:aws:s3:::${ArtifactBucket}/*
+              - Effect: Allow
                 Action:
                   - s3:GetObject
                   - s3:PutObject
                   - s3:GetObjectVersion
                   - s3:ListBucket
+                Resource: !Sub arn:aws:s3:::${WebsiteBucket}/*
+              - Effect: Allow
+                Action:
+                  - cloudfront:CreateInvalidation
+                Resource: !Sub arn:aws:cloudfront::${AWS::AccountId}:distribution/${CloudFrontDistroId}
 
   CodePipelineServiceRole:
     Type: AWS::IAM::Role
@@ -117,6 +132,8 @@ Resources:
             Value: !Ref FullRepoURL
           - Name: WEB_SITE_BUCKET  
             Value: !Ref WebsiteBucket  
+          - Name: CLOUDFRONT_DISTRO_ID  
+            Value: !Ref CloudFrontDistroId 
         PrivilegedMode: true
       Name: !Join ['', [!Ref 'ProjectName', '-Workshop-website']]
       ServiceRole: !Ref CodeBuildServiceRole

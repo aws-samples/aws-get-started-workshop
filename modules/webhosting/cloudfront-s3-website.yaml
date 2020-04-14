@@ -94,9 +94,15 @@ Outputs:
   BucketName:
     Value: !Ref 'WebsiteBucket'
     Description: Name of S3 bucket to hold website content
+
+  CloudFrontDistroId:
+    Value: !Ref WebsiteCloudFront
+    Description: CloudFront distribution ID
+
   CloudfrontEndpoint:
     Value: !GetAtt [WebsiteCloudFront, DomainName]
     Description: Endpoint for CloudFront distribution
+
   FullDomain:
     Value: !Join ['', [ !Ref 'WorkshopHostname', '.', !Ref 'DomainName']]
     Description: Full DomainName
