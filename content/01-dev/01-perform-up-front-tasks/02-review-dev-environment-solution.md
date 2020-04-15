@@ -40,7 +40,7 @@ The common development VPC provides private subnets in multiple Availability Zon
 
 The common development VPC includes a set of public subnets that host one or more Network Address Translation (NAT) Gateways to enable outbound connectivity from the shared private subnets to the Internet.  The public subnets are not shared to the team development AWS accounts.
 
-The routing configuration of the shared private subnets and the NAT Gateways enable teams to access Internet-based resources such as package repositories and publicly available APIs during their experiment and development work.
+The routing configuration of the shared private subnets and the NAT Gateways enable teams to access Internet-based resources such as package repositories and publicly available APIs during their experimentation and development work.
 
 Benefits of using a common VPC for builder team's development needs include:
 
