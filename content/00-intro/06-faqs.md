@@ -36,7 +36,7 @@ Based on our experience, it can commonly take several weeks for an organization 
 
 ### Q: Why aren't "Sandbox" AWS accounts included in the initial build out?
 
-Since the premise of the initial guide is to help customers quickly establish a set of formal team development environment in which experimentation, integration, development, and early testing of the first few application and/or data services can take place before they are rapidly moved through formal pre-production testing environments and into production, the traditional role of completely isolated and disconnected sandbox AWS accounts in which your organization's intellectual propertly (IP) including source code is not allowed does not yet apply to this overall scenario.
+Since the premise of the initial guide is to help customers quickly establish a set of formal team development environments in which experimentation, integration, development, and early testing of the first few application and/or data services can take place before they are rapidly moved through formal pre-production testing environments and into production, the traditional role of completely isolated and disconnected sandbox AWS accounts in which your organization's intellectual propertly (IP) including source code is not allowed does not yet apply to this overall scenario.
 
 Instead, a focus of this guide is to establish team development AWS accounts to enable the formal work in support of the first few projects to progress rapidly.
 
