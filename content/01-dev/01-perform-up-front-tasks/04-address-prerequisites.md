@@ -31,6 +31,8 @@ If your organization already has a naming standard for mail addresses associated
 
 Use your organization's process to request either DLs or shared mailboxes based on set of addresses you identify.
 
+If you're reusing an existing master AWS account, you'll reuse the email address associated with that account.
+
 |AWS Account	|Example Email Address|Example with "+" Style Email Address|
 |---|---|---|
 |**Foundation AWS Accounts**||

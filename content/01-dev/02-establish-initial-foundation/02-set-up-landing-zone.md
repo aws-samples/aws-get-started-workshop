@@ -10,7 +10,7 @@ Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 SPDX-License-Identifier: CC-BY-SA-4.0
 {{% /comment %}}
 
-In this step your Cloud Administrators will use the AWS Control Tower service in your new AWS master account to establish an initial “landing zone” or a foundation of security guardrails and other resources that will help your organization manage use of the AWS platform. You can learn more by reviewing [AWS Control Tower Features](https://aws.amazon.com/controltower/features/).
+In this step your Cloud Administrators will use the AWS Control Tower service in your AWS master account to establish an initial “landing zone” or a foundation of security guardrails and other resources that will help your organization manage use of the AWS platform. You can learn more by reviewing [AWS Control Tower Features](https://aws.amazon.com/controltower/features/).
 
 This step should take about 90 minutes to complete.
 
@@ -28,7 +28,7 @@ Before using AWS Control Tower to create an initial landing zone, ensure that yo
 
 * **Email Distribution Lists** - Consult the [set of AWS account root user email addresses]({{< relref "04-address-prerequisites.md#1-create-email-addresses-for-new-aws-accounts" >}}) that you established earlier.
 
-* **Pre-Launch Checks** - Since you’ve just created a new master AWS account, the pre-launch check considerations for creating your landing zone should already be met.
+* **Pre-Launch Checks** - If you’ve just created a new master AWS account, the pre-launch check considerations for creating your landing zone should already be met. If you're reusing an exisitng master AWS account, the pre-launch checks might detect issues.
 
 Follow the steps in [Getting Started with AWS Control Tower](https://docs.aws.amazon.com/controltower/latest/userguide/getting-started-with-control-tower.html) to set up your landing zone. 
 

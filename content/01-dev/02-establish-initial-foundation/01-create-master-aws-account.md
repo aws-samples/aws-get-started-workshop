@@ -1,5 +1,6 @@
 ---
-title: "Create Master AWS Account"
+title: 'Create or Prepare Master AWS Account'
+menuTitle: 'Prepare Master AWS Account'
 pre: "1. "
 disableToc: true
 weight: 10
@@ -10,9 +11,9 @@ Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 SPDX-License-Identifier: CC-BY-SA-4.0
 {{% /comment %}}
 
-In this step your Cloud Administrators will use the standard AWS new account creation process to create a new “master” AWS account. 
+In this step your Cloud Administrators will either reuse an existing master AWS account or use the standard AWS new account creation process to create a new “master” AWS account. After the master account is ready, you will ensure that it's prepared for use with AWS Control Tower.
 
-This step should take about 20 minutes.
+This step should take about 20 minutes to create a new AWS master account and just a few minutes to prepare and validate an existing AWS master account.
 
 {{< toc >}}
 
@@ -24,18 +25,23 @@ In support of your initial need for team development environments, this guide fi
 
 Over the course of your cloud adoption journey, you will likely end up with a number of accounts ranging from a dozen or so to hundreds depending on the size of your application and data services portfolio and the granularity by which you choose to isolate the associated cloud resources and data across your organization and across the software development lifecycle (SDLC).
 
-## 2. Start With a New Master AWS Account
+## 2. Determine Whether to Reuse Existing AWS Master Account
+
+Your first step is to determine whether or not you want to create a new master AWS account or reuse an existing master AWS account in order to use AWS Control Tower to establish your initial landing zone.
+
+Review [Plan Yur AWS Control Tower Landing Zone](https://docs.aws.amazon.com/controltower/latest/userguide/planning-your-deployment.html) for guidance when considering whether or not to use an existing master AWS account.
+
+If you either don't have an existing master AWS account or you don't want to reuse an existing master AWS account, proceed to the next step.
+
+If you'd like to reuse an existing master AWS account, proceed to [8. Create an IAM user for Administrative Bootstrap Purposes](#8-create-an-iam-user-for-administrative-bootstrap-purposes) to ensure that you have a suitable AWS IAM administrative user account that you'll use in the next section.
+
+## 3. Start With a New Master AWS Account
 
 The initial AWS account that you create will be configured as a new master AWS account in which billing for AWS services consumed across accounts will be consolidated and your Cloud Administrators will provision new “member” AWS accounts for builder teams.
 
-Even if you have an existing AWS account, we strongly recommend that you establish a new AWS account as the basis of your formal cloud foundation and adoption for several reasons:
-
-1. **AWS Control Tower currently requires a new master AWS account.** Later in this guide, you will be using the AWS Control Tower service to establish an initial set of security guardrails and other capabilities as part of your cloud foundation.
-2. **Your existing AWS accounts might not be aligned with AWS best practices.**
-
 After you create your new master AWS account, you can make use of a standard process to move any existing AWS accounts into your new master AWS account so that you can easily consolidate billing and day-to-day management of all of your AWS accounts.
 
-## 3. Create a New AWS Master Account
+## 4. Create a New AWS Master Account
 
 Visit https://aws.amazon.com/ and click “Create AWS Account” and enter the the required information on the following page.
 
@@ -63,11 +69,11 @@ Once you are preparing to host business critical workloads and data in the cloud
 
 See [AWS Support Plans](https://aws.amazon.com/premiumsupport/plans/) for a description of features and benefits of each level of support.
 
-## 4. Receive Confirmation Email
+## 5. Receive Confirmation Email
 
 In a few minutes your account should be fully activated and you’ll receive a confirmation email.  If you don’t, review the troubleshooting steps from the [Create and Activate an AWS Account support page](https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/)
 
-## 5. Secure Your AWS Account Root User
+## 6. Secure Your AWS Account Root User
 
 It’s strongly recommended and an AWS security best practice to enable multi-factor authentication (MFA) to the AWS account root user and to avoid using the root user, even for administrative tasks, from this point forward.
 
@@ -77,13 +83,13 @@ See [Enable MFA on the AWS Account Root User](https://docs.aws.amazon.com/IAM/la
 **Do not create administrative access keys for the root user:** Under no circumstances create programmatic access keys for your AWS account root user and admininistrative bootstrap users.
 {{% /notice %}}
 
-## 6. Set Alternate Contacts
+## 7. Set Alternate Contacts
 
 Using the root user, set the Alternate Contacts for your account so that notifications of billing, operations, and security events are routed to the proper teams.  As a best practice, you can use email distribution lists so that notifications are set to multiple people in the same team.
 
 Access [Account  Settings](https://console.aws.amazon.com/billing/home?#/account) in the AWS Management Console to set the Alternate Contacts.
 
-## 7. Create an IAM user for Administrative Bootstrap Purposes
+## 8. Create an IAM user for Administrative Bootstrap Purposes
 
 {{% notice note %}}
 **Review Note: Is creating an admin bootstrap IAM user necessary?:** Functionally, is this user necessary? From a security best practices perspective is it necessary? Since this overall guide gets the foundation team members to start using their human user logins via AWS SSO as soon as feasible, this type of IAM admin user isn't currently used for anything other than working with AWS Control Tower to create the initial landing zone. AWS Control Tower [recommends that an IAM user](https://docs.aws.amazon.com/controltower/latest/userguide/setting-up.html) be established and used, but it doesn't state that it's an absolute requirement for the landing zone to be established.
