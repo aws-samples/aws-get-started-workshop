@@ -25,11 +25,11 @@ In support of your initial need for team development environments, this guide fi
 
 Over the course of your cloud adoption journey, you will likely end up with a number of accounts ranging from a dozen or so to hundreds depending on the size of your application and data services portfolio and the granularity by which you choose to isolate the associated cloud resources and data across your organization and across the software development lifecycle (SDLC).
 
-## 2. Determine Whether to Reuse Existing AWS Master Account
+## 2. Determine Whether to Reuse Existing Master AWS Account
 
-Your first step is to determine whether or not you want to create a new master AWS account or reuse an existing master AWS account in order to use AWS Control Tower to establish your initial landing zone.
+Determine whether or not you want to create a new master AWS account or reuse an existing master AWS account in order to use AWS Control Tower to establish your initial landing zone.
 
-Review [Plan Yur AWS Control Tower Landing Zone](https://docs.aws.amazon.com/controltower/latest/userguide/planning-your-deployment.html) for guidance when considering whether or not to use an existing master AWS account.
+Review [Plan Your AWS Control Tower Landing Zone](https://docs.aws.amazon.com/controltower/latest/userguide/planning-your-deployment.html) for guidance when considering whether or not to use an existing master AWS account.
 
 If you either don't have an existing master AWS account or you don't want to reuse an existing master AWS account, proceed to the next step.
 
