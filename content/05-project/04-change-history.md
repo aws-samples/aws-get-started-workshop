@@ -14,6 +14,7 @@ A history of notable changes to the guide.
 
 |Date|Change|Description|
 |----|------|-----------|
+|April 22 2020|**AWS Control Tower supports reusing existing master AWS accounts**|Address scenarios where you might want to reuse an existing master AWS account with AWS Control Tower.|
 |March 31 2020|**No longer share public subnets**|Share only private subnets with team development accounts so that builder teams can't enable Internet access to their development workloads.|
 |March 27 2020|**Enhance team development IAM policies with NotAction**|Using the AWS managed IAM policy developer oriented `PowerUserAccess` as a basis, make the SAML policy and permissions boundary more secure by default by patterning a portion of them after the PowerUser managed policy.|
 |March 15 2020|**Convert to Hugo static site generator**|Make it easier to browse the guide via a web site as compared to browsing markdown files in the git repository.|
