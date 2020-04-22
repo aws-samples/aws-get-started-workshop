@@ -10,7 +10,7 @@ Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 SPDX-License-Identifier: CC-BY-SA-4.0
 {{% /comment %}}
 
-In this step your Cloud Administrators will use the AWS Control Tower service in your AWS master account to establish an initial “landing zone” or a foundation of security guardrails and other resources that will help your organization manage use of the AWS platform. You can learn more by reviewing [AWS Control Tower Features](https://aws.amazon.com/controltower/features/).
+In this step your Cloud Administrators will use the AWS Control Tower service in your master AWS account to establish an initial “landing zone” or a foundation of security guardrails and other resources that will help your organization manage use of the AWS platform. You can learn more by reviewing [AWS Control Tower Features](https://aws.amazon.com/controltower/features/).
 
 This step should take about 90 minutes to complete.
 
@@ -49,7 +49,7 @@ See [Enable MFA on the AWS Account Root User](https://docs.aws.amazon.com/IAM/la
 
 As part of the landing zone set up, AWS Control Tower creates a Control Tower Administrator user in the AWS Single-Sign On (AWS SSO) service in your master account. 
 
-The email address associated with the AWS master account’s root user will receive a message containing an invite to activate the Control Tower Administrator user account.  Review the invitation and accept it.
+The email address associated with the master AWS account’s root user will receive a message containing an invite to activate the Control Tower Administrator user account.  Review the invitation and accept it.
 
 [![Invitation to Access AWS SSO User Portal](/images/01-dev/accept-aws-sso-invitation.png)](/images/01-dev/accept-aws-sso-invitation.png)
 
