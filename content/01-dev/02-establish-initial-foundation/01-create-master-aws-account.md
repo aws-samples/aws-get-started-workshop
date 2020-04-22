@@ -11,9 +11,9 @@ Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 SPDX-License-Identifier: CC-BY-SA-4.0
 {{% /comment %}}
 
-In this step your Cloud Administrators will either reuse an existing master AWS account or use the standard AWS new account creation process to create a new “master” AWS account. After the master account is ready, you will ensure that it's prepared for use with AWS Control Tower.
+In this step your Cloud Administrators will either reuse an existing master AWS account or use the standard AWS new account creation process to create a new “master” AWS account.
 
-This step should take about 20 minutes to create a new AWS master account and just a few minutes to prepare and validate an existing AWS master account.
+This step should take about 20 minutes to create a new AWS master account and just a few minutes to prepare an existing AWS master account.
 
 {{< toc >}}
 
