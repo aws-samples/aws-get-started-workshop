@@ -14,6 +14,10 @@ In this step your Security and Cloud Administrators will provision resources to 
 
 This step should take about 20 minutes to complete.
 
+{{% notice tip %}}
+**Automated provisioning of resources:** In the next several steps you'll manually provision a collection of resources to set up access controls for builder teams' use of team development environments.  Although these manual steps may be suitable for your initial iteration of your AWS environment, a more advanced and effective means of provisioning these resources would be to use automation. [Customizations for AWS Control Tower](https://aws.amazon.com/solutions/customizations-for-aws-control-tower/) is an AWS solution that uses AWS services and [AWS Control Tower Lifecycle Events](https://docs.aws.amazon.com/controltower/latest/userguide/lifecycle-events.html) to help you more efficiently manage these types of resources as code. Both the SCPs and IAM permissions boundary policy resources addressed below are candidates for using this automation solution.
+{{% /notice %}}
+
 {{< toc >}}
 
 ## 1. Apply Service Control Policies (SCPs) to `development` OU
@@ -125,8 +129,8 @@ Next, you'll create a custom permission set in AWS SSO to represent the initial 
 1. Download the sample policy [`acme-base-team-dev-saml.json`](/code-samples/01-iam-policies/acme-base-team-dev-saml.json) to your desktop.
 2. Open the file and replace all occurrences of **`acme`** with a reference to your own organization's identifier.
 
-{{% notice tip %}}
-**Infrastructure as Code (IaC) Opportunity:** Since you've just modified "code" that represents an important security policy for your AWS environment, it's a best practice to manage that source code file in a version control system such as a Git repository and control who can modify this file moving forward. If your organization is not already using Git-based version control, see the [Development Fast Follow Capabilities]({{< relref "02-dev-fast-follow" >}}) for assistance on how to get started using Git-based version control.
+{{% notice info %}}
+**Permission sets and Customizations for AWS Control Tower:** Initially, AWS SSO permission sets are not supported by [Customizations for AWS Control Tower](https://aws.amazon.com/solutions/customizations-for-aws-control-tower/).
 {{% /notice %}}
 
 ### Create Permission Set in AWS SSO
