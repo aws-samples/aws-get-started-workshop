@@ -14,9 +14,17 @@ In this step your foundation team will address several prerequsites before you b
 
 {{< toc >}}
 
-## 1. Create Email Addresses for New AWS Accounts
+## 1. Determine Whether to Reuse Existing Master AWS Account
 
-Prepare a set of email addresses to represent the root user of each of the new AWS accounts that will be created. In later steps, when you create AWS accounts, you'll be referring to these email addresses. Each AWS account must have a unique email address associated with it.
+Later in this guide you'll be using AWS Control Tower to set up an initial landing zone or basis of your AWS environment.  Since AWS Control Tower supports reusing existing master AWS accounts and using newly created master AWS accounts, you need to decide which option best suites your needs.
+
+Review [Plan Your AWS Control Tower Landing Zone](https://docs.aws.amazon.com/controltower/latest/userguide/planning-your-deployment.html) for guidance when considering whether or not to use an existing master AWS account.
+
+If you have any doubts about the quality of an existing master AWS account, then it's recommended that you create a new master AWS account later in this guide to support your new AWS environment.
+
+## 2. Create Email Addresses for New AWS Accounts
+
+Regardless as to whether you create a new master AWS account or reuse an existing master AWS account, you'll need to prepare a set of email addresses to represent the root user of each of the new AWS accounts that will be created. In later steps, when you create AWS accounts, you'll be referring to these email addresses. Each AWS account must have a unique email address associated with it.
 
 ### Use Either Email Distribution Lists (DLs) or Shared Mailboxes
 Instead of using a person's email address, it's recommended that you use either email distribution lists (DLs) or shared mailboxes so that you can enable at least several trusted people in your organization, for example, your Cloud Administrators, access to email messages associated with each AWS account.
@@ -31,12 +39,14 @@ If your organization already has a naming standard for mail addresses associated
 
 Use your organization's process to request either DLs or shared mailboxes based on set of addresses you identify.
 
-If you're reusing an existing master AWS account, you'll reuse the email address associated with that account.
+{{% notice tip %}}
+**Reusing existing master AWS account:** If you're reusing an existing master AWS account, you'll reuse the email address associated with that account.
+{{% /notice %}}
 
 |AWS Account	|Example Email Address|Example with "+" Style Email Address|
 |---|---|---|
 |**Foundation AWS Accounts**||
-|Master|aws-account-master@acme.com|aws-account+master@acme.com|
+|Master (only needed when creating a new master AWS account)|aws-account-master@acme.com|aws-account+master@acme.com|
 |Audit|aws-account-audit@acme.com|aws-account+audit@acme.com|
 |Log Archive|aws-account-log-archive@acme.com|aws-account+log-archive@acme.com|
 |Network|aws-account-network@acme.com|aws-account+network@acme.com|
@@ -52,7 +62,7 @@ If you're reusing an existing master AWS account, you'll reuse the email address
 **Office 365 Customers:** It appears that plus style addressing is on the [Office 365 roadmap for 2020](https://techcommunity.microsoft.com/t5/exchange-team-blog/exchange-transport-news-from-microsoft-ignite-2019/ba-p/993417).
 {{% /notice %}}
 
-## 2. Obtain Non-Overlapping IP Address Range
+## 3. Obtain Non-Overlapping IP Address Range
 
 In this step you should consult with your existing Network team to obtain a suitably sized, non-overlapping IP address range or [CIDR block](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) that can be used not only for the initial shared development network that will be set up in this guide, but also to accomodate pre-production test and and production networks that you will provision on AWS as you progress in your journey.
 
@@ -80,7 +90,7 @@ In the future, when you need to interconnect a portion of your existing on-premi
 
 * [Visual Subnet Calculator](http://www.davidc.net/sites/default/subnets/subnets.html)
 
-## 3. Decide on Organizational Identifier
+## 4. Decide on Organizational Identifier
 
 Since you will be assigning names to several cloud resources while you follow the steps in this guide, it's useful for you to decide on a unique organizational identifier to assign as a prefix to those names so that:
 * Names of your resources won't collide with other names when working in global namespaces.
@@ -96,6 +106,6 @@ As an example, this guide uses the prefix **`acme`** throughout. As you progress
 **More Extensive Resource Naming Standards:** As you progress on your journey, you may find it useful to adopt more extensive cloud resource naming standards.
 {{% /notice %}}
 
-## 4. Identify Your Preferred AWS Region
+## 5. Identify Your Preferred AWS Region
 
 When you build out the foundation of your AWS environment using the AWS Control Tower service, you will need to specify a “home” AWS region in which AWS Control Tower will configure a set of resources. Typically, this AWS region will be the AWS region in which you expect to host most of your workloads.  See [AWS Regions and Availability Zones](https://aws.amazon.com/about-aws/global-infrastructure/regions_az/) for a list of the current regions.
