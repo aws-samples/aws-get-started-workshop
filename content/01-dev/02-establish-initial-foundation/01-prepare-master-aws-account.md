@@ -27,11 +27,11 @@ Over the course of your cloud adoption journey, you will likely end up with a nu
 
 ## 2. Determine Whether to Reuse Existing Master AWS Account
 
-Determine whether or not you want to create a new master AWS account or reuse an existing master AWS account in order to use AWS Control Tower to establish your initial landing zone.
+Determine whether you will create a new master AWS account or reuse an existing master AWS account in order to use AWS Control Tower to establish your initial landing zone.
 
 Review [Plan Your AWS Control Tower Landing Zone](https://docs.aws.amazon.com/controltower/latest/userguide/planning-your-deployment.html) for guidance when considering whether or not to use an existing master AWS account.
 
-If you either don't have an existing master AWS account or you don't want to reuse an existing master AWS account, proceed to the next step.
+If you plan to create a new master AWS account, proceed to the next step.
 
 If you'd like to reuse an existing master AWS account, proceed to [8. Create an IAM user for Administrative Bootstrap Purposes](#8-create-an-iam-user-for-administrative-bootstrap-purposes) to ensure that you have a suitable AWS IAM administrative user account that you'll use in the next section.
 
