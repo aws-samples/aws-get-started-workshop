@@ -1,6 +1,6 @@
 ---
-title: "Set Up Common Development Network"
-menuTitle: "5. Set Up Dev Network"
+title: 'Set Up Common Development Network'
+menuTitle: '5. Set Up Network'
 disableToc: true
 weight: 50
 ---
@@ -60,7 +60,7 @@ Later in your journey, you'll deploy more network related resources to this AWS 
 
 |Field|Recommendation|
 |-----|---------------|
-|**`SSOUserEmail`**|Consult the [set of AWS account root user email addresses]({{< relref "04-address-prerequisites.md#1-create-email-addresses-for-new-aws-accounts" >}}) that you established earlier.|
+|**`SSOUserEmail`**|Consult the [set of AWS account root user email addresses]({{< relref "04-address-prerequisites.md#2-create-email-addresses-for-new-aws-accounts" >}}) that you established earlier.|
 |**`AccountEmail`**|Use the same value as `SSOUserEmail`.|
 |**`SSOUserFirstName`**|Use a part of your account name. For example, `Network`.|
 |**`SSOUserLastName`**|Use the remaining part of the account name. For example, `Infrastructure`|

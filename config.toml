@@ -56,6 +56,9 @@ home = [ "HTML", "RSS", "JSON"]
 # Markup configure section
 # See https://gohugo.io/getting-started/configuration-markup/
 [markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
   [markup.tableOfContents]
     startLevel = 2
     endLevel = 2

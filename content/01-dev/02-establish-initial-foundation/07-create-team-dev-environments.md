@@ -1,8 +1,8 @@
 ---
-title: "Create Team Development AWS Accounts"
-menuTitle: "6. Create Dev AWS Accounts"
+title: 'Create Team Development AWS Accounts'
+menuTitle: '7. Create Dev AWS Accounts'
 disableToc: true
-weight: 60
+weight: 70
 ---
 
 {{% comment %}}
@@ -53,7 +53,7 @@ You'll follow these steps twice: Once to create the initial deveopment team's AW
 
 |Field|Recommendation|
 |-----|---------------|
-|**`SSOUserEmail`**|Consult the [set of AWS account root user email addresses]({{< relref "04-address-prerequisites.md#1-create-email-addresses-for-new-aws-accounts" >}}) that you established earlier.|
+|**`SSOUserEmail`**|Consult the [set of AWS account root user email addresses]({{< relref "04-address-prerequisites.md#2-create-email-addresses-for-new-aws-accounts" >}}) that you established earlier.|
 |**`AccountEmail`**|Use the same value as `SSOUserEmail`.|
 |**`SSOUserFirstName`**|Use a part of your account name. For example, `Team A` or `Foundation` for the foundation team's development AWS account.|
 |**`SSOUserLastName`**|Use the remaining part of the account name. For example, `Development`|

@@ -1,7 +1,6 @@
 ---
 title: 'Create or Prepare Master AWS Account'
-menuTitle: 'Prepare Master AWS Account'
-pre: "1. "
+menuTitle: '1. Prepare Master AWS Account'
 disableToc: true
 weight: 10
 ---
@@ -47,7 +46,7 @@ Visit https://aws.amazon.com/ and click “Create AWS Account” and enter the t
 
 ### Provide Account Root User’s Email Address
 
-Use the master AWS account [root user email address]({{< relref "04-address-prerequisites.md#1-create-email-addresses-for-new-aws-accounts" >}}) that you already established. Since this email address is used to initially access your AWS account, be very careful that you enter the correct email address and that you have access to the email account.
+Use the master AWS account [root user email address]({{< relref "04-address-prerequisites.md#2-create-email-addresses-for-new-aws-accounts" >}}) that you already established. Since this email address is used to initially access your AWS account, be very careful that you enter the correct email address and that you have access to the email account.
 
 ### Set Personal or Professional
 
