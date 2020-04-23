@@ -1,6 +1,6 @@
 ---
-title: "Set Up Landing Zone Using AWS Control Tower"
-menuTitle: "2. Set Up Landing Zone"
+title: 'Set Up Landing Zone Using AWS Control Tower'
+menuTitle: '2. Set Up Landing Zone'
 disableToc: true
 weight: 20
 ---

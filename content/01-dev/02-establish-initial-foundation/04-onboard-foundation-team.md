@@ -1,6 +1,6 @@
 ---
-title: "Onboard Foundation Team"
-pre: "4. "
+title: 'Onboard Foundation Team'
+pre: '4. '
 disableToc: true
 weight: 40
 ---

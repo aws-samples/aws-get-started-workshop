@@ -1,6 +1,6 @@
 ---
-title: "Set Up Common Development Network"
-menuTitle: "5. Set Up Network"
+title: 'Set Up Common Development Network'
+menuTitle: '5. Set Up Network'
 disableToc: true
 weight: 50
 ---
