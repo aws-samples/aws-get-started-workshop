@@ -1,8 +1,8 @@
 ---
 title: "Create Team Development AWS Accounts"
-menuTitle: "6. Create Dev AWS Accounts"
+menuTitle: "7. Create Dev AWS Accounts"
 disableToc: true
-weight: 60
+weight: 70
 ---
 
 {{% comment %}}

@@ -1,8 +1,8 @@
 ---
-title: "Onboard Builder Teams to Their Team Development AWS Accounts"
-menuTitle: "7. Onboard Builder Teams"
+title: 'Onboard Builder Teams to Their Team Development AWS Accounts'
+menuTitle: '8. Onboard Builder Teams'
 disableToc: true
-weight: 70
+weight: 80
 ---
 
 {{% comment %}}

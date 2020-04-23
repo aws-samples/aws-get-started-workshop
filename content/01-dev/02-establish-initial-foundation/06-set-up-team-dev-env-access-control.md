@@ -1,8 +1,8 @@
 ---
-title: "(Optional) Set Up `Development` Service Control Policies"
-menuTitle: "8. (Opt)Set Up Dev SCPs"
+title: 'Set Up Team Development Environment Access Controls'
+menuTitle: '6. Set Up Team Dev Access'
 disableToc: true
-weight: 80
+weight: 60
 ---
 
 {{% comment %}}
@@ -10,46 +10,54 @@ Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 SPDX-License-Identifier: CC-BY-SA-4.0
 {{% /comment %}}
 
-In this step you will log in using your individual SSO Cloud Admin account and will optionally setup a Service Control Policy (SCP) limiting what service APIs are available to use in the **`development`** account.
+In this step your Security and Cloud Administrators will provision resources to control the access to team development AWS accounts.
 
-This step should take about 5 minutes to complete.
+This step should take about 20 minutes to complete.
 
 {{< toc >}}
 
-## 1. Apply Service Control Policies to `development` OU
+## 1. Apply Service Control Policies (SCPs) to `development` OU
 
-Using AWS Organizations, create a new Service Control Policy (SCP) that will be specific for the `development` OU.  This SCP will restrict the permissions of the developer user in regards to VPC/EC2, Direct Connect, and Global Accelerator related services.
+Using AWS Organizations, create several Service Control Policies (SCPs) that will be specific for the `development` OU.  When applied to the `development` OU, these SCPs will disallow any user including builder team members and foundation team members from creating and modifying foundation VPC networking resources in team development AWS accounts.
 
 {{% notice tip %}}
-**For Development Accounts:** For accounts which require their VPC foundation and boundary configurations (in terms of ingress / egress) to remain immutable, the SCPs ([`acme-base-team-dev-scp-vpc-foundations.json`](/code-samples/02-scps/acme-base-team-dev-scp-vpc-foundations.json)) and [`acme-base-team-dev-scp-vpc-boundaries.json`](/code-samples/02-scps/acme-base-team-dev-scp-vpc-boundaries.json)) can enforce this.  If you'd like to learn more about SCPs, see [Managing AWS Organizations policies](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies.html).
+**Service Control Policies (SCPs):** If you'd like to learn more about SCPs, see [Managing AWS Organizations policies](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies.html).
 {{% /notice %}}
 
-### Create the `development` VPC boundary SCP
+{{% notice tip %}}
+**Review the sample team development access controls:** See [Controlling Builder Team Access]({{< relref "02-controlling-builder-team-access.md" >}}) for a detailed explanation of the requirements and sample implementation of how you can provide freedom to your builder teams in their team development AWS accounts, but inhibit them from adversely impacting the security of your overall AWS environment.
+{{% /notice %}}
 
-1. Navigate to **`AWS Organizations`**.
-2. Select **`Policies`**.
-3. Select **`Create policy`**.
-4. Follow the prompts to create a new SCP named **`acme-base-team-dev-scp-vpc-foundations`**
-4. Repeat steps 1-4 in order to create a new SCP named **`acme-base-team-dev-scp-vpc-boundaries`**
+### Create the SCPs
 
-### Apply the VPC boundary SCP to the `development` OU
+Download the sample team development environment oriented SCPs to your desktop:
+* [`acme-base-team-dev-scp-vpc-core.json`](/code-samples/02-scps/acme-base-team-dev-scp-vpc-core.json)
+* [`acme-base-team-dev-scp-vpc-boundaries.json`](/code-samples/02-scps/acme-base-team-dev-scp-vpc-boundaries.json)
+
+1. As a Cloud Administrator, use your personal user to log into AWS SSO.
+2. Select the AWS **`master`** account.
+3. Select **`Management console`** associated with the **`AWSAdministratorAccess`** role.
+4. Select the appropriate AWS region.
+5. Navigate to **`AWS Organizations`**.
+6. Select **`Policies`**.
+7. Select **`Create policy`**.
+8. Follow the prompts to create a new SCP named **`acme-base-team-dev-scp-vpc-core`** based on copying the content of the policy file you downloaded.
+9. Repeat steps 6-8 in order to create a new SCP named **`acme-base-team-dev-scp-vpc-boundaries`**
+
+### Apply the SCPs to the `development` OU
 
 1. Navigate to **`AWS Organizations`**.
 2. Select **`Organize accounts`**.
-3. In the Organization tree on the left, select the **`development`** OU
-4. On the right side of the console, select **`Service control policies`**
+3. In the Organization tree on the left, select the **`development`** OU.
+4. On the right side of the console, select **`Service control policies`**.
 5. On the right side of the console, select the **`Attach`** link next to the SCP **`acme-base-team-dev-scp-vpc-foundations`**
-6. Repeat steps 1-5 in order to attach the SCP **`acme-base-team-dev-scp-vpc-boundaries`**
+6. Repeat steps 3-5 in order to attach the SCP **`acme-base-team-dev-scp-vpc-boundaries`**
 
 ## 2. Distribute Permissions Boundary to Development OU
 
 In this step you'll use AWS CloudFormation StackSets to distribute an IAM permissions boundary policy to the "development" OU that you just created.  This boundary policy will help ensure that builder teams using team development AWS accounts can't modify your foundation cloud resources.
 
 In a later section, when you create several team development AWS accounts, you will associate the AWS accounts with the "development" OU. Any AWS account that is added to that OU will automatically be configured with the IAM permissions boundary policy resource.  Similarly, when an AWS account is removed from the OU, the IAM permissions boundary policy resource will be automatically removed from the AWS account.
-
-{{% notice tip %}}
-**Review the sample team development access controls:** See [Controlling Builder Team Access]({{< relref "02-controlling-builder-team-access.md" >}}) for a detailed explanation of the requirements and sample implementation of how you can provide freedom to your builder teams in their team development AWS accounts, but inhibit them from adversely impacting the security of your overall AWS environment.
-{{% /notice %}}
 
 ### Enable Trusted Access in AWS Organizations
 

@@ -120,16 +120,20 @@ This section provides an overview of the sample policies and then walks through 
 
 ### Overview of the Implementation
 
-In support of the requirements described above, two IAM policies are used:
+In support of the requirements described above, two IAM policies and two Service Control Policies (SCPs) are used:
 
 |Policy|Purpose|Usage|Sample Code|
 |------|-------|-----|-----------|
-|**Team Development IAM Policy**|A JSON format IAM policy used for control human user access to team development AWS accounts.|This policy is used to create a custom permission set in AWS SSO that is associated with team development groups and team development AWS accounts.|[`acme-base-team-dev-saml.json`](/code-samples/01-iam-policies/acme-base-team-dev-saml.json)|
+|**Team Development IAM SAML Policy**|A JSON format IAM policy used for control human user access to team development AWS accounts.|This policy is used to create a custom permission set in AWS SSO that is associated with team development groups and team development AWS accounts. AWS SSO converts this policy into an IAM SAML role that is applied when user's access the team development AWS accounts.|[`acme-base-team-dev-saml.json`](/code-samples/01-iam-policies/acme-base-team-dev-saml.json)|
 |**Team Development IAM Permissions Boundary**|A customer managed IAM permissions boundary policy that is used to control permissions of IAM service roles created by team development users in their team development AWS accounts.|This AWS CloudFormation template forms the basis of a CloudFormation StackSet that is applied to all team development AWS accounts.|[`acme-base-team-dev-boundary.yml`](/code-samples/01-iam-policies/acme-base-team-dev-boundary.yml)|
+|**Team Development Networking Core SCP**|A JSON format SCP used to disallow creating and updating of VPC core resources such as VPCs, subnets, route tables, etc.|This SCP is used to ensure that all users - both builder teams and foundation team members cannot create and modify these resources in team development AWS accounts.|[`acme-base-team-dev-scp-vpc-core.json`](/code-samples/02-scps/acme-base-team-dev-scp-vpc-core.json)|
+|**Team Development Networking Boundaries SCP**|A JSON format SCP used to disallow creating and updating of VPC boundary resources such as Internet Gateways, NAT Gateways, Transit Gateways, Site-to-Site VPN Connections, DirectConnect, etc.|This SCP is used to ensure that all users - both builder teams and foundation team members cannot create and modify these resources in team development AWS accounts.|[`acme-base-team-dev-scp-vpc-boundaries.json`](/code-samples/02-scps/acme-base-team-dev-scp-vpc-boundaries.json)|
 
 #### Provisioning the Policies
 
-If you followed the steps in section [3. Set Up Initial AWS Platform Access Controls]({{< relref "03-set-up-aws-platform-access-controls.md" >}}), you already provisioned both the team development IAM policy as an AWS SSO permission set and the permissions boundary policy via an AWS CloudFormation StackSet.  The result of those steps is that the supporting policies are available in each of the team development AWS accounts.
+If you followed the steps in section [6. Set Up Team Development Environment Access Controls]({{< relref "06-set-up-team-dev-env-access-control.md" >}}), you already provisioned the SCPs, the team development IAM policy as an AWS SSO permission set, and the permissions boundary policy via an AWS CloudFormation StackSet.  The result of those steps is that the SCPs are automatically applied to all AWS accounts in the `development` OU and the supporting policies are available in each of the team development AWS accounts.
+
+The following diagram shows how the IAM policy and permissions boundary were provisioned in the earlier step.
 
 [![Team Development Access Policy Provisioning](/images/01-dev/team-dev-access-provisioning.png)](/images/01-dev/team-dev-access-provisioning.png)
 
@@ -138,6 +142,8 @@ If you followed the steps in section [3. Set Up Initial AWS Platform Access Cont
 The following diagram depicts how a builder team member accesses their team development AWS account, interacts with AWS services and is contrained by what they can do through both the IAM SAML role under which they are working and the permissions boundary policy and IAM service roles under which AWS services are working on their behalf.
 
 A key element of this sample solution is the use of [AWS IAM Permissions Boundaries](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html) to enable delegation of permissions management to builders, but also constrain the overall scope of their access and the access of AWS services working on their behalf.  
+
+The SCPs you provisioned earlier add an extra layer of control to what any user can do in the team development accounts.
 
 In this scenario, we're delegating a degree of permissions management to builder team members in their team development AWS accounts so that they can create and manage workload specific IAM service roles, but at the same time using a permissions boundary to constrain what actions services associated with those roles can perform and the resources that can be affected.
 
@@ -159,7 +165,7 @@ In this scenario, we're delegating a degree of permissions management to builder
 **Learn more about permissions boundaries:** [AWS IAM Permissions Boundaries](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html).
 {{% /notice %}}
 
-### Base Policy Walkthrough
+### IAM SAML Policy Walkthrough
 
 [`acme-base-team-dev-saml.json`](/code-samples/01-iam-policies/acme-base-team-dev-saml.json)
 
@@ -309,10 +315,6 @@ Ensure that once a permissions boundary policy has been attached to a role, buil
 
 #### Deny Write Access to AWS Platform Roles
 
-{{% notice note %}}
-**Review Note:** Validate whether or not an explicit deny is required for the following resources. For example, based on testing via a role with administrative access, it appears that the `arn:aws:iam::*:role/stacksets*` resource is not protected by default.  The CloudFormation feature to [Enable Trusted Access](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-enable-trusted-access.html) creates and manages this role.
-{{% /notice %}}
-
 ```
         {
             "Sid": "DenyFoundationIamRoleWrite",
@@ -343,10 +345,6 @@ Ensure that once a permissions boundary policy has been attached to a role, buil
 
 Ensure that foundation related CloudFormation stack instances that have been created via CloudFormation StackSets cannot not be modified.
 
-{{% notice note %}}
-**Review Note:** Validate whether or not an explicit deny is required for the following resources.
-{{% /notice %}}
-
 ```
         {
             "Sid": "DenyStackSetWrite",
@@ -359,58 +357,6 @@ Ensure that foundation related CloudFormation stack instances that have been cre
         },
 ```
 
-#### Deny Creation and Management of VPC Resources
-
-Since the private subnets of the centrally managed VPC are shared with team development AWS accounts in a read only manner and it's a best practice to delegate ownership and management of VPC resources to your central foundation team, typically, builders don't need to have write access to VPC resources.
-
-{{% notice info %}}
-**`ec2:` namespace:** Note that both EC2 VM resources and VPC networking resources share the same IAM `ec2:` namespace. In their team development AWS accounts, builders are allowed to create EC2 VM related resources, but are not allowed to have write access to VPC resources.
-{{% /notice %}}
-
-{{% notice note %}}
-**Review Note:** An alternative approach to including this permission here is to move the following permission to a Service Control Policy (SCP) and attach it to the `development` OU so that none of these actions can be performed in any of the team development AWS accounts by any authorized user - including builder team members and Cloud Administrators.
-{{% /notice %}}
-
-```
-        {
-            "Sid": "DenyVPCWrite",
-            "Effect": "Deny",
-            "Action": [
-                "ec2:CreateCustomerGateway",
-                "ec2:CreateDefaultSubnet",
-                "ec2:CreateDefaultVpc",
-                "ec2:CreateDhcpOptions",
-                "ec2:CreateEgressOnlyInternetGateway",
-                "ec2:CreateFlowLogs",
-                "ec2:CreateInternetGateway",
-                "ec2:CreateNatGateway",
-                "ec2:CreateNetworkAcl",
-                "ec2:CreateNetworkAclEntry",
-                "ec2:CreateRoute",
-                "ec2:CreateRouteTable",
-                "ec2:CreateSubnet",
-                "ec2:CreateVpc",
-                "ec2:CreateVpcEndpoint",
-                "ec2:CreateVpcEndpointConnectionNotification",
-                "ec2:CreateVpcEndpointServiceConfiguration",
-                "ec2:CreateVpnConnection",
-                "ec2:CreateVpnConnectionRoute",
-                "ec2:CreateVpnGateway",
-                "ec2:EnableVgwRoutePropagation",
-                "ec2:EnableVpcClassicLinkDnsSupport",
-                "ec2:MoveAddressToVpc",
-                "ec2:RejectVpcEndpointConnections",
-                "ec2:RestoreAddressToClassic",
-                "ec2:AcceptVpcPeeringConnection",
-                "ec2:AttachClassicLinkVpc",
-                "ec2:CreateVpcPeeringConnection",
-                "ec2:EnableVpcClassicLink",
-                "ec2:RejectVpcPeeringConnection",
-                "directconnect:*"
-            ],
-            "Resource": "*"
-        }
-```
 ### Permissions Boundary Walkthrough
 
 [`acme-base-team-dev-boundary.yml`](/code-samples/01-iam-policies/acme-base-team-dev-boundary.yml)
@@ -418,10 +364,6 @@ Since the private subnets of the centrally managed VPC are shared with team deve
 Since the overall intent in this development environment scenario is to enable AWS services acting on behalf of the builders to have similar access permissions as the builders themselves, the permissions boundary policy has similar permissions as the IAM SAML policy for builder team members.  
 
 The main difference is that write access to all IAM resources is disallowed in the sample permissions boundary policy. For example, since there was no requirement to enable AWS services to create roles and policies on behalf of builders, disallowing role creation inhibits builders from creating roles that could circumvent the policies.
-
-{{% notice note %}}
-**Review Note:** If a decision is made to move write access deny permissions for VPC resources to an SCP, then the `DenyVPCWrite` permissions shown below would be removed from this permissions boundary.
-{{% /notice %}}
 
 ```
             {
@@ -460,6 +402,52 @@ The main difference is that write access to all IAM resources is disallowed in t
               ],
               "Resource": "*"
             }
+```
+
+### Service Control Policies (SCPs) Walkthrough
+
+These are the SCPs you created and associated with the `development` OU:
+
+* [`acme-base-team-dev-scp-vpc-core.json`](/code-samples/02-scps/acme-base-team-dev-scp-vpc-core.json)
+* [`acme-base-team-dev-scp-vpc-boundaries.json`](/code-samples/02-scps/acme-base-team-dev-scp-vpc-boundaries.json)
+
+SCPs look very similar to IAM policies. See [Managing AWS Organizations policies](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies.html) for more details on using SCPs.
+
+These particular SCPs could be combined into a single SCP if so desired, but were split apart in case you might want to deny creating and updating boundary vs core VPC resources in your other AWS accounts and OUs in the future. i.e. a single SCP can be mapped to multiple OUs and/or AWS accounts.
+
+Since the IAM SAML policy described earlier does not inhibit creation and updating of VPC resources not covered by these SCPs, builder team members have the ability to create and update EC2 related networking resources such as Elastic Network Interfaces (ENIs), securitu groups, and other commonly used EC2 instance related network resources.
+
+The following excerpt is representative of these two SCPs in that it simply denies a set of VPC resource related actions in any AWS account to which the SCP is applied.
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Deny",
+            "Action": [
+
+                "ec2:CreateVpc",
+                "ec2:CreateDefaultVpc",
+                "ec2:DeleteVpc",
+                "ec2:AssociateVpcCidrBlock",
+                "ec2:DisassociateVpcCidrBlock",
+                "ec2:ModifyVpcAttribute",
+                "ec2:MoveAddressToVpc",
+                "ec2:ModifyVpcTenancy",
+                "ec2:RestoreAddressToClassic",
+                "ec2:AttachClassicLinkVpc",
+                "ec2:EnableVpcClassicLink",
+                "ec2:EnableVpcClassicLinkDnsSupport",
+                "ec2:CreateFlowLogs",
+                "ec2:DeleteFlowLogs",
+                "ec2:AssociateDhcpOptions",
+                "ec2:CreateDhcpOptions",
+                "ec2:DeleteDhcpOptions"
+            ],
+            "Resource": "*"
+        },
+        ...
 ```
 
 ### Example Test Cases

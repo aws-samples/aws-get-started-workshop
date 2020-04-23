@@ -1,6 +1,6 @@
 ---
-title: "Set Up AWS Platform Access Controls"
-menuTitle: "3. Set Up Access Controls"
+title: 'Set Up Foundation Access Controls'
+menuTitle: '3. Set Up Foundation Access'
 disableToc: true
 weight: 30
 ---
@@ -10,9 +10,9 @@ Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 SPDX-License-Identifier: CC-BY-SA-4.0
 {{% /comment %}}
 
-In this step your Security and Cloud Administrators will decide on and implement the initial approach to controlling access to the AWS platform.
+In this step your Security and Cloud Administrators will decide on and implement the initial approach to controlling foundation team member access to the AWS platform.
 
-This step should take about 45 minutes to complete.
+This step should take about 30 minutes to complete.
 
 {{< toc >}}
 
@@ -42,7 +42,6 @@ The following table represents a mapping of those functional roles to a set of A
 | |`acme-cloud-admin`|[Administrator](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_job-functions.html#jf_administrator) access in all other AWS accounts.
 |**Security Administration**|`AWSAuditAccountAdmins`|[Administrator](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_job-functions.html#jf_administrator) access in the audit account.|
 | |`AWSLogArchiveAdmins`|[Administrator](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_job-functions.html#jf_administrator) access in the log archive account.|
-| |`AWSSecurityAuditPowerUsers`|[Developer power user](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_job-functions.html#jf_developer-power-user) access across all accounts.|
 |**Cost Management**|`acme-cost-mgmt`|[Billing and cost management](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_job-functions.html#jf_accounts-payable) access in the master account.|
 |**Audit**|`AWSSecurityAuditors`|Read only access in all accounts.|
 
