@@ -315,10 +315,6 @@ Ensure that once a permissions boundary policy has been attached to a role, buil
 
 #### Deny Write Access to AWS Platform Roles
 
-{{% notice note %}}
-**Review Note:** Validate whether or not an explicit deny is required for the following resources. For example, based on testing via a role with administrative access, it appears that the `arn:aws:iam::*:role/stacksets*` resource is not protected by default.  The CloudFormation feature to [Enable Trusted Access](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-enable-trusted-access.html) creates and manages this role.
-{{% /notice %}}
-
 ```
         {
             "Sid": "DenyFoundationIamRoleWrite",
@@ -348,10 +344,6 @@ Ensure that once a permissions boundary policy has been attached to a role, buil
 #### Deny Write Access to CloudFormation StackSet Stacks
 
 Ensure that foundation related CloudFormation stack instances that have been created via CloudFormation StackSets cannot not be modified.
-
-{{% notice note %}}
-**Review Note:** Validate whether or not an explicit deny is required for the following resources.
-{{% /notice %}}
 
 ```
         {

@@ -1,6 +1,6 @@
 ---
 title: 'Set Up Team Development Environment Access Controls'
-menuTitle: '6. Set Up Team Development Access Controls'
+menuTitle: '6. Set Up Team Dev Access'
 disableToc: true
 weight: 60
 ---

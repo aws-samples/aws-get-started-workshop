@@ -1,6 +1,6 @@
 ---
-title: 'Set Up Foundatiom Access Controls'
-menuTitle: '3. Set Up Foundation Access Controls'
+title: 'Set Up Foundation Access Controls'
+menuTitle: '3. Set Up Foundation Access'
 disableToc: true
 weight: 30
 ---
