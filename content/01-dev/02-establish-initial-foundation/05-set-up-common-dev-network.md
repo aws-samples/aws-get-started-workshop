@@ -18,11 +18,11 @@ This step should take about 60 minutes to complete.
 
 ## 1. Review Initial Network Design
 
-As mentioned in the [Initial Development Environment Solution Overview]({{< relref "02-review-dev-environment-solution.md#common-development-network" >}}), it's recommended that you start with a single development VPC the prirvate subnets of which will be shared across all team development AWS accounts. 
+As mentioned in the [Initial Development Environment Solution Overview]({{< relref "02-review-dev-environment-solution.md#common-development-network" >}}), it's recommended that you start with a single centrally managed development VPC that has a set of public and private subnets of which only the private subnets will be shared across all team development AWS accounts. 
 
-The centrally managed development VPC will have a set of both public and private subnets. In those AWS regions in which at least 3 Availability Zones (AZs) are available for customer use, it's recommended that your initial set of VPCs have subnets in each of 3 AZs so that your builder teams can experiment with and perform early testing of workloads and AWS services that can take advantage of 3 AZs.
+In those AWS regions in which at least 3 Availability Zones (AZs) are available for customer use, it's recommended that your initial set of VPCs have subnets in each of the 3 AZs so that your builder teams can experiment with and perform early testing of workloads and AWS services that can take advantage of 3 AZs.
 
-At least one public subnet will have a NAT Gateway that enables workloads in any of the private subnets to send traffic outbound to the Internet. For example, to enable workloads to download content from Internet accessible source code and package repositories.
+At least one public subnet will have a NAT Gateway that enables workloads in any of the shared private subnets to send traffic outbound to the Internet. For example, to enable workloads to download content from Internet accessible source code and package repositories.
 
 {{% notice tip %}}
 **Option to filter outbound Internet traffic:** As you progress in your journey, you may transition from this initial approach of providing builder teams with unfiltered outbound or egress Internet access via the initial set of public subnets and NAT Gateway to a more secure architecture where all Internet egress traffic is routed through your standard enterprise edge security services so that all egress traffic is inspected for compliance. This capability is highlighted in the optional [development fast follow capabilities]({{< relref "02-dev-fast-follow" >}}).
