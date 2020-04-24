@@ -12,9 +12,11 @@ theme = "learn"
 
 # Makes it easier to deliver content through CloudFront while not allowing
 # public read access to the web content S3 bucket.
-uglyurls = true 
+uglyurls = true
 
 #relativeURLs = true # Need to research: https://gohugo.io/content-management/urls/
+
+googleAnalytics = "UA-164515818-1"
 
 enableGitInfo = true
 
