@@ -35,37 +35,29 @@ Initially, you will likely need AWS accounts for the following teams:
 
 In AWS Control Tower, provision the initial set of team development AWS accounts for early experimentation, development, and testing. 
 
-You'll follow these steps twice: Once to create the initial deveopment team's AWS account and again to create the development AWS account for the foundation team.
+You'll follow these steps twice: Once to create the initial development team's AWS account and again to create the development AWS account for the foundation team.
 
 1. As a Cloud Administrator, use your personal user to log into AWS SSO.
 2. Select the AWS **`master`** account.
-3. Select **`Management console`** associated with the **`AWSServiceCatalogEndUserAccess`** role.
+3. Select **`Management console`** associated with the **`AWSAdministratorAccess`** role.
 4. Select the appropriate AWS region.
-5. Navigate to **`AWS Service Catalog`**.
-6. Select **`Products list`**.
-7. Select **`AWS Control Tower Account Factory`**.
-8. Select **`Launch Product`**.
-9. Under **`Product Version`**, specify a **`Name`**. This will be the name of the provisioned product in AWS Service Catalog and will not be the name of the new AWS account. For example:
-  * **`member-account-team-a-dev`**
-  * **`member-account-foundation-dev`**
-10. Select **`Next`**.
-11. In **`Parameters`**, consider the following recommendations:
+5. Navigate to **`Control Tower`**.
+6. Select **`AWS Control Tower Account Factory`**.
+7. In the upper right, click **`Enroll account`**.
+8. Fill out the Enroll account form details. Some suggested fields are below:
 
 |Field|Recommendation|
 |-----|---------------|
-|**`SSOUserEmail`**|Consult the [set of AWS account root user email addresses]({{< relref "04-address-prerequisites.md#2-create-email-addresses-for-new-aws-accounts" >}}) that you established earlier.|
-|**`AccountEmail`**|Use the same value as `SSOUserEmail`.|
-|**`SSOUserFirstName`**|Use a part of your account name. For example, `Team A` or `Foundation` for the foundation team's development AWS account.|
-|**`SSOUserLastName`**|Use the remaining part of the account name. For example, `Development`|
-|**`ManagedOrganizationalUnit`**|Select the development OU you created earlier. For example, **`development`**|
-|**`AccountName`**|`Team A Development` or `Foundation Development`|
+|Account email|Consult the [set of AWS account root user email addresses]({{< relref "04-address-prerequisites.md#2-create-email-addresses-for-new-aws-accounts" >}}) that you established earlier.|
+|Display name|**`Team A Development`** or **`Foundation Development`**|
+|AWS SSO email|Use the same email address as **`Account Email`**.|
+|AWS SSO First Name|Use a part of your account name. For example, `Team A` or `Foundation` for the foundation team's development AWS account.|
+|AWS SSO Last Name|Use the remaining part of the account name. For example, **`Development`**|
+|Organizational unit|Select the development OU you created earlier in this section. For example, **`development`**.|
 
-12. Select **`Next`**.
-13. On **`Tag Options`**, select **`Next`**.
-14. On **`Notifications`**, select **`Next`**.
-15. Review your account settings, and then select **`Launch`**. Do not create a resource plan, otherwise the account will fail to be provisioned.
+12. Select **`Enroll Account`**.
 
-The AWS account is now being provisioned. It can take a few minutes to complete. You can refresh the page to update the displayed status information.
+It will take a few minutes to enroll the new account. You can check the status in **`Service Catalog`**. Once it's done, the e-mail address you used will receive **3** messages: 1) **Your AWS Account is Ready**, 2) **Invitation to join AWS Single Sign-On**, 3) **Welcome to Amazon Web Services.**
 
 ## 3. Initialize AWS Account System Users
 
