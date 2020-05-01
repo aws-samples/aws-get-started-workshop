@@ -42,14 +42,14 @@ You'll follow these steps twice: Once to create the initial development team's A
 3. Select **`Management console`** associated with the **`AWSAdministratorAccess`** role.
 4. Select the appropriate AWS region.
 5. Navigate to **`Control Tower`**.
-6. Select **`AWS Control Tower Account Factory`**.
+6. Select **`Account Factory`** on the left.
 7. In the upper right, click **`Enroll account`**.
 8. Fill out the Enroll account form details. Some suggested fields are below:
 
 |Field|Recommendation|
 |-----|---------------|
 |Account email|Consult the [set of AWS account root user email addresses]({{< relref "04-address-prerequisites.md#2-create-email-addresses-for-new-aws-accounts" >}}) that you established earlier.|
-|Display name|**`Team A Development`** or **`Foundation Development`**|
+|Display name|**`Team-A-Development`** or **`Foundation-Development`**|
 |AWS SSO email|Use the same email address as **`Account Email`**.|
 |AWS SSO First Name|Use a part of your account name. For example, `Team A` or `Foundation` for the foundation team's development AWS account.|
 |AWS SSO Last Name|Use the remaining part of the account name. For example, **`Development`**|
