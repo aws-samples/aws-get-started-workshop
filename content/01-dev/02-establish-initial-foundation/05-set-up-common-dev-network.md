@@ -42,44 +42,30 @@ In AWS Control Tower, provision a new Network AWS account that will initially co
 
 Later in your journey, you'll deploy more network related resources to this AWS account. For example, you will likely configure  and manage [AWS Transit Gateway](https://aws.amazon.com/transit-gateway/) resources in this dedicated AWS account when you start integrating on-premises network connectivity in your overall AWS environment.
 
-{{% notice tip %}}
-**Use the `AWSServiceCatalogEndUserAccess` role:** In the following steps, it's important that you select the correct role when accessing the master AWS account. Failure to do so, will result in you not being able to work with AWS Service Catalog to provision the new AWS account.
-{{% /notice %}}
-
 1. As a Cloud Administrator, use your personal user to log into AWS SSO.
 2. Select the AWS **`master`** account.
-3. Select **`Management console`** associated with the **`AWSServiceCatalogEndUserAccess`** role.
+3. Select **`Management console`** associated with the **`AWSAdministratorAccess`** role.
 4. Select the appropriate AWS region.
-5. Navigate to **`AWS Service Catalog`**.
-6. Select **`Products list`**.
-7. Select **`AWS Control Tower Account Factory`**.
-8. Select **`Launch Product`**.
-9. Under **`Product Version`**, specify a **`Name`**. For example, **`member-account-network`**.
-10. Select **`Next`**.
-11. In **`Parameters`**, consider the following recommendations:
+5. Navigate to **`Control Tower`**.
+6. Select **`Account Factory`** on the left.
+7. In the upper right, click **`Enroll account`**.
+8. Fill out the Enroll account form details. Some suggested fields are below:
 
 |Field|Recommendation|
 |-----|---------------|
-|**`SSOUserEmail`**|Consult the [set of AWS account root user email addresses]({{< relref "04-address-prerequisites.md#2-create-email-addresses-for-new-aws-accounts" >}}) that you established earlier.|
-|**`AccountEmail`**|Use the same value as `SSOUserEmail`.|
-|**`SSOUserFirstName`**|Use a part of your account name. For example, `Network`.|
-|**`SSOUserLastName`**|Use the remaining part of the account name. For example, `Infrastructure`|
-|**`ManagedOrganizationalUnit`**|Select the infrastructure OU you created earlier in this section. For example, **`infrastructure`**.|
-|**`AccountName`**|**`Network`**|
+|Account email|Consult the [set of AWS account root user email addresses]({{< relref "04-address-prerequisites.md#2-create-email-addresses-for-new-aws-accounts" >}}) that you established earlier.|
+|Display name|**`Network`**|
+|AWS SSO email|Use the same email address as **`Account Email`**.|
+|AWS SSO First Name|Use a part of your account name. For example, **`Network`**.|
+|AWS SSO Last Name|Use the remaining part of the account name. For example, **`Infrastructure`**|
+|Organizational unit|Select the infrastructure OU you created earlier in this section. For example, **`infrastructure`**.|
 
-12. Select **`Next`**.
-13. On **`Tag Options`**, select **`Next`**.
-14. On **`Notifications`**, select **`Next`**.
-15. Review the account settings, and then select **`Launch`**. Do not create a resource plan, otherwise the account will fail to be provisioned.
+12. Select **`Enroll Account`**.
 
-The AWS account is now being provisioned. It can take a few minutes to complete. You can refresh the page to update the displayed status information.
+It will take a few minutes to enroll the new account. You can check the status in **`Service Catalog`**. Once it's done, the e-mail address you used will receive **3** messages: 1) **Your AWS Account is Ready**, 2) **Invitation to join AWS Single Sign-On**, 3) **Welcome to Amazon Web Services.**
 
 {{% notice info %}}
 **You can change AWS account settings later:** Configuration settings of the AWS accounts you provision via Account Factory shouldn’t be considered static.  Nearly every part of an AWS account can be changed and updated at a later date. See [Account Factory](https://docs.aws.amazon.com/controltower/latest/userguide/account-factory.html) for more details.
-{{% /notice %}}
-
-{{% notice note %}}
-**Review Note: Address issue where provisoned products are owned by one user by default:** Based on preliminary testing of this step, only the Cloud Admin who provisions an Account Factory product is able to see and manage that product unless the owner chnages ownership to another user or to an IAM role. This may be the expected behavior of AWS Service Catalog, but it runs counter to our goal of enabling foundation team members who are playing the same functional role to share in the responsibilities of manging common foundation resources. We need to verify that this is the default behavior and, if it is, enhance this section to ensure that the resource is shared amongst at least the Cloud Administration team members.
 {{% /notice %}}
 
 ## 4. Enable Foundation Team Members Access
