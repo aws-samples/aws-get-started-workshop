@@ -430,7 +430,6 @@ The following excerpt is representative of these two SCPs in that it simply deni
         {
             "Effect": "Deny",
             "Action": [
-
                 "ec2:CreateVpc",
                 "ec2:CreateDefaultVpc",
                 "ec2:DeleteVpc",
@@ -449,14 +448,14 @@ The following excerpt is representative of these two SCPs in that it simply deni
                 "ec2:CreateDhcpOptions",
                 "ec2:DeleteDhcpOptions"
             ],
-			"Resource": "*",
-			"Condition": {
-				"ArnNotLike": {
-					"aws:PrincipalARN": [
-						"arn:aws:iam::*:role/AWSControlTowerExecution"
-					]
-				}
-			}
+            "Resource": "*",
+            "Condition": {
+                "ArnNotLike": {
+                    "aws:PrincipalARN": [
+                        "arn:aws:iam::*:role/AWSControlTowerExecution"
+                    ]
+                }
+            }
         },
         ...
 ```
