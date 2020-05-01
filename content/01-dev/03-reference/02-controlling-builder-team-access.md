@@ -419,6 +419,10 @@ Since the IAM SAML policy described earlier does not inhibit creation and updati
 
 The following excerpt is representative of these two SCPs in that it simply denies a set of VPC resource related actions in any AWS account to which the SCP is applied.
 
+{{% notice tip %}}
+**Enable AWS Control Tower to perform its new AWS account baselining:** In the network oriented SCPs, you will note the use of a condition on each policy so that AWS Control Tower's use of its own AWS CloudFormation StackSet execution role is excluded from each policy.  Since AWS Control Tower's Account Factory performs an initial baselining of VPC resources, it needs some degree of write access to VPC resources when it provisions new AWS accounts. Since the sample SCPs are applied automatically as soon as an AWS account joins the `development` OU, they will likely be in effect before the Account Factory completes its baseline tasks.
+{{% /notice %}}
+
 ```
 {
     "Version": "2012-10-17",
@@ -445,7 +449,14 @@ The following excerpt is representative of these two SCPs in that it simply deni
                 "ec2:CreateDhcpOptions",
                 "ec2:DeleteDhcpOptions"
             ],
-            "Resource": "*"
+			"Resource": "*",
+			"Condition": {
+				"ArnNotLike": {
+					"aws:PrincipalARN": [
+						"arn:aws:iam::*:role/AWSControlTowerExecution"
+					]
+				}
+			}
         },
         ...
 ```
