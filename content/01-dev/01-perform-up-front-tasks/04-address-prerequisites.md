@@ -49,7 +49,7 @@ Use your organization's process to request either DLs or shared mailboxes based 
 |Master (only needed when creating a new master AWS account)|aws-account-master@acme.com|aws-account+master@acme.com|
 |Audit|aws-account-audit@acme.com|aws-account+audit@acme.com|
 |Log Archive|aws-account-log-archive@acme.com|aws-account+log-archive@acme.com|
-|Network|aws-account-network@acme.com|aws-account+network@acme.com|
+|Network Production|aws-account-network-prod@acme.com|aws-account+network-prod@acme.com|
 |**Team Development AWS Accounts**|||
 |Foundation Team Development|aws-account-foundation-dev@acme.com|aws-account+foundation-dev@acme.com|
 |Builder Team 1 Development|aws-account-team-a-dev@acme.com|aws-account+team-a-dev@acme.com|
