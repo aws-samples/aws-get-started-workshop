@@ -47,7 +47,7 @@ Later in your journey, you'll deploy more network related resources to this AWS 
 3. Select **`Management console`** associated with the **`AWSAdministratorAccess`** role.
 4. Select the appropriate AWS region.
 5. Navigate to **`Control Tower`**.
-6. Select **`AWS Control Tower Account Factory`**.
+6. Select **`Account Factory`** on the left.
 7. In the upper right, click **`Enroll account`**.
 8. Fill out the Enroll account form details. Some suggested fields are below:
 
