@@ -81,7 +81,7 @@ Since Cloud Administrators won't automatically be granted sufficient access to t
 7. Select the checkbox next to the **`Network`** AWS account.
 8. Select **`Assign users`**.
 9. Select **`Groups`**.
-10. Select the checkbox next to the group **`acme-cloud-admin`** or similar.
+10. Select the checkbox next to the group **`example-cloud-admin`** or similar.
 11. Select **`Next: Permission sets`**.
 12. Select the checkbox next to **`AWSAdministratorAccess`**.
 13. Select **`Finish`**.
@@ -165,7 +165,7 @@ Now create a new AWS CloudFormation stack using the sample template you download
 
 |Parameter|Guidance|
 |---------|--------|
-|**`Business Scope`**|Replace `acme` with your organization identifier or stock ticker if that applies. This value is used as a prefix in the name of some of the VPC-related cloud resources. For example, in the name of the IAM role used to support VPC flow logs.|
+|**`Business Scope`**|Replace `example` with your organization identifier or stock ticker if that applies. This value is used as a prefix in the name of some of the VPC-related cloud resources. For example, in the name of the IAM role used to support VPC flow logs.|
 |**`VPC Name`**|Change to **`dev`**.|
 |**`*Cidr`**|**Just Experimenting**<br>If you want to just experiment at this point and don't care about using formally assigned IP address ranges, you can leave the CIDR block parameters at their default values.<br><br>**You Have Your Own CIDR Blocks**<br>Enter values for the `pVpcCidr`, `pTier1..`, and `pTier2...` CIDR blocks from the prior step. You can ignore the `pTier3...` parameters because only two tiers - public and private - are being provisioned by default.|
 

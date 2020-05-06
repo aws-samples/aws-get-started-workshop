@@ -95,7 +95,7 @@ Since Cloud Administrators won't automatically be granted sufficient access to n
   * `Foundation - Dev`
 8. Select **`Assign users`**.
 9. Select **`Groups`**.
-10. Select the checkbox next to the group `acme-cloud-admin` or similar.
+10. Select the checkbox next to the group `example-cloud-admin` or similar.
 11. Select **`Next: Permission sets`**.
 12. Select the checkbox next to **`AWSAdministratorAccess`**.
 13. Select **`Finish`**.
