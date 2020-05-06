@@ -31,11 +31,29 @@ Let's build up ideas and refine as we go.
 
 ## Requirements
 
-*...use the CAF perspectives to represent the typical set of customer requirements...*
+Generally customers have the following requirements regarding identity when embarking on the cloud journey, as it relates to perspectives in the [AWS Cloud Adoption Framework](https://aws.amazon.com/professional-services/CAF/):
+
+1. Simple and scalable access to the AWS console or API. (Business)
+2. Ability for Account Owners and an IT Identity Team to manage access. (People)
+3. Cascade down job hirings, terminations, or job-change-transfer events to take effect on downstream applications to stay compliant. (Governance)
+4. Reuse of an existing centralized directory as a source of truth for users. (Platform)
+5. Granular access control to the role level, following the Organization's role-based-access-control requirements. (Security)
+6. Minimum maintenance going forward as accounts are added or removed. (Operations)
 
 ## Solution Options and Resources
 
-*...defer to existing documentation including decision trees, blog posts, formal AWS docs, etc. as much as feasible...*
+Customers will usually choose 1 of 3 paths when deciding what to do with Federated Access to AWS:
+
+* Use the built-in AWS SSO Identity service as both an Identity Provider and User Directory
+	* This is the [quickest and fastest way to get started](https://aws.amazon.com/blogs/security/how-to-create-and-manage-users-within-aws-sso/), but does not leverage an existing user directory or Identity Provider. Many enterprises consider this is a short-term option to move fast.
+* Use the built-in AWS SSO Identity service as an Identity Provider and Microsoft Active Directory (self-managed or AWS Managed Active Directory) as a centralized source of truth for user identity.
+	* Customers often choose this option because they can maintain an existing source of truth for user identity hosted in a self-managed Active Directory Domain. In this design, a VPC is needed in the AWS Master account to link to self-managed Active Directory or AWS Managed Active Directory. Learn more here.
+* Use an external third party Identity Provider and a self-managed User Identity Directory (Microsoft Active Directory or LDAP)
+	* If your Organization already utilizes a publicly accessible Identity Provider, you can continue to use this portal for federated access to AWS. This assumes the Identity Provider you are using has access to User Identities stored in a central source of truth, such as Active Directory. Common examples include: OneLogin, Okta, AzureAD, ADFS.
+
+{{% notice info %}}
+There are many other ways to federate AWS with an identity provider; we will cover the most commonly used models.
+{{% /notice %}}
 
 ### Migration From Use of Locally Managed Groups and Users in AWS SSO
 
