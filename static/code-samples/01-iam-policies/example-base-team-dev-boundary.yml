@@ -1,0 +1,90 @@
+# Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+# SPDX-License-Identifier: CC-BY-SA-4.0
+
+AWSTemplateFormatVersion: '2010-09-09'
+
+Description: Creates team development IAM permissions boundary policy
+
+Metadata:
+  AWS::CloudFormation::Interface:
+    ParameterGroups:
+    - Label:
+        default: System Classification
+      Parameters:
+      - pOrg
+      - pSystem
+    - Label:
+        default: IAM Policy Name Qualifier
+      Parameters:
+      - pPolicyNameQualifier
+
+    ParameterLabels:
+      pOrg:
+        default: Business Scope
+      pSystem:
+        default: System Identifier
+      pPolicyNameQualifier:
+        default: IAM policy name qualifier
+
+Parameters:
+  pOrg:
+    Type: String
+    Description: Used to qualify IAM policy resource name
+    Default: example
+
+  pSystem:
+    Type: String
+    Description: Used to qualify IAM policy resource name
+    Default: base
+
+  pPolicyNameQualifier:
+    Type: String
+    Description: Used to qualify IAM policy resource name
+    Default: team-dev-boundary
+
+Resources:
+  rManagedPolicy:
+    Type: AWS::IAM::ManagedPolicy
+    Properties:
+      ManagedPolicyName: !Sub '${pOrg}-${pSystem}-${pPolicyNameQualifier}'
+      PolicyDocument:
+        {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Sid": "AllowAllWithExceptions",
+              "Effect": "Allow",
+              "NotAction": [
+                "iam:*",
+                "organizations:*",
+                "account:*"
+              ],
+              "Resource": "*"
+            },
+            {
+              "Sid": "AllowIamReadOnly",
+              "Effect": "Allow",
+              "Action": [
+                "iam:Get*",
+                "iam:List*"
+              ],
+              "Resource": "*"
+            },
+            {
+              "Sid": "DenyWriteAccessStackSets",
+              "Effect": "Deny",
+              "Action": [
+                "cloudformation:DeleteStack",
+                "cloudformation:UpdateStack"
+              ],
+              "Resource": "arn:aws:cloudformation::*:stack/StackSet-*"
+            }
+         ]
+      }
+
+Outputs:
+  oPermissionsBoundaryArn:
+    Description: Dev Team IAM Permissions Boundary Policy ARN
+    Value: !Ref rManagedPolicy
+    Export:
+      Name: !Sub '${pOrg}-${pSystem}-${pPolicyNameQualifier}::arn'
