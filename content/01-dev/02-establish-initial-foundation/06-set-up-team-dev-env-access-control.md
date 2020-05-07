@@ -29,6 +29,10 @@ Using AWS Organizations, create several Service Control Policies (SCPs) that wil
 {{% /notice %}}
 
 {{% notice tip %}}
+**Ability for foundation team builders to create and modify VPC resources:** Typically, builders in your foundation team will need to have write acess to VPC resources in their team development accounts so that they can experiment, develop, and perform early forms of testing of VPC related foundational changes.  You have several options for enabling foundation team builders to have such access: 1) You could create a new "development-foundation" or similar OU that does not have the SCP described here and create foundation team development AWS accounts under that OU or 2) you could continue to use the common SCP, establish a distinct persmission set for your foundation team development access that has the same policy as other teams, and enhance the SCP to include a condition to exclude the foundation team's team development IAM role associated with the permission set.  In either case, see [Controlling Builder Team Access]({{< relref "02-controlling-builder-team-access.md" >}}) for a more detailed explanation of these options. 
+{{% /notice %}}
+
+{{% notice tip %}}
 **Review the sample team development access controls:** See [Controlling Builder Team Access]({{< relref "02-controlling-builder-team-access.md" >}}) for a detailed explanation of the requirements and sample implementation of how you can provide freedom to your builder teams in their team development AWS accounts, but inhibit them from adversely impacting the security of your overall AWS environment.
 {{% /notice %}}
 
