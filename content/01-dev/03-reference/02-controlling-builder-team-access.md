@@ -41,7 +41,7 @@ The following requirements are intended to provide a practical sense of the acce
 
 **Disallow Privilege Escalation:** Inhibit builders from creating and using IAM roles that circumvent these requirements.
 
-**Disallow Creation and Management of VPC Resources:** Since builders already have read only access to the centrally managed development VPC and supporting network resources, builders should not generally need to create and manage VPC resources. 
+**Disallow Creation and Management of VPC Resources:** Since builders already have read only access to the centrally managed development VPC and supporting network resources, builders should not generally need to create and manage VPC resources. A key exception to this requirement is that your foundation team members will typically need the ability to have write access to VPC resources so that they can experiment, develop, and perform early testing of changes to VPC resources before rolling them into your standard foundation.
 
 ### Allow Access
 

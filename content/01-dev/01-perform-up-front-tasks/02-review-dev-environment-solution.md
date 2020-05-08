@@ -82,5 +82,9 @@ Benefits of using a common VPC for builder team's development needs include:
 
 + Costs for shared VPC foundation resources are allocated to the Network AWS account.
 
+{{% notice tip %}}
+**Learn more about sharing VPC resources** See [NET320-R1 - The right AWS network architecture for the right reason](https://youtu.be/Ot1kcQfUIdg?t=1003) for more background on the benefits and practical considerations of sharing VPC resources.
+{{% /notice %}}
+
 ## Access AWS Services via Internet
 In this initial stage of your foundation, your builders’ existing access to the Internet via the corporate network is used to enable authorized builders to access the AWS platform.
