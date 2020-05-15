@@ -114,6 +114,10 @@ Consequently, one way to link to images is to use the convention Markdown refere
 ```
 Alternatively, you can use built-in Hugo shotcode [`figure`](https://gohugo.io/content-management/shortcodes/#figure) when you need more control over how the image is displayed.
 
+#### Testing Inclusion of Static Images
+
+Note that both of the styles of including static images will not enable you test the image simply by previewing the markdown document. You'll need to run Hugo locally to see how the image will be displayed.
+
 ### Working with draw.io Files
 
 See the `drawings/` directory for the draw.io source files used for pictures and diagrams. 
