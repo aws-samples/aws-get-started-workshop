@@ -97,6 +97,10 @@ However, when any of the following conditions apply, in the interest of providin
 
 When modular Infrastructure as Code (IaC) automation resources are either already available as open source or can be easily developed and open soruced, the project's preference is to suggest that customers use these automation resources vs documenting and having customers follow what can be complicated and drawn out step-by-step instructions.
 
+A key caveat to the introduction of IaC is that it needs to be simple enough to provide value at this early stage of adoption. i.e. Piling on complicated solutions at this early stage of adoption may be premature.
+
+If IaC solutions exist, but are deemed to be too complicated to apply given the relatively straightforward scope of the initial AWS environment, it can still be useful to make customers aware of the solutions in case: 1) they want to introduce it at this stage or 2) they will find value in considering it in the future.
+
 Generally reusable IaC resources should be available as open source outside of this project.  Preferably managed in official AWS managed GitHub organizations such as AWS Samples and AWS Quick Starts.
 
 IaC resources that are specific to the examples used in the guide may be included in this project source repository.
