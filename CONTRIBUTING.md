@@ -93,6 +93,27 @@ However, when any of the following conditions apply, in the interest of providin
   * The instructions require context or specific data to be used that other more general purpose guides don't include.
   * Instructions in other docs cannot be directly accessed via a link. For example, linking to a large PDF document and asking the reader to find a section for specific instructions is a non-starter in terms of the user experience.
 
+### Using Screenshots
+
+When there's an absence of existing detailed documentation to which the guide can link and there's no sample automation that the customer can use, detailed steps may be necessary to include within the guide.  Under these circumstances, it can be valuabe to include screenshots in support of manual configuration steps.
+
+### Managing and Referring ot Static Images
+
+Static images are managed under the `static/images/` area of the repository. 
+
+The `images/` directory is structured based on the structure of the guide's content folders.  As a convention, you should copy any static images associated with sections to the same area of the site hierarchy as represented in the `static/images/` area of the repository.
+
+#### Referring to Static Images
+
+When Hugo generates the static form of the site, it ensures that all of the folder under `static/` are made available at the root of the site.  For example, references to `/images/...` will resolve to content that is housed under the `statuc/images/` directory of the source repository.  See [Hugo Static Files](https://gohugo.io/content-management/static-files/).
+
+Consequently, one way to link to images is to use the convention Markdown reference such as the following example. In this example, the image in included inline and enables the user to click on the image to display the native image. This may be helpful when images are large and it's difficult to see details without zooming in on the image.
+
+```
+[![Initial Development Environment](/images/01-dev/dev-initial.png)](/images/01-dev/dev-initial.png)
+```
+Alternatively, you can use built-in Hugo shotcode [`figure`](https://gohugo.io/content-management/shortcodes/#figure) when you need more control over how the image is displayed.
+
 ### Working with draw.io Files
 
 See the `drawings/` directory for the draw.io source files used for pictures and diagrams. 
@@ -112,10 +133,6 @@ Copy the exported PNG file to the approprite directory under `static/images/` an
 #### Tab Names in drawio Files
 
 Since the file name and tab name are used to create the file names of exported images, you can minimize work required to export images by ensuring that the tab names represent what you'd like to use for the image names.  When renaming, you'll just need to remove the file name that is included by default in the export image file name.
-
-### Linking to Images
-
-Since the project uses the [Hugo](https://gohugo.io/) static web site generation tool, see the Hugo documentation for examples of how to include images in content pages.
 
 ## Licensing
 
