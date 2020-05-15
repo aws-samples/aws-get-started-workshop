@@ -93,6 +93,16 @@ However, when any of the following conditions apply, in the interest of providin
   * The instructions require context or specific data to be used that other more general purpose guides don't include.
   * Instructions in other docs cannot be directly accessed via a link. For example, linking to a large PDF document and asking the reader to find a section for specific instructions is a non-starter in terms of the user experience.
 
+### Using Automation and Infrastructure as Code (IaC)
+
+When modular Infrastructure as Code (IaC) automation resources are either already available as open source or can be easily developed and open soruced, the project's preference is to suggest that customers use these automation resources vs documenting and having customers follow what can be complicated and drawn out step-by-step instructions.
+
+Generally reusable IaC resources should be available as open source outside of this project.  Preferably managed in official AWS managed GitHub organizations such as AWS Samples and AWS Quick Starts.
+
+IaC resources that are specific to the examples used in the guide may be included in this project source repository.
+
+The project's preference is to prioritize the use of generally reusable IaC resources as compared to guide-specific resources.
+
 ### Using Screenshots
 
 When there's an absence of existing detailed documentation to which the guide can link and there's no sample automation that the customer can use, detailed steps may be necessary to include within the guide.  Under these circumstances, it can be valuabe to include screenshots in support of manual configuration steps.
