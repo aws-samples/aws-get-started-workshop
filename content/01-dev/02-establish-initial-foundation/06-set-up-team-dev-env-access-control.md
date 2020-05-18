@@ -133,10 +133,6 @@ Next, you'll create a custom permission set in AWS SSO to represent the initial 
 1. Download the sample policy [`example-base-team-dev-saml.json`](/code-samples/01-iam-policies/example-base-team-dev-saml.json) to your desktop.
 2. Open the file and replace all occurrences of **`example`** with a reference to your own organization's identifier.
 
-{{% notice info %}}
-**Permission sets and Customizations for AWS Control Tower:** Initially, AWS SSO permission sets are not supported by [Customizations for AWS Control Tower](https://aws.amazon.com/solutions/customizations-for-aws-control-tower/).
-{{% /notice %}}
-
 ### Create Permission Set in AWS SSO
 
 1. Access **`AWS accounts`** in AWS SSO.
