@@ -9,7 +9,7 @@ Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 SPDX-License-Identifier: CC-BY-SA-4.0
 {{% /comment %}}
 
-This section addresses options and resources to enable your internal users federated access to your AWS environment by using an identity proivider external to AWS. 
+This section addresses options and resources to enable your internal users federated access to your AWS environment by using an identity provider external to AWS. 
 
 ## Out of Scope: Application Level Federated Access
 
@@ -39,23 +39,31 @@ Generally customers have the following requirements regarding identity when emba
 
 ## Solution Options and Resources
 
-Customers will usually choose 1 of 3 paths when deciding what to do with Federated Access to AWS:
+Customers will usually choose 1 of 4 paths when deciding what to do with Federated Access to AWS:
 
 * Use the built-in AWS SSO Identity service as both an Identity Provider and User Directory
 	* This is the [fastest way to get started](https://aws.amazon.com/blogs/security/how-to-create-and-manage-users-within-aws-sso/), but does not leverage an existing user directory or Identity Provider. Many enterprises consider this is a short-term option to get off the ground quickly.
 * Use the built-in AWS SSO Identity service as an Identity Provider and Microsoft Active Directory (self-managed or AWS Managed Active Directory) as a centralized source of truth for user identity.
-	* Customers often choose this option because they can maintain an existing source of truth for user identity hosted in a self-managed Active Directory Domain. In this design, a VPC is needed in the AWS Master account to link to self-managed Active Directory or AWS Managed Active Directory. Learn more here.
+	* Customers often choose this option because they can maintain an existing source of truth for user identity hosted in a self-managed Active Directory Domain. In this design, a VPC is needed in the AWS Master account to link to self-managed Active Directory or AWS Managed Active Directory. [Learn more here.](/02-dev-fast-follow/02-security-compliance/06-awssso-activedirectory.html)
 		* [Connect AWS SSO to AWS Managed Active Directory](https://docs.aws.amazon.com/singlesignon/latest/userguide/connectawsad.html) running in a VPC in the Master account
-		* [Connect AWS SSO to an On-Premises Active Directory](https://docs.aws.amazon.com/singlesignon/latest/userguide/connectonpremad.html) using a VPC in the Master Account that has an established VPN or Direct Connect connection to the on-premises datacenter
-		* [Connect AWS SSO to AzureAD](https://aws.amazon.com/blogs/aws/the-next-evolution-in-aws-single-sign-on/)
+		* [Connect AWS SSO to an On-Premises Active Directory](https://docs.aws.amazon.com/singlesignon/latest/userguide/connectonpremad.html) using a VPC in the Master Account that has an established VPN or Direct Connect connection to the on-premises datacenter. [Here is another blog](https://aws.amazon.com/blogs/security/how-to-connect-your-on-premises-active-directory-to-aws-using-ad-connector/) post with additional detail.
+* Use the built-in AWS SSO Identity service as an Identity Provider and connect an external third party Identity Directory over a SAML federation.
+	* This is a popular and recommended option for customers that already use AzureAD as a source of truth for Identity.
+		* [Connect AWS SSO to AzureAD](https://aws.amazon.com/blogs/aws/the-next-evolution-in-aws-single-sign-on/) using AzureAD's SCIM (System for Cross-domain Identity Management) endpoint. This enables automated provisioning which is very useful for AWS Organizations with more than 20 Accounts!
+		* Connect AWS SSO to Okta using SCIM for automated provisioning -- coming soon!
 * Use an external third party Identity Provider and a self-managed User Identity Directory (Microsoft Active Directory or LDAP)
-	* If your Organization already utilizes a publicly accessible Identity Provider, you can continue to use this portal for federated access to AWS. This assumes the Identity Provider you are using has access to User Identities stored in a central source of truth, such as Active Directory. Common examples include: OneLogin, Okta, ADFS. See the [full list](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_saml_3rd-party.html) of third-party SAML 2.0 IdP's that with with AWS Federation.
+	* If your Organization already utilizes a publicly accessible Identity Provider, you can continue to use this portal for federated access to AWS. This assumes the Identity Provider you are using has access to User Identities stored in a central source of truth, such as Active Directory. Common examples include: OneLogin, Okta, ADFS. See the [full list](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_saml_3rd-party.html) of third-party SAML 2.0 IdP's that work with AWS Federation.
 		* [Connect your AWS accounts to Okta](https://support.okta.com/help/s/article/Support-for-Multiple-Accounts-in-AWS)
 		* [Connect your AWS accounts to ADFS](https://aws.amazon.com/blogs/security/enabling-federation-to-aws-using-windows-active-directory-adfs-and-saml-2-0/)
 		* [Connect your AWS accounts to OneLogin](https://onelogin.service-now.com/kb_view_customer.do?sysparm_article=KB0010344)
-		
+
+
 {{% notice info %}}
-A key point for any solution not using AWS SSO: When new AWS Accounts are created in the Organization, there is configuration necessary to onboard it into the Identity Provider and create relative Active Directory Security Groups for each Role you wish you provision. This is called Manual Provisioning. For less than 20 AWS accounts, this generally isn't a problem. When larger Enterprises start to create hundreds or even thousands of accounts, this creates unnecessary management overhead and requires an automated solution. AWS SSO and AzureAD support Automatic Provisioning. [Review the Considerations](https://docs.aws.amazon.com/singlesignon/latest/userguide/provision-automatically.html).
+When new AWS Accounts are created in the Organization, there is configuration necessary to onboard it into the Identity Provider and create relative Active Directory Security Groups for each Role you wish you provision. This is called Manual Provisioning. For less than 20 AWS accounts this generally isn't a problem, however, when larger Enterprises start to create hundreds or even thousands of accounts, this creates unnecessary management overhead and requires an automated solution. AWS SSO and AzureAD support Automatic Provisioning. [Review the Considerations](https://docs.aws.amazon.com/singlesignon/latest/userguide/provision-automatically.html).
+{{% /notice %}}
+
+{{% notice info %}}
+AWS SSO is designed to be highly available in a single region. Ensure your BC/DR requirements allow for a single-sign-on solution to be in one region.
 {{% /notice %}}
 
 ### Migration From Use of Locally Managed Groups and Users in AWS SSO
