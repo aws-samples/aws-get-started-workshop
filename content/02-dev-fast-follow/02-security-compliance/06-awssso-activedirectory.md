@@ -29,7 +29,7 @@ AWS Managed Active Directory **must** be hosted in the Master Account to be conf
 {{% /notice %}}
 
 {{% notice info %}}
-Customers do not have "Domain Admin" or "Enterprise Admin" permissions in AWS Managed Active Directory. This is so AWS can manage the operating system and domain functionality on your behalf. Consider this trade-off when evaluating AWS Managed Active Directory. However, an OU is pre-created where you will have full Administrative privileges. Customers will store computers, users, other OUs and resources in this OU.
+You do not have "Domain Admin" or "Enterprise Admin" permissions in AWS Managed Active Directory. This is so AWS can manage the operating system and domain functionality on your behalf. Consider this trade-off when evaluating AWS Managed Active Directory. However, an OU is pre-created where you will have full Administrative privileges. You will store computers, users, other OUs and resources in this OU.
 {{% /notice %}}
 
 ## AWS SSO and On-Premises Self-Managed Active Directory

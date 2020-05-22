@@ -62,10 +62,34 @@ Customers will usually choose 1 of 4 paths when deciding what to do with Federat
 When new AWS Accounts are created in the Organization, there is configuration necessary to onboard it into the Identity Provider and create relative Active Directory Security Groups for each Role you wish you provision. This is called Manual Provisioning. For less than 20 AWS accounts this generally isn't a problem, however, when larger Enterprises start to create hundreds or even thousands of accounts, this creates unnecessary management overhead and requires an automated solution. AWS SSO and AzureAD support Automatic Provisioning. [Review the Considerations](https://docs.aws.amazon.com/singlesignon/latest/userguide/provision-automatically.html).
 {{% /notice %}}
 
-{{% notice info %}}
-AWS SSO is designed to be highly available in a single region. Ensure your BC/DR requirements allow for a single-sign-on solution to be in one region.
-{{% /notice %}}
+### Multi-Factor Authentication
+
+Multi-factor authentication (MFA) is supported with AWS SSO. If you choose to use a third party identity provider, review the documentation for that product on how to configure MFA. [See the User Guide](https://docs.aws.amazon.com/singlesignon/latest/userguide/enable-mfa.html) for MFA considerations and options on AWS SSO.
 
 ### Migration From Use of Locally Managed Groups and Users in AWS SSO
 
-*...if the customer started with the use of locally managed users and groups in AWS SSO, highlight considerations when miograting to the use of external identity providers either via AWS SSO or traditional federated access to AWS outside of AWS SSO...*
+If you began using AWS SSO initially to configure single-sign-on for your AWS environment, you may be considering switching to Active Directory as the source of truth, or another Identity Provider. Be sure that your Active Directory domain is configured with granular AD groups for (at least) your Master Account, but ideally all accounts you wish to manage with AWS SSO. Consider some best practices when using AWS SSO with Active Directory (either self-managed or AWS Managed Active Directory):
+
+* Get granular for users and have overarching roles for the Cloud Center of Excellence team
+* Group users into personas. Each persona will be assigned a Permission Set (or Role) in an account. Some default permissions sets in AWS SSO: AWSAdministratorAccess, AWSPowerUserAccess, AWSReadOnlyAccess, AWSOrganizationsFullAccess, AWSServiceCatalogAdminFullAccess, AWSServiceCataLogEndUserAccess.
+* In Active Directory, create an AD Security Groups for each Account for each Permission Set following a naming convention: ***OrganizationName_AWSAccountName_PermissionSetRole***
+	* Some Granular Examples: AWS_Network_Administrators, AWS_SharedServices_Administrators, AWS_Master_BillingAdmins, AWS_Network_NetworkAdmins
+	* Some "overarching" Examples: AWS_GlobalAdministrators, AWS_GlobalNetworkAdmins, AWS_GlobalSecurityAdmins
+* Considering creating new AD groups and permission sets for personas that don't come out of the box -- Developers, for example.
+
+When you are ready to change AWS SSO over from the internal directory to Active Directory or a Third Party Identity Provider, take note of the implications of such a change **most notibly** all existing entitlements will be lost -- so have your AD groups configured and your Master Account root username, password and MFA handy in case you are logged out. Alternatively you could use an IAM User in the Master Account as a backup. [Follow this guide](https://docs.aws.amazon.com/singlesignon/latest/userguide/manage-your-identity-source-change.html) to switch your AWS SSO identity source.
+
+[![SSO to AD](/images/02-dev-fast-follow/awssso_converttoAD.png)](/images/02-dev-fast-follow/awssso_converttoAD.png)
+
+{{% notice note %}}
+The URL you were using to access AWS SSO may change and users may need to update their links.
+{{% /notice %}}
+
+
+
+As new AWS accounts are introduced, there will be some setup tasks necessary:
+1) Creating AD groups that correspond to the Personas you want to provision
+2) Adding AD Users to the group
+3) Assigning the AD Group to a Permission Set for the new AWS Account in AWS SSO.
+
+This could be automated when at scale to reduce overhead, as well as integration with Identity Management solutions.
