@@ -1,7 +1,7 @@
 ---
-title: "Enhanced Security Monitoring and Compliance"
+title: 'Enhanced Security Monitoring and Compliance'
 disableToc: true
-weight: 20
+weight: 30
 ---
 
 {{% comment %}}
