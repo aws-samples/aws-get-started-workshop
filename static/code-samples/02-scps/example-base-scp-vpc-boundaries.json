@@ -4,11 +4,11 @@
         {
             "Effect": "Deny",
             "Action": [
-                "ec2:CreateCustomerGateway", 
-                "ec2:CreateVpcEndpointConnectionNotification",              
-                "ec2:CreateVpcEndpointServiceConfiguration", 
-                "ec2:EnableVgwRoutePropagation", 
-                "ec2:EnableVpcClassicLinkDnsSupport", 
+                "ec2:CreateCustomerGateway",
+                "ec2:CreateVpcEndpointConnectionNotification",
+                "ec2:CreateVpcEndpointServiceConfiguration",
+                "ec2:EnableVgwRoutePropagation",
+                "ec2:EnableVpcClassicLinkDnsSupport",
                 "ec2:RejectVpcEndpointConnections",
                 "ec2:CreateNatGateway",
                 "ec2:CreateInternetGateway",
@@ -84,7 +84,14 @@
                 "ec2:ModifyTrafficMirrorFilterRule",
                 "ec2:ModifyTrafficMirrorSession"
             ],
-            "Resource": "*"
+            "Resource": "*",
+            "Condition": {
+                "ArnNotLike": {
+                    "aws:PrincipalARN": [
+                        "arn:aws:iam::*:role/AWSControlTowerExecution"
+                    ]
+                }
+            }
         },
         {
             "Effect": "Deny",
@@ -112,7 +119,14 @@
                 "directconnect:AllocatePublicVirtualInterface",
                 "directconnect:CreateConnection"
             ],
-            "Resource": "*"
+            "Resource": "*",
+            "Condition": {
+                "ArnNotLike": {
+                    "aws:PrincipalARN": [
+                        "arn:aws:iam::*:role/AWSControlTowerExecution"
+                    ]
+                }
+            }
         },
         {
             "Effect": "Deny",
@@ -128,7 +142,14 @@
                 "globalaccelerator:CreateAccelerator",
                 "globalaccelerator:DeleteEndpointGroup"
             ],
-            "Resource": "*"
+            "Resource": "*",
+            "Condition": {
+                "ArnNotLike": {
+                    "aws:PrincipalARN": [
+                        "arn:aws:iam::*:role/AWSControlTowerExecution"
+                    ]
+                }
+            }
         }
     ]
 }

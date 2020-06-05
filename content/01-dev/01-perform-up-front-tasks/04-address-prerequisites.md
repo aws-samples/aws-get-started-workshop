@@ -46,16 +46,16 @@ Use your organization's process to request either DLs or shared mailboxes based 
 |AWS Account	|Example Email Address|Example with "+" Style Email Address|
 |---|---|---|
 |**Foundation AWS Accounts**||
-|Master (only needed when creating a new master AWS account)|aws-account-master@acme.com|aws-account+master@acme.com|
-|Audit|aws-account-audit@acme.com|aws-account+audit@acme.com|
-|Log Archive|aws-account-log-archive@acme.com|aws-account+log-archive@acme.com|
-|Network|aws-account-network@acme.com|aws-account+network@acme.com|
+|Master (only needed when creating a new master AWS account)|aws-account-master@example.com|aws-account+master@example.com|
+|Audit|aws-account-audit@example.com|aws-account+audit@example.com|
+|Log Archive|aws-account-log-archive@example.com|aws-account+log-archive@example.com|
+|Network Production|aws-account-network-prod@example.com|aws-account+network-prod@example.com|
 |**Team Development AWS Accounts**|||
-|Foundation Team Development|aws-account-foundation-dev@acme.com|aws-account+foundation-dev@acme.com|
-|Builder Team 1 Development|aws-account-team-a-dev@acme.com|aws-account+team-a-dev@acme.com|
+|Foundation Team Development|aws-account-foundation-dev@example.com|aws-account+foundation-dev@example.com|
+|Builder Team 1 Development|aws-account-team-a-dev@example.com|aws-account+team-a-dev@example.com|
 
 {{% notice tip %}}
-**Use of “+” style email addresses:** If your organization’s email system supports the use of “+” style email addresses in which email multiple email addresses are aliased to the same email account, then you might find it beneficial to use this form to consolidate the root user email addresses for either all or collections of AWS accounts to either one or a few actual email accounts. For example: [aws-account1+master@acme.com](mailto:aws-account1+master@acme.com) and [aws-account1+audit@acme.com](mailto:aws-account1+audit@acme.com) will be treated as unique addresses in AWS but your mail system may deliver the mail to the same [aws-account1@acme.com](mailto:aws-account1@acme.com) email address.
+**Use of “+” style email addresses:** If your organization’s email system supports the use of “+” style email addresses in which email multiple email addresses are aliased to the same email account, then you might find it beneficial to use this form to consolidate the root user email addresses for either all or collections of AWS accounts to either one or a few actual email accounts. For example: [aws-account1+master@example.com](mailto:aws-account1+master@example.com) and [aws-account1+audit@example.com](mailto:aws-account1+audit@example.com) will be treated as unique addresses in AWS but your mail system may deliver the mail to the same [aws-account1@example.com](mailto:aws-account1@example.com) email address.
 {{% /notice %}}
 
 {{% notice tip %}}
@@ -100,7 +100,7 @@ Your organization is likely already using a stock ticker or other similar abbrev
 
 You should limit the length of the abbeviated organization identifier to a handful of characters. Using no more than 4-5 characters is a good guide.
 
-As an example, this guide uses the prefix **`acme`** throughout. As you progress through the guide, you're expected to replace this example prefix with your organization's own identifier.
+As an example, this guide uses the prefix **`example`** throughout. As you progress through the guide, you're expected to replace this example prefix with your organization's own identifier.
 
 {{% notice tip %}}
 **More Extensive Resource Naming Standards:** As you progress on your journey, you may find it useful to adopt more extensive cloud resource naming standards.

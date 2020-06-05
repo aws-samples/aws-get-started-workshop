@@ -4,7 +4,6 @@
         {
             "Effect": "Deny",
             "Action": [
-
                 "ec2:CreateVpc",
                 "ec2:CreateDefaultVpc",
                 "ec2:DeleteVpc",
@@ -23,7 +22,14 @@
                 "ec2:CreateDhcpOptions",
                 "ec2:DeleteDhcpOptions"
             ],
-            "Resource": "*"
+            "Resource": "*",
+            "Condition": {
+                "ArnNotLike": {
+                    "aws:PrincipalARN": [
+                        "arn:aws:iam::*:role/AWSControlTowerExecution"
+                    ]
+                }
+            }
         },
         {
             "Effect": "Deny",
@@ -36,7 +42,14 @@
                 "ec2:ModifySubnetAttribute",
                 "ec2:CreateDefaultSubnet"
             ],
-            "Resource": "*"
+            "Resource": "*",
+            "Condition": {
+                "ArnNotLike": {
+                    "aws:PrincipalARN": [
+                        "arn:aws:iam::*:role/AWSControlTowerExecution"
+                    ]
+                }
+            }
         },
         {
             "Effect": "Deny",
@@ -46,7 +59,14 @@
                 "ec2:CreateNetworkAclEntry",
                 "ec2:DeleteNetworkAclEntry"
             ],
-            "Resource": "*"
+            "Resource": "*",
+            "Condition": {
+                "ArnNotLike": {
+                    "aws:PrincipalARN": [
+                        "arn:aws:iam::*:role/AWSControlTowerExecution"
+                    ]
+                }
+            }
         },
         {
             "Effect": "Deny",
@@ -60,7 +80,14 @@
                 "ec2:DisassociateRouteTable",
                 "ec2:ReplaceRouteTableAssociation"
             ],
-            "Resource": "*"
+            "Resource": "*",
+            "Condition": {
+                "ArnNotLike": {
+                    "aws:PrincipalARN": [
+                        "arn:aws:iam::*:role/AWSControlTowerExecution"
+                    ]
+                }
+            }
         }
     ]
 }

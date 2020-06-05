@@ -57,10 +57,28 @@ Address the most common scenarios first.
 
 Help bias customers toward making incremental, additive investments in their AWS environments. Avoid investments that involve substantial rework in later stages of the cloud adoption journey.
 
-## 9. Work with AWS to continually improve the customer experience
+## 9. Defer to existing resources for guidance and code examples
+
+Where feasible, defer to existing resources rather than reinvent the wheel in this guide.
+
+### Overall concepts and guidance
+
+Defer to up-to-date existing resources to help customers understand key concepts.
+
+### Step-by-step instructions and sample code
+
+When there's modular, to-the-point official documentation and suitable sample code that can be linked to, we prefer that route vs duplicating lengthy instructions and maintaining sample code within this guide.
+
+However, when any of the following conditions apply, in the interest of providing a cohesive user experience, we don't hesitate to embed instructions inline:
+
+* Steps are so few and simple that it's not worth distracting the reader by forcing them to go to another document.
+* The instructions require context or specific data to be used that other more general purpose guides don't include.
+* Instructions in other docs cannot be directly accessed via a link. For example, linking to a large PDF document and asking the reader to find a section for specific instructions is a non-starter in terms of the user experience.
+
+## 10. Work with AWS to continually improve the customer experience
 
 Over time, the detailed guidance should continually reduce in scope as more features are built into the platform.
 
-## 10. Keep apace with latest best practices and AWS capabilities
+## 11. Keep apace with latest best practices and AWS capabilities
 
 As more capabilities are built into the AWS platform and additional best practices are developed, ensure that this guidance is kept up-to-date.

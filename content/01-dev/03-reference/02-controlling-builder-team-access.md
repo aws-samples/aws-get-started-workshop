@@ -41,7 +41,7 @@ The following requirements are intended to provide a practical sense of the acce
 
 **Disallow Privilege Escalation:** Inhibit builders from creating and using IAM roles that circumvent these requirements.
 
-**Disallow Creation and Management of VPC Resources:** Since builders already have read only access to the centrally managed development VPC and supporting network resources, builders should not generally need to create and manage VPC resources. 
+**Disallow Creation and Management of VPC Resources:** Since builders already have read only access to the centrally managed development VPC and supporting network resources, builders should not generally need to create and manage VPC resources. A key exception to this requirement is that your foundation team members will typically need the ability to have write access to VPC resources so that they can experiment, develop, and perform early testing of changes to VPC resources before rolling them into your standard foundation.
 
 ### Allow Access
 
@@ -124,10 +124,10 @@ In support of the requirements described above, two IAM policies and two Service
 
 |Policy|Purpose|Usage|Sample Code|
 |------|-------|-----|-----------|
-|**Team Development IAM SAML Policy**|A JSON format IAM policy used for control human user access to team development AWS accounts.|This policy is used to create a custom permission set in AWS SSO that is associated with team development groups and team development AWS accounts. AWS SSO converts this policy into an IAM SAML role that is applied when user's access the team development AWS accounts.|[`acme-base-team-dev-saml.json`](/code-samples/01-iam-policies/acme-base-team-dev-saml.json)|
-|**Team Development IAM Permissions Boundary**|A customer managed IAM permissions boundary policy that is used to control permissions of IAM service roles created by team development users in their team development AWS accounts.|This AWS CloudFormation template forms the basis of a CloudFormation StackSet that is applied to all team development AWS accounts.|[`acme-base-team-dev-boundary.yml`](/code-samples/01-iam-policies/acme-base-team-dev-boundary.yml)|
-|**Networking Core SCP**|A JSON format SCP used to disallow creating and updating VPC core resources such as VPCs, subnets, route tables, etc.|Initially, in the context of this guide, this SCP is used to ensure that all users - both builder teams and foundation team members cannot create and modify these resources in team development AWS accounts.<br><br>If and when you encounter other situations for which this SCP would apply, you can reuse the SCP.|[`acme-base-scp-vpc-core.json`](/code-samples/02-scps/acme-base-scp-vpc-core.json)|
-|**Networking Boundaries SCP**|A JSON format SCP used to disallow creating and updating VPC boundary resources such as Internet Gateways, NAT Gateways, Transit Gateways, Site-to-Site VPN Connections, DirectConnect, etc.|Initially, in the context of this guide, this SCP is used to ensure that all users - both builder teams and foundation team members cannot create and modify these resources in team development AWS accounts. <br><br>If and when you encounter other situations for which this SCP would apply, you can reuse the SCP.|[`acme-base-scp-vpc-boundaries.json`](/code-samples/02-scps/acme-base-scp-vpc-boundaries.json)|
+|**Team Development IAM SAML Policy**|A JSON format IAM policy used for control human user access to team development AWS accounts.|This policy is used to create a custom permission set in AWS SSO that is associated with team development groups and team development AWS accounts. AWS SSO converts this policy into an IAM SAML role that is applied when user's access the team development AWS accounts.|[`example-base-team-dev-saml.json`](/code-samples/01-iam-policies/example-base-team-dev-saml.json)|
+|**Team Development IAM Permissions Boundary**|A customer managed IAM permissions boundary policy that is used to control permissions of IAM service roles created by team development users in their team development AWS accounts.|This AWS CloudFormation template forms the basis of a CloudFormation StackSet that is applied to all team development AWS accounts.|[`example-base-team-dev-boundary.yml`](/code-samples/01-iam-policies/example-base-team-dev-boundary.yml)|
+|**Networking Core SCP**|A JSON format SCP used to disallow creating and updating VPC core resources such as VPCs, subnets, route tables, etc.|Initially, in the context of this guide, this SCP is used to ensure that all users - both builder teams and foundation team members cannot create and modify these resources in team development AWS accounts.<br><br>If and when you encounter other situations for which this SCP would apply, you can reuse the SCP.|[`example-base-scp-vpc-core.json`](/code-samples/02-scps/example-base-scp-vpc-core.json)|
+|**Networking Boundaries SCP**|A JSON format SCP used to disallow creating and updating VPC boundary resources such as Internet Gateways, NAT Gateways, Transit Gateways, Site-to-Site VPN Connections, DirectConnect, etc.|Initially, in the context of this guide, this SCP is used to ensure that all users - both builder teams and foundation team members cannot create and modify these resources in team development AWS accounts. <br><br>If and when you encounter other situations for which this SCP would apply, you can reuse the SCP.|[`example-base-scp-vpc-boundaries.json`](/code-samples/02-scps/example-base-scp-vpc-boundaries.json)|
 
 #### Provisioning the Policies
 
@@ -167,7 +167,7 @@ In this scenario, we're delegating a degree of permissions management to builder
 
 ### IAM SAML Policy Walkthrough
 
-[`acme-base-team-dev-saml.json`](/code-samples/01-iam-policies/acme-base-team-dev-saml.json)
+[`example-base-team-dev-saml.json`](/code-samples/01-iam-policies/example-base-team-dev-saml.json)
 
 Each section of the sample policy is explained here.
 
@@ -236,7 +236,7 @@ Allow builders to develop and test customer managed policies as long as the name
                 "iam:CreatePolicyVersion",
                 "iam:DeletePolicyVersion"
             ],
-            "NotResource": "arn:aws:iam::*:policy/acme-base-*"
+            "NotResource": "arn:aws:iam::*:policy/example-base-*"
         },
 ```
 
@@ -255,10 +255,10 @@ Allow builders to create IAM roles only if the standard team development permiss
                 "iam:PutRolePolicy",
                 "iam:DeleteRolePolicy"
             ],
-            "NotResource": "arn:aws:iam::*:role/acme-base-*",
+            "NotResource": "arn:aws:iam::*:role/example-base-*",
             "Condition": {
                 "StringLike": {
-                    "iam:PermissionsBoundary": "arn:aws:iam::*:policy/acme-base-team-dev-boundary"
+                    "iam:PermissionsBoundary": "arn:aws:iam::*:policy/example-base-team-dev-boundary"
                 }
             }
         },
@@ -281,7 +281,7 @@ Allow builders to further modify non-foundation IAM roles.
                 "iam:TagRole",
                 "iam:UntagRole"
             ],
-            "NotResource": "arn:aws:iam::*:role/acme-base-*"
+            "NotResource": "arn:aws:iam::*:role/example-base-*"
         },
 ```
 
@@ -359,7 +359,7 @@ Ensure that foundation related CloudFormation stack instances that have been cre
 
 ### Permissions Boundary Walkthrough
 
-[`acme-base-team-dev-boundary.yml`](/code-samples/01-iam-policies/acme-base-team-dev-boundary.yml)
+[`example-base-team-dev-boundary.yml`](/code-samples/01-iam-policies/example-base-team-dev-boundary.yml)
 
 Since the overall intent in this development environment scenario is to enable AWS services acting on behalf of the builders to have similar access permissions as the builders themselves, the permissions boundary policy has similar permissions as the IAM SAML policy for builder team members.  
 
@@ -408,8 +408,8 @@ The main difference is that write access to all IAM resources is disallowed in t
 
 These are the SCPs you created and initially associated with the `development` OU:
 
-* [`acme-base-scp-vpc-core.json`](/code-samples/02-scps/acme-base-scp-vpc-core.json)
-* [`acme-base-scp-vpc-boundaries.json`](/code-samples/02-scps/acme-base-scp-vpc-boundaries.json)
+* [`example-base-scp-vpc-core.json`](/code-samples/02-scps/example-base-scp-vpc-core.json)
+* [`example-base-scp-vpc-boundaries.json`](/code-samples/02-scps/example-base-scp-vpc-boundaries.json)
 
 SCPs look very similar to IAM policies. See [Managing AWS Organizations policies](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies.html) for more details on using SCPs.
 
@@ -419,6 +419,10 @@ Since the IAM SAML policy described earlier does not inhibit creation and updati
 
 The following excerpt is representative of these two SCPs in that it simply denies a set of VPC resource related actions in any AWS account to which the SCP is applied.
 
+{{% notice tip %}}
+**Enable AWS Control Tower to perform its new AWS account baselining:** In the network oriented SCPs, you will note the use of a condition on each policy so that AWS Control Tower's use of its own AWS CloudFormation StackSet execution role is excluded from each policy.  Since AWS Control Tower's Account Factory performs an initial baselining of VPC resources, it needs some degree of write access to VPC resources when it provisions new AWS accounts. Since the sample SCPs are applied automatically as soon as an AWS account joins the `development` OU, they will likely be in effect before the Account Factory completes its baseline tasks.
+{{% /notice %}}
+
 ```
 {
     "Version": "2012-10-17",
@@ -426,7 +430,6 @@ The following excerpt is representative of these two SCPs in that it simply deni
         {
             "Effect": "Deny",
             "Action": [
-
                 "ec2:CreateVpc",
                 "ec2:CreateDefaultVpc",
                 "ec2:DeleteVpc",
@@ -445,7 +448,14 @@ The following excerpt is representative of these two SCPs in that it simply deni
                 "ec2:CreateDhcpOptions",
                 "ec2:DeleteDhcpOptions"
             ],
-            "Resource": "*"
+            "Resource": "*",
+            "Condition": {
+                "ArnNotLike": {
+                    "aws:PrincipalARN": [
+                        "arn:aws:iam::*:role/AWSControlTowerExecution"
+                    ]
+                }
+            }
         },
         ...
 ```
