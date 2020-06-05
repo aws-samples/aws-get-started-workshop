@@ -30,13 +30,17 @@ AWS Control Tower sets up a Log Archive AWS account to securely store AWS platfo
 
 By using AWS Control Tower, your organization automatically benefits from the set of [built-in guardrails](https://docs.aws.amazon.com/controltower/latest/userguide/guardrails.html) that represent common preventative and detective security controls. AWS Control Tower includes mandatory, strongly recommended, and elective guardrails.
 
-## AWS Single Sign-On (SSO)
+## AWS Single Sign-On (SSO) and Locally Managed Users and Groups
 
 AWS SSO is used to manage the initial relatively limited number of human users across your builder and cloud foundation teams who need to access the AWS Management Console and AWS APIs to get things done in either team development AWS accounts or in support of managing and operating the overall use of AWS. Initially, you’ll use a locally managed store of groups and users in AWS to represent people who can access your AWS accounts.
 
 As a best practice, it’s strongly recommended that all users managed via AWS SSO set up MFA for their user accounts.
 
 AWS SSO includes the ability to manage permission sets that define which groups of users can access which AWS accounts and the fine grained AWS Identity and Access Management (IAM) permissions associated with this access.  AWS SSO automatically propagates these permissions to each member AWS account in your AWS organization.
+
+{{% notice tip %}}
+**Reuse your corporate identity store and overal RBAC processes:** It's common for organizations planning to adopt AWS to require use of their existing corporate identity store and overall role based access control (RBAC) tools and procedures to grant users entitlements to applications. This guide recommends that you start simple by first using a small set of users and groups defined locally in the AWS SSO service.  Once you've established your initial foundation in AWS, the guide provides a summary of your federated access options and resources to enable you to evolve your AWS environment to use your existing corporate identity source.  See [Federated Access to Your AWS Environment]({{< relref "01-federated-access-to-aws" >}}) for an overview of your options.
+{{% /notice %}}
 
 ## Initial Users of Your AWS Environment
 

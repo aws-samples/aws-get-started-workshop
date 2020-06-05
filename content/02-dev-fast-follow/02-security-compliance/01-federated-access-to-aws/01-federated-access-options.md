@@ -1,7 +1,8 @@
 ---
-title: "Federated Access to AWS Platform"
+title: 'Federated Access to AWS Options'
+menuTitle: 'Federated Access Options'
 disableToc: true
-weight: 30
+weight: 10
 ---
 
 {{% comment %}}

@@ -1,7 +1,8 @@
 ---
-title: "AWS SSO and Microsoft Active Directory"
+title: 'AWS SSO and Microsoft Active Directory'
+menuTitle: 'AWS SSO and Active Directory'
 disableToc: true
-weight: 40
+weight: 20
 ---
 
 {{% comment %}}
