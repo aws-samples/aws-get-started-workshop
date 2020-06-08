@@ -40,7 +40,7 @@ Initial forms of foundation capabilities addressed by this guide include:
 * Internet integration.
 
 **Foundation Automation**
-* Distirbuting foundation baseline configurations to AWS accounts.
+* Distributing foundation baseline configurations to AWS accounts.
 
 {{% notice note %}}
 **Review Note:** Insert a layered architecture diagram to highlight the foundational capabilities that you will establish via this guide in support of your first few workloads moving into production will be just the start of an ongoing establishment of foundational capabilities.  The upper layers of the diagram will show capabilites that are more workload and perhaps origanizational tool specific that are not addressed by the guide.  For example, what the customer puts into their team development AWS accounts is outside the scope of the guide.
