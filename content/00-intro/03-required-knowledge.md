@@ -13,7 +13,7 @@ SPDX-License-Identifier: CC-BY-SA-4.0
 
 This guide has been developed with a goal of providing enough detail so that you can establish an initial cloud foundation in support of development, pre-production test, and production environments on your own. 
 
-However, if your organization is new to AWS and doesn't have the necessary skills, you will likely benefit from working with your AWS sales team and AWS partners to help you navigate through this early stage of formally establishing a foundation on AWS.
+However, if your organization is new to AWS and doesn't have the necessary skills, you will likely benefit from working with your [AWS sales team](https://aws.amazon.com/contact-us/) and [AWS partners](https://aws.amazon.com/partners/) to help you navigate through this early stage of formally establishing a foundation on AWS.
 
 ## Introductory Level Knowledge Requirements
 
