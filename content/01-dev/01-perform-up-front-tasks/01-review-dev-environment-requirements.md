@@ -63,6 +63,10 @@ The following requirements are organized based on a series of perspectives defin
 
 **User Documentation** - Sufficient documentation to enable builders to get started in the new AWS environment.
 
+{{% notice tip %}}
+**Access to on-premises resources:** It's common that your builder teams' development environments and your test and/or production environments in AWS will need to have connectivity to some of your on-premises resources. For example, there may be existing test and production data services in your on-premises environment that your workloads in AWS will need to access.  If this is the case, you should review [On-premises Network Integration]({{< relref "01-on-premises-network-integration" >}}) for an overview of your options.
+{{% /notice %}}
+
 #### Cloud Platform Team Requirements
 
 The initial cloud platform team needs an isolated environment in which they can develop and test foundation capabilities.
