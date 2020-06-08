@@ -1,7 +1,7 @@
 ---
-title: "Secure OS Access"
+title: 'Windows Remote Access'
 disableToc: true
-weight: 40
+weight: 10
 ---
 
 {{% comment %}}

@@ -14,8 +14,8 @@ This section addresses options and resources to enable your foundation team to d
 ## Content to be Rolled Out Across AWS Accounts Covered Separately
 
 The actual security and compliance controls and typical common foundation resources that would be handled by the baseline mechanism are covered in other sections. For example:
-* [Enhanced Security Monitoring and Compliance]({{< relref "02-enhanced-security-monitoring-and-compliance.md" >}})
-* [Enhanced Access Controls]({{< relref "01-enhanced-access-controls.md" >}})
+* [Enhanced Security Monitoring and Compliance]({{< relref "03-enhanced-security-monitoring-and-compliance.md" >}})
+* [Enhanced Access Controls]({{< relref "02-enhanced-access-controls.md" >}})
 
 ## Requirements
 

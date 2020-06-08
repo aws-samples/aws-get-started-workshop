@@ -1,7 +1,7 @@
 ---
-title: "Enhanced AWS Platform Access Controls"
+title: 'Enhanced AWS Platform Access Controls'
 disableToc: true
-weight: 10
+weight: 20
 ---
 
 {{% comment %}}

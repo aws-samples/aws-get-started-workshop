@@ -21,9 +21,7 @@ This step should take about 30 minutes to complete.
 If your team needs to move very quickly in a matter of 1-2 days to establish your initial development environments and does not have an immediate requirement to integrate your existing enterprise identity management system to help control access to the AWS platform, then it’s recommended that:
 
 1. Your Security and Cloud Administrators temporarily define and manage users and groups within the AWS SSO service.
-2. Make plans for a parallel workstream to integrate your preferred enterprise identity management system with the AWS platform and transition away from locally managed users and groups in the AWS SSO service.
-
-If your organization requires integration of your existing identity management system even for the establishment of an initial development environment, then see [Establishing Federated Access to AWS]({{< relref "03-federated-access-to-aws.md" >}}) before proceeding further in this guide.
+2. Make plans for a parallel workstream to integrate your preferred enterprise identity management system with the AWS platform and transition away from locally managed users and groups in the AWS SSO service. See [Federated Access to Your AWS Environment]({{< relref "01-federated-access-to-aws" >}}) for an overview of your options.
 
 {{% notice info %}}
 **What about AWS IAM users and groups?:** Although the AWS Identity and Access Management (AWS IAM) service supports management of locally defined users and groups, it’s generally not recommended that customers depend on this capability to help manage human user access to the AWS platform _at scale_. Instead, AWS recommends that you reuse your preferred enterprise identity management system and associated processes to act as the basis for human user access to the AWS platform.
@@ -39,10 +37,10 @@ The following table represents a mapping of those functional roles to a set of A
 |---	|---	|--- |
 |**Cloud Administration**|`AWSControlTowerAdmins`|[Administrator](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_job-functions.html#jf_administrator) access in the master, log archive, and audit accounts.|
 | |`AWSAccountFactory`|Ability to use the Account Factory product via AWS Service Catalog.|
-| |`acme-cloud-admin`|[Administrator](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_job-functions.html#jf_administrator) access in all other AWS accounts.
+| |`example-cloud-admin`|[Administrator](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_job-functions.html#jf_administrator) access in all other AWS accounts.
 |**Security Administration**|`AWSAuditAccountAdmins`|[Administrator](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_job-functions.html#jf_administrator) access in the audit account.|
 | |`AWSLogArchiveAdmins`|[Administrator](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_job-functions.html#jf_administrator) access in the log archive account.|
-|**Cost Management**|`acme-cost-mgmt`|[Billing and cost management](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_job-functions.html#jf_accounts-payable) access in the master account.|
+|**Cost Management**|`example-cost-mgmt`|[Billing and cost management](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_job-functions.html#jf_accounts-payable) access in the master account.|
 |**Audit**|`AWSSecurityAuditors`|Read only access in all accounts.|
 
 {{% notice info %}}
@@ -86,7 +84,7 @@ Since Cloud Administrators don't have administrator access to newly created AWS 
 
 1. Access **`Groups`** in AWS SSO.
 2. Select **`Create group`**.
-3. Provide a group name. For example **`acme-cloud-admin`**. Where you should replace `acme` with a common abbreviation for your organization.
+3. Provide a group name. For example **`example-cloud-admin`**. Where you should replace `example` with a common abbreviation for your organization.
 4. Provide a description. For example, **`Cloud administration`**.
 5. Select **`Create`**.
 
@@ -108,7 +106,7 @@ In the spirit of least privilege access, the resulting permissions will enable c
 
 1. Access **`Groups`** in AWS SSO.
 2. Select **`Create group`**.
-3. Provide a group name. For example **`acme-cost-mgmt`**. Where you should replace `acme` with a common abbreviation for your organization.
+3. Provide a group name. For example **`example-cost-mgmt`**. Where you should replace `example` with a common abbreviation for your organization.
 4. Provide a description. For example, **'Cost management and billing`**.
 5. Select **`Create`**.
 
@@ -118,7 +116,7 @@ In the spirit of least privilege access, the resulting permissions will enable c
 2. Select the checkbox next to your **`master`** AWS account.
 3. Select **`Assign users`**.
 4. Select **`Groups`**.
-5. Select the checkbox next to **`acme-cost-mgmt`** or similar.
+5. Select the checkbox next to **`example-cost-mgmt`** or similar.
 6. Select **`Next: Permission sets`**.
 
 ### Create New Permission Set for Billing
