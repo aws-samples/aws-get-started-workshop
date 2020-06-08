@@ -10,7 +10,7 @@ Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 SPDX-License-Identifier: CC-BY-SA-4.0
 {{% /comment %}}
 
-This section introduces a typical set of use cases that may drive you toward establishing network connectivity between your on-premises and AWS environments.
+This section introduces a typical set of use cases that may lead your organization toward establishing network connectivity between your on-premises and AWS environments.
 
 The following typical use cases are organized based on whether the motivation for connectivity is driven by users and workloads housed in either your AWS environment or your on-premises environment.  Often, more than several of these use cases will apply.
 
