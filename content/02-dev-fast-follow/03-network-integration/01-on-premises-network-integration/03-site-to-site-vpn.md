@@ -18,31 +18,49 @@ This section provides an overview and detailed step-by-step instructions for usi
 
 ### Use AWS Transit Gateway with AWS Site-to-Site VPN
 
-Assuming that you'll want to enable your development, test, and production VPCs to have newtork connectivity to your on-premises environment, it's recommended that you use AWS Site-to-Site VPN connection in conjunction with the AWS Transit Gateway service.  By doing so, you'll be able to easily reuse your site-to-site VPN connection across your VPCs.
+Assuming that you'll want to enable your development, test, and production VPCs to have newtork connectivity to your on-premises environment, it's recommended that you use an AWS Site-to-Site VPN connection in conjunction with the AWS Transit Gateway service.  By doing so, you'll be able to easily reuse your site-to-site VPN connection across your VPCs.
+
+In the following diagram, your on-premises IPsec-capable device is represented as the "Customer Gateway".  Your customer gateway device will initiate a site-to-site VPN connection using two IPsec tunnels with VPN Transit Gateway attachment in your Network AWS account.  
+
+Initially, you'll configure your AWS Tranit Gateway to attach to your development VPC.  Later in this guide, you'll add attachments for your emerging set of test and production VPCs.
 
 [![Site-to-Site VPN Connection](/images/02-dev-fast-follow/03-network-integration/01-on-premises-network-integration/site-to-site-vpn-generic.png)](/images/02-dev-fast-follow/03-network-integration/01-on-premises-network-integration/site-to-site-vpn-generic.png)
 
 ### Integration with Common Development VPC
 
-Earlier, you established a centrally managed development VPC in your Network AWS account. In this section, you'll be connecting that VPC to your on-premises network via an AWS Transit Gateway and an AWS Site-to-Site VPN connection.
+Earlier in this guide, you established a centrally managed development VPC in your Network AWS account. In this section, you'll be connecting that VPC to your on-premises network via an AWS Transit Gateway and an AWS Site-to-Site VPN connection.
+
+...insert enhanced networking diagram here showing common dev VPC attached to TGW...
 
 ### Integration with Emerging Test and Production VPCs
 
 Later in this guide, when you set up your test and production VPCs, the steps required to enable those VPCs to reuse your site-to-site VPN conection will be addressed.  The process in your AWS environment will be largely a repeat of the steps in this section that are used to connect your development VPC to your on-premises network.
 
-### Your On-Premises Routing Configuration
+...insert enhanced networking diagram here showing test and production VPCs attached to TGW...
+
+### Segmenting Your On-Premises Access
 
 Via your on-premises router and firewall configurations, you should be able to limit the connectivity between your AWS VPCs and on-premises networks and services. For example, you may want to constrain resources in your development VPC to accessing only allowed infrastructure, builder services, and development quality on-premises services and data.  Similarly, you would likely need to constrain your production VPC to accessing only allowed on-premises production services and data. 
 
 {{% notice info %}}
-**Using redundant Site-to-Site VPN connections to provide failover:** Once you've established your initial AWS Site-to-Site VPN connection, it's recommended that you consider setting up a a second customer gateway. See [Resilience in AWS Site-to-Site VPN](https://docs.aws.amazon.com/vpn/latest/s2svpn/disaster-recovery-resiliency.html) for details.
+**Using redundant Site-to-Site VPN connections to provide failover:** Once you've established your initial AWS Site-to-Site VPN connection, it's recommended that you consider setting up a a second customer gateway to further enhance resiliency of your network connectivity to AWS. See [Resilience in AWS Site-to-Site VPN](https://docs.aws.amazon.com/vpn/latest/s2svpn/disaster-recovery-resiliency.html) for details.
 {{% /notice %}}
 
 ## 2. Ensure Pre-requisites Are Satisfied
 
-### Non-overlapping IP Addresses
+First, ensure that the following pre-requisites are satisfied.
 
-If you didn’t use a non-overlapping range from the start, you will need to either replace your initial set of development VPCs with VPCs that use non-overlapping IP addresses or implement Network Address Translation (NAT).
+### Engage Your On-Premises Network Team
+
+In order to effect the necessary on-premises network configuration changes required by your AWS Site-to-Site VPN connection, you'll need to engage your Network team.  It's recommended that you review the overall requirements and solution design with them before proceeding with the configuration work.
+
+### Non-overlapping IP Address Ranges
+
+When you initially established your common development VPC, it was recommended that you use an IP range for CIDR block that does not overlap with other CIDR blocks in use by your organization.
+
+If you were not able to obtain a non-overlapping CIDR block or blocks for your AWS environment, it's recommended that you attempt to do so before proceding further.  
+
+Otherwise, you'll need to prepare to perform some extent of Network Address Translation (NAT) in your on-premises environmnet to manage the use of overlapping IP address ranges.
 
 ### Static Public IP Address for Your Customer Gateway
 

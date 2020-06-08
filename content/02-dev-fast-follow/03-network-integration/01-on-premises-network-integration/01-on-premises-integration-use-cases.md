@@ -16,7 +16,7 @@ The following typical use cases are organized based on whether the motivation fo
 
 ## AWS Users and Workloads Depend on On-premises Resources and Data
 
-Your builders and workloads in your AWS environment have dependencies on services residing in your on-premises environment. For example:
+Your builders and workloads in your AWS environment have dependencies on services and/or data residing in your on-premises environment. For example:
 
 **Application and/or Data Dependencies** - Workloads in your AWS environment need to access application and/or data services residing in your on-premises environment.
 
