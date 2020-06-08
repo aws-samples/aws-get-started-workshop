@@ -1,8 +1,8 @@
 ---
-title: 'Establishing Site-to-Site VPN Connection'
-menuTitle: 'Site-to-Site VPN'
+title: 'Establish Site-to-Site VPN Connection'
+menuTitle: 'Establish Site-to-Site VPN'
 disableToc: true
-weight: 20
+weight: 30
 ---
 
 {{% comment %}}
@@ -10,7 +10,7 @@ Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 SPDX-License-Identifier: CC-BY-SA-4.0
 {{% /comment %}}
 
-This section provides an overview, highlights pre-requisites, and walks through detailed step-by-step instructions to help you establish a site-to-site VPN connection between your on-premises network and the VPCs in your AWS environment.
+This section provides an overview and detailed step-by-step instructions for using AWS Site-to-Site VPN and AWS Transit Gateway as a means to quickly and securely establish network connectivity between your on-premises and AWS environments.  
 
 {{< toc >}}
 
