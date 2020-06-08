@@ -24,4 +24,4 @@ AWS Direct Connect can either supplant your initial AWS Site-to-Site VPN connect
 
 ## Getting Started with AWS Direct Connect
 
-See [Getting Started with AWS Direct Connect](https://aws.amazon.com/directconnect/getting-started/) for ways in which to set up an AWS Direct Connect connection.
+See [Getting Started with AWS Direct Connect](https://aws.amazon.com/directconnect/getting-started/) for information on setting up an AWS Direct Connect connection.

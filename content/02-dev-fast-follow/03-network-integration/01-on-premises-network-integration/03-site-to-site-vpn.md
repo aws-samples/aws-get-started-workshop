@@ -16,8 +16,26 @@ This section provides an overview and detailed step-by-step instructions for usi
 
 ## 1. Review the Solution
 
-{{% notice note %}}
-**Review Note:** Provide a diagram that is the overview of the solution.
+### Use AWS Transit Gateway with AWS Site-to-Site VPN
+
+Assuming that you'll want to enable your development, test, and production VPCs to have newtork connectivity to your on-premises environment, it's recommended that you use AWS Site-to-Site VPN connection in conjunction with the AWS Transit Gateway service.  By doing so, you'll be able to easily reuse your site-to-site VPN connection across your VPCs.
+
+[![Site-to-Site VPN Connection](/images/02-dev-fast-follow/03-network-integration/01-on-premises-network-integration/site-to-site-vpn-generic.png)](/images/02-dev-fast-follow/03-network-integration/01-on-premises-network-integration/site-to-site-vpn-generic.png)
+
+### Integration with Common Development VPC
+
+Earlier, you established a centrally managed development VPC in your Network AWS account. In this section, you'll be connecting that VPC to your on-premises network via an AWS Transit Gateway and an AWS Site-to-Site VPN connection.
+
+### Integration with Emerging Test and Production VPCs
+
+Later in this guide, when you set up your test and production VPCs, the steps required to enable those VPCs to reuse your site-to-site VPN conection will be addressed.  The process in your AWS environment will be largely a repeat of the steps in this section that are used to connect your development VPC to your on-premises network.
+
+### Your On-Premises Routing Configuration
+
+Via your on-premises router and firewall configurations, you should be able to limit the connectivity between your AWS VPCs and on-premises networks and services. For example, you may want to constrain resources in your development VPC to accessing only allowed infrastructure, builder services, and development quality on-premises services and data.  Similarly, you would likely need to constrain your production VPC to accessing only allowed on-premises production services and data. 
+
+{{% notice info %}}
+**Using redundant Site-to-Site VPN connections to provide failover:** Once you've established your initial AWS Site-to-Site VPN connection, it's recommended that you consider setting up a a second customer gateway. See [Resilience in AWS Site-to-Site VPN](https://docs.aws.amazon.com/vpn/latest/s2svpn/disaster-recovery-resiliency.html) for details.
 {{% /notice %}}
 
 ## 2. Ensure Pre-requisites Are Satisfied
@@ -199,7 +217,7 @@ You will use AWS Resource Access Manager (RAM) to share your Transit Gateway for
 |**`VPC ID`**|Select the value form the dropdown for that matches thee ID of the dev VPC in your account.|
 |**`Subnet IDs`**|Select a subnet from each availability zone - preferrably a private subnet|
 
-![TGW Attachment Other Account](/images/02-dev-fast-follow/03-network-integration/01-9-TGWA-Another-Account.png)
+![TGW Attachment Other Account](/images/02-dev-fast-follow/03-network-integration/01-on-premises-network-integration/tgw-create-attachment.png)
 
 {{% notice info %}}
 **Transit Gateway Attachment - Pending Acceptance:** If your account is not setup as **`Auto accept shared attachments: enable`**, after you create the Transit Gateway Attachment, the status will show as **`pending acceptance`**.  You will need to log into your **`Network`** account and accept the Transit Gateway Attachment by selecting it in the VPC console and going to **`Actions|Accept`**.  Once this is done, the VPC will show up under the **`Transit Gateway Route Table - Associations`**.
