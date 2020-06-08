@@ -90,5 +90,9 @@ Benefits of using a common VPC for builder team's development needs include:
 **Learn more about sharing VPC resources** See [NET320-R1 - The right AWS network architecture for the right reason](https://youtu.be/Ot1kcQfUIdg?t=1003) for more background on the benefits and practical considerations of sharing VPC resources.
 {{% /notice %}}
 
+{{% notice tip %}}
+**Access to on-premises resources:** It's common that your builder teams' development environments and your test and/or production environments in AWS will need to have connectivity to some of your on-premises resources. For example, there may be existing test and production data services in your on-premises environment that your workloads in AWS will need to access.  If this is the case, you should review [On-premises Network Integration]({{< relref "01-on-premises-network-integration" >}}) for an overview of your options.
+{{% /notice %}}
+
 ## Access AWS Services via Internet
 In this initial stage of your foundation, your builders’ existing access to the Internet via the corporate network is used to enable authorized builders to access the AWS platform.

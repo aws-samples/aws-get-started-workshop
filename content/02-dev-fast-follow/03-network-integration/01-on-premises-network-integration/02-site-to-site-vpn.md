@@ -1,7 +1,8 @@
 ---
-title: "On-Premises Network Integration"
+title: 'Establishing Site-to-Site VPN Connection'
+menuTitle: 'Site-to-Site VPN'
 disableToc: true
-weight: 10
+weight: 20
 ---
 
 {{% comment %}}
@@ -9,48 +10,32 @@ Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 SPDX-License-Identifier: CC-BY-SA-4.0
 {{% /comment %}}
 
-This section addresses options and resources to enable network connectivity between your on-premises networks and AWS environment.
+This section provides an overview, highlights pre-requisites, and walks through detailed step-by-step instructions to help you establish a site-to-site VPN connection between your on-premises network and the VPCs in your AWS environment.
+
+{{< toc >}}
+
+## 1. Review the Solution
 
 {{% notice note %}}
-**Review Note: For now add ideas and references to existing publicly available resources:** Let's build up ideas and refine as we go.
+**Review Note:** Provide a diagram that is the overview of the solution.
 {{% /notice %}}
 
-## Requirements
+## 2. Ensure Pre-requisites Are Satisfied
 
-In many cases, organizations require that applications and workloads hosted in AWS can connect to workloads and shared services hosted on-premises and vice versa.  
-
-* Cloud client access to defined non-prod application and data services.
-* On-premises access to newly deployed cloud hosted development, pre-production test, prod workloads and services.
-* Cloud client access to on-premises source code management access.
-* Hybrid DNS resolution:
-  * On-premises clients resolve custom FQDNs for cloud hosted services.
-  * Cloud clients resolve customer FQDNs on on-premises services.
-  
-* Security
-  * Protect against external attack vectors from the Internet.
-  * Protect against internal data loss/exfiltration to the Internet.
-  * Ensure that only appropriate cloud networks and cloud hosted services can have connectivity to appropriate internal networks and services and vice vesa.
-  
-* Non-overlapping allocation of IP address ranges for use by cloud environments.
-
-## Solution Options and Resources
-
-Typically, as an initial means to quickly establish this connectivity, one pr more VPN connections are established using existing on-premises network appliances and the AWS Site-to-Site VPN capability in conjunction with AWS Transit Gateway.  AWS Transit Gateway centralizes and simplifies sharing on-premises to AWS network integration across multiple VPCs.
-
-Introduction of a new Network AWS account is a common approach in which shared network resources such as the AWS Transit Gateway configuration can be isolated and managed separately from team oriented AWS accounts and the other shared accounts.
-
-Longer term, as your on-premises to AWS network connectivity needs expand, you will typically transition from using site-to-site VPN connections to AWS Direct Connect.  When using AWS Transit Gateway as the termination point for VPN and AWS Direct Connect connections, a migration from using VPN to AWS Direct Connect has no impact on the VPCs behind the Transit Gateway.
+### Non-overlapping IP Addresses
 
 If you didn’t use a non-overlapping range from the start, you will need to either replace your initial set of development VPCs with VPCs that use non-overlapping IP addresses or implement Network Address Translation (NAT).
 
-## 1. Create a Customer Gateway in your **`Network`** account
+### Static Public IP Address for Your Customer Gateway
 
-{{% notice info %}}
-**Network Account:** You will begin by making changes in the **`Network`** account you setup earlier.  You will be using the development VPC setup from [Set Up Dev Network](/01-dev/02-establish-initial-foundation/05-set-up-common-dev-network.html)
-{{% /notice %}}
+In your on-premises environment, you will need to identify a static public IP address that will be associated with your Customer Gateway that will act as the on-premises side of the VPN site-to-site connection.  You'll use this IP address in the subsequent steps when you register your Customer Gateway in your AWS environment.
+
+## 3. Register Your Customer Gateway in AWS
+
+You will begin by making changes in the **`network-prod`** account you set up earlier.
 
 1. As a Cloud Administrator, use your personal user to log into AWS SSO.
-2. Select the **`Network`** AWS account
+2. Select the **`network-prod`** AWS account
 3. Select **`Management console`** associated with the **`AWSAdministratorAccess`** role.
 4. Select the appropriate AWS region.
 5. Navigate to **`VPC`** and click on **`Customer Gateways`** in the left navigation
@@ -59,18 +44,18 @@ If you didn’t use a non-overlapping range from the start, you will need to eit
 
 |Field|Recommendation|
 |-----|---------------|
-|**`Name`**|acme-network-on-prem-cgw-01|
+|**`Name`**|example-network-on-prem-01|
 |**`Routing`**|Dynamic Routing|
 |**`BGP ASN`**|6500|
-|**`IP Address`**|enter the value of the public IP Address of your on-premises gateway address for your VPN |
+|**`IP Address`**|Enter the value of the public IP Address of your on-premises gateway address for your VPN |
 |**`Certificate ARN`**|Leave empty|
 |**`Device`**|Leave empty|
 
 {{% notice info %}}
-**Customer Gateway ID:** Please note down the Customer Gateway ID for the recently created Customer Gateway.  You will use this in later steps.
+**Customer Gateway ID:** Note the Customer Gateway ID for the newly created Customer Gateway.  You will use this in later steps.
 {{% /notice %}}
 
-## 2. Create a Transit Gateway in your **`Network`** account
+## 4. Create a Transit Gateway in your Network account
 
 1. While you are still in the **`VPN Console`** administration, click on **`Transit Gateways`** in the left navigation
 2. Click the button **`Create Transit Gateway`**
@@ -85,7 +70,7 @@ If you didn’t use a non-overlapping range from the start, you will need to eit
 **Transit Gateway ID:** Please note down the Transit Gateway ID for the recently created Transit Gateway.  You will use this in later steps.
 {{% /notice %}}
 
-## 3. Create a **`VPN`** Transit Gateway Attachment in your **`Network`** account
+## 5. Create a VPN Transit Gateway Attachment in your Network account
 
 1. While you are still in the **`VPN Console`** administration, click on **`Transit Gateway Attachments`** in the left navigation
 2. Click the button **`Create Transit Gateway Attachment`**
@@ -107,7 +92,7 @@ If you didn’t use a non-overlapping range from the start, you will need to eit
 **VPN:** As a result of the VPN attachment being provisioned, you will notice that a Site-to-Site VPN Connection resource has been created for the attachment.
 {{% /notice %}}
 
-## 4. Configure your Site-to-Site **`VPN`** connection
+## 6. Configure your Site-to-Site VPN connection
 
 1. While you are still in the **`VPN Console`** administration, click on **`Site-to-Site VPN Connections`** in the left navigation
 2. Select the VPN just created in the list of VPN connections
@@ -122,13 +107,12 @@ If you didn’t use a non-overlapping range from the start, you will need to eit
 
 Once your VPN is configured on-premises, navigate back to the Site-to-Site VPN Connections within the VPC console.  Select the row of your VPN connection.  At the botton of the page, select the **`Tunnel Details`** tab.  Verify that the Status has changed from "DOWN" to "UP" (this may take a few minutes).
 
-
-### Trouble shooting tips:
+### Troubleshooting tips:
 - Ensure that routing tables on AWS and router configurations (on-premises) are setup to allow communication.
 - Ensure VPC route tables associated with subnets route traffic destined for the other site to the local VPN gateway instance.
 - If using Transit Gateway on the remote site, ensure that VPC route tables are configured to route traffic destined for the other site to the Transit Gateway. (Although the built-in BGP support in this stack will ensure that both the local VPN gateway's route information and the remote Transit Gateway's route table will be automatically configuired, you still need to ensure that the VPC route tables in both sites are properly configured).
 
-## 5. Create a Transit Gateway Attachment to connect to your VPC
+## 7. Create a Transit Gateway Attachment to connect to your VPC
 
 1. While you are still in the **`VPN Console`** administration, click on **`Transit Gateway Attachments`** in the left navigation
 2. Click the button **`Create Transit Gateway Attachment`**
@@ -142,7 +126,7 @@ Once your VPN is configured on-premises, navigate back to the Site-to-Site VPN C
 |**`VPC ID`**|Select the value form the dropdown for that matches thee ID of the dev VPC in your account.|
 |**`Subnet IDs`**|Select a subnet from each availability zone - preferrably a private subnet|
 
-## 6. Edit your VPC Route Table to add a route for your On-Premises CIDR
+## 8. Edit your VPC Route Table to add a route for your On-Premises CIDR
 
 1.   While you are still in the **`VPN Console`** administration, click on **`Route Tables`** under Virtual Private Cloud in the left navigation
 2. Select your route table in the list
@@ -158,7 +142,7 @@ Once your VPN is configured on-premises, navigate back to the Site-to-Site VPN C
 **On-premises VPN Routes:** You will need to make similar types of changes to the routing rules with your on-premises infrastructure in order to route to the reserved CIDR ranges you have allocated for your AWS environment(s).
 {{% /notice %}}
 
-## 7. Enable resource sharing in your master account
+## 9. Enable resource sharing in your master account
 
 You will need to enable sharing resources within your AWS Organizations from your master account.  THis will allow you to access Transit Gateway from each of your accounts created and maintained within Control Tower.
 
@@ -174,7 +158,7 @@ You will need to enable sharing resources within your AWS Organizations from you
 **Find your Organization ID:** Navigate to AWS Organizations and click on any of the accounts to open the information panel on the right.  Within the **`ARN`**, after the word account, you will see your Organization ID (starts with **`o-`**).  Note this down for the next set of steps.
 {{% /notice %}}
 
-## 8. Sharing your Transit Gateway to your other accounts
+## 10. Sharing your Transit Gateway to your other accounts
 
 You will use AWS Resource Access Manager (RAM) to share your Transit Gateway for VPC attachments across your accounts and/or your organizations in AWS Organizations.
 
@@ -186,7 +170,6 @@ You will use AWS Resource Access Manager (RAM) to share your Transit Gateway for
 2. Click the **`Create a resource share`** button
 3. Fill out the resource share form details.  Some suggested fields are below:
 
-
 |Field|Recommendation|
 |-----|---------------|
 |**`Name`**|acme-network-tgw-share-01|
@@ -194,7 +177,7 @@ You will use AWS Resource Access Manager (RAM) to share your Transit Gateway for
 |**`Allow external accounts`**|(checked)|
 |**`Add AWS account number, OU or organization`**|Enter the Organization ID from your master account (captured in the above steps)|
 
-## 9. Configure Transit Gateway with another one of your accounts in your organization
+## 11. Configure Transit Gateway with another one of your accounts in your organization
 
 {{% notice info %}}
 **VPC:** If you do not already have a VPC in your account, please create one.
@@ -207,7 +190,6 @@ You will use AWS Resource Access Manager (RAM) to share your Transit Gateway for
 5. Navigate to **`VPC`** and click on **`Transit Gateway Attachments`** in the left navigation
 6. Click the button **`Create Transit Gateway Attachment`**
 7. Fill out the Transit Gateway Attachment form details.  Some suggested fields are below:
-
 
 |Field|Recommendation|
 |-----|---------------|
@@ -227,7 +209,7 @@ You will use AWS Resource Access Manager (RAM) to share your Transit Gateway for
 **Transit Gateway Route Tables - Propagations:** If your Transit Gateway is configured for **`Default propagation route table: enable`**.  If not, you will need to log into your **`Network`** account, navigate to the **`Transit Gateway Route Tables`**, select your route table, go to the **`Propagations`** tab, and create a new propagation to the VPC in your attachment account.
 {{% /notice %}}
 
-## 10. Configure the Route Tables in the account you just setup a Transit Gateway Association
+## 12. Configure the Route Tables in the account you just setup a Transit Gateway Association
 
 1. As a Cloud Administrator, use your personal user to log into AWS SSO.
 2. Select the desired AWS account to log into
