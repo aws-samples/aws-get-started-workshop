@@ -16,8 +16,8 @@ This section explores the detailed design to connect AWS SSO with Self-Managed A
 ## AWS SSO and AWS Managed Active Directory
 
 In this configuration, AWS SSO is configured to use AWS Managed Active Directory service as an identity source. This solution requires a VPC in the AWS Master Account where AWS SSO is configured. Consider the following diagram:
-[![AWS SSO Managed AD](/images/02-dev-fast-follow/awsssomad.png)](/images/02-dev-fast-follow/awsssomad.png)
-In this diagram, we have a Corporate Datacenter on the left with two self-managed Active Directory Domain Controllers configured in an Active Directory Site (let's call it CorpDC). It is connected to an AWS Network account over a VPN or Direct Connect connection. For most customers starting off, VPN will work fine here and is the faster option to set up. [See the network section for detail.](/02-dev-fast-follow/03-network-integration/01-on-premises-network-integration.html)
+[![AWS SSO Managed AD](/images/02-dev-fast-follow/02-security-compliance/01-federated-access-to-aws/awsssomad.png)](/images/02-dev-fast-follow/02-security-compliance/01-federated-access-to-aws/awsssomad.png)
+In this diagram, we have a Corporate Datacenter on the left with two self-managed Active Directory Domain Controllers configured in an Active Directory Site (let's call it CorpDC). It is connected to an AWS Network account over a VPN or Direct Connect connection. For most customers starting off, VPN will work fine here and is the faster option to set up. See [On-premises Network Integration]({{< relref "01-on-premises-network-integration" >}}) for details on establishing a site-to-site VPN connection.
 
 A Transit Gateway (TGW) is hosted in the Network account and is shared using Resource Access Manager with the Master account. The Transit Gateway has an attachment to the AWS Master Account VPC. The Transit Gateway Route Tables (not shown) allow communication with On-Premises over the On-Premises Connection (VPN or Direct Connect), and the Master Account VPC has route tables allowing communication with On-Premises subnets over the Transit Gateway attachment. You have configured AWS Managed Active Directory in the Master Account and it is deployed across multiple Availability Zones.
 
@@ -36,7 +36,7 @@ You do not have "Domain Admin" or "Enterprise Admin" permissions in AWS Managed 
 ## AWS SSO and On-Premises Self-Managed Active Directory
 
 In this configuration, AWS SSO is configured to use AD Connector in a Master Account VPC to connect to self-managed Active Directory Domain Controllers hosted in a Shared Services VPC. Alternatively you could host these Domain Controllers in the Master Account, similar to the AWS Managed Active Directory option above. However, most customers want to host self-managed Active Directory in a VPC designed Shared Services.
-[![AWS SSO Managed AD](/images/02-dev-fast-follow/AWSSSO_AD.png)](/images/02-dev-fast-follow/AWSSSO_AD.png)
+[![AWS SSO Managed AD](/images/02-dev-fast-follow/02-security-compliance/01-federated-access-to-aws/AWSSSO_AD.png)](/images/02-dev-fast-follow/02-security-compliance/01-federated-access-to-aws/AWSSSO_AD.png)
 
 In this diagram, we have a Corporate Datacenter on the left with two self-managed Active Directory Domain Controllers configured in an Active Directory Site (let's call it CorpDC). It is connected to an AWS Network account over a VPN or Direct Connect connection. Transit Gateway is shared across 3 AWS accounts: Network, Master, and Shared Services with attachments to VPCs hosted in each account (attachments not shown for diagram clarity). Appropriate route tables are in place on the Transit Gateway and the VPCs to allow on-premises and communication from the AWS Master Account VPC and the Shared Services VPC (ie, they must be part of the same TGW propogation table).
 

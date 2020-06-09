@@ -80,7 +80,7 @@ If you began using AWS SSO initially to configure single-sign-on for your AWS en
 
 When you are ready to change AWS SSO over from the internal directory to Active Directory or a Third Party Identity Provider, take note of the implications of such a change **most notibly** all existing entitlements will be lost -- so have your AD groups configured and your Master Account root username, password and MFA handy in case you are logged out. Alternatively you could use an IAM User in the Master Account as a backup. [Follow this guide](https://docs.aws.amazon.com/singlesignon/latest/userguide/manage-your-identity-source-change.html) to switch your AWS SSO identity source.
 
-[![SSO to AD](/images/02-dev-fast-follow/awssso_converttoAD.png)](/images/02-dev-fast-follow/awssso_converttoAD.png)
+[![SSO to AD](/images/02-dev-fast-follow/02-security-compliance/01-federated-access-to-aws/awssso_converttoAD.png)](/images/02-dev-fast-follow/02-security-compliance/01-federated-access-to-aws/awssso_converttoAD.png)
 
 {{% notice note %}}
 The URL you were using to access AWS SSO may change and users may need to update their links.
