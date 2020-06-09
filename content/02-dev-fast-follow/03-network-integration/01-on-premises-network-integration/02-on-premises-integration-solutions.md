@@ -35,4 +35,4 @@ See [Reviewing AWS Site-to-Site VPN Connection Options]({{< relref "03-review-si
 
 ## Planning for AWS Direct Connect
 
-See [Planning for AWS Direct Connect]({{< relref "04-planning-for-directconnect" >}}) if you'd like to learn more about getting started with planning to use AWS Direct Connect.
+See [Planning for AWS Direct Connect]({{< relref "05-planning-for-directconnect" >}}) if you'd like to learn more about getting started with planning to use AWS Direct Connect.
