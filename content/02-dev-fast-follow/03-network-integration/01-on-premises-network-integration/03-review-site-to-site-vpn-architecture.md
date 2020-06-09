@@ -1,5 +1,5 @@
 ---
-title: 'Review Site-to-Site VPN Architecture'
+title: 'Review Site-to-Site VPN Architecture and Connection Options'
 menuTitle: 'Review Site-to-Site VPN Architecture'
 disableToc: true
 weight: 30
@@ -10,7 +10,7 @@ Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 SPDX-License-Identifier: CC-BY-SA-4.0
 {{% /comment %}}
 
-This section provides an overview of the recommended Site-to-Site VPN architecture and highlights several of the more importan VPN connection options.  
+This section provides an overview of the recommended Site-to-Site VPN architecture and highlights several of the more important VPN connection options.  
 
 ## Recommended Architecture
 
@@ -35,6 +35,8 @@ Via your on-premises router and firewall configurations, you should be able to l
 Once you've established your initial AWS Site-to-Site VPN connection, it's recommended that you consider setting up a a second customer gateway to further enhance resiliency of your network connectivity to AWS. See [Resilience in AWS Site-to-Site VPN](https://docs.aws.amazon.com/vpn/latest/s2svpn/disaster-recovery-resiliency.html) for details.
 
 ## Site-to-Site VPN Connection Options
+
+You'll need to review the following VPN connection options with your Network team.
 
 ### Route and Policy Based VPNs
 
