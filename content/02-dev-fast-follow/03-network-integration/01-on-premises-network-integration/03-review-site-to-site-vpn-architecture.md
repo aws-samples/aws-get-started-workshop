@@ -16,6 +16,8 @@ This section provides an overview of the recommended Site-to-Site VPN architectu
 
 ## Recommended Architecture
 
+This architecture is a recommended starting point for your network connectivity between your on-premises and AWS environment.
+
 ### Use AWS Transit Gateway with AWS Site-to-Site VPN
 
 Assuming that you'll want to enable your development, test, and production VPCs to have newtork connectivity to your on-premises environment, it's recommended that you use an AWS Site-to-Site VPN connection in conjunction with the AWS Transit Gateway service.  By doing so, you'll be able to easily reuse your site-to-site VPN connection across your VPCs.
@@ -34,7 +36,9 @@ You'll need to work with your Network team to ensure that your customer gateway 
 
 For example, you may want to constrain resources in your development VPC to accessing only allowed infrastructure, builder services, and development quality on-premises services and data.  Similarly, you would likely need to constrain your production VPC to accessing only allowed on-premises production services and data. 
 
-## More Advanced Configurations
+## More Advanced Architectures
+
+You should review the following more advanced architecures in case you have near term requirements in these respects.
 
 ### Improving Resilency of VPN Connections
 
