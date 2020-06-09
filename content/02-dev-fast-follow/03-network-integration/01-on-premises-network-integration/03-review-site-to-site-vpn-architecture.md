@@ -36,7 +36,7 @@ For example, you may want to constrain resources in your development VPC to acce
 
 ## More Advanced Configurations
 
-### Consider Redundant VPN Connections
+### Improving Resilency of VPN Connections
 
 Once you've established your initial AWS Site-to-Site VPN connection, it's recommended that you consider setting up a a second customer gateway to further enhance resiliency of your network connectivity between your on-premises and AWS environments. See [Resilience in AWS Site-to-Site VPN](https://docs.aws.amazon.com/vpn/latest/s2svpn/disaster-recovery-resiliency.html) for details.
 
