@@ -1,5 +1,5 @@
 ---
-title: 'Review On-Premises Network Integration Solution Options'
+title: 'Review On-Premises Network Integration Options'
 menuTitle: 'Review Integration Options'
 disableToc: true
 weight: 20
@@ -31,7 +31,7 @@ If you intend to use either AWS Site-to-Site Connection or AWS Direct Connect, y
 
 ## Establishing AWS Site-to-Site VPN Connection
 
-See [Reviewing AWS Site-to-Site VPN Connection Options]({{< relref "03-review-site-to-site-vpn-architecture" >}}) to review your options and quickly get a VPN connection established in support of your first few production workloads.
+See [Reviewing AWS Site-to-Site VPN Architecture and Connection Options]({{< relref "03-review-site-to-site-vpn-architecture" >}}) to review your options and quickly get a VPN connection established in support of your first few production workloads.
 
 ## Planning for AWS Direct Connect
 
