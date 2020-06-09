@@ -20,7 +20,7 @@ Your builders and workloads in your AWS environment have dependencies on service
 
 **Application and/or Data Dependencies** - Workloads in your AWS environment need to access application and/or data services residing in your on-premises environment.
 
-**Cloud Migration** - Your use of cloud migration services and tools such as (CloudEndure Migration](https://aws.amazon.com/cloudendure-migration/) may require connectivity between your on-premises workloads and your AWS environment.
+**Cloud Migration** - Your use of cloud migration services and tools such as [CloudEndure Migration](https://aws.amazon.com/cloudendure-migration/) may require connectivity between your on-premises workloads and your AWS environment.
 
 **Access to Enterprise Builder Tools** - Builders and automated deployment tasks working in your AWS environment may need access to on-premises source code and artifact management services.
 
