@@ -14,7 +14,7 @@ In cases where your organization needs to quickly establish on-premises network 
 
 ## Advantages and Limitations
 
-The following table provides a simplified comparison of your two primary netwokr integration options.
+The following table provides a simplified comparison of your two primary network integration options.
 
 |Option|Description|Advantages|Limitations|
 |------|-----------|----------|-----------|
