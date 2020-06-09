@@ -12,6 +12,8 @@ SPDX-License-Identifier: CC-BY-SA-4.0
 
 This section provides an overview of the recommended Site-to-Site VPN architecture and highlights several of the more important VPN connection options.  
 
+{{< toc >}}
+
 ## Recommended Architecture
 
 ### Use AWS Transit Gateway with AWS Site-to-Site VPN
@@ -32,9 +34,19 @@ You'll need to work with your Network team to ensure that your customer gateway 
 
 For example, you may want to constrain resources in your development VPC to accessing only allowed infrastructure, builder services, and development quality on-premises services and data.  Similarly, you would likely need to constrain your production VPC to accessing only allowed on-premises production services and data. 
 
+## More Advanced Configurations
+
 ### Consider Redundant VPN Connections
 
 Once you've established your initial AWS Site-to-Site VPN connection, it's recommended that you consider setting up a a second customer gateway to further enhance resiliency of your network connectivity between your on-premises and AWS environments. See [Resilience in AWS Site-to-Site VPN](https://docs.aws.amazon.com/vpn/latest/s2svpn/disaster-recovery-resiliency.html) for details.
+
+### Accelerating VPN Connections
+
+You may opt to use [Accelerated Site-to-Site VPN](https://docs.aws.amazon.com/vpn/latest/s2svpn/accelerated-vpn.html) which uses AWS Global Accelerator to improve the performance of VPN connections by intelligently routing traffic through the AWS Global Network and AWS edge locations. 
+
+### Scaling VPN Throughput
+
+If your initial use of a site-to-site VPN connection exceeds the 1.25 Gbps limit of a single IPsec tunnel, consider scaling VPN throughput via equal cost multi-path (ECMP) routing support over multiple VPN tunnels. See [Scaling VPN throughput using AWS Transit Gateway](https://aws.amazon.com/blogs/networking-and-content-delivery/scaling-vpn-throughput-using-aws-transit-gateway/) for more information.
 
 ## Site-to-Site VPN Connection Options
 
