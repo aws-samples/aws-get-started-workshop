@@ -16,7 +16,7 @@ This section provides an overview of the recommended Site-to-Site VPN architectu
 
 ## Recommended Architecture
 
-This architecture is a recommended starting point for your network connectivity between your on-premises and AWS environment.
+The following architecture is a recommended starting point for your network connectivity between your on-premises and AWS environment.
 
 ### Use AWS Transit Gateway with AWS Site-to-Site VPN
 
