@@ -27,7 +27,7 @@ The following table provides a simplified comparison of your two primary network
 
 ## Required Knowledge
 
-If you intend to use either AWS Site-to-Site Connection or AWS Direct Connect, you'll typically need to work with your on-premises Network team to address your internal networking configuration.
+If you intend to use either AWS Site-to-Site VPN Connection or AWS Direct Connect, you'll typically need to work with your on-premises Network team to design, set up, test, and monitor your network integration between your on-premises and AWS environments.
 
 ## Establishing AWS Site-to-Site VPN Connection
 
