@@ -22,7 +22,7 @@ The following table provides a simplified comparison of your two primary netwokr
 |**AWS Direct Connect**|Dedicated network connection over private lines to regional router for multiple VPCs|More predictable network performance<br><br>Reduced bandwidth costs<br><br>Supports BGP peering and routing policies|May require additional telecom and hosting provider relationships or new network circuits to be provisioned|
 
 {{% notice info %}}
-**Learn more about VPC connectivity options:** To learn more about your options, see [Network-to-Amazon VPC Connectivity Options](https://docs.aws.amazon.com/whitepapers/latest/aws-vpc-connectivity-options/network-to-amazon-vpc-connectivity-options.html).
+**Learn more about VPC connectivity options:** To learn more about your options including more advanced configurations, see [Network-to-Amazon VPC Connectivity Options](https://docs.aws.amazon.com/whitepapers/latest/aws-vpc-connectivity-options/network-to-amazon-vpc-connectivity-options.html).
 {{% /notice %}}
 
 ## Required Knowledge
