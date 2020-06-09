@@ -2,7 +2,7 @@
 title: 'Establish Site-to-Site VPN Connection'
 menuTitle: 'Establish Site-to-Site VPN'
 disableToc: true
-weight: 30
+weight: 40
 ---
 
 {{% comment %}}
@@ -10,43 +10,13 @@ Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 SPDX-License-Identifier: CC-BY-SA-4.0
 {{% /comment %}}
 
-This section provides an overview and detailed step-by-step instructions for using AWS Site-to-Site VPN and AWS Transit Gateway as a means to quickly and securely establish network connectivity between your on-premises and AWS environments.  
-
-{{< toc >}}
-
-## 1. Review the Solution
-
-### Use AWS Transit Gateway with AWS Site-to-Site VPN
-
-Assuming that you'll want to enable your development, test, and production VPCs to have newtork connectivity to your on-premises environment, it's recommended that you use an AWS Site-to-Site VPN connection in conjunction with the AWS Transit Gateway service.  By doing so, you'll be able to easily reuse your site-to-site VPN connection across your VPCs.
-
-In the following diagram, your on-premises IPsec-capable VPN device is represented as the "Customer Gateway".  Your customer gateway device will initiate a site-to-site VPN connection using two IPsec tunnels with VPN Transit Gateway attachment in your Network AWS account.  
-
-Initially, you'll configure your AWS Tranit Gateway to attach to your development VPC.  Later in this guide, you'll add attachments for your emerging set of test and production VPCs.
-
-[![Site-to-Site VPN Connection](/images/02-dev-fast-follow/03-network-integration/01-on-premises-network-integration/site-to-site-vpn-generic.png)](/images/02-dev-fast-follow/03-network-integration/01-on-premises-network-integration/site-to-site-vpn-generic.png)
-
-### Integration with Common Development VPC
-
-Earlier in this guide, you established a centrally managed development VPC in your Network AWS account. In this section, you'll be connecting that VPC to your on-premises network via an AWS Transit Gateway and an AWS Site-to-Site VPN connection.
-
-...insert enhanced networking diagram here showing common dev VPC attached to TGW...
-
-### Integration with Emerging Test and Production VPCs
+This section provides an overview and detailed step-by-step instructions for using AWS Site-to-Site VPN and AWS Transit Gateway as a means to quickly and securely establish network connectivity between your on-premises and AWS environments. By following these instructions, you will enable network connectivity between the centrally managed development VPC you established earlier in this guide and your on-premises environment.
 
 Later in this guide, when you set up your test and production VPCs, the steps required to enable those VPCs to reuse your site-to-site VPN conection will be addressed.  The process in your AWS environment will be largely a repeat of the steps in this section that are used to connect your development VPC to your on-premises network.
 
-...insert enhanced networking diagram here showing test and production VPCs attached to TGW...
+{{< toc >}}
 
-### Segmenting Your On-Premises Access
-
-Via your on-premises router and firewall configurations, you should be able to limit the connectivity between your AWS VPCs and on-premises networks and services. For example, you may want to constrain resources in your development VPC to accessing only allowed infrastructure, builder services, and development quality on-premises services and data.  Similarly, you would likely need to constrain your production VPC to accessing only allowed on-premises production services and data. 
-
-{{% notice info %}}
-**Using redundant Site-to-Site VPN connections to provide failover:** Once you've established your initial AWS Site-to-Site VPN connection, it's recommended that you consider setting up a a second customer gateway to further enhance resiliency of your network connectivity to AWS. See [Resilience in AWS Site-to-Site VPN](https://docs.aws.amazon.com/vpn/latest/s2svpn/disaster-recovery-resiliency.html) for details.
-{{% /notice %}}
-
-## 2. Ensure Pre-requisites Are Satisfied
+## 1. Ensure Pre-requisites Are Satisfied
 
 First, ensure that the following pre-requisites are satisfied.
 
@@ -66,7 +36,7 @@ Otherwise, you'll need to prepare to perform some extent of Network Address Tran
 
 In your on-premises environment, you will need to identify a static public IP address that will be associated with your Customer Gateway that will act as the on-premises side of the VPN site-to-site connection.  You'll use this IP address in the subsequent steps when you register your Customer Gateway in your AWS environment.
 
-## 3. Register Your Customer Gateway in AWS
+## 2. Register Your Customer Gateway in AWS
 
 You will begin by making changes in the **`network-prod`** account you set up earlier.
 
@@ -91,7 +61,7 @@ You will begin by making changes in the **`network-prod`** account you set up ea
 **Customer Gateway ID:** Note the Customer Gateway ID for the newly created Customer Gateway.  You will use this in later steps.
 {{% /notice %}}
 
-## 4. Create a Transit Gateway in your Network account
+## 3. Create a Transit Gateway in your Network account
 
 1. While you are still in the **`VPN Console`** administration, click on **`Transit Gateways`** in the left navigation
 2. Click the button **`Create Transit Gateway`**
@@ -106,7 +76,7 @@ You will begin by making changes in the **`network-prod`** account you set up ea
 **Transit Gateway ID:** Please note down the Transit Gateway ID for the recently created Transit Gateway.  You will use this in later steps.
 {{% /notice %}}
 
-## 5. Create a VPN Transit Gateway Attachment in your Network account
+## 4. Create a VPN Transit Gateway Attachment in your Network account
 
 1. While you are still in the **`VPN Console`** administration, click on **`Transit Gateway Attachments`** in the left navigation
 2. Click the button **`Create Transit Gateway Attachment`**
@@ -128,7 +98,7 @@ You will begin by making changes in the **`network-prod`** account you set up ea
 **VPN:** As a result of the VPN attachment being provisioned, you will notice that a Site-to-Site VPN Connection resource has been created for the attachment.
 {{% /notice %}}
 
-## 6. Configure your Site-to-Site VPN connection
+## 5. Configure your Site-to-Site VPN connection
 
 1. While you are still in the **`VPN Console`** administration, click on **`Site-to-Site VPN Connections`** in the left navigation
 2. Select the VPN just created in the list of VPN connections
@@ -148,7 +118,7 @@ Once your VPN is configured on-premises, navigate back to the Site-to-Site VPN C
 - Ensure VPC route tables associated with subnets route traffic destined for the other site to the local VPN gateway instance.
 - If using Transit Gateway on the remote site, ensure that VPC route tables are configured to route traffic destined for the other site to the Transit Gateway. (Although the built-in BGP support in this stack will ensure that both the local VPN gateway's route information and the remote Transit Gateway's route table will be automatically configuired, you still need to ensure that the VPC route tables in both sites are properly configured).
 
-## 7. Create a Transit Gateway Attachment to connect to your VPC
+## 6. Create a Transit Gateway Attachment to connect to your VPC
 
 1. While you are still in the **`VPN Console`** administration, click on **`Transit Gateway Attachments`** in the left navigation
 2. Click the button **`Create Transit Gateway Attachment`**
@@ -162,7 +132,7 @@ Once your VPN is configured on-premises, navigate back to the Site-to-Site VPN C
 |**`VPC ID`**|Select the value form the dropdown for that matches thee ID of the dev VPC in your account.|
 |**`Subnet IDs`**|Select a subnet from each availability zone - preferrably a private subnet|
 
-## 8. Edit your VPC Route Table to add a route for your On-Premises CIDR
+## 7. Edit your VPC Route Table to add a route for your On-Premises CIDR
 
 1.   While you are still in the **`VPN Console`** administration, click on **`Route Tables`** under Virtual Private Cloud in the left navigation
 2. Select your route table in the list
@@ -178,6 +148,10 @@ Once your VPN is configured on-premises, navigate back to the Site-to-Site VPN C
 **On-premises VPN Routes:** You will need to make similar types of changes to the routing rules with your on-premises infrastructure in order to route to the reserved CIDR ranges you have allocated for your AWS environment(s).
 {{% /notice %}}
 
-## 9. Test Connectivity
+## 8. Test Connectivity
+
+...
+
+## 9. Monitor Your VPN Connection
 
 ...
