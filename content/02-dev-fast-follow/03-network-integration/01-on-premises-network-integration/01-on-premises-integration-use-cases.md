@@ -36,6 +36,8 @@ Your on-premises users and workloads have dependencies on workloads and data res
 
 **Application and/or Data Dependencies** - Workloads in your on-premises environment may need to access application and/or data services residing in your AWS environment.
 
-**Private Access to AWS Services** - Users and workloads in your on-premises environment may need private, non-Internet, means of accessing AWS service APIs. For example, via  [AWS PrivateLink](https://aws.amazon.com/privatelink/).
+**CI/CD Access to AWS Workloads** - CI/CD jobs and pipelines running in your on-premises environment may need connectivity to agents and workloads residing in your AWS environment.
+
+**Private Access to AWS Services** - Users and workloads in your on-premises environment may need a private means of accessing AWS service APIs. For example, via  [AWS PrivateLink](https://aws.amazon.com/privatelink/).
 
 **DNS** - Users and workloads in your on-premises environment may need to use DNS to resolve domain names for services residing in your AWS environment.
