@@ -27,7 +27,7 @@ Although in-depth knowledge of the following topics is not absolutely required t
 * [AWS Control Tower](https://docs.aws.amazon.com/controltower/latest/userguide/what-is-control-tower.html)
 * [AWS Single Sign-on (AWS SSO)](https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html)
 
-In cases where you expect to deploy workloads that require network resources in AWS, having at least an introductory level of knowledge will be useful:
+In cases where you expect to deploy workloads that require network resources in AWS, having at least an introductory level of knowledge of the following topics will be useful:
 * [AWS Virtual Private Cloud (VPC)](https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html)
 * [Network IP address ranges (CIDRs)](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html)
 
