@@ -38,7 +38,7 @@ For example, you may want to constrain resources in your development VPC to acce
 
 ## More Advanced Architectures
 
-You should review the following more advanced architecures in case you have near term requirements in these respects.
+You should review the following more advanced architecures in case you have requirements in the near term that might be satisfied by these approaches.
 
 ### Improving Resiliency of VPN Connections
 
