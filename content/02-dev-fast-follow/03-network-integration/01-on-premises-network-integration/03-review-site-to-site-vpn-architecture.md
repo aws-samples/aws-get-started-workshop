@@ -14,7 +14,7 @@ This section provides an overview of the recommended Site-to-Site VPN architectu
 
 ## Recommended Architecture
 
-## Use AWS Transit Gateway with AWS Site-to-Site VPN
+### Use AWS Transit Gateway with AWS Site-to-Site VPN
 
 Assuming that you'll want to enable your development, test, and production VPCs to have newtork connectivity to your on-premises environment, it's recommended that you use an AWS Site-to-Site VPN connection in conjunction with the AWS Transit Gateway service.  By doing so, you'll be able to easily reuse your site-to-site VPN connection across your VPCs.
 
@@ -26,13 +26,21 @@ Initially, you'll configure your AWS Tranit Gateway to attach to your developmen
 
 ...introduce and show more detailed diagram for the getting started use case here... if it makes sense, it could supplant the use of the diagram above...
 
-## Segment Your On-Premises Access
+### Segment Your On-Premises Access
 
 Via your on-premises router and firewall configurations, you should be able to limit the connectivity between your AWS VPCs and on-premises networks and services. For example, you may want to constrain resources in your development VPC to accessing only allowed infrastructure, builder services, and development quality on-premises services and data.  Similarly, you would likely need to constrain your production VPC to accessing only allowed on-premises production services and data. 
 
-## Consider Redundant VPN Connections
+### Consider Redundant VPN Connections
 
 Once you've established your initial AWS Site-to-Site VPN connection, it's recommended that you consider setting up a a second customer gateway to further enhance resiliency of your network connectivity to AWS. See [Resilience in AWS Site-to-Site VPN](https://docs.aws.amazon.com/vpn/latest/s2svpn/disaster-recovery-resiliency.html) for details.
 
 ## Site-to-Site VPN Connection Options
+
+### Route and Policy Based VPNs
+
+...
+
+### Authentication Options
+
+...
 
