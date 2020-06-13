@@ -37,4 +37,4 @@ Another means of gaining an introduction to AWS is to become an [AWS Certified C
 
 ## Knowledge Requirements for Builder Teams
 
-Since this guide is oriented primarily toward your initial Cloud Foundation Team, not all of the required areas of knowledge listed above applicable to your initial teams who will be doing work on AWS.  The [Getting Started Guide for Builder Teams]({{< relref "02-getting-started-guide-builder-team-members" >}}) introduces resources for your builder teams to get started in your AWS environment including resources to get started with AWS in general.
+Since this guide is oriented primarily toward your initial Cloud Foundation Team, not all of the required areas of knowledge listed above apply to your builder teams, the initial teams who will be doing work on AWS.  The [Getting Started Guide for Builder Teams]({{< relref "02-getting-started-guide-builder-team-members" >}}) introduces resources for your builder teams to get started in your AWS environment including resources to get started with AWS in general.
