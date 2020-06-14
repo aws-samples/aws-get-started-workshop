@@ -40,22 +40,24 @@ Generally customers have the following requirements regarding identity when emba
 
 ## Solution Options and Resources
 
-Presumably you are visiting this page because you are using [AWS SSO](https://aws.amazon.com/blogs/security/how-to-create-and-manage-users-within-aws-sso/) as a built-in Identity Provider and User Directory. Often, customers will choose to migrate to more enterprise solutions that meet the requirements detailed above. There are 3 common paths when deciding what to do with Federated Access to AWS. 
+Presumably you are visiting this page because you are using [AWS SSO](https://aws.amazon.com/blogs/security/how-to-create-and-manage-users-within-aws-sso/) as a built-in Identity Provider and User Directory. Often, customers will choose to migrate to more enterprise solutions that meet the requirements detailed above. There are 3 common paths when deciding what to do with Federated Access to AWS. There are 3 common options outlined below and the decision tree can help you decide.
+
+[![Federation Choice](/images/02-dev-fast-follow/02-security-compliance/01-federated-access-to-aws/SSODecTree.png)](/images/02-dev-fast-follow/02-security-compliance/01-federated-access-to-aws/SSODecTree.png)
 
 {{% notice warning %}}
 Switching from AWS SSO to one of these other options will disrupt the way users and administrators log into the AWS console, see the *Migration From Use of Locally Managed Groups and Users in AWS SSO* section below.
 {{% /notice %}}
 
-* Use the built-in AWS SSO Identity service as an Identity Provider and Microsoft Active Directory (self-managed or AWS Managed Active Directory) as a centralized source of truth for user identity.
+1) Use the built-in AWS SSO Identity service as an Identity Provider and Microsoft Active Directory (self-managed or AWS Managed Active Directory) as a centralized source of truth for user identity.
 	* Customers often choose this option because they can maintain an existing source of truth for user identity hosted in a self-managed Active Directory Domain. In this design, a VPC is needed in a Shared Services VPC to host self-managed Active Directory or AWS Managed Active Directory with subnets shared to the AWS Master Account where AWS SSO will reside. [Learn more here.](/02-dev-fast-follow/02-security-compliance/01-federated-access-to-aws/02-aws-sso-ad.html)
 		* [Connect AWS SSO to AWS Managed Active Directory](https://docs.aws.amazon.com/singlesignon/latest/userguide/connectawsad.html) running in a VPC in an Infrastructure Shared Services account with shared subnets to the Master Account.
 		* [Connect AWS SSO to an On-Premises Active Directory](https://docs.aws.amazon.com/singlesignon/latest/userguide/connectonpremad.html) using a VPC in an Infrastructure Shared Services account that has an established VPN or Direct Connect connection to the on-premises datacenter. [Here is another blog](https://aws.amazon.com/blogs/security/how-to-connect-your-on-premises-active-directory-to-aws-using-ad-connector/) post with additional detail.
-* Use the built-in AWS SSO Identity service as an Identity Provider and connect an external third party Identity Directory over a SAML federation.
-	* This is a popular and recommended option for customers that already use AzureAD as a source of truth for Identity.
+2) Use the built-in AWS SSO Identity service as an Identity Provider and connect an external third party Identity Directory over a SAML federation..
+	* This is a popular and recommended option for customers that already use AzureAD or Okta as a source of truth for Identity. This will eliminate some heavy lifting, but often does not provide a level of granular control that some large enterprises require. Most customers choose this option unless additional customization is required.
 		* [Connect AWS SSO to AzureAD](https://aws.amazon.com/blogs/aws/the-next-evolution-in-aws-single-sign-on/) using AzureAD's SCIM (System for Cross-domain Identity Management) endpoint. This enables automated provisioning which is very useful for AWS Organizations with more than 20 Accounts!
 		* [Connect AWS SSO to Okta](https://youtu.be/_zqHFlaqSTg) for automated provisioning using Okta's SCIM capability, enabling automated provisioning for organizations with more than 20 accounts.
-* Use an external third party Identity Provider and a self-managed User Identity Directory (Microsoft Active Directory or LDAP)
-	* If your Organization already utilizes a publicly accessible Identity Provider, you can continue to use this portal for federated access to AWS. This assumes the Identity Provider you are using has access to User Identities stored in a central source of truth, such as Active Directory. Common examples include: OneLogin, Okta, ADFS. See the [full list](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_saml_3rd-party.html) of third-party SAML 2.0 IdP's that work with AWS Federation.
+3) Use an external third party Identity Provider and a self-managed User Identity Directory (Microsoft Active Directory or LDAP).
+	* If your Organization already utilizes a publicly accessible Identity Provider, you can continue to use this portal for federated access to AWS. This assumes the Identity Provider you are using has access to User Identities stored in a central source of truth, such as Active Directory. Common examples include: OneLogin, Okta, ADFS. See the [full list](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_saml_3rd-party.html) of third-party SAML 2.0 IdP's that work with AWS Federation. Often customers land on this choice if they are required to funnel access to applications through a centralized SSO landing page, or they require customization or additional granular control that option #2 cannot provide.
 		* [Connect your AWS accounts to Okta](https://support.okta.com/help/s/article/Support-for-Multiple-Accounts-in-AWS)
 		* [Connect your AWS accounts to ADFS](https://aws.amazon.com/blogs/security/enabling-federation-to-aws-using-windows-active-directory-adfs-and-saml-2-0/)
 		* [Connect your AWS accounts to OneLogin](https://onelogin.service-now.com/kb_view_customer.do?sysparm_article=KB0010344)
