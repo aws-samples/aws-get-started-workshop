@@ -90,10 +90,6 @@ Access [Account  Settings](https://console.aws.amazon.com/billing/home?#/account
 
 ## 8. Create an IAM user for Administrative Bootstrap Purposes
 
-{{% notice note %}}
-**Review Note: Is creating an admin bootstrap IAM user necessary?:** Functionally, is this user necessary? From a security best practices perspective is it necessary? Since this overall guide gets the foundation team members to start using their human user logins via AWS SSO as soon as feasible, this type of IAM admin user isn't currently used for anything other than working with AWS Control Tower to create the initial landing zone. AWS Control Tower [recommends that an IAM user](https://docs.aws.amazon.com/controltower/latest/userguide/setting-up.html) be established and used, but it doesn't state that it's an absolute requirement for the landing zone to be established.
-{{% /notice %}}
-
 Although you will be provisioning cloud administrator and builder user accounts via the AWS Single Sign-on (SSO) service later in this guide, it is required that you first create an administrative bootstrap user account via the AWS Identity and Access Management (IAM) service and switch to that user to set up the next parts of your initial foundation.
 
 This administrative user should be only used to complete your initial foundation setup and act as a “break glass” user in case access via AWS SSO user accounts encounters an issue.
