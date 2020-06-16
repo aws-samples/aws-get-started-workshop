@@ -18,6 +18,7 @@ Later in this guide, when you set up your test and production VPCs, the steps re
 
 ## 1. Ensure Pre-requisites Are Satisfied
 
+![Site-to-Site VPN](/images/02-dev-fast-follow/03-network-integration/initial-foundation-dev-fast-follow-vpn.png)
 First, ensure that the following pre-requisites are satisfied.
 
 ### Engage Your On-Premises Network Team
@@ -69,7 +70,7 @@ You will begin by making changes in the **`network-prod`** account you set up ea
 
 |Field|Recommendation|
 |-----|---------------|
-|**`Name tag`**|acme-network-tgw-01|
+|**`Name tag`**|example-network-tgw-01|
 |**`Description`**|Transit Gateway in order to route traffic to/from On-Prem network as well as within VPCs |
 
 {{% notice info %}}
@@ -91,7 +92,7 @@ You will begin by making changes in the **`network-prod`** account you set up ea
 |**`Routing options`**|Dynamic (requires BGP)|
 
 {{% notice info %}}
-**Transit Gateway Attachment Name:** Once created, it is recommended to provide a name to the Transit Gateway Attachment.  To do this, select the checkbox of the row for the attachment you just created.  Click the **`pencil`** icon under the **`Name`** column.  Enter a name (i.e. acme-routing-tgw-vpn-01).
+**Transit Gateway Attachment Name:** Once created, it is recommended to provide a name to the Transit Gateway Attachment.  To do this, select the checkbox of the row for the attachment you just created.  Click the **`pencil`** icon under the **`Name`** column.  Enter a name (i.e. example-routing-tgw-vpn-01).
 {{% /notice %}}
 
 {{% notice info %}}
@@ -103,7 +104,7 @@ You will begin by making changes in the **`network-prod`** account you set up ea
 1. While you are still in the **`VPN Console`** administration, click on **`Site-to-Site VPN Connections`** in the left navigation
 2. Select the VPN just created in the list of VPN connections
 3. Click on the **`Actions`** button and select **`Modify VPN Connection`**
-4. Edit the name for your VPN connection.  (Suggestion: acme-routing-vpn-onprem-01)
+4. Edit the name for your VPN connection.  (Suggestion: example-routing-vpn-onprem-01)
 5. Download the VPN configuration information by clicking **` Download Configuration`**
 6. Use the configuration to configure you on-premises VPN gateway.
 
