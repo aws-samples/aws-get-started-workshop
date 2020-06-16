@@ -120,6 +120,7 @@ See additional getting started with AWS information:
 * [AWS Getting Started](https://aws.amazon.com/getting-started/)
 * [AWS Training and Certification](https://aws.amazon.com/training/?e=gs&p=gsrc)
 * [Start Developing with AWS](https://aws.amazon.com/developers/getting-started/)
+* [Migrating with AWS](https://aws.amazon.com/cloud-migration/)
 
 ## Working with Other AWS Accounts
 
