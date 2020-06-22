@@ -26,7 +26,7 @@ Before using AWS Control Tower to create an initial landing zone, ensure that yo
 
 * **Desired Home AWS Region** - Ensure that you select the proper AWS region in the upper right hand side of the AWS Management Console before creating the landing zone. The AWS region you select should be the AWS region in which you expect do perform the majority of your work with AWS and from which you will maintain your foundation.
 
-* **Email Distribution Lists** - Consult the [set of AWS account root user email addresses]({{< relref "04-address-prerequisites#email-addresses" >}}) that you established earlier.
+* **Email Distribution Lists** - Consult the [set of AWS account root user email addresses]({{< relref "04-address-prerequisites#initial-aws-accounts" >}}) that you established earlier.
 
 * **Pre-Launch Checks** - If you’ve just created a new master AWS account, the pre-launch check considerations for creating your landing zone should already be met. If you're reusing an exisitng master AWS account, the pre-launch checks might detect issues.
 

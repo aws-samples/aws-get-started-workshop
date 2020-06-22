@@ -53,7 +53,7 @@ Later in your journey, you'll deploy more network related resources to this AWS 
 
 |Field|Recommendation|
 |-----|---------------|
-|**`Account email`**|Consult the [set of AWS account root user email addresses]({{< relref "04-address-prerequisites#email-addresses" >}}) that you established earlier.|
+|**`Account email`**|Consult the [set of AWS account root user email addresses]({{< relref "04-address-prerequisites#initial-aws-accounts" >}}) that you established earlier.|
 |**`Display name`**|**`Network - Prod`**|
 |**`AWS SSO email`**|Use the same email address as **`Account Email`**.|
 |**`AWS SSO First Name`**|Use a part of your account name. For example, **`Network`**.|

@@ -48,7 +48,7 @@ You'll follow these steps twice: Once to create the initial development team's A
 
 |Field|Recommendation|
 |-----|---------------|
-|**`Account email`**|Consult the [set of AWS account root user email addresses]({{< relref "04-address-prerequisites#email-addresses" >}}) that you established earlier.|
+|**`Account email`**|Consult the [set of AWS account root user email addresses]({{< relref "04-address-prerequisites#initial-aws-accounts" >}}) that you established earlier.|
 |**`Display name`**|**`dev-foundation`** or **`dev-<team name>`**|
 |**`AWS SSO email`**|Use the same email address as **`Account Email`**.|
 |**`AWS SSO First Name`**|Use **`Dev`**|

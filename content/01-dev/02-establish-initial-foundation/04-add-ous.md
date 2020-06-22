@@ -20,7 +20,7 @@ This step should take about 10 minutes to complete.
 
 The following diagram represents an example set of OUs and AWS accounts that can help you get started with your initial AWS environment in support of your first few production workloads. This initial set of OUs is intended to enable you to group AWS accounts that have similar security and management needs.
 
-The development and workloads AWS accounts names shown in the diagram are examples. Depending on your needs, your AWS account names will vary. Refer to the [email addresses]({{< relref "04-address-prerequisites#email-addresses" >}}) section for a description of the AWS accounts referenced in the diagram.
+The development and workloads AWS accounts names shown in the diagram are examples. Depending on your needs, your AWS account names will vary. Refer to the [initial AWS accounts]({{< relref "04-address-prerequisites#initial-aws-accounts" >}}) for a description of the AWS accounts referenced in the diagram.
 
 [![Initial OUs and AWS Accounts](/images/01-dev/aws-accounts-ous.png)](/images/01-dev/aws-accounts-ous.png)
 

@@ -32,7 +32,7 @@ Instead of using a person's email address, it's recommended that you use either 
 ### Carefully Control Access to the Email Accounts
 Since the email address associated with an AWS account is used as the [root user login for the account](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html), anyone with access to that email account will have access to password reset process for the account. 
 
-### Define and Request DLs or Shared Mailboxes {#email-addresses}
+### Define and Request DLs or Shared Mailboxes
 The following diagram and table includes the minimum set of email addresses to get started. Each AWS account must have a globally unique email address. 
 
 Several optional AWS accounts and email addresses are included in the table depending on the extent of capabilities you expect to require in the initial form of your AWS environment.
@@ -51,7 +51,7 @@ Use your organization's process to request either DLs or shared mailboxes based 
 **AWS account names:** Depending your needs, you may want to structure the names of your AWS accounts using either a title-oriented or a technical style.  The following table provides examples of both styles. Note how the technical style is embedded in the example email addresses.
 {{% /notice %}}
 
-### Master AWS Account
+### Master AWS Account {#initial-aws-accounts}
 
 |AWS Account Name|Technical Name|Purpose|Example Email Address|
 |---|---|---|---|
