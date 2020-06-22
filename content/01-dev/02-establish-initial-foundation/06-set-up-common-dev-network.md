@@ -1,8 +1,8 @@
 ---
 title: 'Set Up Common Development Network'
-menuTitle: '5. Set Up Dev Network'
+menuTitle: '6. Set Up Dev Network'
 disableToc: true
-weight: 50
+weight: 60
 ---
 
 {{% comment %}}
@@ -10,7 +10,7 @@ Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 SPDX-License-Identifier: CC-BY-SA-4.0
 {{% /comment %}}
 
-In this step your Cloud Administrators will review the initial development network design, create a new Network AWS account, provision a common centrally managed development network, and share the private subnets will all team development AWS accounts in your AWS organization.
+In this step your Cloud Administrators will review the initial development network design, create a new **Network - Prod** AWS account, provision a common centrally managed development network, and share the private subnets will all team development AWS accounts in your AWS organization.
 
 This step should take about 60 minutes to complete.
 
@@ -18,7 +18,7 @@ This step should take about 60 minutes to complete.
 
 ## 1. Review Initial Network Design
 
-As mentioned in the [Initial Development Environment Solution Overview]({{< relref "02-review-dev-environment-solution.md#common-development-network" >}}), it's recommended that you start with a single centrally managed development VPC that has a set of public and private subnets of which only the private subnets will be shared across all team development AWS accounts. 
+As mentioned in the [Initial Development Environment Solution Overview]({{< relref "02-review-dev-environment-solution#common-development-network" >}}), it's recommended that you start with a single centrally managed development VPC that has a set of public and private subnets of which only the private subnets will be shared across all team development AWS accounts. 
 
 In those AWS regions in which at least 3 Availability Zones (AZs) are available for customer use, it's recommended that your initial set of VPCs have subnets in each of the 3 AZs so that your builder teams can experiment with and perform early testing of workloads and AWS services that can take advantage of 3 AZs.
 
@@ -36,14 +36,14 @@ Since you will be provisioning the centrally managed development VPC directly us
 
 See [Configuring AWS Control Tower Without a VPC](https://docs.aws.amazon.com/controltower/latest/userguide/configure-without-vpc.html) for details on disabling automatic creation of VPCs.
 
-## 3. Create Network AWS Account
+## 3. Create Network - Prod AWS Account
 
-In AWS Control Tower, provision a new Network AWS account that will initially contain the centrally managed development VPC. 
+In AWS Control Tower, provision a new **Network - Prod** AWS account that will initially contain the centrally managed development VPC. 
 
 Later in your journey, you'll deploy more network related resources to this AWS account. For example, you will likely configure  and manage [AWS Transit Gateway](https://aws.amazon.com/transit-gateway/) resources in this dedicated AWS account when you start integrating on-premises network connectivity in your overall AWS environment.
 
 1. As a Cloud Administrator, use your personal user to log into AWS SSO.
-2. Select the AWS **`master`** account.
+2. Select the AWS **`Master`** account.
 3. Select **`Management console`** associated with the **`AWSAdministratorAccess`** role.
 4. Select the appropriate AWS region.
 5. Navigate to **`Control Tower`**.
@@ -53,12 +53,12 @@ Later in your journey, you'll deploy more network related resources to this AWS 
 
 |Field|Recommendation|
 |-----|---------------|
-|**`Account email`**|Consult the [set of AWS account root user email addresses]({{< relref "04-address-prerequisites.md#2-create-email-addresses-for-new-aws-accounts" >}}) that you established earlier.|
-|**`Display name`**|**`network-prod`**|
+|**`Account email`**|Consult the [set of AWS account root user email addresses]({{< relref "04-address-prerequisites#email-addresses" >}}) that you established earlier.|
+|**`Display name`**|**`Network - Prod`**|
 |**`AWS SSO email`**|Use the same email address as **`Account Email`**.|
 |**`AWS SSO First Name`**|Use a part of your account name. For example, **`Network`**.|
 |**`AWS SSO Last Name`**|Use the remaining part of the account name. For example, **`Production`**|
-|**`Organizational unit`**|Select the infrastructure OU you created earlier in this section. For example, **`infrastructure`**.|
+|**`Organizational unit`**|Select the infrastructure OU you created earlier. For example, **`infrastructure-prod`**.|
 
 9. Select **`Enroll Account`**.
 
@@ -73,12 +73,12 @@ It will take a few minutes to enroll the new account. You can check the status i
 Since Cloud Administrators won't automatically be granted sufficient access to the newly created AWS account, you need to enable this access each time you create a new AWS account via AWS Control Tower's Account Factory.
 
 1. As a Cloud Administrator, use your personal user to log into AWS SSO.
-2. Select the AWS **`master`** account.
+2. Select the AWS **`Master`** account.
 3. Select **`Management console`** associated with the **`AWSAdministratorAccess`** role.
 4. Select the appropriate AWS region.
 5. Navigate to **`AWS SSO`**.
 6. Access **`AWS accounts`** in AWS SSO.
-7. Select the checkbox next to the **`Network`** AWS account.
+7. Select the checkbox next to the **`Network - Prod`** AWS account.
 8. Select **`Assign users`**.
 9. Select **`Groups`**.
 10. Select the checkbox next to the group **`example-cloud-admin`** or similar.
@@ -86,11 +86,11 @@ Since Cloud Administrators won't automatically be granted sufficient access to t
 12. Select the checkbox next to **`AWSAdministratorAccess`**.
 13. Select **`Finish`**.
 
-Now you've enabled all users who are part of the Cloud Administrator group in AWS SSO administrator access to the Network AWS account.
+Now you've enabled all users who are part of the Cloud Administrator group in AWS SSO administrator access to the **Network - Prod** AWS account.
 
 ## 5. Determine IP Address CIDR Blocks
 
-If you're just experimenting and don't care which IP address CIDR block is used to build the centrally managed development VPC, you can move to the next step, [6. Provision Development VPC](#6-provision-development-vpc).
+If you're just experimenting and don't care which IP address CIDR block is used to build the centrally managed development VPC, you can move to the next step, [6. Provision Development VPC]({{< relref "#provision-dev-vpc" >}}).
 
 Otherwise, if you have a formally assigned CIDR block to use, in this step you'll:
 
@@ -140,16 +140,16 @@ Once you've determined the VPC CIDR block, breaking it down into an equal size b
 5. In the table at the bottom, click the **`Divide`** links to start subdividing the larger block into 6 blocks of equal size.
 6. Note the first 6 blocks and supply them as the subnet CIDR blocks in the next step.
 
-## 6. Provision Development VPC
+## 6. Provision Development VPC {#provision-dev-vpc}
 
 You can use this [sample AWS CloudFormation template](https://github.com/aws-samples/vpc-multi-tier) to easily deploy your centrally managed development network.
 
 Download the sample AWS CloudFormation template [vpc-multi-tier.yml](https://raw.githubusercontent.com/aws-samples/vpc-multi-tier/master/vpc-multi-tier.yml) to your desktop. You can review the [README](https://github.com/aws-samples/vpc-multi-tier/blob/master/README.md) to understand the role of this template.
 
-Next, access the new Network AWS account:
+Next, access the new **Network - Prod** AWS account:
 
 1. As a Cloud Administrator, use your personal user to log into AWS SSO.
-2. Select the **`Network`** AWS account.
+2. Select the **`Network - Prod`** AWS account.
 3. Select **`Management console`** associated with the **`AWSAdministratorAccess`** role.
 4. Select the appropriate AWS region.
 
@@ -167,7 +167,7 @@ Now create a new AWS CloudFormation stack using the sample template you download
 |---------|--------|
 |**`Business Scope`**|Replace `example` with your organization identifier or stock ticker if that applies. This value is used as a prefix in the name of some of the VPC-related cloud resources. For example, in the name of the IAM role used to support VPC flow logs.|
 |**`VPC Name`**|Change to **`dev`**.|
-|**`*Cidr`**|**Just Experimenting**<br>If you want to just experiment at this point and don't care about using formally assigned IP address ranges, you can leave the CIDR block parameters at their default values.<br><br>**You Have Your Own CIDR Blocks**<br>Enter values for the `pVpcCidr`, `pTier1..`, and `pTier2...` CIDR blocks from the prior step. You can ignore the `pTier3...` parameters because only two tiers - public and private - are being provisioned by default.|
+|**`Cidr`**|**Just Experimenting**<br>If you want to just experiment at this point and don't care about using formally assigned IP address ranges, you can leave the CIDR block parameters at their default values.<br><br>**You Have Your Own CIDR Blocks**<br>Enter values for the `pVpcCidr`, `pTier1..`, and `pTier2...` CIDR blocks from the prior step. You can ignore the `pTier3...` parameters because only two tiers - public and private - are being provisioned by default.|
 
 Leave all of the other parameters at their default settings unless you're comfortable changing them.  You can always easily create another stack to experiment with other parameter values. Review the [README](https://github.com/aws-samples/vpc-multi-tier/blob/master/README.md) for details on parameters.
 
@@ -193,34 +193,38 @@ Review the newly created VPC and associated resources.
 9. Select the log group associated with the VPC Flow Logs. For example, `/base/dev/flowlogs`.
 10. Explore the log streams. You should see a log stream for each Elastic Network Interface (ENI) used in the VPC. For example, each NAT Gateway has one ENI. Each entry in a log stream represents a the source, destination, and other overall information about the network traffic flowing through the ENI.
 
-## 8. Share Private Subnets With Development OU
+## 8. Share Private Subnets With Development OUs
 
-Now that the centrally managed development VPC has been provisioned, your next step is to share the private subnets with all of the AWS accounts that will become part of the `development` OU that you created earlier.  
+Now that the centrally managed development VPC has been provisioned, your next step is to share the private subnets with all of the AWS accounts that will become part of the development OUs that you created earlier.  
 
 ### Enable Resource Sharing in AWS Organizations
 
 This is a one time operation.
 
 1. As a Cloud Administrator, use your personal user to log into AWS SSO.
-2. Select the AWS **`master`** account.
+2. Select the AWS **`Master`** account.
 3. Select **`Management console`** associated with the **`AWSAdministratorAccess`** role.
 4. Navigate to **`Resource Access Manager`**.
 5. Select **`Settings`**.
 6. Select **`Enable sharing with AWS Organizations`**.
 
-### Obtain the ID of the `development` OU
+### Obtain the IDs of the Development OUs
 
-While you're in the master AWS account, obtain and record the resource ID of the **`development`** OU.
+While you're in the master AWS account, obtain and record the resource ID of each of the two development OUs:
+
+* **`development-foundation`**
+* **`development-standard`**
 
 1. Navigate to **`AWS Control Tower`**.
 2. Select **`Organizational units`**.
-3. Select **`development`**.
+3. Select **`development-foundation`**.
 4. Copy the **`ID`** of the form `ou-szfb-rixl8jqc` (example) so that you can refer to it in the next step.
+5. Perform the same task for the **`development-standard`** OU.
 
 ### Create a Resource Share
 
 1. As a Cloud Administrator, use your personal user to log into AWS SSO.
-2. Select the **`Network`** AWS account.
+2. Select the **`Network - Prod`** AWS account.
 3. Select **`Management console`** associated with the **`AWSAdministratorAccess`** role.
 4. Select the appropriate AWS region.
 5. Navigate to **`Resource Access Manager`**.
@@ -229,7 +233,7 @@ While you're in the master AWS account, obtain and record the resource ID of the
 8. Under **`Resources`**, by default, the subnets that were just provisioned should be listed.
 9. Select only the private subnets.
 10. Under **`Principals`**, uncheck **`Allow external accounts`** given that we're sharing the subnets only with other AWS accounts within this AWS organization.
-11. In the search field, copy the organization ID of the **`development`** OU. 
+11. In the search field, copy the organization ID of the **`development-foundation`** OU. 
 12. Select the matched OU.
 13. Select **`Create resource share`**.
 

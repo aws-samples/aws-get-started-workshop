@@ -54,7 +54,7 @@ Each builder team is allocated a distinct team development AWS account to act as
 
 In addition to your initial application and data engineering teams that need access to the AWS platform, you should view your initial cloud and security administrators as a team of builders in its own right that should have its own AWS account for its own work to iterate on, develop, and perform early testing of changes to the foundation.
 
-## Common Development Network
+## Common Development Network {#common-development-network}
 
 A centrally managed development network in the form of an AWS Virtual Private Cloud (VPC) is used to support the networking needs of builder teams for their development tasks.  Your Cloud Administrators will provision this centrally managed VPC to a new "Network" AWS account and share a common set of private subnets with team development AWS accounts.
 
@@ -84,7 +84,7 @@ Benefits of using a common VPC for builder team's development needs include:
 
 + Costs for builder teams' cloud resources are still allocated to their respective team development AWS accounts.
 
-+ Costs for shared VPC foundation resources are allocated to the Network AWS account.
++ Costs for shared VPC foundation resources are allocated to the **Network - Prod** AWS account.
 
 {{% notice tip %}}
 **Learn more about sharing VPC resources** See [NET320-R1 - The right AWS network architecture for the right reason](https://youtu.be/Ot1kcQfUIdg?t=1003) for more background on the benefits and practical considerations of sharing VPC resources.

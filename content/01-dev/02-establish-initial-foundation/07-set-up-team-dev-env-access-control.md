@@ -1,8 +1,8 @@
 ---
 title: 'Set Up Team Development Environment Access Controls'
-menuTitle: '6. Set Up Team Dev Access'
+menuTitle: '7. Set Up Team Dev Access'
 disableToc: true
-weight: 60
+weight: 70
 ---
 
 {{% comment %}}
@@ -20,20 +20,18 @@ This step should take about 20 minutes to complete.
 
 {{< toc >}}
 
-## 1. Apply Service Control Policies (SCPs) to `development` OU
+## 1. Apply Service Control Policies (SCPs) to `development-standard` OU
 
-Using AWS Organizations, create several Service Control Policies (SCPs) that will initially be applied to the `development` OU.  When applied to the `development` OU, these SCPs will disallow any user including builder team members and foundation team members from creating and modifying foundation VPC networking resources in team development AWS accounts.
+Using AWS Organizations, create several Service Control Policies (SCPs) that will initially be applied to the `development-standard` OU.  Combined, these SCPs will disallow any user from creating and modifying foundation VPC networking resources in standard team development AWS accounts.
+
+Since you'll likely want your Cloud Foundation team members to be able to develop and test changes to foundation VPC resources in their team development AWS accounts, you probably don't want to apply the SCPs to the `development-foundation` OU.
 
 {{% notice tip %}}
 **Service Control Policies (SCPs):** If you'd like to learn more about SCPs, see [Managing AWS Organizations policies](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies.html).
 {{% /notice %}}
 
 {{% notice tip %}}
-**Ability for foundation team builders to create and modify VPC resources:** Typically, builders in your foundation team will need to have write acess to VPC resources in their team development accounts so that they can experiment, develop, and perform early forms of testing of VPC related foundational changes.  You have several options for enabling foundation team builders to have such access: 1) You could create a new "development-foundation" or similar OU that does not have the SCP described here and create foundation team development AWS accounts under that OU or 2) you could continue to use the common SCP, establish a distinct persmission set for your foundation team development access that has the same policy as other teams, and enhance the SCP to include a condition to exclude the foundation team's team development IAM role associated with the permission set.  In either case, see [Controlling Builder Team Access]({{< relref "02-controlling-builder-team-access.md" >}}) for a more detailed explanation of these options. 
-{{% /notice %}}
-
-{{% notice tip %}}
-**Review the sample team development access controls:** See [Controlling Builder Team Access]({{< relref "02-controlling-builder-team-access.md" >}}) for a detailed explanation of the requirements and sample implementation of how you can provide freedom to your builder teams in their team development AWS accounts, but inhibit them from adversely impacting the security of your overall AWS environment.
+**Review the sample team development access controls:** See [Controlling Builder Team Access]({{< relref "02-controlling-builder-team-access" >}}) for a detailed explanation of the requirements and sample implementation of how you can provide freedom to your builder teams in their team development AWS accounts, but inhibit them from adversely impacting the security of your overall AWS environment.
 {{% /notice %}}
 
 ### Create the SCPs
@@ -43,7 +41,7 @@ Either open in a separate browser tab or download to your desktop the following 
 * [`example-base-scp-vpc-boundaries.json`](/code-samples/02-scps/example-base-scp-vpc-boundaries.json)
 
 1. As a Cloud Administrator, use your personal user to log into AWS SSO.
-2. Select the AWS **`master`** account.
+2. Select the AWS **`Master`** account.
 3. Select **`Management console`** associated with the **`AWSAdministratorAccess`** role.
 4. Select the appropriate AWS region.
 5. Navigate to **`AWS Organizations`**.
@@ -59,20 +57,20 @@ Either open in a separate browser tab or download to your desktop the following 
     * Description: **"Deny creation of and changes to boundary VPC resources"**
     * Policy: Copy the content of the sample policy.
 
-### Apply the SCPs to the `development` OU
+### Apply the SCPs to the `development-standard` OU
 
 1. Select **`Organize accounts`**.
-2. In the Organization tree on the left, select the **`development`** OU.
+2. In the Organization tree on the left, select the **`development-standard`** OU.
 3. On the right side of the console, select **`Service control policies`**.
 4. On the right side of the console, select the **`Attach`** link next to the SCPs
     * **`example-base-scp-vpc-core`**
     * **`example-base-scp-vpc-boundaries`**
 
-## 2. Distribute Permissions Boundary to Development OU
+## 2. Distribute Permissions Boundary to Development OUs
 
-In this step you'll use AWS CloudFormation StackSets to distribute an IAM permissions boundary policy to the "development" OU that you just created.  This boundary policy will help ensure that builder teams using team development AWS accounts can't modify your foundation cloud resources.
+In this step you'll use AWS CloudFormation StackSets to distribute an IAM permissions boundary policy to the development OUs.  This boundary policy will help ensure that builder teams using team development AWS accounts can't modify your foundation cloud resources.
 
-In a later section, when you create several team development AWS accounts, you will associate the AWS accounts with the "development" OU. Any AWS account that is added to that OU will automatically be configured with the IAM permissions boundary policy resource.  Similarly, when an AWS account is removed from the OU, the IAM permissions boundary policy resource will be automatically removed from the AWS account.
+In a later section, when you create several team development AWS accounts, you will associate the AWS accounts with the development OUs. Any AWS account that is added to the development OUs will automatically be configured with the IAM permissions boundary policy resource.  Similarly, when an AWS account is removed from the OUs, the IAM permissions boundary policy resource will be automatically removed from the AWS account.
 
 ### Enable Trusted Access in AWS Organizations
 
@@ -92,7 +90,7 @@ Next, download the sample AWS CloudFormation template [`example-base-team-dev-bo
 
 ### Deploy Permissions Boundary as a StackSet
 
-Create a StackSet to deploy the permissions boundary policy to all AWS accounts associated with the "development" OU. 
+Create a StackSet to deploy the permissions boundary policy to all AWS accounts associated with the development OUs. 
 
 1. Select **`Create StackSet`**.
 2. Select **`Upload a template file`**.
@@ -114,7 +112,7 @@ Leave the other parameters at their default settings.
 8. Leave the **`Permissions`** set to **`Service managed permissions`**.
 9. Select **`Next`**.
 10. In **`Deployment targets`**, select **`Deploy to organizational units (OUs)`**.
-11. Enter the OU ID of the "development" OU that you created in the previous step.
+11. Enter the OU IDs of the development OUs that you created previously.
 12. In **`Specify regions`**, select your home AWS region.
 13. Select **`Next`**.
 14. Scrolls to the bottom and mark the checkbox to acknowledge that IAM resources will be created.

@@ -84,6 +84,32 @@ $ hugo server -D
 
 Access http://localhost:1313/
 
+### Working with Links and Hugo
+
+#### Using `relref`
+
+To ease the process of referring to local pages and to ease maintainance as the page hierarchy changes, it's recommended that you use the Hugo built-in shortcode [`relref`](https://gohugo.io/content-management/cross-references/).
+
+#### Anchors
+
+When it's helpful to link to another section in the same page or on another page, you can define custom anchors in headings of the target page and refer to those anchors from your pages.
+
+For example, to define a customer anchor on a heading:
+
+```
+## My Heading Title {#my-custom-anchor}
+```
+
+And in another page, you can refer to the anchor:
+
+```
+... [Example Link]({{< relref "my-example-page#my-custom-anchor" >}}) ...
+```
+
+Note that when using `relref`:
+* As long as the page name is unique, you don't need to quality the page name.
+* You don't include the `.md` file suffix.
+
 ### Defer to External Docs Where Feasible
 
 When there's modular, to-the-point official documentation that can be linked to, we prefer that route vs duplicating lengthy instructions within these guides.  
@@ -111,7 +137,7 @@ The project's preference is to prioritize the use of generally reusable IaC reso
 
 When there's an absence of existing detailed documentation to which the guide can link and there's no sample automation that the customer can use, detailed steps may be necessary to include within the guide.  Under these circumstances, it can be valuabe to include screenshots in support of manual configuration steps.
 
-### Managing and Referring ot Static Images
+### Managing and Referring to Static Images
 
 Static images are managed under the `static/images/` area of the repository. 
 
@@ -119,7 +145,7 @@ The `images/` directory is structured based on the structure of the guide's cont
 
 #### Referring to Static Images
 
-When Hugo generates the static form of the site, it ensures that all of the folder under `static/` are made available at the root of the site.  For example, references to `/images/...` will resolve to content that is housed under the `statuc/images/` directory of the source repository.  See [Hugo Static Files](https://gohugo.io/content-management/static-files/).
+When Hugo generates the static form of the site, it ensures that all of the folder under `static/` are made available at the root of the site.  For example, references to `/images/...` will resolve to content that is housed under the `static/images/` directory of the source repository.  See [Hugo Static Files](https://gohugo.io/content-management/static-files/).
 
 Consequently, one way to link to images is to use the convention Markdown reference such as the following example. In this example, the image in included inline and enables the user to click on the image to display the native image. This may be helpful when images are large and it's difficult to see details without zooming in on the image.
 

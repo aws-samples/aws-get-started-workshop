@@ -1,8 +1,8 @@
 ---
 title: 'Create Team Development AWS Accounts'
-menuTitle: '7. Create Dev AWS Accounts'
+menuTitle: '8. Create Dev AWS Accounts'
 disableToc: true
-weight: 70
+weight: 80
 ---
 
 {{% comment %}}
@@ -28,8 +28,8 @@ Initially, you will likely need AWS accounts for the following teams:
 
 |Team Development Account|Purpose|
 |----------------|-------|
-|**Workload Builder Team**|A team development AWS account for the team that will be doing the workload specific work for your first formal workload on AWS.|
 |**Foundation Team**|A team development AWS account for the initial few Cloud and Security Administrators to experiment, develop, and perform early testing of changes to the foundation.|
+|**Workload Builder Team**|A team development AWS account for the team that will be doing the workload specific work for your first formal workload on AWS.|
 
 ## 2. Create Team Development AWS Accounts
 
@@ -38,7 +38,7 @@ In AWS Control Tower, provision the initial set of team development AWS accounts
 You'll follow these steps twice: Once to create the initial development team's AWS account and again to create the development AWS account for the foundation team.
 
 1. As a Cloud Administrator, use your personal user to log into AWS SSO.
-2. Select the AWS **`master`** account.
+2. Select the AWS **`Master`** account.
 3. Select **`Management console`** associated with the **`AWSAdministratorAccess`** role.
 4. Select the appropriate AWS region.
 5. Navigate to **`Control Tower`**.
@@ -48,12 +48,12 @@ You'll follow these steps twice: Once to create the initial development team's A
 
 |Field|Recommendation|
 |-----|---------------|
-|**`Account email`**|Consult the [set of AWS account root user email addresses]({{< relref "04-address-prerequisites.md#2-create-email-addresses-for-new-aws-accounts" >}}) that you established earlier.|
-|**`Display name`**|**`team-a-dev`** or **`foundation-dev`**|
+|**`Account email`**|Consult the [set of AWS account root user email addresses]({{< relref "04-address-prerequisites#email-addresses" >}}) that you established earlier.|
+|**`Display name`**|**`dev-foundation`** or **`dev-<team name>`**|
 |**`AWS SSO email`**|Use the same email address as **`Account Email`**.|
-|**`AWS SSO First Name`**|Use a part of your account name. For example, **`Team A`** or **`Foundation`** for the foundation team's development AWS account.|
-|**`AWS SSO Last Name`**|Use the remaining part of the account name. For example, **`Development`**|
-|**`Organizational unit`**|Select the development OU you created earlier in this section. For example, **`development`**.|
+|**`AWS SSO First Name`**|Use **`Dev`**|
+|**`AWS SSO Last Name`**|Use either **`Foundation`** or the team's name.|
+|**`Organizational unit`**|Select either **`development-foundation`** or **`development-standard`**.|
 
 9. Select **`Enroll Account`**.
 
@@ -85,14 +85,14 @@ See [Enable MFA on the AWS Account Root User](https://docs.aws.amazon.com/IAM/la
 Since Cloud Administrators won't automatically be granted sufficient access to newly created AWS accounts, you need to enable this access each time you create new AWS accounts via AWS Control Tower's Account Factory.
 
 1. As a Cloud Administrator, use your personal user to log into AWS SSO.
-2. Select the AWS **`master`** account.
+2. Select the AWS **`Master`** account.
 3. Select **`Management console`** associated with the **`AWSAdministratorAccess`** role.
 4. Select the appropriate AWS region.
 5. Navigate to **`AWS SSO`**.
 6. Access **`AWS accounts`** in AWS SSO.
 7. Select the checkboxes next both team development AWS accounts. For example:
-  * `Team A - Dev`
-  * `Foundation - Dev`
+  * `Dev - Foundation`
+  * `Dev - <team identifier>`
 8. Select **`Assign users`**.
 9. Select **`Groups`**.
 10. Select the checkbox next to the group `example-cloud-admin` or similar.
@@ -112,7 +112,7 @@ Since the names of shared subnets are not currently propagated to AWS accounts, 
 4. Select the appropriate AWS region.
 5. Navigate to **`VPC`**.
 6. Select **`Your VPCs`**.
-7. Select the unnamed VPC and assign the same name as used in the Network AWS account. For example, **`base-dev`**.
+7. Select the unnamed VPC and assign the same name as used in the **Network - Prod** AWS account. For example, **`base-dev`**.
 8. Select **`Subnets`**.
-9. Update the **`Name`** field of each private subnet to match the name of the private subnet as it's configured in the `Network` AWS account. You can open another icognito or similar browser session to view the `Network` account's resources. **Caution:** The subnets may not be listed in the same order in both AWS accounts by default.
+9. Update the **`Name`** field of each private subnet to match the name of the private subnet as it's configured in the **Network - Prod** AWS account. You can open another icognito or similar browser session to view the **Network - Prod** AWS account's resources. **Caution:** The subnets may not be listed in the same order in both AWS accounts by default.
 10. You can optionally apply the same naming alignment for route tables.

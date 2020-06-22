@@ -30,7 +30,7 @@ If your pre-productuction test and production workloads need to integrate with o
 
 ## Cloud Hosted Internet Ingress and Egress Security Services
 
-If your organization has strict requirements for securing Internet access, then hosting your enterprise standard security services in a dedicated set of VPCs managed within the Network AWS account is a common pattern.  This cloud hosted approach to securing Internet integration is more performant than depending on routing traffic back on-premises.
+If your organization has strict requirements for securing Internet access, then hosting your enterprise standard security services in a dedicated set of VPCs managed within the **Network - Prod** AWS account is a common pattern.  This cloud hosted approach to securing Internet integration is more performant than depending on routing traffic back on-premises.
 
 See the following AWS Blog posts up-to-date examples of how to use AWS Transit Gateway and third party products to support cloud-hosted ingress and egress security requirements:
 

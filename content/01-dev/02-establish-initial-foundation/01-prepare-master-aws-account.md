@@ -32,7 +32,7 @@ Review [Plan Your AWS Control Tower Landing Zone](https://docs.aws.amazon.com/co
 
 If you plan to create a new master AWS account, proceed to the next step.
 
-If you'd like to reuse an existing master AWS account, proceed to [8. Create an IAM user for Administrative Bootstrap Purposes](#8-create-an-iam-user-for-administrative-bootstrap-purposes) to ensure that you have a suitable AWS IAM administrative user account that you'll use in the next section.
+If you'd like to reuse an existing master AWS account, proceed to [8. Create an IAM user for Administrative Bootstrap Purposes]({{< relref "#iam-bootstrap-user" >}}) to ensure that you have a suitable AWS IAM administrative user account that you'll use in the next section.
 
 ## 3. Start With a New Master AWS Account
 
@@ -42,11 +42,13 @@ After you create your new master AWS account, you can make use of a standard pro
 
 ## 4. Create a New AWS Master Account
 
-Visit https://aws.amazon.com/ and click “Create AWS Account” and enter the the required information on the following page.
+Visit [Create an AWS Account](https://portal.aws.amazon.com/billing/signup#/start) and enter the the required information on the following page.
 
-### Provide Account Root User’s Email Address
-
-Use the master AWS account [root user email address]({{< relref "04-address-prerequisites.md#2-create-email-addresses-for-new-aws-accounts" >}}) that you already established. Since this email address is used to initially access your AWS account, be very careful that you enter the correct email address and that you have access to the email account.
+|Field|Description|Tips|
+|-----|------------|---|
+|**Email address**|A unique email address that identifies the AWS account and is the name of the AWS account root user.|Use the master AWS account [root user email address]({{< relref "04-address-prerequisites#email-addresses" >}}) that you already established. Since this email address is used to initially access your AWS account, be very careful that you enter the correct email address and that you have access to the email account.|
+|**Password**|A password for the AWS account root user.|Ensure that secure this value. In a later step, you'll have the option to enable Multi-factor Authentication (MFA) - a highly recommended approach to secure your AWS account.|
+|**AWS account name**|A brief identifier for the AWS account.|This value does not have to be unique and can be modified later on.|
 
 ### Set Personal or Professional
 
@@ -88,7 +90,7 @@ Using the root user, set the Alternate Contacts for your account so that notific
 
 Access [Account  Settings](https://console.aws.amazon.com/billing/home?#/account) in the AWS Management Console to set the Alternate Contacts.
 
-## 8. Create an IAM user for Administrative Bootstrap Purposes
+## 8. Create an IAM user for Administrative Bootstrap Purposes {#iam-bootstrap-user}
 
 Although you will be provisioning cloud administrator and builder user accounts via the AWS Single Sign-on (SSO) service later in this guide, it is required that you first create an administrative bootstrap user account via the AWS Identity and Access Management (IAM) service and switch to that user to set up the next parts of your initial foundation.
 

@@ -10,7 +10,9 @@ Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 SPDX-License-Identifier: CC-BY-SA-4.0
 {{% /comment %}}
 
-This section provides an overview and detailed step-by-step instructions for using AWS Site-to-Site VPN and AWS Transit Gateway as a means to quickly and securely establish network connectivity between your on-premises and AWS environments. By following these instructions, you will enable network connectivity between the centrally managed development VPC you established earlier in this guide and your on-premises environment.
+This section provides an overview and detailed step-by-step instructions for using AWS Site-to-Site VPN and AWS Transit Gateway as a means to quickly and securely establish network connectivity between your on-premises and AWS environments. 
+
+By following these instructions, you will enable network connectivity between your on-premises environment and the centrally managed development VPC you established earlier in this guide.
 
 Later in this guide, when you set up your test and production VPCs, the steps required to enable those VPCs to reuse your site-to-site VPN conection will be addressed.  The process in your AWS environment will be largely a repeat of the steps in this section that are used to connect your development VPC to your on-premises network.
 
@@ -18,14 +20,13 @@ Later in this guide, when you set up your test and production VPCs, the steps re
 
 ## 1. Ensure Pre-requisites Are Satisfied
 
-![Site-to-Site VPN](/images/02-dev-fast-follow/03-network-integration/initial-foundation-dev-fast-follow-vpn.png)
-First, ensure that the following pre-requisites are satisfied.
+First, ensure that the following pre-requisites are satisfied:
 
 ### Engage Your On-Premises Network Team
 
 In order to effect the necessary on-premises network configuration changes required by your AWS Site-to-Site VPN connection, you'll need to engage your Network team.  It's recommended that you review the overall requirements and solution design with them before proceeding with the configuration work.
 
-### Non-overlapping IP Address Ranges
+### Ensure Use of Non-overlapping IP Address Ranges
 
 When you initially established your common development VPC, it was recommended that you use an IP range for CIDR block that does not overlap with other CIDR blocks in use by your organization.
 
@@ -33,16 +34,36 @@ If you were not able to obtain a non-overlapping CIDR block or blocks for your A
 
 Otherwise, you'll need to prepare to perform some extent of Network Address Translation (NAT) in your on-premises environmnet to manage the use of overlapping IP address ranges.
 
-### Static Public IP Address for Your Customer Gateway
+### Obtain Static Public IP Address for Your Customer Gateway
 
 In your on-premises environment, you will need to identify a static public IP address that will be associated with your Customer Gateway that will act as the on-premises side of the VPN site-to-site connection.  You'll use this IP address in the subsequent steps when you register your Customer Gateway in your AWS environment.
 
+### Determine Dynamic or Static Routing
+
+You'll need to work with your Network team to determine whether dynamic or static routing will be used with your Site-to-Site VPN connection. You can review [Site-to-Site VPN routing optons](https://docs.aws.amazon.com/vpn/latest/s2svpn/VPNRoutingTypes.html) for more details.
+
+#### Dynamic Routing and Route Based VPNs
+
+When you choose dynamic routing, you'll configure the Site-to-Site VPN connection to use Border Gateway Protocol (BGP) to automatically advertise routes across the connection.  In this scenario, you'll be using what is referred to as a "route based VPN".
+
+It's recommended that you use BGP-capable customer gatewayd devices, when available, because the BGP protocol offers robust liveness detection checks that can assist failover to the second VPN tunnel if the first tunnel goes down.
+
+In the dynamic routing and route based VPN configuration, both tunnels can be up at the same time. The BGP keep alive feature will bring up and keep the tunnel UP and active all the time. 
+
+#### Static Routing and Policy Based VPNs
+
+If your customer gateway device does not support BGP, then you will need to use static routing.
+
+In this configuration only one tunnel will be up at a given time.  Depending on the features of your customer gateway device, you may be able to configure it to:
+* Periodically send keep alive traffic to keep the tunnel active.
+* Force a failover to the other tunnel in case of issues with the current tunnel.
+
 ## 2. Register Your Customer Gateway in AWS
 
-You will begin by making changes in the **`network-prod`** account you set up earlier.
+You will begin by making changes in the **Network - Prod** account you set up earlier.
 
 1. As a Cloud Administrator, use your personal user to log into AWS SSO.
-2. Select the **`network-prod`** AWS account
+2. Select the **`Network - Prod`** AWS account
 3. Select **`Management console`** associated with the **`AWSAdministratorAccess`** role.
 4. Select the appropriate AWS region.
 5. Navigate to **`VPC`** and click on **`Customer Gateways`** in the left navigation
@@ -57,6 +78,10 @@ You will begin by making changes in the **`network-prod`** account you set up ea
 |**`IP Address`**|Enter the value of the public IP Address of your on-premises gateway address for your VPN |
 |**`Certificate ARN`**|Leave empty|
 |**`Device`**|Leave empty|
+
+{{% notice info %}}
+**Pre-shared Key and Certificate Options:** These example set up instructions use the pre-shared key option to authenticate your Site-to-Site VPN tunnel endpoints.  If you don't want to use pre-shared keys, you can use a private certificate from AWS Certificate Manager Private Certificate Authority to authenticarte your VPN endpoints. See [Site-to-Siter VPN tunnel authentication options](https://docs.aws.amazon.com/vpn/latest/s2svpn/vpn-tunnel-authentication-options.html).
+{{% /notice %}}
 
 {{% notice info %}}
 **Customer Gateway ID:** Note the Customer Gateway ID for the newly created Customer Gateway.  You will use this in later steps.
@@ -151,8 +176,8 @@ Once your VPN is configured on-premises, navigate back to the Site-to-Site VPN C
 
 ## 8. Test Connectivity
 
-...
+See [Testing the Site-to-Site VPN connection](https://docs.aws.amazon.com/vpn/latest/s2svpn/HowToTestEndToEnd_Linux.html).
 
 ## 9. Monitor Your VPN Connection
 
-...
+See [Monitoring Your Site-to-Site VPN connection](https://docs.aws.amazon.com/vpn/latest/s2svpn/monitoring-overview-vpn.html).

@@ -27,7 +27,7 @@ If your team needs to move very quickly in a matter of 1-2 days to establish you
 **What about AWS IAM users and groups?:** Although the AWS Identity and Access Management (AWS IAM) service supports management of locally defined users and groups, it’s generally not recommended that customers depend on this capability to help manage human user access to the AWS platform _at scale_. Instead, AWS recommends that you reuse your preferred enterprise identity management system and associated processes to act as the basis for human user access to the AWS platform.
 {{% /notice %}}
 
-## 2. Map Foundation Functional Roles to Existing AWS Groups
+## 2. Map Foundation Functional Roles to Existing AWS Groups {#map-foundation-functional-roles}
 
 Earlier in this guide you should have mapped your foundation team members to the [initial set of functional roles]({{< relref "03-map-people-to-foundation-roles.md" >}}) to be played in support of your AWS environment. 
 
@@ -56,7 +56,7 @@ Since you have not yet created users in AWS SSO for each member of your foundati
 Access the AWS SSO service:
 
 1. Sign in to the AWS SSO URL for your environment using the **AWS Control Tower Administrator** user.
-2. Select the AWS **`master`** account.
+2. Select the AWS **`Master`** account.
 3. Select **`Management console`** associated with the **`AWSAdministratorAccess`** role.
 4. Select the appropriate AWS region.
 5. Navigate to **`AWS SSO`**.
@@ -113,7 +113,7 @@ In the spirit of least privilege access, the resulting permissions will enable c
 ### Associate Group and Permission Set with AWS Master Account
 
 1. Access **`AWS accounts`** in AWS SSO.
-2. Select the checkbox next to your **`master`** AWS account.
+2. Select the checkbox next to your **`Master`** AWS account.
 3. Select **`Assign users`**.
 4. Select **`Groups`**.
 5. Select the checkbox next to **`example-cost-mgmt`** or similar.
@@ -134,24 +134,25 @@ AWS SSO deploys the selected permission set to the selected AWS account.
 
 ## 7. Create Organizational Units
 
-Using AWS Control Tower, create several Organizational Units (OUs) that will act as a mechanism to group AWS accounts that have similar security and management needs.  Initially, the OU structure will simply consist of two custom OUs:
+Using AWS Control Tower, create several Organizational Units (OUs) that will act as a mechanism to group AWS accounts that have similar security and management needs.  Here's the set of initial example OUs that you'll establish:
 
-* **`infrastructure`** - For foundation infrastructure related AWS accounts including the Network AWS account that you will create later in this section.
-* **`development`** - For team development AWS accounts that you'll create in the next section.
+|OU Name|Description|
+|-------|------------|
+|**`infrastructure-prod`**|Supports foundation infrastructure related AWS accounts including the Network Production and Infrastructure Shared Services AWS accounts that you will create later in this guide. These accounts are managed by your Cloud Foundation team.|
+|**`development-foundation`**|Supports the team development AWS accounts for your Cloud Foundation teams. These AWS accounts will have more write access to AWS resources as compared to your standard team development AWS accounts. For example, the ability to create and manage foundational VPC resources.|
+|**`development-standard`**|Supports the bulk of your team development AWS accounts.|
 
-{{% notice info %}}
-**Your OU design will evolve:** Contrary to what's implied by the name "OU", AWS Organizations OUs are not meant to be used to reflect your enterprise's organizational structure. Instead, they are intended to provide a means to group AWS accounts that have similar security and operational requirements.  Since you have the ability to move AWS accounts between OUs and modify OUs, you don't need to perform a complete OU design at this early stage. As you progress on your journey, you will evolve your OU design to suit your emerging needs.  If you'd like to learn more about OUs, see [AWS Organizations in Control Tower](https://docs.aws.amazon.com/controltower/latest/userguide/organizations.html).
-{{% /notice %}}
-
-### Create the `infrastructure` OU
+### Create each of the OUs listed in the table above
 
 1. Navigate to **`AWS Control Tower`**.
 2. Select **`Organizational units`**.
 3. Select **`Add an OU`**.  
-4. Follow the prompts to create a new OU named **`infrastructure`**.
+4. Follow the prompts to create a new OU based on the names listed in table above.
 
-### Create the `development` OU
+{{% notice note %}}
+**Your OU design is not intended to reflect your company's organizational structure:** Contrary to what's implied by the name "OU", AWS Organizations OUs are not meant to be used to reflect your enterprise's organizational structure. Instead, OUs are intended to provide a means to group AWS accounts that have similar security and operational requirements. 
+{{% /notice %}}
 
-1. Create another OU named **`development`**.
-2. Once the OU has been created, select the **`development`** OU and record the ID of the form **`ou-....`** so that you can use it in the next step.
-
+{{% notice info %}}
+**Your OU design will evolve:** Since you have the ability to move AWS accounts between OUs and modify OUs, you don't need to perform a complete OU design at this early stage. As you progress on your journey, you will evolve your OU design to suit your emerging needs.  If you'd like to learn more about OUs, see [AWS Organizations in Control Tower](https://docs.aws.amazon.com/controltower/latest/userguide/organizations.html).
+{{% /notice %}}
