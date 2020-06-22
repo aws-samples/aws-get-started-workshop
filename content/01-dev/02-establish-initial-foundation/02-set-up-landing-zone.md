@@ -105,14 +105,11 @@ AWS Control Tower created several new AWS accounts when it set up the landing zo
 
 |AWS Account|Purpose|
 |-----------|-------|
-|**Audit**|For the time being, it's recommended that you not use this AWS account. Once guidance is developed so that you can use it as a security oriented break glass account, you can repurpose this AWS account.|
-|**Log archive**|Centrally located AWS CloudTrail and AWS Config logs.|
+|**Audit**|This AWS account is a restricted account that's designed to give your security and compliance teams read and write access to all accounts in your landing zone. From the audit account, you have programmatic access to review accounts, by means of a role that is granted to Lambda functions only. The audit account does not allow you to log in to other accounts manually. |
+|**Log archive**|This AWS account works as a repository for logs of API activities and resource configurations from all accounts in the landing zone. |
 
 ## 9. Review AWS Control Tower Best Practices for Administrators
 
 Now that you've set up your initial landing zone, take a few minutes to review [Best Practices for Account Administrators](https://docs.aws.amazon.com/controltower/latest/userguide/best-practices.html#tips-for-admin-maint) so that you understand temporary limitations and other considerations when working with AWS Control Tower.
 
-For example:
-
-* **Managing Organizational Units (OUs)** - AWS Control Tower currently supports only a single level of AWS Organizations Organizational Units (OUs) and creation of OUs to be used with AWS accounts managed by AWS Control Tower must be performed via AWS Control Tower and not via AWS Organizations.
-* **Modification of AWS Account Root User Email Addresses** - AWS Control Tower does not currently support self-service modification of the email addresses associated with the root user of each AWS account.  You currently need to contact AWS Support to have these email addresses changed.
+Additionally, you should review [Managing Resources Outside of AWS Control Tower](https://docs.aws.amazon.com/controltower/latest/userguide/external-resources.html) so that you know how to update your landing zone when you change AWS account names, root user email addresses, and OU names.
