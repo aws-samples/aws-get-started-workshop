@@ -57,7 +57,8 @@ Using AWS Control Tower, add the OUs:
 1. Sign in to the AWS SSO URL for your environment using the **AWS Control Tower Administrator** user.
 2. Select the AWS **`Master`** account.
 3. Select **`Management console`** associated with the **`AWSAdministratorAccess`** role.
-4. Select the appropriate AWS region.1. Navigate to **`AWS Control Tower`**.
-5. Select **`Organizational units`**.
-6. Select **`Add an OU`**.  
-7. Follow the prompts to create a new OU based on the names listed in table above.
+4. Select the appropriate AWS region.
+5. Navigate to **`AWS Control Tower`**.
+6. Select **`Organizational units`**.
+7. Select **`Add an OU`**.  
+8. Follow the prompts to create a new OU based on the names listed in table above.
