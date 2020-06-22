@@ -131,28 +131,3 @@ In the spirit of least privilege access, the resulting permissions will enable c
 11. Select **`Finish`**.
 
 AWS SSO deploys the selected permission set to the selected AWS account.
-
-## 7. Create Organizational Units
-
-Using AWS Control Tower, create several Organizational Units (OUs) that will act as a mechanism to group AWS accounts that have similar security and management needs.  Here's the set of initial example OUs that you'll establish:
-
-|OU Name|Description|
-|-------|------------|
-|**`infrastructure-prod`**|Supports foundation infrastructure related AWS accounts including the Network Production and Infrastructure Shared Services AWS accounts that you will create later in this guide. These accounts are managed by your Cloud Foundation team.|
-|**`development-foundation`**|Supports the team development AWS accounts for your Cloud Foundation teams. These AWS accounts will have more write access to AWS resources as compared to your standard team development AWS accounts. For example, the ability to create and manage foundational VPC resources.|
-|**`development-standard`**|Supports the bulk of your team development AWS accounts.|
-
-### Create each of the OUs listed in the table above
-
-1. Navigate to **`AWS Control Tower`**.
-2. Select **`Organizational units`**.
-3. Select **`Add an OU`**.  
-4. Follow the prompts to create a new OU based on the names listed in table above.
-
-{{% notice note %}}
-**Your OU design is not intended to reflect your company's organizational structure:** Contrary to what's implied by the name "OU", AWS Organizations OUs are not meant to be used to reflect your enterprise's organizational structure. Instead, OUs are intended to provide a means to group AWS accounts that have similar security and operational requirements. 
-{{% /notice %}}
-
-{{% notice info %}}
-**Your OU design will evolve:** Since you have the ability to move AWS accounts between OUs and modify OUs, you don't need to perform a complete OU design at this early stage. As you progress on your journey, you will evolve your OU design to suit your emerging needs.  If you'd like to learn more about OUs, see [AWS Organizations in Control Tower](https://docs.aws.amazon.com/controltower/latest/userguide/organizations.html).
-{{% /notice %}}
