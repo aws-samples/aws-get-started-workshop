@@ -38,7 +38,7 @@ Review the [Initial Development Environment Solution Overview]({{< relref "02-re
 
 The following diagram provides a more detailed view of the initial network environment that is available to your team development AWS account:
 
-[![Common Development Network Details](/images/01-dev/dev-network-initial-details.png)](/images/01-dev/dev-network-initial-details.png)
+[![Common Development Network Details](/images/01-dev/initial-foundation-dev-network-initial-details.png)](/images/01-dev/initial-foundation-dev-network-initial-details.png)
 
 When you access your team development AWS account via the the AWS Management Console and review the Virtual Private Cloud (VPC) resources, you will see a series of private subnets that have been shared with your AWS account.  
 

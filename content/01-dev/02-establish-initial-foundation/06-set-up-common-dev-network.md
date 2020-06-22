@@ -28,7 +28,7 @@ At least one public subnet will have a NAT Gateway that enables workloads in any
 **Option to filter outbound Internet traffic:** As you progress in your journey, you may transition from this initial approach of providing builder teams with unfiltered outbound or egress Internet access via the initial set of public subnets and NAT Gateway to a more secure architecture where all Internet egress traffic is routed through your standard enterprise edge security services so that all egress traffic is inspected for compliance. This capability is highlighted in the optional [development fast follow capabilities]({{< relref "02-dev-fast-follow" >}}).
 {{% /notice %}}
 
-[![Centrally Managed Development Network Details](/images/01-dev/dev-network-initial-details.png)](/images/01-dev/dev-network-initial-details.png)
+[![Centrally Managed Development Network Details](/images/01-dev/initial-foundation-dev-network-initial-details.png)](/images/01-dev/initial-foundation-dev-network-initial-details.png)
 
 ## 2. Disable Account Factory VPC Provisioning
 
