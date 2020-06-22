@@ -20,7 +20,7 @@ This step should take about 10 minutes to complete.
 
 The following diagram represents an example set of OUs and AWS accounts that can help you get started with your initial AWS environment in support of your first few production workloads.
 
-This initial set of OUs are intended to enable you to group AWS accounts that have similar security and management needs.
+This initial set of OUs is intended to enable you to group AWS accounts that have similar security and management needs.
 
 The development and workloads AWS accounts names are examples. Depending on your needs, your AWS account names will vary.
 
