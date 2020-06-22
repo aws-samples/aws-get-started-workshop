@@ -26,12 +26,17 @@ The development and workloads AWS accounts names are examples. Depending on your
 
 [![Initial OUs and AWS Accounts](/images/01-dev/aws-accounts-ous.png)](/images/01-dev/aws-accounts-ous.png)
 
+### Foundational OUs
+
 |OU Name|Description|
 |-------|------------|
-|**Foundational OUs**||
 |**`Core`**|Automatically created by AWS Control Tower. Includes several foundational AWS accounts.|
 |**`infrastructure-prod`**|Includes foundation infrastructure related AWS accounts including the Network Production and Infrastructure Shared Services AWS accounts that you will create later in this guide. These accounts are managed by your Cloud Foundation team.|
-|**Business-oriented OUs**||
+
+### Business-oriented OUs
+
+|OU Name|Description|
+|-------|------------|
 |**`development-foundation`**|Includes the team development AWS account(s) for your Cloud Foundation teams. These AWS accounts will have more write access to AWS resources as compared to your standard team development AWS accounts. For example, the ability to create and manage foundational VPC resources.|
 |**`development-standard`**|Includes the bulk of your team development AWS accounts.|
 |**`workloads-test`**|Includes the formal test environment AWS accounts for your business-oriented workloads.|
