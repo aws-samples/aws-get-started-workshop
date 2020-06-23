@@ -59,22 +59,7 @@ You'll follow these steps twice: Once to create the initial development team's A
 
 It will take a few minutes to enroll the new account. You can check the status in **`Service Catalog`**.
 
-## 3. Initialize AWS Account System Users
-
-When each new team development AWS account is created, follow these steps to initialize the AWS account's AWS SSO user and root user to align with security best practices.
-
-### Initialize AWS SSO User for the AWS Account
-When a new AWS account has been created via the Account Factory, a user for the new AWS account is created in AWS SSO. As a best practice, you should initiatize the associated user's password and enable MFA. 
-
-1. Access the inbox for the email address you associated with the AWS account when using Account Factory.
-2. Within the email message "Invitation to join AWS Single Sign-On", select `Accept invitation`.
-3. Follow the process to set the initial password for this user.
-
-Follow the instruction in [How to Register a Device for Use with Multi-Factor Authentication](https://docs.aws.amazon.com/singlesignon/latest/userguide/user-device-registration.html).
-
-### Initialize AWS Account's Root User
-
-In addition to a new AWS SSO user being created for the AWS account, the new AWS account has a built-in root user.  
+## 3. Initialize AWS Account's Root User
 
 See [Log In as Root User](https://docs.aws.amazon.com/controltower/latest/userguide/best-practices.html#root-login) in the AWS Control Tower documentation for instructions to set the root user’s password.
 
