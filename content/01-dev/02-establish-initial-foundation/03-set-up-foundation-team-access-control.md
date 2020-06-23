@@ -56,7 +56,7 @@ Since you have not yet created users in AWS SSO for each member of your foundati
 Access the AWS SSO service:
 
 1. Sign in to the AWS SSO URL for your environment using the **AWS Control Tower Administrator** user.
-2. Select the AWS **`Master`** account.
+2. Select the AWS **`master`** account.
 3. Select **`Management console`** associated with the **`AWSAdministratorAccess`** role.
 4. Select the appropriate AWS region.
 5. Navigate to **`AWS SSO`**.
@@ -113,7 +113,7 @@ In the spirit of least privilege access, the resulting permissions will enable c
 ### Associate Group and Permission Set with AWS Master Account
 
 1. Access **`AWS accounts`** in AWS SSO.
-2. Select the checkbox next to your **`Master`** AWS account.
+2. Select the checkbox next to your **`master`** AWS account.
 3. Select **`Assign users`**.
 4. Select **`Groups`**.
 5. Select the checkbox next to **`example-cost-mgmt`** or similar.

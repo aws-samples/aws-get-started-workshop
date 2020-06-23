@@ -53,7 +53,7 @@ The development and workloads AWS accounts names shown in the diagram are exampl
 Using AWS Control Tower, add the OUs:
 
 1. Sign in to the AWS SSO URL for your environment using the **AWS Control Tower Administrator** user.
-2. Select the AWS **`Master`** account.
+2. Select the AWS **`master`** account.
 3. Select **`Management console`** associated with the **`AWSAdministratorAccess`** role.
 4. Select the appropriate AWS region.
 5. Navigate to **`AWS Control Tower`**.

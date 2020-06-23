@@ -38,7 +38,7 @@ In AWS Control Tower, provision the initial set of team development AWS accounts
 You'll follow these steps twice: Once to create the initial development team's AWS account and again to create the development AWS account for the foundation team.
 
 1. As a Cloud Administrator, use your personal user to log into AWS SSO.
-2. Select the AWS **`Master`** account.
+2. Select the AWS **`master`** account.
 3. Select **`Management console`** associated with the **`AWSAdministratorAccess`** role.
 4. Select the appropriate AWS region.
 5. Navigate to **`Control Tower`**.
@@ -85,7 +85,7 @@ See [Enable MFA on the AWS Account Root User](https://docs.aws.amazon.com/IAM/la
 Since Cloud Administrators won't automatically be granted sufficient access to newly created AWS accounts, you need to enable this access each time you create new AWS accounts via AWS Control Tower's Account Factory.
 
 1. As a Cloud Administrator, use your personal user to log into AWS SSO.
-2. Select the AWS **`Master`** account.
+2. Select the AWS **`master`** account.
 3. Select **`Management console`** associated with the **`AWSAdministratorAccess`** role.
 4. Select the appropriate AWS region.
 5. Navigate to **`AWS SSO`**.

@@ -65,7 +65,7 @@ In the following steps, you will modify your AWS SSO configuration to align with
 
 1. Since you just set the password for the **`Control Tower Administrator`** user, you should already be logged into the AWS SSO portal.
 2. From within the portal, select **`AWS Account`** icon to expand the current list of AWS accounts.
-3. Select the AWS **`Master`** account.
+3. Select the AWS **`master`** account.
 4. Select **`Management console`** associated with the **`AWSAdministratorAccess`** role.
 5. Select the appropriate AWS region.
 6. Navigate to **`AWS Single Sign-on`**.

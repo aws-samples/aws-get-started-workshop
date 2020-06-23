@@ -41,7 +41,7 @@ Either open in a separate browser tab or download to your desktop the following 
 * [`example-base-scp-vpc-boundaries.json`](/code-samples/02-scps/example-base-scp-vpc-boundaries.json)
 
 1. As a Cloud Administrator, use your personal user to log into AWS SSO.
-2. Select the AWS **`Master`** account.
+2. Select the AWS **`master`** account.
 3. Select **`Management console`** associated with the **`AWSAdministratorAccess`** role.
 4. Select the appropriate AWS region.
 5. Navigate to **`AWS Organizations`**.

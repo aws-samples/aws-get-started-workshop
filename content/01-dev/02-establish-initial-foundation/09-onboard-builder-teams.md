@@ -27,7 +27,7 @@ See the [Example Getting Started Guide for Builder Team Members]({{< relref "02-
 Create a new group in AWS SSO for each of the builder teams and associate those groups with an initial set of permissions and their respective team development AWS accounts.
 
 1. As a Cloud Administrator, use your personal user to log into AWS SSO.
-2. Select the AWS **`Master`** account.
+2. Select the AWS **`master`** account.
 3. Select **`Management console`** associated with the **`AWSAdministratorAccess`** role.
 4. Select the appropriate AWS region.
 5. Navigate to **`AWS SSO`**.
