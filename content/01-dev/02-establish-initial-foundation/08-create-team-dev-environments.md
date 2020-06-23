@@ -93,7 +93,7 @@ Since Cloud Administrators won't automatically be granted sufficient access to n
 4. Select the appropriate AWS region.
 5. Navigate to **`AWS SSO`**.
 6. Access **`AWS accounts`** in AWS SSO.
-7. Select the checkboxes next both team development AWS accounts. For example:
+7. Select the checkboxes next to both team development AWS accounts. For example:
   * `dev-foundation`
   * `dev-<team identifier>`
 8. Select **`Assign users`**.
