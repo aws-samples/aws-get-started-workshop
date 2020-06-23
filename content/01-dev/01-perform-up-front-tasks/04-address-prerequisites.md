@@ -57,7 +57,7 @@ Use your organization's process to request either DLs or shared mailboxes based 
 |---|---|---|---|
 |**Master**|`master`|You'll either create a new master AWS account or reuse an existing compatible AWS account.|`aws-account-master@example.com`|
 
-### Foundational AWS Accounts
+### Foundational AWS Accounts {#foundation-aws-accounts}
 
 |AWS Account Name|Technical Name|Purpose|Example Email Address|
 |---|---|---|---|
@@ -66,7 +66,7 @@ Use your organization's process to request either DLs or shared mailboxes based 
 |**Network - Prod**|`network-prod`|Centrally managed network resources.<br><br>For example, hybrid networking resources such as AWS Site-to-Site VPN and AWS Transit Gateway resources.|`aws-account-network-prod@example.com`|
 |**Infrastructure Shared Services - Prod**|`infra-shared-prod`|Shared infrastructure services.<br><br>Recommended if you plan to connect your on-premises network to your AWS environment.<br><br>For example, this AWS account can host shared directory services such as Microsoft Active Directory and contain resources to support integration with your on-premises DNS services.|`aws-account-infra-shared-prod@example.com`|
 
-### Business-Oriented AWS Accounts
+### Business-Oriented AWS Accounts {#business-aws-accounts}
 
 |AWS Account Name|Technical Name|Purpose|Example Email Address|
 |---|---|---|---|

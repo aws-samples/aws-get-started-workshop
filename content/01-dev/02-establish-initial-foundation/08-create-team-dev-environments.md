@@ -48,16 +48,16 @@ You'll follow these steps twice: Once to create the initial development team's A
 
 |Field|Recommendation|
 |-----|---------------|
-|**`Account email`**|Consult the [set of AWS account root user email addresses]({{< relref "04-address-prerequisites#initial-aws-accounts" >}}) that you established earlier.|
-|**`Display name`**|**`dev-foundation`** or **`dev-<team name>`**|
-|**`AWS SSO email`**|Use the same email address as **`Account Email`**.|
+|**`Account email`**|Consult the [set of AWS account root user email addresses]({{< relref "04-address-prerequisites#business-aws-accounts" >}}) that you established earlier.|
+|**`Display name`**|**`Dev - Foundation`** or **`Dev - <team name>`**|
+|**`AWS SSO email`**|Use the same email address as **`Account email`**.|
 |**`AWS SSO First Name`**|Use **`Dev`**|
 |**`AWS SSO Last Name`**|Use either **`Foundation`** or the team's name.|
 |**`Organizational unit`**|Select either **`development-foundation`** or **`development-standard`**.|
 
 9. Select **`Enroll Account`**.
 
-It will take a few minutes to enroll the new account. You can check the status in **`Service Catalog`**. Once it's done, the e-mail address you used will receive **3** messages: 1) **Your AWS Account is Ready**, 2) **Invitation to join AWS Single Sign-On**, 3) **Welcome to Amazon Web Services.**
+It will take a few minutes to enroll the new account. You can check the status in **`Service Catalog`**.
 
 ## 3. Initialize AWS Account System Users
 

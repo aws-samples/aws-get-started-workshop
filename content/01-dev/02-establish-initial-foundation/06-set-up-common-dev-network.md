@@ -53,7 +53,7 @@ Later in your journey, you'll deploy more network related resources to this AWS 
 
 |Field|Recommendation|
 |-----|---------------|
-|**`Account email`**|Consult the [set of AWS account root user email addresses]({{< relref "04-address-prerequisites#initial-aws-accounts" >}}) that you established earlier.|
+|**`Account email`**|Consult the [set of AWS account root user email addresses]({{< relref "04-address-prerequisites#foundation-aws-accounts" >}}) that you established earlier.|
 |**`Display name`**|**`Network - Prod`**|
 |**`AWS SSO email`**|Use the same email address as **`Account Email`**.|
 |**`AWS SSO First Name`**|Use a part of your account name. For example, **`Network`**.|
@@ -62,13 +62,34 @@ Later in your journey, you'll deploy more network related resources to this AWS 
 
 9. Select **`Enroll Account`**.
 
-It will take a few minutes to enroll the new account. You can check the status in **`Service Catalog`**. Once it's done, the e-mail address you used will receive **3** messages: 1) **Your AWS Account is Ready**, 2) **Invitation to join AWS Single Sign-On**, 3) **Welcome to Amazon Web Services.**
+It will take a few minutes to enroll the new account. You can check the status in **`Service Catalog`**.
 
 {{% notice info %}}
 **You can change AWS account settings later:** Configuration settings of the AWS accounts you provision via Account Factory shouldn’t be considered static.  Nearly every part of an AWS account can be changed and updated at a later date. See [Account Factory](https://docs.aws.amazon.com/controltower/latest/userguide/account-factory.html) for more details.
 {{% /notice %}}
 
-## 4. Enable Foundation Team Members Access
+## 4. Initialize AWS Account System Users
+
+When the new Network - Prod AWS account is created, follow these steps to initialize the AWS account's AWS SSO user and root user to align with security best practices.
+
+### Initialize AWS SSO User for the AWS Account
+When a new AWS account has been created via the Account Factory, a user for the new AWS account is created in AWS SSO. As a best practice, you should initiatize the associated user's password and enable MFA. 
+
+1. Access the inbox for the email address you associated with the AWS account when using Account Factory.
+2. Within the email message "Invitation to join AWS Single Sign-On", select `Accept invitation`.
+3. Follow the process to set the initial password for this user.
+
+Follow the instruction in [How to Register a Device for Use with Multi-Factor Authentication](https://docs.aws.amazon.com/singlesignon/latest/userguide/user-device-registration.html).
+
+### Initialize AWS Account's Root User
+
+In addition to a new AWS SSO user being created for the AWS account, the new AWS account has a built-in root user.  
+
+See [Log In as Root User](https://docs.aws.amazon.com/controltower/latest/userguide/best-practices.html#root-login) in the AWS Control Tower documentation for instructions to set the root user’s password.
+
+See [Enable MFA on the AWS Account Root User](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html#id_root-user_manage_mfa) for instructions to enable MFA.
+
+## 5. Enable Foundation Team Members Access
 
 Since Cloud Administrators won't automatically be granted sufficient access to the newly created AWS account, you need to enable this access each time you create a new AWS account via AWS Control Tower's Account Factory.
 
@@ -88,7 +109,7 @@ Since Cloud Administrators won't automatically be granted sufficient access to t
 
 Now you've enabled all users who are part of the Cloud Administrator group in AWS SSO administrator access to the **Network - Prod** AWS account.
 
-## 5. Determine IP Address CIDR Blocks
+## 6. Determine IP Address CIDR Blocks
 
 If you're just experimenting and don't care which IP address CIDR block is used to build the centrally managed development VPC, you can move to the next step, [6. Provision Development VPC]({{< relref "#provision-dev-vpc" >}}).
 
@@ -140,7 +161,7 @@ Once you've determined the VPC CIDR block, breaking it down into an equal size b
 5. In the table at the bottom, click the **`Divide`** links to start subdividing the larger block into 6 blocks of equal size.
 6. Note the first 6 blocks and supply them as the subnet CIDR blocks in the next step.
 
-## 6. Provision Development VPC {#provision-dev-vpc}
+## 7. Provision Development VPC {#provision-dev-vpc}
 
 You can use this [sample AWS CloudFormation template](https://github.com/aws-samples/vpc-multi-tier) to easily deploy your centrally managed development network.
 
@@ -178,7 +199,7 @@ Leave all of the other parameters at their default settings unless you're comfor
 
 In the **`Events`** tab, monitor the progress of the stack creation process. After 5 or so minutes, creation of the stack should complete.
 
-## 7. Review Development VPC
+## 8. Review Development VPC
 
 Review the newly created VPC and associated resources.
 
@@ -193,7 +214,7 @@ Review the newly created VPC and associated resources.
 9. Select the log group associated with the VPC Flow Logs. For example, `/base/dev/flowlogs`.
 10. Explore the log streams. You should see a log stream for each Elastic Network Interface (ENI) used in the VPC. For example, each NAT Gateway has one ENI. Each entry in a log stream represents a the source, destination, and other overall information about the network traffic flowing through the ENI.
 
-## 8. Share Private Subnets With Development OUs
+## 9. Share Private Subnets With Development OUs
 
 Now that the centrally managed development VPC has been provisioned, your next step is to share the private subnets with all of the AWS accounts that will become part of the development OUs that you created earlier.  
 

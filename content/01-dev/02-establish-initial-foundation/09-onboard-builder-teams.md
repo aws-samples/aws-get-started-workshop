@@ -43,6 +43,8 @@ Create a new group in AWS SSO for each of the builder teams and associate those 
 
 ## 3. Grant Development Groups Access to Team Development AWS Accounts
 
+Next, enable each team development group to access the associated team development AWS account.
+
 1. Access **`AWS accounts`** in AWS SSO.
 2. Select the checkbox next to the team development AWS account of interest. For example:
   * `Dev - Foundation`
@@ -51,27 +53,25 @@ Create a new group in AWS SSO for each of the builder teams and associate those 
 4. Select **`Groups`**.
 5. Select the checkbox next to the group of interest. For example:
   * `example-dev-foundation`
- * `example-dev-<team identifier>`
+  * `example-dev-<team identifier>`
 6. Select **`Next: Permission sets`**.
 7. Select the checkbox next to **`example-base-dev-team`**.
 8. Select **`Finish`**.
 
-Repeat the process above to create a group for your foundation team and enable this group to access their team development AWS account.
+Repeat the process above to address all of the initial team development groups and AWS accounts.
 
 ## 4. Create Builder Team Users in AWS SSO
 
-Now that you've established the two team development oriented groups in AWS SSO and wired these groups to a set of permissions and AWS accounts, your next step is to create a user in AWS SSO for each builder team member.
-
-Typically, the user name will simply be the user's corporate email address that is often used for SaaS services.
-
-Next, access the AWS SSO service to begin adding an AWS SSO user for each foundation team member:
+Now that you've established the two team development groups in AWS SSO and granted those groups permissions to access their respective team development AWS accounts, your next step is to create a user in AWS SSO for each builder team member.
 
 1. Access **`Users`** in AWS SSO.
 2. Select **`Add user`**.
-4. Specify a user name and complete at least the other required fields.
+4. Specify a user name and complete at least the other required fields. Typically, the user name will simply be the user's corporate email address.
 5. Select **`Next: Groups`**.
 6. Select `example-dev-<team identifier>` or similar.
 7. Select **`Add user`**.
+
+Repeat these steps for each builder team user.
 
 ## 5. Add Foundation Team Members to Development Group
 
@@ -87,4 +87,4 @@ The foundation team members now have access to the foundation team development A
 
 ## 6. Brief Builder Team Members
 
-Meet with the builder team members to brief them on their access and other topics covered in the [Example Getting Started Guide for Builder Team Members]({{< relref "02-getting-started-guide-builder-team-members" >}}). 
+Meet with the builder team members to brief them on their access and other topics covered in the [Example Getting Started Guide for Builder Team Members]({{< relref "02-getting-started-guide-builder-team-members" >}}).

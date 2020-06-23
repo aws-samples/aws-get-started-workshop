@@ -15,16 +15,16 @@ In this step your Security and Cloud Administrators will provision resources to 
 This step should take about 20 minutes to complete.
 
 {{% notice tip %}}
-**Automated provisioning of resources:** In the next several steps you'll use a mix of manual steps and automation to provision a set of policies to set up access controls for builder teams' use of team development environments.  Although these approaches may be suitable for your initial iteration of your AWS environment, a more advanced and effective means of provisioning these resources would be to manage the polcies in a source repository and use a continuous delivery (CD) pipeline to automatically detect changes to the policy source, validate the changes, and provision the changes to your environment. [Customizations for AWS Control Tower](https://aws.amazon.com/solutions/customizations-for-aws-control-tower/) is an AWS solution that uses AWS services including AWS CodePipeline and [AWS Control Tower Lifecycle Events](https://docs.aws.amazon.com/controltower/latest/userguide/lifecycle-events.html) to help you more efficiently manage these types of resources as code and via pipelines. Both the SCPs and IAM permissions boundary policy resources addressed below are candidates for using this automation solution.
+**Automated provisioning of resources:** Ideally, you would use automation to deploy policies and other configurations to your AWS accounts. [Customizations for AWS Control Tower](https://aws.amazon.com/solutions/customizations-for-aws-control-tower/) is an AWS solution that uses AWS services including AWS CodePipeline and [AWS Control Tower Lifecycle Events](https://docs.aws.amazon.com/controltower/latest/userguide/lifecycle-events.html) to help you more efficiently manage these types of resources as code and via pipelines. Both the SCPs and IAM permissions boundary policy resources addressed below are candidates for using this automation solution.
 {{% /notice %}}
 
 {{< toc >}}
 
-## 1. Apply Service Control Policies (SCPs) to `development-standard` OU
+## 1. Apply Service Control Policies (SCPs)
 
 Using AWS Organizations, create several Service Control Policies (SCPs) that will initially be applied to the `development-standard` OU.  Combined, these SCPs will disallow any user from creating and modifying foundation VPC networking resources in standard team development AWS accounts.
 
-Since you'll likely want your Cloud Foundation team members to be able to develop and test changes to foundation VPC resources in their team development AWS accounts, you probably don't want to apply the SCPs to the `development-foundation` OU.
+Since you'll likely want your Cloud Foundation team members to be able to develop and test changes to foundation VPC resources in their team development AWS accounts, it's recommended that you don't want to apply the SCPs to the `development-foundation` OU.
 
 {{% notice tip %}}
 **Service Control Policies (SCPs):** If you'd like to learn more about SCPs, see [Managing AWS Organizations policies](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies.html).
@@ -112,7 +112,7 @@ Leave the other parameters at their default settings.
 8. Leave the **`Permissions`** set to **`Service managed permissions`**.
 9. Select **`Next`**.
 10. In **`Deployment targets`**, select **`Deploy to organizational units (OUs)`**.
-11. Enter the OU IDs of the development OUs that you created previously.
+11. Enter the OU IDs of the development OUs that you created previously.  If you didn't note the development OU IDs, open a new browser tab and access **`AWS Control Tower`**. Select **`Organizational units`**, and select each of the development OUs to obtain its OU ID.
 12. In **`Specify regions`**, select your home AWS region.
 13. Select **`Next`**.
 14. Scrolls to the bottom and mark the checkbox to acknowledge that IAM resources will be created.
