@@ -55,10 +55,10 @@ Later in your journey, you'll deploy more network related resources to this AWS 
 |-----|---------------|
 |**`Account email`**|Consult the [set of AWS account root user email addresses]({{< relref "04-address-prerequisites#foundation-aws-accounts" >}}) that you established earlier.|
 |**`Display name`**|**`network-prod`**|
-|**`AWS SSO email`**|Use the same email address as **`Account Email`**.|
-|**`AWS SSO First Name`**|Use a part of your account name. For example, **`Network`**.|
-|**`AWS SSO Last Name`**|Use the remaining part of the account name. For example, **`Production`**|
-|**`Organizational unit`**|Select the infrastructure OU you created earlier. For example, **`infrastructure-prod`**.|
+|**`AWS SSO email`**|Use the email address of your **`AWS Control Tower Admin`** user in AWS SSO.  As long as you reference an existing AWS SSO user, the Account Factory will not create another AWS SSO user for this new AWS account.|
+|**`AWS SSO First Name`**|**`AWS Control Tower`**|
+|**`AWS SSO Last Name`**|**`Admin`**|
+|**`Organizational unit`**|Select **`infrastructure-prod`**.|
 
 9. Select **`Enroll Account`**.
 

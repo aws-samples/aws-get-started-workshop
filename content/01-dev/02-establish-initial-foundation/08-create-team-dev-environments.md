@@ -50,9 +50,9 @@ You'll follow these steps twice: Once to create the initial development team's A
 |-----|---------------|
 |**`Account email`**|Consult the [set of AWS account root user email addresses]({{< relref "04-address-prerequisites#business-aws-accounts" >}}) that you established earlier.|
 |**`Display name`**|**`dev-foundation`** or **`dev-<team identifier>`**|
-|**`AWS SSO email`**|Use the same email address as **`Account email`**.|
-|**`AWS SSO First Name`**|Use **`Dev`**|
-|**`AWS SSO Last Name`**|Use either **`Foundation`** or the team's name.|
+|**`AWS SSO email`**|Use the email address of your **`AWS Control Tower Admin`** user in AWS SSO.  As long as you reference an existing AWS SSO user, the Account Factory will not create another AWS SSO user for this new AWS account.|
+|**`AWS SSO First Name`**|**`AWS Control Tower`**|
+|**`AWS SSO Last Name`**|**`Admin`**|
 |**`Organizational unit`**|Select either **`development-foundation`** or **`development-standard`**.|
 
 9. Select **`Enroll Account`**.
