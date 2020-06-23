@@ -10,6 +10,7 @@ information to effectively respond to your bug report or contribution.
 * [Contributing via Pull Requests](#contributing-via-pull-requests)
 * [Code of Conduct](#code-of-conduct)
 * [Security Issue Notifications](#security-issue-notifications)
+* [Understanding Project Tenets](#understanding-project-tenets)
 * [Working with Content](#working-with-content)
 * [Licensing](#licensing)
 
@@ -56,7 +57,7 @@ opensource-codeofconduct@amazon.com with any additional questions or comments.
 ## Security Issue Notifications
 If you discover a potential security issue in this project we ask that you notify AWS/Amazon Security via our [vulnerability reporting page](http://aws.amazon.com/security/vulnerability-reporting/). Please do **not** create a public github issue.
 
-## Understanding the Projec Tenets
+## Understanding Project Tenets
 
 Ensure that you review the [Project Tenets](https://getstarted.awsworkshop.io/05-project/02-project-tenets.html).
 
