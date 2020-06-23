@@ -18,6 +18,23 @@ This document is intended to provide foundation team members with awareness of t
 
 {{< toc >}}
 
+## All Foundation Team Members
+
+### Understanding Your Team's Initial Development Environment
+
+Since your team will need to experiment, develop, and perform early testing of changes to foundation resources and may need to reproduce issues as you support other teams using the environment, your team also needs a development environment.
+
+Just like other builder teams, your foundation team has been allocated a team developer AWS account. The only differences between your team's development AWS account and other teams are:
+
+* Only the foundation team has permissions to access its team development AWS account.
+* Service Control Policies (SCPs) to restrict the creation of VPC resources has not been applied to your foundation team development AWS account.
+
+{{% notice tip %}}
+**Use Team Development Access Permissions for Most of Your Work**: When you're needing to experiment, develop, and test foundation changes and/or reproduce user issues, you're strongly encouraged to use the team development access permission and your team development AWS account as opposed to using your cloud administrative access permissions in any AWS account. You should only use your cloud administrative access permissions for cloud administrative work.
+{{% /notice %}}
+
+See [Getting Started Guide for Builder Teams]({{< relref "02-getting-started-guide-builder-team-members" >}}) for information on using your team development environment.
+
 ## Cloud Administrators
 
 ### Gain More Familiarity with AWS Control Tower
