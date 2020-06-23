@@ -56,6 +56,10 @@ opensource-codeofconduct@amazon.com with any additional questions or comments.
 ## Security Issue Notifications
 If you discover a potential security issue in this project we ask that you notify AWS/Amazon Security via our [vulnerability reporting page](http://aws.amazon.com/security/vulnerability-reporting/). Please do **not** create a public github issue.
 
+## Understanding the Projec Tenets
+
+Ensure that you review the [Project Tenets](https://getstarted.awsworkshop.io/05-project/02-project-tenets.html).
+
 ## Working with Content
 
 ### Use of Hugo Static Site Generator
