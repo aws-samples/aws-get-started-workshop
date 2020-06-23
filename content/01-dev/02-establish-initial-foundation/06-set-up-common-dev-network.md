@@ -10,7 +10,7 @@ Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 SPDX-License-Identifier: CC-BY-SA-4.0
 {{% /comment %}}
 
-In this step your Cloud Administrators will review the initial development network design, create a new **Network - Prod** AWS account, provision a common centrally managed development network, and share the private subnets will all team development AWS accounts in your AWS organization.
+In this step your Cloud Administrators will review the initial development network design, create a new **network-prod** AWS account, provision a common centrally managed development network, and share the private subnets will all team development AWS accounts in your AWS organization.
 
 This step should take about 60 minutes to complete.
 
@@ -36,9 +36,9 @@ Since you will be provisioning the centrally managed development VPC directly us
 
 See [Configuring AWS Control Tower Without a VPC](https://docs.aws.amazon.com/controltower/latest/userguide/configure-without-vpc.html) for details on disabling automatic creation of VPCs.
 
-## 3. Create Network - Prod AWS Account
+## 3. Create network-prod AWS Account
 
-In AWS Control Tower, provision a new **Network - Prod** AWS account that will initially contain the centrally managed development VPC. 
+In AWS Control Tower, provision a new **network-prod** AWS account that will initially contain the centrally managed development VPC. 
 
 Later in your journey, you'll deploy more network related resources to this AWS account. For example, you will likely configure  and manage [AWS Transit Gateway](https://aws.amazon.com/transit-gateway/) resources in this dedicated AWS account when you start integrating on-premises network connectivity in your overall AWS environment.
 
@@ -54,7 +54,7 @@ Later in your journey, you'll deploy more network related resources to this AWS 
 |Field|Recommendation|
 |-----|---------------|
 |**`Account email`**|Consult the [set of AWS account root user email addresses]({{< relref "04-address-prerequisites#foundation-aws-accounts" >}}) that you established earlier.|
-|**`Display name`**|**`Network - Prod`**|
+|**`Display name`**|**`network-prod`**|
 |**`AWS SSO email`**|Use the same email address as **`Account Email`**.|
 |**`AWS SSO First Name`**|Use a part of your account name. For example, **`Network`**.|
 |**`AWS SSO Last Name`**|Use the remaining part of the account name. For example, **`Production`**|
@@ -70,7 +70,7 @@ It will take a few minutes to enroll the new account. You can check the status i
 
 ## 4. Initialize AWS Account System Users
 
-When the new Network - Prod AWS account is created, follow these steps to initialize the AWS account's AWS SSO user and root user to align with security best practices.
+When the new network-prod AWS account is created, follow these steps to initialize the AWS account's AWS SSO user and root user to align with security best practices.
 
 ### Initialize AWS SSO User for the AWS Account
 When a new AWS account has been created via the Account Factory, a user for the new AWS account is created in AWS SSO. As a best practice, you should initiatize the associated user's password and enable MFA. 
@@ -99,7 +99,7 @@ Since Cloud Administrators won't automatically be granted sufficient access to t
 4. Select the appropriate AWS region.
 5. Navigate to **`AWS SSO`**.
 6. Access **`AWS accounts`** in AWS SSO.
-7. Select the checkbox next to the **`Network - Prod`** AWS account.
+7. Select the checkbox next to the **`network-prod`** AWS account.
 8. Select **`Assign users`**.
 9. Select **`Groups`**.
 10. Select the checkbox next to the group **`example-cloud-admin`** or similar.
@@ -107,7 +107,7 @@ Since Cloud Administrators won't automatically be granted sufficient access to t
 12. Select the checkbox next to **`AWSAdministratorAccess`**.
 13. Select **`Finish`**.
 
-Now you've enabled all users who are part of the Cloud Administrator group in AWS SSO administrator access to the **Network - Prod** AWS account.
+Now you've enabled all users who are part of the Cloud Administrator group in AWS SSO administrator access to the **network-prod** AWS account.
 
 ## 6. Determine IP Address CIDR Blocks
 
@@ -167,10 +167,10 @@ You can use this [sample AWS CloudFormation template](https://github.com/aws-sam
 
 Download the sample AWS CloudFormation template [vpc-multi-tier.yml](https://raw.githubusercontent.com/aws-samples/vpc-multi-tier/master/vpc-multi-tier.yml) to your desktop. You can review the [README](https://github.com/aws-samples/vpc-multi-tier/blob/master/README.md) to understand the role of this template.
 
-Next, access the new **Network - Prod** AWS account:
+Next, access the new **network-prod** AWS account:
 
 1. As a Cloud Administrator, use your personal user to log into AWS SSO.
-2. Select the **`Network - Prod`** AWS account.
+2. Select the **`network-prod`** AWS account.
 3. Select **`Management console`** associated with the **`AWSAdministratorAccess`** role.
 4. Select the appropriate AWS region.
 
@@ -245,7 +245,7 @@ While you're in the master AWS account, obtain and record the resource ID of eac
 ### Create a Resource Share
 
 1. As a Cloud Administrator, use your personal user to log into AWS SSO.
-2. Select the **`Network - Prod`** AWS account.
+2. Select the **`network-prod`** AWS account.
 3. Select **`Management console`** associated with the **`AWSAdministratorAccess`** role.
 4. Select the appropriate AWS region.
 5. Navigate to **`Resource Access Manager`**.

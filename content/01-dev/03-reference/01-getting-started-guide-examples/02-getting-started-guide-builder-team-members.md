@@ -42,7 +42,7 @@ The following diagram provides a more detailed view of the initial network envir
 
 When you access your team development AWS account via the the AWS Management Console and review the Virtual Private Cloud (VPC) resources, you will see a series of private subnets that have been shared with your AWS account.  
 
-The private subnets and other VPC resources are hosted in a **Network - Prod** AWS account that is managed by your Cloud Administrators.  All team development AWS accounts have read only access to these VPC resources.
+The private subnets and other VPC resources are hosted in a **network-prod** AWS account that is managed by your Cloud Administrators.  All team development AWS accounts have read only access to these VPC resources.
 
 By design, your team does not have permissions to create and modify VPC resources in your own team development AWS account.
 

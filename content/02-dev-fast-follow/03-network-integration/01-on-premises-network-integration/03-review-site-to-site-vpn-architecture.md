@@ -24,7 +24,7 @@ Given that you'll likely want to enable your development, test, and production V
 
 #### Future State: Multiple VPCs Connected to On-premises Network
 
-In the following diagram, your on-premises IPsec-capable VPN device is represented as the "Customer Gateway".  Your customer gateway device will initiate a site-to-site VPN connection using two IPsec tunnels with VPN Transit Gateway attachment in your **Network - Prod** AWS account.  
+In the following diagram, your on-premises IPsec-capable VPN device is represented as the "Customer Gateway".  Your customer gateway device will initiate a site-to-site VPN connection using two IPsec tunnels with VPN Transit Gateway attachment in your **network-prod** AWS account.  
 
 Initially, you'll configure your AWS Tranit Gateway to attach to your development VPC.  Later in this guide, you'll add attachments for your emerging set of test and production VPCs.
 

@@ -47,8 +47,8 @@ Next, enable each team development group to access the associated team developme
 
 1. Access **`AWS accounts`** in AWS SSO.
 2. Select the checkbox next to the team development AWS account of interest. For example:
-  * `Dev - Foundation`
-  * `Dev - <team identifier>`
+  * `dev-foundation`
+  * `dev-<team identifier>`
 3. Select **`Assgn users`**.
 4. Select **`Groups`**.
 5. Select the checkbox next to the group of interest. For example:

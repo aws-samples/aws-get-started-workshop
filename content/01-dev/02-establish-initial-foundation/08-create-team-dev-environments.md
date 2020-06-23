@@ -49,7 +49,7 @@ You'll follow these steps twice: Once to create the initial development team's A
 |Field|Recommendation|
 |-----|---------------|
 |**`Account email`**|Consult the [set of AWS account root user email addresses]({{< relref "04-address-prerequisites#business-aws-accounts" >}}) that you established earlier.|
-|**`Display name`**|**`Dev - Foundation`** or **`Dev - <team name>`**|
+|**`Display name`**|**`dev-foundation`** or **`dev-<team identifier>`**|
 |**`AWS SSO email`**|Use the same email address as **`Account email`**.|
 |**`AWS SSO First Name`**|Use **`Dev`**|
 |**`AWS SSO Last Name`**|Use either **`Foundation`** or the team's name.|
@@ -91,8 +91,8 @@ Since Cloud Administrators won't automatically be granted sufficient access to n
 5. Navigate to **`AWS SSO`**.
 6. Access **`AWS accounts`** in AWS SSO.
 7. Select the checkboxes next both team development AWS accounts. For example:
-  * `Dev - Foundation`
-  * `Dev - <team identifier>`
+  * `dev-foundation`
+  * `dev-<team identifier>`
 8. Select **`Assign users`**.
 9. Select **`Groups`**.
 10. Select the checkbox next to the group `example-cloud-admin` or similar.
@@ -112,7 +112,7 @@ Since the names of shared subnets are not currently propagated to AWS accounts, 
 4. Select the appropriate AWS region.
 5. Navigate to **`VPC`**.
 6. Select **`Your VPCs`**.
-7. Select the unnamed VPC and assign the same name as used in the **Network - Prod** AWS account. For example, **`base-dev`**.
+7. Select the unnamed VPC and assign the same name as used in the **network-prod** AWS account. For example, **`base-dev`**.
 8. Select **`Subnets`**.
-9. Update the **`Name`** field of each private subnet to match the name of the private subnet as it's configured in the **Network - Prod** AWS account. You can open another icognito or similar browser session to view the **Network - Prod** AWS account's resources. **Caution:** The subnets may not be listed in the same order in both AWS accounts by default.
+9. Update the **`Name`** field of each private subnet to match the name of the private subnet as it's configured in the **network-prod** AWS account. You can open another icognito or similar browser session to view the **network-prod** AWS account's resources. **Caution:** The subnets may not be listed in the same order in both AWS accounts by default.
 10. You can optionally apply the same naming alignment for route tables.

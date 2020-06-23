@@ -60,10 +60,10 @@ In this configuration only one tunnel will be up at a given time.  Depending on 
 
 ## 2. Register Your Customer Gateway in AWS
 
-You will begin by making changes in the **Network - Prod** account you set up earlier.
+You will begin by making changes in the **network-prod** account you set up earlier.
 
 1. As a Cloud Administrator, use your personal user to log into AWS SSO.
-2. Select the **`Network - Prod`** AWS account
+2. Select the **`network-prod`** AWS account
 3. Select **`Management console`** associated with the **`AWSAdministratorAccess`** role.
 4. Select the appropriate AWS region.
 5. Navigate to **`VPC`** and click on **`Customer Gateways`** in the left navigation
