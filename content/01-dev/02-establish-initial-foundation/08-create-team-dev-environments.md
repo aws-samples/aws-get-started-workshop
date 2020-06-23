@@ -35,7 +35,7 @@ Initially, you will likely need AWS accounts for the following teams:
 
 In AWS Control Tower, provision the initial set of team development AWS accounts for early experimentation, development, and testing. 
 
-You'll follow these steps twice: Once to create the initial development team's AWS account and again to create the development AWS account for the foundation team.
+You'll follow these steps twice: Once to create the initial builder team development AWS account and again to create the Cloud Foundation team development AWS account.
 
 1. As a Cloud Administrator, use your personal user to log into AWS SSO.
 2. Select the AWS **`master`** account.
@@ -59,11 +59,29 @@ You'll follow these steps twice: Once to create the initial development team's A
 
 It will take a few minutes to enroll the new account. You can check the status in **`Service Catalog`**.
 
-## 3. Initialize AWS Account's Root User
+## 3. Perform Post AWS Account Creation User Configuration
 
-See [Log In as Root User](https://docs.aws.amazon.com/controltower/latest/userguide/best-practices.html#root-login) in the AWS Control Tower documentation for instructions to set the root user’s password.
+Once you create a new AWS account using Account Factory, there are several user account related tasks that you should perform to enhance the security of your environment.
 
-See [Enable MFA on the AWS Account Root User](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html#id_root-user_manage_mfa) for instructions to enable MFA.
+### Remove Individual Access to the New AWS Account
+
+Since AWS Control Tower's Account Factory automatically grants the AWS SSO user specified in the Account Factory parameters administrative access to the newly created AWS account, you should remove this individual access.  Since you'll grant your Cloud Administrators access to the new AWS account using their AWS SSO group in a subsequent step, there's no need to leave this individual access in place.
+
+1. Navigate to **`AWS SSO`**.
+2. Access **`AWS accounts`** in AWS SSO.
+3. Select the **`dev-foundation`** AWS account.
+4. Select **`Remove access`** from the **`User/group`** entry that matches the AWS SSO email address you supplied in the previous step.
+5. Select **`Remove access`** to confirm removal.
+
+Repeat these steps for the **`dev-<team identifier>`** AWS account.
+
+### Initialize AWS Account's Root User  
+
+Perform the following steps for each of the new AWS accounts:
+
+1. **Set AWS Account Root User Password**: See [Log In as Root User](https://docs.aws.amazon.com/controltower/latest/userguide/best-practices.html#root-login) in the AWS Control Tower documentation for instructions to set the root user’s password.
+
+2. **Enable Multi-Factor Authentication (MFA)**: See [Enable MFA on the AWS Account Root User](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html#id_root-user_manage_mfa) for instructions to enable MFA.
 
 ## 4. Provide Cloud Administrators Access to New AWS Accounts
 

@@ -68,29 +68,39 @@ It will take a few minutes to enroll the new account. You can check the status i
 **You can change AWS account settings later:** Configuration settings of the AWS accounts you provision via Account Factory shouldn’t be considered static.  Nearly every part of an AWS account can be changed and updated at a later date. See [Account Factory](https://docs.aws.amazon.com/controltower/latest/userguide/account-factory.html) for more details.
 {{% /notice %}}
 
-## 4. Initialize AWS Account's Root User  
+## 4. Perform Post AWS Account Creation User Configuration
 
-See [Log In as Root User](https://docs.aws.amazon.com/controltower/latest/userguide/best-practices.html#root-login) in the AWS Control Tower documentation for instructions to set the root user’s password.
+Once you create a new AWS account using Account Factory, there are several user account related tasks that you should perform to enhance the security of your environment.
 
-See [Enable MFA on the AWS Account Root User](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html#id_root-user_manage_mfa) for instructions to enable MFA.
+### Remove Individual Access to the New AWS Account
+
+Since AWS Control Tower's Account Factory automatically grants the AWS SSO user specified in the Account Factory parameters administrative access to the newly created AWS account, you should remove this individual access.  Since you'll grant your Cloud Administrators access to the new AWS account using their AWS SSO group in a subsequent step, there's no need to leave this individual access in place.
+
+1. Navigate to **`AWS SSO`**.
+2. Access **`AWS accounts`** in AWS SSO.
+3. Select the **`network-prod`** AWS account.
+4. Select **`Remove access`** from the **`User/group`** entry that matches the AWS SSO email address you supplied in the previous step.
+5. Select **`Remove access`** to confirm removal.
+
+### Initialize AWS Account's Root User  
+
+1. **Set AWS Account Root User Password**: See [Log In as Root User](https://docs.aws.amazon.com/controltower/latest/userguide/best-practices.html#root-login) in the AWS Control Tower documentation for instructions to set the root user’s password.
+
+2. **Enable Multi-Factor Authentication (MFA)**: See [Enable MFA on the AWS Account Root User](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html#id_root-user_manage_mfa) for instructions to enable MFA.
 
 ## 5. Enable Foundation Team Members Access
 
 Since Cloud Administrators won't automatically be granted sufficient access to the newly created AWS account, you need to enable this access each time you create a new AWS account via AWS Control Tower's Account Factory.
 
-1. As a Cloud Administrator, use your personal user to log into AWS SSO.
-2. Select the AWS **`master`** account.
-3. Select **`Management console`** associated with the **`AWSAdministratorAccess`** role.
-4. Select the appropriate AWS region.
-5. Navigate to **`AWS SSO`**.
-6. Access **`AWS accounts`** in AWS SSO.
-7. Select the checkbox next to the **`network-prod`** AWS account.
-8. Select **`Assign users`**.
-9. Select **`Groups`**.
-10. Select the checkbox next to the group **`example-cloud-admin`** or similar.
-11. Select **`Next: Permission sets`**.
-12. Select the checkbox next to **`AWSAdministratorAccess`**.
-13. Select **`Finish`**.
+1. Navigate to **`AWS SSO`**.
+2. Access **`AWS accounts`** in AWS SSO.
+3. Select the checkbox next to the **`network-prod`** AWS account.
+4. Select **`Assign users`**.
+5. Select **`Groups`**.
+6. Select the checkbox next to the group **`example-cloud-admin`** or similar.
+7. Select **`Next: Permission sets`**.
+8. Select the checkbox next to **`AWSAdministratorAccess`**.
+9. Select **`Finish`**.
 
 Now you've enabled all users who are part of the Cloud Administrator group in AWS SSO administrator access to the **network-prod** AWS account.
 
