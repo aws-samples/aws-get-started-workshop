@@ -30,7 +30,7 @@ First, ensure that the following pre-requisites are satisfied:
 
 In order to effect the necessary on-premises network configuration changes required by your AWS Site-to-Site VPN connection, you'll need to engage your Network team.  It's recommended that you review the overall requirements and solution design with them before proceeding with the configuration work.
 
-### Use Non-overlapping IP Address Ranges
+### Use Non-overlapping IP Addresses
 
 When you initially established your common development VPC, it was recommended that you use an IP range for CIDR block that does not overlap with other CIDR blocks in use by your organization.
 
@@ -149,7 +149,7 @@ Register your on-premises customer gateway device in AWS.
 **Site-to-Site VPN Connection:** As a result of the VPN attachment being provisioned, you will notice in the Site-to-Site VPN Connections area of the console that a new connection resource has been created. If you review the **`Tunnel Details`** of the connection, it will show both tunnels in the **`DOWN`** state because you have not yet configured the on-premises side of the connection.
 {{% /notice %}}
 
-## 6. Configure Site-to-Site VPN Connection
+## 6. Configure On-premises Customer Gateway
 
 Your next step is to obtain configuration data from the newly created site-to-site VPN connection and use it to configure your on-premises customer gateway device.
 
@@ -158,7 +158,8 @@ Your next step is to obtain configuration data from the newly created site-to-si
 3. You can optionally name the connection. For example, **`infra-on-prem-dc1-gw1`**, the same name as your customer gateway resource.
 4. Download the VPN configuration information by clicking **` Download Configuration`**. 
 5. Select your Vendor, Platform, and Software from the drop downs.  If you specific vendor is not available, select **`Generic`**.
-6. Use the configuration data to configure your on-premises customer gateway.
+
+Use the configuration data to configure your on-premises customer gateway.
 
 ## 7. Confirm Tunnels Are UP
 
