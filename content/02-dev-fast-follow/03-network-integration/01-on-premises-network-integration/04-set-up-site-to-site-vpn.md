@@ -30,7 +30,7 @@ First, ensure that the following pre-requisites are satisfied:
 
 In order to effect the necessary on-premises network configuration changes required by your AWS Site-to-Site VPN connection, you'll need to engage your Network team.  It's recommended that you review the overall requirements and solution design with them before proceeding with the configuration work.
 
-### Use Non-overlapping IP Address Ranges
+### Use Non-overlapping IP Addresses
 
 When you initially established your common development VPC, it was recommended that you use an IP range for CIDR block that does not overlap with other CIDR blocks in use by your organization.
 
