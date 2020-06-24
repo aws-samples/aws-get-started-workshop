@@ -137,7 +137,7 @@ If your Network team has supplied a relatively large non-overlapping CIDR block,
 
 If you need to break down a larger block:
 
-1. Acess the [Visual Subnet Calculator](http://www.davidc.net/sites/default/subnets/subnets.html). 
+1. Access the [Visual Subnet Calculator](http://www.davidc.net/sites/default/subnets/subnets.html). 
 2. Enter your network address without the mask portion **`/nn`** in the **`Network Address`** field.
 3. Enter the size of allocated block in the **`Mask bits`** field.
 4. Click **`Update`**.  
@@ -176,13 +176,13 @@ Now create a new AWS CloudFormation stack using the sample template you download
 3. Select **`Upload a template file`**.
 4. Select **`Choose file`** to select the downloaded template file from your desktop.
 5. Select **`Next`**.
-6. Enter a **`Stack name`**. For example, **`infra-dev-vpc`**.
+6. Enter a **`Stack name`**. For example, **`infra-dev-shared-vpc`**.
 7. In **`Parameters`**:
 
 |Parameter|Guidance|
 |---------|--------|
 |**`Business Scope`**|Replace `example` with your organization identifier or stock ticker if that applies. This value is used as a prefix in the name of some of the VPC-related cloud resources. For example, in the name of the IAM role used to support VPC flow logs.|
-|**`VPC Name`**|Change to **`dev`**.|
+|**`VPC Name`**|Change to **`dev-shared`**|
 |**`Cidr`**|**Just Experimenting**<br>If you want to just experiment at this point and don't care about using formally assigned IP address ranges, you can leave the CIDR block parameters at their default values.<br><br>**You Have Your Own CIDR Blocks**<br>Enter values for the `pVpcCidr`, `pTier1..`, and `pTier2...` CIDR blocks from the prior step. You can ignore the `pTier3...` parameters because only two tiers - public and private - are being provisioned by default.|
 
 Leave all of the other parameters at their default settings unless you're comfortable changing them.  You can always easily create another stack to experiment with other parameter values. Review the [README](https://github.com/aws-samples/vpc-multi-tier/blob/master/README.md) for details on parameters.
@@ -206,7 +206,7 @@ Review the newly created VPC and associated resources.
 6. Select **`Elastic IPs`** and review.  You will see one EIP allocated for each NAT Gateway.
 7. Navigate to **`CloudWatch`**.
 8. Select **`Log groups`**.
-9. Select the log group associated with the VPC Flow Logs. For example, `/infra/dev/flowlogs`.
+9. Select the log group associated with the VPC Flow Logs. For example, `/infra/dev-shared/flowlogs`.
 10. Explore the log streams. You should see a log stream for each Elastic Network Interface (ENI) used in the VPC. For example, each NAT Gateway has one ENI. Each entry in a log stream represents a the source, destination, and other overall information about the network traffic flowing through the ENI.
 
 ## 9. Share Private Subnets With Development OUs
@@ -245,7 +245,7 @@ While you're in the master AWS account, obtain and record the resource ID of eac
 4. Select the appropriate AWS region.
 5. Navigate to **`Resource Access Manager`**.
 6. Select **`Create a resource share`**.
-7. Enter a **`Name`** of **`infra-dev-vpc-private-subnets`**.
+7. Enter a **`Name`** of **`infra-dev-shared-vpc-private-subnets`**.
 8. Under **`Resources`**, by default, the subnets that were just provisioned should be listed.
 9. Select only the private subnets.
 10. Under **`Principals`**, uncheck **`Allow external accounts`** given that we're sharing the subnets only with other AWS accounts within this AWS organization.

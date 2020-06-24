@@ -34,6 +34,10 @@ Since you'll likely want your Cloud Foundation team members to be able to develo
 **Review the sample team development access controls:** See [Controlling Builder Team Access]({{< relref "02-controlling-builder-team-access" >}}) for a detailed explanation of the requirements and sample implementation of how you can provide freedom to your builder teams in their team development AWS accounts, but inhibit them from adversely impacting the security of your overall AWS environment.
 {{% /notice %}}
 
+{{% notice warning %}}
+**Service Control Policies (SCPs) and AWS Control Tower:** You need to be very careful when using customer-managed SCPs with AWS Control Tower so that your SCPs do not conflict with the new AWS account baselining processes carried out by AWS Control Tower Account Factory. See [Controlling Builder Team Access]({{< relref "02-controlling-builder-team-access#scps" >}}) for further details and an example of how to avoid such potential conflicts.
+{{% /notice %}}
+
 ### Create the SCPs
 
 Either open in a separate browser tab or download to your desktop the following sample SCPs:
@@ -52,7 +56,7 @@ Either open in a separate browser tab or download to your desktop the following 
     * Policy name: **`example-infra-scp-vpc-core`** 
     * Description: **"Deny creation of and changes to core VPC resources"**
     * Policy: Copy the content of the sample policy.
-10. Repeat steps 8-9 in order to create the secon SCP:
+10. Repeat steps 8-9 in order to create the second SCP:
     * Policy name: **`example-infra-scp-vpc-boundaries`** 
     * Description: **"Deny creation of and changes to boundary VPC resources"**
     * Policy: Copy the content of the sample policy.
@@ -142,6 +146,11 @@ Next, you'll create a custom permission set in AWS SSO to represent the initial 
 7. Set the **`Session duration`** to the desired value.
 8. Select the checkbox **`Create a custom permissions policy`**.
 9. Open the sample policy file that you just customized in a text editor, copy, and paste the content.
+
+{{% notice warning %}}
+**Replace `example` with your own identifier:** Before you select **`Create`**, in the permissions policy, ensure that you replace all occurrences of **`example`** with your own organization's identifier.  Otherwise, the permission set will not work as expected.
+{{% /notice %}}
+
 10. Select **`Create`**.
 
 Later, when you onboard the builder teams to their team development AWS accounts, you'll reference this permission set.

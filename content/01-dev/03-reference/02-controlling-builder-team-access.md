@@ -404,7 +404,7 @@ The main difference is that write access to all IAM resources is disallowed in t
             }
 ```
 
-### Service Control Policies (SCPs) Walkthrough
+### Service Control Policies (SCPs) Walkthrough {#scps}
 
 These are the SCPs you created and initially associated with the `development-standard` OU:
 
