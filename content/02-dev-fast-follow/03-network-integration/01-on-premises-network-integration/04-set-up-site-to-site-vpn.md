@@ -96,7 +96,7 @@ Register your on-premises customer gateway device in AWS.
 
 |Field|Recommendation|Notes|
 |-----|---------------|----|
-|**`Name`**|`base-on-prem-dc1-gw1`|Accounting for the possibility of multiple customer gateway devices in each of multiple data centers.|
+|**`Name`**|`infra-on-prem-dc1-gw1`|Accounting for the possibility of multiple customer gateway devices in each of multiple data centers.|
 |**`Routing`**|`Dynamic Routing`||
 |**`BGP ASN`**|`6500`||
 |**`IP Address`**|Public IP Address of your on-premises customer gateway||
@@ -115,7 +115,7 @@ Register your on-premises customer gateway device in AWS.
 
 |Field|Recommendation|Notes|
 |-----|---------------|----|
-|**`Name tag`**|base-main|You'll be able to use a single Transit Gateway for both on-premises integration and VPC-to-VPC routing if necessary.|
+|**`Name tag`**|infra-main|You'll be able to use a single Transit Gateway for both on-premises integration and VPC-to-VPC routing if necessary.|
 |**`Description`**|||
 |**`Amazon side ASN`**|Accept default||
 |**`DNS support`**|checked||
@@ -143,7 +143,7 @@ Register your on-premises customer gateway device in AWS.
 |**`Tunnel Options`**|Leave unchecked|
 
 4. Select **`Create attachment`**.
-5. Once you're returned to the list of attachments, select the **`Name`** cell of the newly created attachment and assign a name to the attachment. For example, **`base-on-prem-dc1-gw1`**, the same name as your customer gateway resource. 
+5. Once you're returned to the list of attachments, select the **`Name`** cell of the newly created attachment and assign a name to the attachment. For example, **`infra-on-prem-dc1-gw1`**, the same name as your customer gateway resource. 
 
 {{% notice info %}}
 **Site-to-Site VPN Connection:** As a result of the VPN attachment being provisioned, you will notice in the Site-to-Site VPN Connections area of the console that a new connection resource has been created. If you review the **`Tunnel Details`** of the connection, it will show both tunnels in the **`DOWN`** state because you have not yet configured the on-premises side of the connection.
@@ -155,7 +155,7 @@ Your next step is to obtain configuration data from the newly created site-to-si
 
 1. Select **`Site-to-Site VPN Connections`**
 2. Select the connection that was just created
-3. You can optionally name the connection. For example, **`base-on-prem-dc1-gw1`**, the same name as your customer gateway resource.
+3. You can optionally name the connection. For example, **`infra-on-prem-dc1-gw1`**, the same name as your customer gateway resource.
 4. Download the VPN configuration information by clicking **` Download Configuration`**. 
 5. Select your Vendor, Platform, and Software from the drop downs.  If you specific vendor is not available, select **`Generic`**.
 6. Use the configuration data to configure your on-premises customer gateway.

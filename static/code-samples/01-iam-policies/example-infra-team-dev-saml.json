@@ -38,7 +38,7 @@
                 "iam:CreatePolicyVersion",
                 "iam:DeletePolicyVersion"
             ],
-            "NotResource": "arn:aws:iam::*:policy/example-base-*"
+            "NotResource": "arn:aws:iam::*:policy/example-infra-*"
         },
        {
             "Sid": "AllowRoleWithPBs",
@@ -50,10 +50,10 @@
                 "iam:PutRolePolicy",
                 "iam:DeleteRolePolicy"
             ],
-            "NotResource": "arn:aws:iam::*:role/example-base-*",
+            "NotResource": "arn:aws:iam::*:role/example-infra-*",
             "Condition": {
                 "StringLike": {
-                    "iam:PermissionsBoundary": "arn:aws:iam::*:policy/example-base-team-dev-boundary"
+                    "iam:PermissionsBoundary": "arn:aws:iam::*:policy/example-infra-team-dev-boundary"
                 }
             }
         }, 
@@ -69,7 +69,7 @@
                 "iam:TagRole",
                 "iam:UntagRole"
             ],
-            "NotResource": "arn:aws:iam::*:role/example-base-*"
+            "NotResource": "arn:aws:iam::*:role/example-infra-*"
         },
         {
             "Sid": "DenyDeletionPBs",

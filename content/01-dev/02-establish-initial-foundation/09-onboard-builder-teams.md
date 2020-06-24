@@ -55,7 +55,7 @@ Next, enable each team development group to access the associated team developme
   * `example-dev-foundation`
   * `example-dev-<team identifier>`
 6. Select **`Next: Permission sets`**.
-7. Select the checkbox next to **`example-base-dev-team`**.
+7. Select the checkbox next to **`example-infra-dev-team`**.
 8. Select **`Finish`**.
 
 Repeat the process above to address all of the initial team development groups and AWS accounts.

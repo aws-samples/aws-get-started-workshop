@@ -37,8 +37,8 @@ Since you'll likely want your Cloud Foundation team members to be able to develo
 ### Create the SCPs
 
 Either open in a separate browser tab or download to your desktop the following sample SCPs:
-* [`example-base-scp-vpc-core.json`](/code-samples/02-scps/example-base-scp-vpc-core.json)
-* [`example-base-scp-vpc-boundaries.json`](/code-samples/02-scps/example-base-scp-vpc-boundaries.json)
+* [`example-infra-scp-vpc-core.json`](/code-samples/02-scps/example-infra-scp-vpc-core.json)
+* [`example-infra-scp-vpc-boundaries.json`](/code-samples/02-scps/example-infra-scp-vpc-boundaries.json)
 
 1. As a Cloud Administrator, use your personal user to log into AWS SSO.
 2. Select the AWS **`master`** account.
@@ -49,11 +49,11 @@ Either open in a separate browser tab or download to your desktop the following 
 7. Select **`Service control policies`**
 8. Select **`Create policy`**.
 9. Create a new SCP:
-    * Policy name: **`example-base-scp-vpc-core`** 
+    * Policy name: **`example-infra-scp-vpc-core`** 
     * Description: **"Deny creation of and changes to core VPC resources"**
     * Policy: Copy the content of the sample policy.
 10. Repeat steps 8-9 in order to create the secon SCP:
-    * Policy name: **`example-base-scp-vpc-boundaries`** 
+    * Policy name: **`example-infra-scp-vpc-boundaries`** 
     * Description: **"Deny creation of and changes to boundary VPC resources"**
     * Policy: Copy the content of the sample policy.
 
@@ -63,8 +63,8 @@ Either open in a separate browser tab or download to your desktop the following 
 2. In the Organization tree on the left, select the **`development-standard`** OU.
 3. On the right side of the console, select **`Service control policies`**.
 4. On the right side of the console, select the **`Attach`** link next to the SCPs
-    * **`example-base-scp-vpc-core`**
-    * **`example-base-scp-vpc-boundaries`**
+    * **`example-infra-scp-vpc-core`**
+    * **`example-infra-scp-vpc-boundaries`**
 
 ## 2. Distribute Permissions Boundary to Development OUs
 
@@ -86,7 +86,7 @@ First, enable the AWS CloudFormation service to automatically configure permissi
 
 ### Download AWS CloudFormation Template
 
-Next, download the sample AWS CloudFormation template [`example-base-team-dev-boundary.yml`](/code-samples/01-iam-policies/example-base-team-dev-boundary.yml) to your desktop.
+Next, download the sample AWS CloudFormation template [`example-infra-team-dev-boundary.yml`](/code-samples/01-iam-policies/example-infra-team-dev-boundary.yml) to your desktop.
 
 ### Deploy Permissions Boundary as a StackSet
 
@@ -96,9 +96,9 @@ Create a StackSet to deploy the permissions boundary policy to all AWS accounts 
 2. Select **`Upload a template file`**.
 3. Select **`Choose file`** to select the downloaded template file from your desktop.
 4. Select **`Next`**.
-5. Enter a **`StackSet name`**. For example, **`example-base-team-dev-boundary`**. 
+5. Enter a **`StackSet name`**. For example, **`example-infra-team-dev-boundary`**. 
 
-It's useful to prefix your custom cloud resources that live in a larger name space with your organization identifier and a qualifier such as **`base`** to represent foundation resources. The important consideration is to be consistent with naming of foundation cloud resources so that you can apply IAM policies that will inhibit unauthorized modification of those resources.
+It's useful to prefix your custom cloud resources that live in a larger name space with your organization identifier and a qualifier such as **`infra`** to represent foundation resources. The important consideration is to be consistent with naming of foundation cloud resources so that you can apply IAM policies that will inhibit unauthorized modification of those resources.
 
 6. In **`Parameters`**:
 
@@ -128,7 +128,7 @@ Next, you'll create a custom permission set in AWS SSO to represent the initial 
 
 ### Download and Customize Sample IAM Policy
 
-1. Download the sample policy [`example-base-team-dev-saml.json`](/code-samples/01-iam-policies/example-base-team-dev-saml.json) to your desktop.
+1. Download the sample policy [`example-infra-team-dev-saml.json`](/code-samples/01-iam-policies/example-infra-team-dev-saml.json) to your desktop.
 2. Open the file and replace all occurrences of **`example`** with a reference to your own organization's identifier.
 
 ### Create Permission Set in AWS SSO
@@ -137,7 +137,7 @@ Next, you'll create a custom permission set in AWS SSO to represent the initial 
 2. Select **`Permission sets`**.
 3. Select **`Create permission set`**.
 4. Select **`Create a custom permission set`**.
-5. Enter a **`Name`**. For example **`example-base-team-dev`**. 
+5. Enter a **`Name`**. For example **`example-infra-team-dev`**. 
 6. Enter a **`Description`**. For example, **`Day-to-day permission used by builders in their team development AWS accounts.`**.
 7. Set the **`Session duration`** to the desired value.
 8. Select the checkbox **`Create a custom permissions policy`**.
