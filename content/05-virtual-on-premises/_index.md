@@ -14,4 +14,8 @@ This section includes an overview of a virtual on-premises environment and step-
 
 You may find the use of a virtual on-premises environments in AWS useful for evaluating and demonstrating AWS capabilities without needing to integrate with a real on-premises environment.
 
+{{% notice note %}}
+**Review Note:** This section is in the process of being developed.
+{{% /notice %}}
+
 {{% children showhidden="false" %}}
