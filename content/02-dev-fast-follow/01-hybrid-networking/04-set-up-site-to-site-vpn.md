@@ -32,11 +32,9 @@ In order to effect the necessary on-premises network configuration changes requi
 
 ### Use Non-overlapping IP Addresses
 
-When you initially established your common development VPC, it was recommended that you use an IP range for CIDR block that does not overlap with other CIDR blocks in use by your organization.
+When you initially established your common development VPC, it was recommended that you use an IP range for CIDR block that does not overlap with other CIDR blocks in use by your organization. If you were not able to obtain a non-overlapping CIDR block or blocks for your AWS environment, it's recommended that you attempt to do so before proceeding further.  Otherwise, you'll need to prepare to perform some extent of Network Address Translation (NAT) in your on-premises environment to manage the use of overlapping IP address ranges.
 
-If you were not able to obtain a non-overlapping CIDR block or blocks for your AWS environment, it's recommended that you attempt to do so before proceeding further.  
-
-Otherwise, you'll need to prepare to perform some extent of Network Address Translation (NAT) in your on-premises environment to manage the use of overlapping IP address ranges.
+See [Obtaining Non-Overlapping IP Address Range]({{< relref "04-address-prerequisites#ip-address-range" >}}) for more background and guidance.
 
 ### Obtain Static Public IP Address for Your Customer Gateway
 
