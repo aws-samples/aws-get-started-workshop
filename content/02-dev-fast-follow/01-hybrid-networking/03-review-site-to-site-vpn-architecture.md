@@ -1,6 +1,6 @@
 ---
 title: 'Review Site-to-Site VPN Architecture and Connection Options'
-menuTitle: 'Review Site-to-Site VPN Architecture'
+menuTitle: 'Site-to-Site VPN Architecture'
 disableToc: true
 weight: 30
 ---
@@ -28,13 +28,13 @@ In the following diagram, your on-premises IPsec-capable VPN device is represent
 
 Initially, you'll configure your AWS Tranit Gateway to attach to your development VPC.  Later in this guide, you'll add attachments for your emerging set of test and production VPCs.
 
-[![Site-to-Site VPN Connection - Multiple VPCs](/images/02-dev-fast-follow/03-network-integration/01-on-premises-network-integration/site-to-site-vpn-high-level-generic.png)](/images/02-dev-fast-follow/03-network-integration/01-on-premises-network-integration/site-to-site-vpn-high-level-generic.png)
+[![Site-to-Site VPN Connection - Multiple VPCs](/images/02-dev-fast-follow/01-hybrid-networking/site-to-site-vpn-high-level-generic.png)](/images/02-dev-fast-follow/01-hybrid-networking/site-to-site-vpn-high-level-generic.png)
 
 #### Initial State: Development VPC Connected to On-premises Network
 
 The following diagram depicts an initial architecture where only the common development VPC has connectivity to your on-premises networks.  The next section addresses connectivity and routing considerations for your initial hybrid connectivity. 
 
-[![Site-to-Site VPN Connection - Initial Development Connectivity](/images/02-dev-fast-follow/03-network-integration/01-on-premises-network-integration/site-to-site-vpn-site-to-site-vpn-dev.png)](/images/02-dev-fast-follow/03-network-integration/01-on-premises-network-integration/site-to-site-vpn-site-to-site-vpn-dev.png)
+[![Site-to-Site VPN Connection - Initial Development Connectivity](/images/02-dev-fast-follow/01-hybrid-networking/site-to-site-vpn-site-to-site-vpn-dev.png)](/images/02-dev-fast-follow/01-hybrid-networking/site-to-site-vpn-site-to-site-vpn-dev.png)
 
 ### Connectivity and Routing Considerations
 

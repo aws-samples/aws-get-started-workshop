@@ -62,11 +62,11 @@ In this configuration only one tunnel will be up at a given time.  Depending on 
 * Periodically send keep alive traffic to keep the tunnel active.
 * Force a failover to the other tunnel in case of issues with the current tunnel.
 
-## 2. Review the Resources to Configure
+## 2. Review Resources to Configure
 
 In this section you'll be configuring resources in the **`network-prod`** AWS account that you established earlier.  
 
-In later sections, you'll be creating test and production VPCs in other AWS accounts and taking steps to attach those VPCs to the Transit Gateway that you're establishing in the **`network-prod`** AWS account.
+In later sections, you'll be creating test and production VPCs in other AWS accounts and taking steps to attach those VPCs to the transit gateway that you're establishing in the **`network-prod`** AWS account.
 
 The resources you'll be configuring in this section within the **`network-prod`** AWS account include:
 * Customer gateway
@@ -111,11 +111,11 @@ Register your on-premises customer gateway device in AWS.
 
 1. Select **`Transit Gateways`**
 2. Select **`Create Transit Gateway`**
-3. Provide the Transit Gateway form details:
+3. Provide the Transit Gateway details:
 
 |Field|Recommendation|Notes|
 |-----|---------------|----|
-|**`Name tag`**|infra-main|You'll be able to use a single Transit Gateway for both on-premises integration and VPC-to-VPC routing if necessary.|
+|**`Name tag`**|infra-main|You'll be able to use a single transit gateway for both on-premises integration and VPC-to-VPC routing if necessary.|
 |**`Description`**|||
 |**`Amazon side ASN`**|Accept default||
 |**`DNS support`**|checked||
@@ -134,7 +134,7 @@ Register your on-premises customer gateway device in AWS.
 
 |Field|Recommendation|
 |-----|---------------|
-|**`Transit Gateway ID`**|Select value from the list that matches the ID of the Transit Gateway you just created.|
+|**`Transit Gateway ID`**|Select your transit gateway|
 |**`Attachment Type`**|VPN|
 |**`Customer Gateway`**|Existing|
 |**`Customer Gateway ID`**|Select value from the list that matches the ID of the Customer Gateway you just created.|
@@ -149,66 +149,86 @@ Register your on-premises customer gateway device in AWS.
 **Site-to-Site VPN Connection:** As a result of the VPN attachment being provisioned, you will notice in the Site-to-Site VPN Connections area of the console that a new connection resource has been created. If you review the **`Tunnel Details`** of the connection, it will show both tunnels in the **`DOWN`** state because you have not yet configured the on-premises side of the connection.
 {{% /notice %}}
 
-## 6. Configure On-premises Customer Gateway
+## 6. Configure On-premises Side of the VPN Connection
 
 Your next step is to obtain configuration data from the newly created site-to-site VPN connection and use it to configure your on-premises customer gateway device.
 
+### Download VPN Configuration File
+
 1. Select **`Site-to-Site VPN Connections`**
 2. Select the connection that was just created
-3. You can optionally name the connection. For example, **`infra-on-prem-dc1-gw1`**, the same name as your customer gateway resource.
-4. Download the VPN configuration information by clicking **` Download Configuration`**. 
-5. Select your Vendor, Platform, and Software from the drop downs.  If you specific vendor is not available, select **`Generic`**.
+3. Download the VPN configuration information by clicking **`Download Configuration`**. 
+4. Select your Vendor, Platform, and Software of your customer gateway device from the menus.  If your specific device is not available, select **`Generic`**.
 
-Use the configuration data to configure your on-premises customer gateway.
+### Configure Your On-Premises Customer Gateway
 
-## 7. Confirm Tunnels Are UP
+Use the configuration data to configure your on-premises customer gateway. See [Your customer gateway device](https://docs.aws.amazon.com/vpn/latest/s2svpn/your-cgw.html) in the [AWS Site-to-Site VPN](https://docs.aws.amazon.com/vpn/latest/s2svpn) documentation for details.
 
-Once your VPN is configured on-premises, 
+### Configure Routing in Your On-Premises Environment
+
+Ensure that your on-premises router configuration has been updated to route network traffic destined for the CIDR ranges allocated to your AWS environment to your customer gateway.
+
+## 7. Confirm Status of the VPN Connection
+
+After your on-premises customer gateway has been configured, check the status of your VPN connection.
 
 1. Select **`Site-to-Site VPN Connections`**
 2. Select the connection that was just created
 3. Select **`Tunnel Details`**.
 4. Monitor the status of the tunnels.  After several minutes, at least one of the two tunnels should transition to the **`UP`** state.
 
-### Troubleshooting tips:
-- Ensure that routing tables on AWS and router configurations (on-premises) are setup to allow communication.
-- Ensure VPC route tables associated with subnets route traffic destined for the other site to the local VPN gateway instance.
-- If using Transit Gateway on the remote site, ensure that VPC route tables are configured to route traffic destined for the other site to the Transit Gateway. (Although the built-in BGP support in this stack will ensure that both the local VPN gateway's route information and the remote Transit Gateway's route table will be automatically configured, you still need to ensure that the VPC route tables in both sites are properly configured).
+If at least one of the tunnels does not come up, then see [Troubleshooting your customer gateway device](https://docs.aws.amazon.com/vpn/latest/s2svpn/Troubleshooting.html.)
 
-## 8. Create a VPC Transit Gateway Attachment
+## 8. Review Transit Gateway Route Table
 
-1. While you are still in the **`VPN Console`** administration, click on **`Transit Gateway Attachments`** in the left navigation
-2. Click the button **`Create Transit Gateway Attachment`**
-3. Fill out the Transit Gateway Attachment form details.  Some suggested fields are below:
+If you configured your site-to-site VPN connection to use BGP, then your customer gateway and the transit gateway will propagate routes to each other. However, your on-premises routes will not be automatically propagated from the transit gateway to you VPC route tables of the attached VPCs. You need to manually configure these route entries.
 
-|Field|Recommendation|
-|-----|---------------|
-|**`Transit Gateway ID`**|Select value from dropdown that matched the ID of the Transit Gateway you just created.|
-|**`Attachment Type`**|VPC|
-|**`DNS support`**|enable (checked)|
-|**`VPC ID`**|Select the value form the dropdown for that matches thee ID of the dev VPC in your account.|
-|**`Subnet IDs`**|Select a subnet from each availability zone - preferably a private subnet|
+Review the transit gateway route table to verify that routing information for the on-premises CIDR is included.
 
-## 9. Update VPC Route Table
+1. Select **`Transit Gateway Route Tables`**
+2. Select **`Routes`**
+3. Inspect the routes. If your VPN connection is using BGP, then you should see the CIDR block of your on-premises network associated with the VPN attachment.
 
-1.   While you are still in the **`VPN Console`** administration, click on **`Route Tables`** under Virtual Private Cloud in the left navigation
-2. Select your route table in the list
-3. Select the **`Routes`** tab at the bottom of the page and click **`Edit routes`**
-4. Add a new route with the values below:
+Similarly, when using BGP, the CIDR block of the attached VPC(s) should appear in the routing tables in your on-premises customer gateway.
+
+## 9. Create a VPC Transit Gateway Attachment
+
+Next, attach the development VPC to the transit gateway.
+
+1. Select **`Transit Gateway Attachments`**
+2. Select **`Create Transit Gateway Attachment`**
+3. Provide the Transit Gateway Attachment details:
 
 |Field|Recommendation|
 |-----|---------------|
-|**`Destination`**|Fill in with your on-premises CIDR range (i.e. 172.31.0.0/16|
-|**`Target`**|Select value from dropdown that matched the ID of the Transit Gateway you just created.|
+|**`Transit Gateway ID`**|Select the transit gateway you just created.|
+|**`Attachment Type`**|`VPC`|
+|**`Attachment name tag`**|**`infra-dev-shared`**|
+|**`DNS support`**|checked|
+|**`IPv6 support`**|unchecked|
+|**`VPC ID`**|**`infra-dev-shared`**|
+|**`Subnet IDs`**|Select each of the **private** subnets|
 
-{{% notice info %}}
-**On-premises VPN Routes:** You will need to make similar types of changes to the routing rules with your on-premises infrastructure in order to route to the reserved CIDR ranges you have allocated for your AWS environment(s).
-{{% /notice %}}
+## 10. Update VPC Route Table
 
-## 10. Test Connectivity
+In this step, you'll update the route table for each of the private subnets in the **`infra-dev-shared`** VPC to add an entry to route traffic destined to your on-premises network to the transit gateway.
+
+1. Select **`Route Tables`**
+2. For each of the private subnet, modify the route table:
+  1. Select route table entry in the list
+  2. Select the **`Routes`** tab
+  3. Select **`Edit routes`**
+  4. Add a new route:
+
+|Field|Recommendation|
+|-----|---------------|
+|**`Destination`**|Specify the CIDR range of your on-premises network|
+|**`Target`**|Select your transit gateway. For example, **`infra-main`**|
+
+## 11. Test Connectivity
 
 See [Testing the Site-to-Site VPN connection](https://docs.aws.amazon.com/vpn/latest/s2svpn/HowToTestEndToEnd_Linux.html).
 
-## 11. Monitor Your VPN Connection
+## 12. Monitor Your VPN Connection
 
 See [Monitoring Your Site-to-Site VPN connection](https://docs.aws.amazon.com/vpn/latest/s2svpn/monitoring-overview-vpn.html).

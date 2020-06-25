@@ -1,6 +1,6 @@
 ---
 title: 'Review On-Premises Network Integration Use Cases'
-menuTitle: 'Review Integration Use Cases'
+menuTitle: 'Integration Use Cases'
 disableToc: true
 weight: 10
 ---

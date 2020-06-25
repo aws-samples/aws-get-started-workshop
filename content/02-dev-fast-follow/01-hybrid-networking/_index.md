@@ -1,6 +1,5 @@
 ---
-title: 'On-Premises Network Integration'
-menuTitle: 'On-Premises Integration'
+title: 'Hybrid Networking'
 disableToc: true
 weight: 10
 ---

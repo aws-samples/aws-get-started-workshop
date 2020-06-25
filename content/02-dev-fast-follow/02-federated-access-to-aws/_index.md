@@ -2,7 +2,7 @@
 title: 'Federated Access to Your AWS Environment'
 menuTitle: 'Federated Access to AWS'
 disableToc: true
-weight: 10
+weight: 20
 ---
 
 {{% comment %}}

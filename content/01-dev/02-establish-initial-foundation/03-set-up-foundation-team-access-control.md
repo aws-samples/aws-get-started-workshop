@@ -21,7 +21,7 @@ This step should take about 30 minutes to complete.
 If your team needs to move very quickly in a matter of 1-2 days to establish your initial development environments and does not have an immediate requirement to integrate your existing enterprise identity management system to help control access to the AWS platform, then it’s recommended that:
 
 1. Your Security and Cloud Administrators temporarily define and manage users and groups within the AWS SSO service.
-2. Make plans for a parallel workstream to integrate your preferred enterprise identity management system with the AWS platform and transition away from locally managed users and groups in the AWS SSO service. See [Federated Access to Your AWS Environment]({{< relref "01-federated-access-to-aws" >}}) for an overview of your options.
+2. Make plans for a parallel workstream to integrate your preferred enterprise identity management system with the AWS platform and transition away from locally managed users and groups in the AWS SSO service. See [Federated Access to Your AWS Environment]({{< relref "02-federated-access-to-aws" >}}) for an overview of your options.
 
 {{% notice info %}}
 **What about AWS IAM users and groups?:** Although the AWS Identity and Access Management (AWS IAM) service supports management of locally defined users and groups, it’s generally not recommended that customers depend on this capability to help manage human user access to the AWS platform _at scale_. Instead, AWS recommends that you reuse your preferred enterprise identity management system and associated processes to act as the basis for human user access to the AWS platform.

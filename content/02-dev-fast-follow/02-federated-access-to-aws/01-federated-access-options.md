@@ -42,16 +42,16 @@ Generally customers have the following requirements regarding identity when emba
 
 Presumably you are visiting this page because you are using [AWS SSO](https://aws.amazon.com/blogs/security/how-to-create-and-manage-users-within-aws-sso/) as a built-in Identity Provider and User Directory. Often, customers will choose to migrate to more enterprise solutions that meet the requirements detailed above. There are 3 common paths when deciding what to do with Federated Access to AWS. There are 3 common options outlined below and the decision tree can help you decide.
 
-[![Federation Choice](/images/02-dev-fast-follow/02-security-compliance/01-federated-access-to-aws/SSODecTree.png)](/images/02-dev-fast-follow/02-security-compliance/01-federated-access-to-aws/SSODecTree.png)
+[![Federation Choice](/images/02-dev-fast-follow/02-federated-access-to-aws/SSODecTree.png)](/images/02-dev-fast-follow/02-federated-access-to-aws/SSODecTree.png)
 
 {{% notice warning %}}
 Switching from AWS SSO to one of these other options will disrupt the way users and administrators log into the AWS console, see the *Migration From Use of Locally Managed Groups and Users in AWS SSO* section below.
 {{% /notice %}}
 
 1) Use the built-in AWS SSO Identity service as an Identity Provider and Microsoft Active Directory (self-managed or AWS Managed Active Directory) as a centralized source of truth for user identity.
-	* Customers often choose this option because they can maintain an existing source of truth for user identity hosted in a self-managed Active Directory Domain. In this design, a VPC is needed in a Shared Services VPC to host self-managed Active Directory or AWS Managed Active Directory with subnets shared to the AWS Master Account where AWS SSO will reside. [Learn more here.](/02-dev-fast-follow/02-security-compliance/01-federated-access-to-aws/02-aws-sso-ad.html)
+	* Customers often choose this option because they can maintain an existing source of truth for user identity hosted in a self-managed Active Directory Domain. In this design, a VPC is needed in a Shared Services VPC to host self-managed Active Directory or AWS Managed Active Directory with subnets shared to the AWS Master Account where AWS SSO will reside. [Learn more here.]({{< relref "02-aws-sso-ad" >}})
 		* [Connect AWS SSO to AWS Managed Active Directory](https://docs.aws.amazon.com/singlesignon/latest/userguide/connectawsad.html) running in a VPC in an Infrastructure Shared Services account with shared subnets to the Master Account.
-		* [Connect AWS SSO to an On-Premises Active Directory](https://docs.aws.amazon.com/singlesignon/latest/userguide/connectonpremad.html) using a VPC in an Infrastructure Shared Services account that has an established VPN or Direct Connect connection to the on-premises datacenter. [Here is another blog](https://aws.amazon.com/blogs/security/how-to-connect-your-on-premises-active-directory-to-aws-using-ad-connector/) post with additional detail.
+		* [Connect AWS SSO to an On-Premises Active Directory](https://docs.aws.amazon.com/singlesignon/latest/userguide/connectonpremad.html) using a VPC in an Infrastructure Shared Services account that has an established VPN or Direct Connect connection to the on-premises datacenter. [Here is another blog](https://aws.amazon.com/blogs/security/how-to-connect-your-hybrid-active-directory-to-aws-using-ad-connector/) post with additional detail.
 2) Use the built-in AWS SSO Identity service as an Identity Provider and connect an external third party Identity Directory over a SAML federation..
 	* This is a popular and recommended option for customers that already use AzureAD or Okta as a source of truth for Identity. This will eliminate some heavy lifting, but often does not provide a level of granular control that some large enterprises require. Most customers choose this option unless additional customization is required.
 		* [Connect AWS SSO to AzureAD](https://aws.amazon.com/blogs/aws/the-next-evolution-in-aws-single-sign-on/) using AzureAD's SCIM (System for Cross-domain Identity Management) endpoint. This enables automated provisioning which is very useful for AWS Organizations with more than 20 Accounts!
@@ -85,7 +85,7 @@ If you began using AWS SSO initially to configure single-sign-on for your AWS en
 
 When you are ready to change AWS SSO over from the internal directory to Active Directory or a Third Party Identity Provider, take note of the implications of such a change **most notibly** all existing entitlements will be lost -- so have your AD groups configured and your Master Account root username, password and MFA handy in case you are logged out. Alternatively you could use an IAM User in the Master Account as a backup. [Follow this guide](https://docs.aws.amazon.com/singlesignon/latest/userguide/manage-your-identity-source-change.html) to switch your AWS SSO identity source.
 
-[![SSO to AD](/images/02-dev-fast-follow/02-security-compliance/01-federated-access-to-aws/awssso_converttoAD.png)](/images/02-dev-fast-follow/02-security-compliance/01-federated-access-to-aws/awssso_converttoAD.png)
+[![SSO to AD](/images/02-dev-fast-follow/02-federated-access-to-aws/awssso_converttoAD.png)](/images/02-dev-fast-follow/02-federated-access-to-aws/awssso_converttoAD.png)
 
 {{% notice note %}}
 The URL you were using to access AWS SSO may change and users may need to update their links.

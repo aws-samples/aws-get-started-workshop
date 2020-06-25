@@ -28,7 +28,7 @@ See [Change History]({{< relref "04-change-history" >}})
 
 It's typical for an organization to require several weeks to plan and coordinate the work required to set up federated access. Accordingly, this guide provides you with the option to address that work in parallel while you temporarily use locally managed users and groups in AWS SSO. 
 
-See [Federated Access to the AWS Platform]({{< relref "01-federated-access-to-aws" >}}) for more background.
+See [Federated Access to the AWS Platform]({{< relref "02-federated-access-to-aws" >}}) for more background.
 
 ## AWS Accounts Design
 
