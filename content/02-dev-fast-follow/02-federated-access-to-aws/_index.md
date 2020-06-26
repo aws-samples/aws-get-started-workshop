@@ -12,7 +12,7 @@ SPDX-License-Identifier: CC-BY-SA-4.0
  
 This section addresses how you can establish federated access to your AWS environment by reusing your existing enterprise identity source.
 
-Users granted access via your standard enterprise access control procedures and who need direct access to the AWS platform via the AWS Management Console, AWS service APIs, and/or AWS CLI will be able to use their standard corporate identities. 
+Users who need direct access to the AWS platform via the AWS Management Console, AWS service APIs, and/or AWS CLI can be granted access via your standard enterprise access control procedures and reuse use their standard corporate identities to access your AWS environment. 
 
 These approaches reuse your existing corporate identity source instead of depending on management of users and groups locally defined in AWS SSO.
 
