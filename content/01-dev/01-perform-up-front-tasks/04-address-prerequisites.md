@@ -105,7 +105,7 @@ In the future, when you need to interconnect a portion of your existing on-premi
 
 ## 4. Decide on Organizational Identifier
 
-Since you will be assigning names to several cloud resources while you follow the steps in this guide, it's useful for you to decide on a unique organizational identifier to assign as a prefix to those names so that:
+Since you will be assigning names to centrally managed cloud resources while you follow the steps in this guide, it's useful for you to decide on a unique organizational identifier to assign as a prefix to those names so that:
 * Names of your resources won't collide with other names when working in global namespaces.
 * You'll be able to create security policies to restrict access based on resources with that prefix.
 
