@@ -1,6 +1,6 @@
 ---
 title: 'Establish Site-to-Site VPN Connection'
-menuTitle: 'Establish Site-to-Site VPN'
+menuTitle: 'Establish VPN Connection'
 disableToc: true
 weight: 40
 ---
