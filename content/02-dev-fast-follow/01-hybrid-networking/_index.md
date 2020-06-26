@@ -1,5 +1,6 @@
 ---
-title: 'Hybrid Networking'
+title: 'Hybrid Networking: Connecting Your On-Premises Network to Your AWS Environment'
+menuTitle: 'Hybrid Networking'
 disableToc: true
 weight: 10
 ---
