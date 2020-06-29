@@ -116,7 +116,13 @@ Leave the other parameters at their default settings.
 8. Leave the **`Permissions`** set to **`Service managed permissions`**.
 9. Select **`Next`**.
 10. In **`Deployment targets`**, select **`Deploy to organizational units (OUs)`**.
-11. Enter the OU IDs of the development OUs that you created previously.  If you didn't note the development OU IDs, open a new browser tab and access **`AWS Control Tower`**. Select **`Organizational units`**, and select each of the development OUs to obtain its OU ID.
+11. Enter the OU IDs of the development OUs that you created previously.  
+
+If you didn't make a copy of the development OU IDs, open a new browser tab and access **`AWS Control Tower`**. Select **`Organizational units`**, and select each of the following development OUs to obtain its OU ID:
+
+* **`infrastructure-dev`**
+* **`workloads-dev`**
+
 12. In **`Specify regions`**, select your home AWS region.
 13. Select **`Next`**.
 14. Scrolls to the bottom and mark the checkbox to acknowledge that IAM resources will be created.
