@@ -1,6 +1,6 @@
 ---
-title: 'Add Organizational Units (OUs)'
-menuTitle: '4. Add OUs'
+title: 'Use Organizational Units (OUs) to Structure Your AWS Accounts'
+menuTitle: '4. Organize AWS Accounts'
 disableToc: true
 weight: 40
 ---

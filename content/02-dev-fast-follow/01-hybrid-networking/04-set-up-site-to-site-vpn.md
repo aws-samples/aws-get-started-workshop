@@ -1,6 +1,6 @@
 ---
 title: 'Establish Site-to-Site VPN Connection'
-menuTitle: 'Establish Site-to-Site VPN'
+menuTitle: 'Establish VPN Connection'
 disableToc: true
 weight: 40
 ---
@@ -75,7 +75,7 @@ The resources you'll be configuring in this section within the **`network-prod`*
 
 The VPC transit gateway attachment will attach your centrally managed development VPC with the transit gateway so that network traffic can be exchanged between the VPC and your on-premises network.
 
-You'll need to update the VPC's route table so that traffic from the development VPC and destined for your on-premises environment is router to the transit gateway.
+You'll need to update the VPC's route tables so that traffic from the development VPC and destined for your on-premises environment is router to the transit gateway.
 
 An optional step is to remove the public subnets and NAT gateways from the development VPC and route all Internet egress traffic from the development VPC to your on-premises network. You might choose this option as a short-term solution to direct the egress traffic through your existing network security filtering services in your on-premises environment. Longer term, you would likely host those filtering services in your AWS environment.
 
