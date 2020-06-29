@@ -228,14 +228,14 @@ This is a one-time operation.
 
 While you're in the master AWS account, obtain and record the resource ID of each of the two development OUs:
 
-* **`development-foundation`**
-* **`development-standard`**
+* **`infrastructure-dev`**
+* **`workloads-dev`**
 
 1. Navigate to **`AWS Control Tower`**.
 2. Select **`Organizational units`**.
-3. Select **`development-foundation`**.
+3. Select **`infrastructure-dev`**.
 4. Copy the **`ID`** of the form `ou-szfb-rixl8jqc` (example) so that you can refer to it in the next step.
-5. Perform the same task for the **`development-standard`** OU to make a copy of its OU ID.
+5. Perform the same task for the **`workloads-dev`** OU to make a copy of its OU ID.
 
 ### Create a Resource Share
 
@@ -249,9 +249,9 @@ While you're in the master AWS account, obtain and record the resource ID of eac
 8. Under **`Resources`**, by default, the subnets that were just provisioned should be listed.
 9. Select only the private subnets.
 10. Under **`Principals`**, uncheck **`Allow external accounts`** given that we're sharing the subnets only with other AWS accounts within this AWS organization.
-11. In the search field, copy the organization ID of the **`development-foundation`** OU.
+11. In the search field, copy the organization ID of the **`infrastructure-dev`** OU.
 12. Select the matched OU.
-13. Perform the same task for the **`development-standard`** OU.
+13. Perform the same task for the **`workloads-dev`** OU.
 14. Select **`Create resource share`**.
 
 {{% notice info %}}

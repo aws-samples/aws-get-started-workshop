@@ -131,7 +131,7 @@ In support of the requirements described above, two IAM policies and two Service
 
 #### Provisioning the Policies
 
-If you followed the steps in section [6. Set Up Team Development Environment Access Controls]({{< relref "07-set-up-team-dev-env-access-control" >}}), you already provisioned the SCPs, associated the SCPs with the `development-standard` OU, provisioned the team development IAM SAML policy as an AWS SSO permission set, and provisioned the permissions boundary policy via an AWS CloudFormation StackSet.  The result of those steps is that the SCPs are automatically applied to all AWS accounts in the `development-standard` OU and the supporting IAM policies are available in each of the team development AWS accounts.
+If you followed the steps in section [6. Set Up Team Development Environment Access Controls]({{< relref "07-set-up-team-dev-env-access-control" >}}), you already provisioned the SCPs, associated the SCPs with the `workloads-dev` OU, provisioned the team development IAM SAML policy as an AWS SSO permission set, and provisioned the permissions boundary policy via an AWS CloudFormation StackSet.  The result of those steps is that the SCPs are automatically applied to all AWS accounts in the `workloads-dev` OU and the supporting IAM policies are available in each of the team development AWS accounts.
 
 The following diagram shows how the IAM policy and permissions boundary were provisioned in the earlier step.
 
@@ -406,7 +406,7 @@ The main difference is that write access to all IAM resources is disallowed in t
 
 ### Service Control Policies (SCPs) Walkthrough {#scps}
 
-These are the SCPs you created and initially associated with the `development-standard` OU:
+These are the SCPs you created and initially associated with the `workloads-dev` OU:
 
 * [`example-infra-scp-vpc-core.json`](/code-samples/02-scps/example-infra-scp-vpc-core.json)
 * [`example-infra-scp-vpc-boundaries.json`](/code-samples/02-scps/example-infra-scp-vpc-boundaries.json)
@@ -415,12 +415,12 @@ SCPs look very similar to IAM policies. See [Managing AWS Organizations policies
 
 These particular SCPs could be combined into a single SCP if so desired, but were split apart in case you might want to deny creating and updating boundary vs core VPC resources in your other AWS accounts and OUs in the future. i.e. a single SCP can be mapped to multiple OUs and/or AWS accounts.
 
-Since the IAM SAML policy described earlier does not inhibit creation and updating of VPC resources not covered by these SCPs, when these SCPs are applied to the `development-standard` OU, builder team members have the ability to create and update EC2 related networking resources such as Elastic Network Interfaces (ENIs), security groups, and other commonly used EC2 instance related network resources.
+Since the IAM SAML policy described earlier does not inhibit creation and updating of VPC resources not covered by these SCPs, when these SCPs are applied to the `workloads-dev` OU, builder team members have the ability to create and update EC2 related networking resources such as Elastic Network Interfaces (ENIs), security groups, and other commonly used EC2 instance related network resources.
 
 The following excerpt is representative of these two SCPs in that it simply denies a set of VPC resource related actions in any AWS account to which the SCP is applied.
 
 {{% notice tip %}}
-**Enable AWS Control Tower to perform its new AWS account baselining:** In the network oriented SCPs, you will note the use of a condition on each policy so that AWS Control Tower's use of its own AWS CloudFormation StackSet execution role is excluded from each policy.  Since AWS Control Tower's Account Factory performs an initial baselining of VPC resources, it needs some degree of write access to VPC resources when it provisions new AWS accounts. Since the sample SCPs are applied automatically as soon as an AWS account joins the `development-standard` OUs, they will likely be in effect before the Account Factory completes its baseline tasks.
+**Enable AWS Control Tower to perform its new AWS account baselining:** In the network oriented SCPs, you will note the use of a condition on each policy so that AWS Control Tower's use of its own AWS CloudFormation StackSet execution role is excluded from each policy.  Since AWS Control Tower's Account Factory performs an initial baselining of VPC resources, it needs some degree of write access to VPC resources when it provisions new AWS accounts. Since the sample SCPs are applied automatically as soon as an AWS account joins the `workloads-dev` OUs, they will likely be in effect before the Account Factory completes its baseline tasks.
 {{% /notice %}}
 
 ```

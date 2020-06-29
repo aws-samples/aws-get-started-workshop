@@ -53,7 +53,7 @@ You'll follow these steps twice: Once to create the initial builder team develop
 |**`AWS SSO email`**|Use the email address of your **`AWS Control Tower Admin`** user in AWS SSO.  As long as you reference an existing AWS SSO user, the Account Factory will not create another AWS SSO user for this new AWS account.|
 |**`AWS SSO First Name`**|**`AWS Control Tower`**|
 |**`AWS SSO Last Name`**|**`Admin`**|
-|**`Organizational unit`**|Select either **`development-foundation`** or **`development-standard`**.|
+|**`Organizational unit`**|Select either **`infrastructure-dev`** or **`workloads-dev`**.|
 
 9. Select **`Enroll Account`**.
 

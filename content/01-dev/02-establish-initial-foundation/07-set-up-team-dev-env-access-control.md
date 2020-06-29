@@ -22,9 +22,9 @@ This step should take about 20 minutes to complete.
 
 ## 1. Apply Service Control Policies (SCPs)
 
-Using AWS Organizations, create several Service Control Policies (SCPs) that will initially be applied to the `development-standard` OU.  Combined, these SCPs will disallow any user from creating and modifying foundation VPC networking resources in standard team development AWS accounts.
+Using AWS Organizations, create several Service Control Policies (SCPs) that will initially be applied to the `workloads-dev` OU.  Combined, these SCPs will disallow any user from creating and modifying foundation VPC networking resources in standard team development AWS accounts.
 
-Since you'll likely want your Cloud Foundation team members to be able to develop and test changes to foundation VPC resources in their team development AWS accounts, it's recommended that you don't want to apply the SCPs to the `development-foundation` OU.
+Since you'll likely want your Cloud Foundation team members to be able to develop and test changes to foundation VPC resources in their team development AWS accounts, it's recommended that you don't want to apply the SCPs to the `infrastructure-dev` OU.
 
 {{% notice tip %}}
 **Service Control Policies (SCPs):** If you'd like to learn more about SCPs, see [Managing AWS Organizations policies](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies.html).
@@ -61,10 +61,10 @@ Either open in a separate browser tab or download to your desktop the following 
     * Description: **"Deny creation of and changes to boundary VPC resources"**
     * Policy: Copy the content of the sample policy.
 
-### Apply the SCPs to the `development-standard` OU
+### Apply the SCPs to the `workloads-dev` OU
 
 1. Select **`Organize accounts`**.
-2. In the Organization tree on the left, select the **`development-standard`** OU.
+2. In the Organization tree on the left, select the **`workloads-dev`** OU.
 3. On the right side of the console, select **`Service control policies`**.
 4. On the right side of the console, select the **`Attach`** link next to the SCPs
     * **`example-infra-scp-vpc-core`**

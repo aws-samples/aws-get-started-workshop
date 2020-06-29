@@ -115,12 +115,12 @@ Register your on-premises customer gateway device in AWS.
 |-----|---------------|----|
 |**`Name tag`**|infra-main|You'll be able to use a single transit gateway for both on-premises integration and VPC-to-VPC routing if necessary.|
 |**`Description`**|||
-|**`Amazon side ASN`**|Accept default||
+|**`Amazon side ASN`**|Consult your Network team|One consideration is to use a unique private ASN per transit gateway to provide more flexible routing options.|
 |**`DNS support`**|checked||
-|**`VPN ECMP support`**|checked||
+|**`VPN ECMP support`**|checked|Enables you to use multiple VPN connections to aggregate VPN throughput.|
 |**`Default route table association`**|checked||
-|**`Default route table propagation`**|checked||
-|**`Auto accept shared attachments`**|checked||
+|**`Default route table propagation`**|**Unchecked**|Uncheck this option so that you don't enable any-to-any connectivity between attachments by default.|
+|**`Auto accept shared attachments`**|Unchecked||
 
 4. Select **`Create Transit Gateway`**
 
@@ -224,6 +224,20 @@ In this step, you'll update the route table for each of the private subnets in t
 |**`Target`**|Select your transit gateway. For example, **`infra-main`**|
 
 ## 11. Test Connectivity
+
+One of the easiest means to test basic connectivity is to deploy a Linux EC2 instance to one of the development network's private subnets and attempt to ping between that instance and one or more OS instances hosted in your on-premises network.
+
+1. 
+
+    Ensure ICMP is allowed as inbound traffic.
+    Set it up for SSH access in one of two ways:
+        Systems Manager Session Manager: No SSH and publicly accessible IP address required. Instead, create an IAM role for EC2 that includes the AmazonSSMManagedInstanceCore policy and attach it to the EC2 instance via the Actions -> Instance Settings -> Attach/Replace IAM Role.
+        SSH: Ensure that the security group allows for SSH inbound access and that the instance has a publicly accessible IP address.
+
+Deploy another EC2 instance in the remote site with the same configuration as above.
+Validate that route tables and security groups are properly configured.
+Use ping on one of the two ends to validate routing and connectivity between the instances.
+Use # tcpdump -eni any icmp to on the target instance to monitor traffic.
 
 See [Testing the Site-to-Site VPN connection](https://docs.aws.amazon.com/vpn/latest/s2svpn/HowToTestEndToEnd_Linux.html).
 

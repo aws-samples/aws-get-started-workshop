@@ -35,8 +35,8 @@ The development and workloads AWS accounts names shown in the diagram are exampl
 
 |OU Name|Description|
 |-------|------------|
-|**`development-foundation`**|Includes the team development AWS account(s) for your Cloud Foundation teams. These AWS accounts will have more write access to AWS resources as compared to your standard team development AWS accounts. For example, the ability to create and manage foundational VPC resources.|
-|**`development-standard`**|Includes the bulk of your team development AWS accounts.|
+|**`infrastructure-dev`**|Includes the team development AWS account(s) for your Cloud Foundation teams. These AWS accounts will have more write access to AWS resources as compared to your standard team development AWS accounts. For example, the ability to create and manage foundational VPC resources.|
+|**`workloads-dev`**|Includes the bulk of your team development AWS accounts.|
 |**`workloads-test`**|Includes the formal test environment AWS accounts for your business-oriented workloads.|
 |**`workloads-prod`**|Includes the formal production environment AWS accounts for your business-oriented workloads.|
 
