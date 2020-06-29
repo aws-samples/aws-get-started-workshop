@@ -49,7 +49,7 @@ You'll follow these steps twice: Once to create the initial builder team develop
 |Field|Recommendation|
 |-----|---------------|
 |**`Account email`**|Consult the [set of AWS account root user email addresses]({{< relref "04-address-prerequisites#business-aws-accounts" >}}) that you established earlier.|
-|**`Display name`**|**`dev-foundation`** or **`dev-<team identifier>`**|
+|**`Display name`**|**`dev-infra`** or **`dev-<team identifier>`**|
 |**`AWS SSO email`**|Use the email address of your **`AWS Control Tower Admin`** user in AWS SSO.  As long as you reference an existing AWS SSO user, the Account Factory will not create another AWS SSO user for this new AWS account.|
 |**`AWS SSO First Name`**|**`AWS Control Tower`**|
 |**`AWS SSO Last Name`**|**`Admin`**|
@@ -69,7 +69,7 @@ Since AWS Control Tower's Account Factory automatically grants the AWS SSO user 
 
 1. Navigate to **`AWS SSO`**.
 2. Access **`AWS accounts`** in AWS SSO.
-3. Select the **`dev-foundation`** AWS account.
+3. Select the **`dev-infra`** AWS account.
 4. Select **`Remove access`** from the **`User/group`** entry that matches the AWS SSO email address you supplied in the previous step.
 5. Select **`Remove access`** to confirm removal.
 
@@ -94,7 +94,7 @@ Since Cloud Administrators won't automatically be granted sufficient access to n
 5. Navigate to **`AWS SSO`**.
 6. Access **`AWS accounts`** in AWS SSO.
 7. Select the checkboxes next to both team development AWS accounts. For example:
-  * `dev-foundation`
+  * `dev-infra`
   * `dev-<team identifier>`
 8. Select **`Assign users`**.
 9. Select **`Groups`**.
@@ -115,7 +115,7 @@ Since the names of shared subnets are not currently propagated to AWS accounts, 
 4. Select the appropriate AWS region.
 5. Navigate to **`VPC`**.
 6. Select **`Your VPCs`**.
-7. Select the unnamed VPC and assign the same name as used in the **network-prod** AWS account. For example, **`infra-dev-shared`**.
+7. Select the unnamed VPC and assign the same name as used in the **network-prod** AWS account. For example, **`dev-infra-shared`**.
 8. Select **`Subnets`**.
 9. Update the **`Name`** field of each private subnet to match the name of the private subnet as it's configured in the **network-prod** AWS account. **Caution:** The subnets may not be listed in the same order in both AWS accounts by default.
 10. You can optionally apply the same naming alignment for route tables.

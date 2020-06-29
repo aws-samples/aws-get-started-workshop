@@ -176,7 +176,7 @@ Now create a new AWS CloudFormation stack using the sample template you download
 3. Select **`Upload a template file`**.
 4. Select **`Choose file`** to select the downloaded template file from your desktop.
 5. Select **`Next`**.
-6. Enter a **`Stack name`**. For example, **`infra-dev-shared-vpc`**.
+6. Enter a **`Stack name`**. For example, **`dev-infra-shared-vpc`**.
 7. In **`Parameters`**:
 
 |Parameter|Guidance|
@@ -245,7 +245,7 @@ While you're in the master AWS account, obtain and record the resource ID of eac
 4. Select the appropriate AWS region.
 5. Navigate to **`Resource Access Manager`**.
 6. Select **`Create a resource share`**.
-7. Enter a **`Name`** of **`infra-dev-shared-vpc-private-subnets`**.
+7. Enter a **`Name`** of **`dev-infra-shared-vpc-private-subnets`**.
 8. Under **`Resources`**, by default, the subnets that were just provisioned should be listed.
 9. Select only the private subnets.
 10. Under **`Principals`**, uncheck **`Allow external accounts`** given that we're sharing the subnets only with other AWS accounts within this AWS organization.

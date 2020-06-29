@@ -34,7 +34,7 @@ Create a new group in AWS SSO for each of the builder teams and associate those 
 6. Access **`Groups`** in AWS SSO.
 7. Select **`Create group`**.
 8. Provide a group name. For example, replacing `example` with your organization's identifier:
-  * `example-dev-foundation`
+  * `example-dev-infra`
   * `example-dev-<team identifier>`
 9. Provide a description. For example:
   * `Dev - Foundation`
@@ -47,15 +47,15 @@ Next, enable each team development group to access the associated team developme
 
 1. Access **`AWS accounts`** in AWS SSO.
 2. Select the checkbox next to the team development AWS account of interest. For example:
-  * `dev-foundation`
+  * `dev-infra`
   * `dev-<team identifier>`
 3. Select **`Assgn users`**.
 4. Select **`Groups`**.
 5. Select the checkbox next to the group of interest. For example:
-  * `example-dev-foundation`
+  * `example-dev-infra`
   * `example-dev-<team identifier>`
 6. Select **`Next: Permission sets`**.
-7. Select the checkbox next to **`example-infra-dev-team`**.
+7. Select the checkbox next to **`example-dev-infra-team`**.
 8. Select **`Finish`**.
 
 Repeat the process above to address all of the initial team development groups and AWS accounts.
@@ -78,7 +78,7 @@ Repeat these steps for each builder team user.
 Since you've already created users in AWS SSO for foundation team members, all you need to do to at this stage is to add the foundation team member users to the newly created foundation team development group in AWS SSO.
 
 1. Access **`Groups`** in AWS SSO.
-2. Select `example-dev-foundation`.
+2. Select `example-dev-infra`.
 3. Select **`Add users`**.
 4. Select the checkbox for each foundation team member.
 5. Select **`Add users`**.

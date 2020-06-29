@@ -59,6 +59,7 @@ Use your organization's process to request either DLs or shared mailboxes based 
 |---|---|---|
 |**`Audit`**|Created by AWS Control Tower.|`aws-account-audit@example.com`|
 |**`Log archive`**|Created by AWS Control Tower.|`aws-account-log-archive@example.com`|
+|**`dev-infra`**|Environment where your Cloud Foundation team can develop and perform early testing of foundation changes.<br><br>If you have a very small cross-functional team responsible for managing your initial foundation, then you'll likely need to start with only one foundation team development AWS account.|`aws-account-dev-infra@example.com`|
 |**`network-prod`**|Centrally managed network resources.<br><br>For example, hybrid networking resources such as AWS Site-to-Site VPN and AWS Transit Gateway resources.|`aws-account-network-prod@example.com`|
 |**`infra-shared-prod`**|Shared infrastructure services.<br><br>Recommended if you plan to connect your on-premises network to your AWS environment.<br><br>For example, this AWS account can host shared directory services such as Microsoft Active Directory and contain resources to support integration with your on-premises DNS services.|`aws-account-infra-shared-prod@example.com`|
 
@@ -66,7 +67,6 @@ Use your organization's process to request either DLs or shared mailboxes based 
 
 |AWS Account Name|Purpose|Example Email Address|
 |---|---|---|
-|**`dev-foundation`**|Environment where your Cloud Foundation team can develop and perform early testing of foundation changes.<br><br>If you have a very small cross-functional team responsible for managing your initial foundation, then you'll likely need to start with only one foundation team development AWS account.|`aws-account-dev-foundation@example.com`|
 |**`dev-<team identifier>`**|A team development environment for your builder team that needs to experiment, develop, and perform early testing of their initial workloads.<br><br>You should 1) identify how many distinct teams will be developing and performing early testing of your initial workloads and 2) arrive at an AWS account name and email address for each team.|`aws-account-dev-<team identifier>@example.com`|
 |**`workloads-test-<workload group identifier>`**|Formal test environments for your business-oriented workloads and data.<br><br>You should 1) identify how many distinct groups of related workloads you'll initially be supporting and 2) arrive at an AWS account name and email address for each distinct group.<br><br>For example `workloads-test-sap`, and `workloads-prod-sap`.|`aws-account-workloads-test-<workload-group-identifier>@example.com`|
 |**`workloads-prod-<workload group identifier>`**|Environment where your initial production workloads and data will reside.|`aws-account-workloads-prod-<workload-group-identifier>@example.com`|
@@ -77,7 +77,7 @@ Use your organization's process to request either DLs or shared mailboxes based 
 
 ## 3. Obtain Non-Overlapping IP Address Range {#ip-address-range}
 
-In this step you should consult with your existing Network team to obtain a suitably sized, non-overlapping IP address range or [CIDR block](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) that can be used not only for the initial shared development network that will be set up in this guide, but also to accomodate pre-production test and and production networks that you will provision on AWS as you progress in your journey.
+In this step you should consult with your existing Network team to obtain a suitably sized, non-overlapping IP address range or [CIDR block](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) that can be used not only for the initial shared development network that will be set up in this guide, but also to accommodate pre-production test and and production networks that you will provision on AWS as you progress in your journey.
 
 Since your organization will likely interconnect at least a portion of your on-premises networks to your emerging AWS hosted networks, a best practice is to assign a large IP address range or CIDR block for use in AWS that does not overlap with your existing allocated IP addresses. By using non-overlapping IP address ranges, your organization will avoid needing to introduce a complicated network address translation (NAT) solution.
 

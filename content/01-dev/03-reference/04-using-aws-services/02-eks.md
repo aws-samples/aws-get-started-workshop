@@ -36,8 +36,8 @@ metadata:
   region: us-east-2
 
 iam:
-  serviceRolePermissionsBoundary: arn:aws:iam::123456789012:policy/example-infra-dev-team-boundary
-  fargatePodExecutionRolePermissionsBoundary: arn:aws:iam::123456789012:policy/example-infra-dev-team-boundary
+  serviceRolePermissionsBoundary: arn:aws:iam::123456789012:policy/example-dev-infra-team-boundary
+  fargatePodExecutionRolePermissionsBoundary: arn:aws:iam::123456789012:policy/example-dev-infra-team-boundary
 
 vpc:
   subnets:
@@ -55,7 +55,7 @@ nodeGroups:
     instanceType: m5.large
     desiredCapacity: 1
     iam:
-      instanceRolePermissionsBoundary: arn:aws:iam::123456789012:policy/example-infra-dev-team-boundary
+      instanceRolePermissionsBoundary: arn:aws:iam::123456789012:policy/example-dev-infra-team-boundary
 ```
 
 * Execute `create cluster`:

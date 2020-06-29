@@ -201,15 +201,15 @@ Next, attach the development VPC to the transit gateway.
 |-----|---------------|
 |**`Transit Gateway ID`**|Select the transit gateway you just created.|
 |**`Attachment Type`**|`VPC`|
-|**`Attachment name tag`**|**`infra-dev-shared`**|
+|**`Attachment name tag`**|**`dev-infra-shared`**|
 |**`DNS support`**|checked|
 |**`IPv6 support`**|unchecked|
-|**`VPC ID`**|**`infra-dev-shared`**|
+|**`VPC ID`**|**`dev-infra-shared`**|
 |**`Subnet IDs`**|Select each of the **private** subnets|
 
 ## 10. Update VPC Route Table
 
-In this step, you'll update the route table for each of the private subnets in the **`infra-dev-shared`** VPC to add an entry to route traffic destined to your on-premises network to the transit gateway.
+In this step, you'll update the route table for each of the private subnets in the **`dev-infra-shared`** VPC to add an entry to route traffic destined to your on-premises network to the transit gateway.
 
 1. Select **`Route Tables`**
 2. For each of the private subnet, modify the route table:
