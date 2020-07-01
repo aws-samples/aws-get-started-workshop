@@ -5,7 +5,7 @@ phases:
     runtime-versions:
       docker: 18
       python: 3.7
-      ruby: 2.7
+      ruby: 2.6
   pre_build:
     commands:
       - export LC_ALL="en_US.UTF-8"
