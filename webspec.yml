@@ -9,6 +9,13 @@ phases:
       ruby: 2.6
   pre_build:
     commands:
+      - COMMIT_HASH=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
+      - IMAGE_TAG=${COMMIT_HASH:=latest}
+      - echo Initializing Git Repo
+      - git init
+      - git remote add origin $FULL_REPO_URL
+      - git fetch
+      - git checkout -f "$CODEBUILD_RESOLVED_SOURCE_VERSION"
       - git submodule init
       - git submodule update --recursive
       - echo Install Hugo
