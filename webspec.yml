@@ -18,15 +18,18 @@ phases:
       - git remote add origin $FULL_REPO_URL
       - git fetch
       - git checkout -f "$CODEBUILD_RESOLVED_SOURCE_VERSION"
-#      - git submodule init
-#      - git submodule update --recursive
+      - git submodule init
+      - git submodule update --recursive
       - echo Install Hugo
       # Use known tested version of Hugo
       - curl -s https://api.github.com/repos/gohugoio/hugo/releases/latest | grep "download_url.*Linux-64bit.tar.gz" | grep -v "extended" | cut -d '"' -f 4 | wget -qi -
       - HUGO_TAR="$(find . -name "*Linux-64bit.tar.gz")"
       - tar -xzf $HUGO_TAR
       - chmod +x hugo
-      - gem install html-proofer
+# Commenting out for now. Builds take ~4 mins vs ~45 seconds due to the installion
+# of this package and its dependencies. Would be better to build a container image
+# with the toolchain/dependencies pre-installed.
+#      - gem install html-proofer
 
   build:
     commands:
