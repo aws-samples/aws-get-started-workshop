@@ -175,7 +175,7 @@ After your on-premises customer gateway has been configured, check the status of
 3. Select **`Tunnel Details`**.
 4. Monitor the status of the tunnels.  After several minutes, at least one of the two tunnels should transition to the **`UP`** state.
 
-If at least one of the tunnels does not come up, then see [Troubleshooting your customer gateway device](https://docs.aws.amazon.com/vpn/latest/s2svpn/Troubleshooting.html.)
+If at least one of the tunnels does not come up, then see [Troubleshooting your customer gateway device](https://docs.aws.amazon.com/vpn/latest/s2svpn/Troubleshooting.html)
 
 ## 8. Review Transit Gateway Route Table
 
