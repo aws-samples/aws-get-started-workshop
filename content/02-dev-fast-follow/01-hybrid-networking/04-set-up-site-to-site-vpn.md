@@ -225,19 +225,7 @@ In this step, you'll update the route table for each of the private subnets in t
 
 ## 11. Test Connectivity
 
-One of the easiest means to test basic connectivity is to deploy a Linux EC2 instance to one of the development network's private subnets and attempt to ping between that instance and one or more OS instances hosted in your on-premises network.
-
-1. 
-
-    Ensure ICMP is allowed as inbound traffic.
-    Set it up for SSH access in one of two ways:
-        Systems Manager Session Manager: No SSH and publicly accessible IP address required. Instead, create an IAM role for EC2 that includes the AmazonSSMManagedInstanceCore policy and attach it to the EC2 instance via the Actions -> Instance Settings -> Attach/Replace IAM Role.
-        SSH: Ensure that the security group allows for SSH inbound access and that the instance has a publicly accessible IP address.
-
-Deploy another EC2 instance in the remote site with the same configuration as above.
-Validate that route tables and security groups are properly configured.
-Use ping on one of the two ends to validate routing and connectivity between the instances.
-Use # tcpdump -eni any icmp to on the target instance to monitor traffic.
+One of the easiest means to test basic connectivity is to deploy either a Linux or Windows EC2 instance to one of the development network's private subnets and attempt to ping between that instance and one or more OS instances hosted in your on-premises network.
 
 See [Testing the Site-to-Site VPN connection](https://docs.aws.amazon.com/vpn/latest/s2svpn/HowToTestEndToEnd_Linux.html).
 
