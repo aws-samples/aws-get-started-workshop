@@ -13,14 +13,11 @@ phases:
       - dpkg-reconfigure locales
       - COMMIT_HASH=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
       - IMAGE_TAG=${COMMIT_HASH:=latest}
-      - |
-        if [ ! -d ".git"]; then
-          echo Initializing Git Repo
-          git init
-          git remote add origin $FULL_REPO_URL
-          git fetch
-          git checkout -f "$CODEBUILD_RESOLVED_SOURCE_VERSION"
-        fi
+      - echo Initializing Git Repo
+      - git init
+      - git remote add origin $FULL_REPO_URL
+      - git fetch
+      - git checkout -f "$CODEBUILD_RESOLVED_SOURCE_VERSION"
 #      - git submodule init
 #      - git submodule update --recursive
       - echo Install Hugo
