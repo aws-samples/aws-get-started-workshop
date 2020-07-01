@@ -36,9 +36,9 @@ phases:
     commands:
       - echo Build website
       - ./hugo -D
-      - HTML_PROOFER="$(gem contents html-proofer | grep '/bin/')"
-      - echo running html-proofer
-      - $HTML_PROOFER  ./public --check-html --empty-alt-ignore --allow-hash-href
+      #- HTML_PROOFER="$(gem contents html-proofer | grep '/bin/')"
+      #- echo running html-proofer
+      #- $HTML_PROOFER  ./public --check-html --empty-alt-ignore --allow-hash-href
       # fail if proofer has issues... if you want to deploy anyway, move these back to post_build
       - echo Deploy website static content to S3 Bucket
       - aws s3 cp public/ s3://${WEB_SITE_BUCKET}/ --recursive
