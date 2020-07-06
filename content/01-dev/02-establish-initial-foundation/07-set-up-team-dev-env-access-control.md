@@ -22,9 +22,9 @@ This step should take about 20 minutes to complete.
 
 ## 1. Apply Service Control Policies (SCPs)
 
-Using AWS Organizations, create several Service Control Policies (SCPs) that will initially be applied to the `workloads-dev` OU.  Combined, these SCPs will disallow any user from creating and modifying foundation VPC networking resources in standard team development AWS accounts.
+Using AWS Organizations, create several Service Control Policies (SCPs) that will initially be applied to the `workloads_dev` OU.  Combined, these SCPs will disallow any user from creating and modifying foundation VPC networking resources in standard team development AWS accounts.
 
-Since you'll likely want your Cloud Foundation team members to be able to develop and test changes to foundation VPC resources in their team development AWS accounts, it's recommended that you don't want to apply the SCPs to the `infrastructure-dev` OU.
+Since you'll likely want your Cloud Foundation team members to be able to develop and test changes to foundation VPC resources in their team development AWS accounts, it's recommended that you don't want to apply the SCPs to the `infrastructure_dev` OU.
 
 {{% notice tip %}}
 **Service Control Policies (SCPs):** If you'd like to learn more about SCPs, see [Managing AWS Organizations policies](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies.html).
@@ -61,10 +61,10 @@ Either open in a separate browser tab or download to your desktop the following 
     * Description: **"Deny creation of and changes to boundary VPC resources"**
     * Policy: Copy the content of the sample policy.
 
-### Apply the SCPs to the `workloads-dev` OU
+### Apply the SCPs to the `workloads_dev` OU
 
 1. Select **`Organize accounts`**.
-2. In the Organization tree on the left, select the **`workloads-dev`** OU.
+2. In the Organization tree on the left, select the **`workloads_dev`** OU.
 3. On the right side of the console, select **`Service control policies`**.
 4. On the right side of the console, select the **`Attach`** link next to the SCPs
     * **`example-infra-scp-vpc-core`**
@@ -120,8 +120,8 @@ Leave the other parameters at their default settings.
 
 If you didn't make a copy of the development OU IDs, open a new browser tab and access **`AWS Control Tower`**. Select **`Organizational units`**, and select each of the following development OUs to obtain its OU ID:
 
-* **`infrastructure-dev`**
-* **`workloads-dev`**
+* **`infrastructure_dev`**
+* **`workloads_dev`**
 
 12. In **`Specify regions`**, select your home AWS region.
 13. Select **`Next`**.
