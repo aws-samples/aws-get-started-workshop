@@ -93,7 +93,7 @@ Access http://localhost:1313/
 
 #### Using `relref`
 
-To ease the process of referring to local pages and to ease maintainance as the page hierarchy changes, it's recommended that you use the Hugo built-in shortcode [`relref`](https://gohugo.io/content-management/cross-references/).
+To ease the process of referring to local pages and to ease maintenance as the page hierarchy changes, it's recommended that you use the Hugo built-in shortcode [`relref`](https://gohugo.io/content-management/cross-references/).
 
 #### Anchors
 
@@ -126,7 +126,7 @@ However, when any of the following conditions apply, in the interest of providin
 
 ### Using Automation and Infrastructure as Code (IaC)
 
-When modular Infrastructure as Code (IaC) automation resources are either already available as open source or can be easily developed and open soruced, the project's preference is to suggest that customers use these automation resources vs documenting and having customers follow what can be complicated and drawn out step-by-step instructions.
+When modular Infrastructure as Code (IaC) automation resources are either already available as open source or can be easily developed and open sourced, the project's preference is to suggest that customers use these automation resources vs documenting and having customers follow what can be complicated and drawn out step-by-step instructions.
 
 A key caveat to the introduction of IaC is that it needs to be simple enough to provide value at this early stage of adoption. i.e. Piling on complicated solutions at this early stage of adoption may be premature.
 
@@ -140,7 +140,7 @@ The project's preference is to prioritize the use of generally reusable IaC reso
 
 ### Using Screenshots
 
-When there's an absence of existing detailed documentation to which the guide can link and there's no sample automation that the customer can use, detailed steps may be necessary to include within the guide.  Under these circumstances, it can be valuabe to include screenshots in support of manual configuration steps.
+When there's an absence of existing detailed documentation to which the guide can link and there's no sample automation that the customer can use, detailed steps may be necessary to include within the guide.  Under these circumstances, it can be valuable to include screenshots in support of manual configuration steps.
 
 ### Managing and Referring to Static Images
 
@@ -157,7 +157,7 @@ Consequently, one way to link to images is to use the convention Markdown refere
 ```
 [![Initial Development Environment](/images/01-dev/dev-initial.png)](/images/01-dev/dev-initial.png)
 ```
-Alternatively, you can use built-in Hugo shotcode [`figure`](https://gohugo.io/content-management/shortcodes/#figure) when you need more control over how the image is displayed.
+Alternatively, you can use built-in Hugo shortcode [`figure`](https://gohugo.io/content-management/shortcodes/#figure) when you need more control over how the image is displayed.
 
 #### Testing Inclusion of Static Images
 
@@ -165,23 +165,28 @@ Note that both of the styles of including static images will not enable you test
 
 ### Working with draw.io Files
 
+#### Location of Drawing Files
+
 See the `drawings/` directory for the draw.io source files used for pictures and diagrams. 
+
+#### Generating PNG Images
 
 The `.png` drawings used in this repository are created in the following manner:
 
 1. Open the `.drawio` file of interest using either the free online version or your internal instance of draw.io.
-1. Select the tab of interst.
+    * Caution when using Firefox. Make sure that the AWS service and resource icons are rendered properly. If they don't render properly, try Chrome.
+1. Select the tab of interest.
 1. Select "Edit -> Select All"
 1. Select "File -> Export As -> PNG..."
 1. Select "Selection Only" and "Crop".
 1. Select "Export"
 1. Select "Download"
 
-Copy the exported PNG file to the approprite directory under `static/images/` and rename it to suit your needs.
+Copy the exported PNG file to the appropriate directory under `static/images/`.
 
 #### Tab Names in drawio Files
 
-Since the file name and tab name are used to create the file names of exported images, you can minimize work required to export images by ensuring that the tab names represent what you'd like to use for the image names.  When renaming, you'll just need to remove the file name that is included by default in the export image file name.
+Since the file name and tab name are used to create the file names of exported images, you can minimize work required to export images by referring to `<file base name>-<tab name>.png` as the file name of images in your web content.
 
 ## Licensing
 
