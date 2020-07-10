@@ -12,7 +12,7 @@ SPDX-License-Identifier: CC-BY-SA-4.0
 
 Beyond supporting initial development and early testing within the development environments, your organization will soon need to support formal testing and eventually production hosting of your new applications and data services.  The following diagram represents typical extensions to your cloud foundation and a new set of AWS accounts to support formal testing and production hosting environments.
 
-[![Initial Test and Production Environments in Single AWS Region](/images/03-preprod-prod/preprod-prod-single-region.png)](/images/03-preprod-prod/preprod-prod-single-region.png)
+[![Initial Test and Production Environments in Single AWS Region](/images/03-preprod-prod/initial-foundation-preprod-prod-single-region.png)](/images/03-preprod-prod/initial-foundation-preprod-prod-single-region.png)
 
 Key aspects of a solution that supports a typical transition toward support for several projects and their workloads progressing toward formal pre-production testing and production include:
 
@@ -30,7 +30,7 @@ If your pre-productuction test and production workloads need to integrate with o
 
 ## Cloud Hosted Internet Ingress and Egress Security Services
 
-If your organization has strict requirements for securing Internet access, then hosting your enterprise standard security services in a dedicated set of VPCs managed within the Network AWS account is a common pattern.  This cloud hosted approach to securing Internet integration is more performant than depending on routing traffic back on-premises.
+If your organization has strict requirements for securing Internet access, then hosting your enterprise standard security services in a dedicated set of VPCs managed within the **network-prod** AWS account is a common pattern.  This cloud hosted approach to securing Internet integration is more performant than depending on routing traffic back on-premises.
 
 See the following AWS Blog posts up-to-date examples of how to use AWS Transit Gateway and third party products to support cloud-hosted ingress and egress security requirements:
 

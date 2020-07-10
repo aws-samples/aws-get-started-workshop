@@ -16,23 +16,27 @@ SPDX-License-Identifier: CC-BY-SA-4.0
 
 ### Q: Where can I learn more about this project including who's involved and how I can contribute?
 
-See [Project Information]({{< relref "05-project" >}})
+See [Project Information]({{< relref "06-project" >}})
 
 ### Q: How can I see what has materially changed in the guide?
 
-See [Change History]({{< relref "04-change-history.md" >}})
+See [Change History]({{< relref "04-change-history" >}})
 
 ## Federated Access to AWS Platform
 
 ### Q: Why isn't federated access addressed from the start?
 
-Based on our experience, it can commonly take several weeks for an organization to go through the necessary preparation and execution to get true federated access into place. The minimal form of the foundation uses locally managed groups and users in AWS SSO for the first few weeks until a more desirable federated access capability is established as a fast follow-on capability.
+It's typical for an organization to require several weeks to plan and coordinate the work required to set up federated access. Accordingly, this guide provides you with the option to address that work in parallel while you temporarily use locally managed users and groups in AWS SSO. 
+
+See [Federated Access to the AWS Platform]({{< relref "02-federated-access-to-aws" >}}) for more background.
 
 ## AWS Accounts Design
 
 ### Q: Shouldn't we develop a comprehensive design of our AWS account structure before we do any build out?
 
-...
+It's useful to have a design in place for your initial AWS account structure to support your first few workloads. This guide provides recommendations and examples for your starter set of AWS accounts and AWS Organizations Organizational Units (OUs).
+
+You can modify the structure of your AWS environment over time as you learn more about the AWS platform and your requirements.
 
 ### Q: Why aren't "Sandbox" AWS accounts included in the initial build out?
 
@@ -55,4 +59,4 @@ Similar to other aspects of overall AWS account design, the guide intentionally 
 
 ### Q: Shouldn't we define and implement tagging standards early on in our journey?
 
-...
+In the early stage of cloud adoption addressed by this guide where you'll have relatively few workloads, you likely won't need a sophisticated approach to tagging your cloud resources.  However, before you expand adoption further, it's recommended that you spend the time to begin developing and applying your own cloud resource tagging standards.

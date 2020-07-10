@@ -1,5 +1,5 @@
 ---
-title: 'Expanding Your Foundation to Support Pre-Production Test and Production Environments'
+title: 'Extending Your Foundation to Support Pre-Production Test and Production Environments'
 menuTitle: '3. Foundation for Test and Prod'
 disableToc: true
 weight: 30
@@ -14,9 +14,9 @@ SPDX-License-Identifier: CC-BY-SA-4.0
 **Review Note:** The pre-production test and production envrionment section is only sketched out topically at this stage. We expect to begin addressing this section after drafting the higher priority [Development Fast Follow Capabilities]({{< relref "02-dev-fast-follow" >}}) section. If you have comments and suggestions about this guide, see [Contributing]({{< relref "03-contributors" >}}).
 {{% /notice %}}
 
-Once you've established your initial foundation and delivered the initial set of development environments to teams, your next step is to extend your foundation by introducting a set of capabilities that organizations typically require before moving workloads into production.
+Once you've established your initial foundation and delivered the initial set of development environments to teams, your next step is to expand your foundation by introducting a set of capabilities that organizations typically require before moving workloads into production.
 
-[![Initial Pre-Production Test and Production Environments in Single AWS Region](/images/03-preprod-prod/preprod-prod-single-region.png)](/images/03-preprod-prod/preprod-prod-single-region.png)
+[![Initial Pre-Production Test and Production Environments in Single AWS Region](/images/03-preprod-prod/initial-foundation-preprod-prod-single-region.png)](/images/03-preprod-prod/initial-foundation-preprod-prod-single-region.png)
 
 ## Refine Requirements and Identify Solutions
 

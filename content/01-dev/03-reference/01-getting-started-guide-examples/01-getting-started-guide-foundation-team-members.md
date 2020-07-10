@@ -14,19 +14,38 @@ SPDX-License-Identifier: CC-BY-SA-4.0
 **An Example Getting Started Guide:** This document represents an example that can help your organization develop and publish your own getting started guide internally for cloud foundation team members that are onboarding to your AWS environment.  You are free to copy this content into your own internal wiki or other system and modify it to meet your needs. As your organization progresses on its cloud adoption journey, you will likely significantly expand your internal documentation to help communicate additional and increasingly sophisticated capabilities and associated best practices that are available to teams.
 {{% /notice %}}
 
-{{% notice note %}}
-**Review Note: Help add useful day 1 topics for new foundation teams and members:** What is the minimum knowledge a foundation team member would need for day 1? Don't overload the initial document with more advanced capabilities. Focus on the "crawl" level of knowledge that they need.
-{{% /notice %}}
-
 This document is intended to provide foundation team members with awareness of the typical day-to-day tasks and supporting methods, tools, and AWS services to help them manage and monitor your new AWS environment.
 
 {{< toc >}}
 
+## All Foundation Team Members
+
+### Understanding Your Team's Initial Development Environment
+
+Since your team will need to experiment, develop, and perform early testing of changes to foundation resources and may need to reproduce issues as you support other teams using the environment, your team also needs a development environment.
+
+Just like other builder teams, your foundation team has been allocated a team developer AWS account. The only differences between your team's development AWS account and other teams are:
+
+* Only the foundation team has permissions to access its team development AWS account.
+* Service Control Policies (SCPs) to restrict the creation of VPC resources has not been applied to your foundation team development AWS account.
+
+{{% notice tip %}}
+**Use Team Development Access Permissions for Most of Your Work**: When you're needing to experiment, develop, and test foundation changes and/or reproduce user issues, you're strongly encouraged to use the team development access permission and your team development AWS account as opposed to using your cloud administrative access permissions in any AWS account. You should only use your cloud administrative access permissions for cloud administrative work.
+{{% /notice %}}
+
+See [Getting Started Guide for Builder Teams]({{< relref "02-getting-started-guide-builder-team-members" >}}) for information on using your team development environment.
+
 ## Cloud Administrators
 
-### Identify Day-to-Day Tasks for This Role.
+### Gain More Familiarity with AWS Control Tower
 
-Consider starting with the following list:
+Since AWS Control Tower is the primary means by which you'll be creating AWS accounts, organizing them in OUs, and managing guardrails, it's important that you become familiar with recurring tasks.
+
+#### Making Changes to OUs and AWS Account Names
+
+When you make changes to AWS account names and AWS Organizations OU names outside of AWS Control Tower, you'll need to take steps in AWS Control Tower to ensure that it us up-to-date. See [Managing Resources Outside of AWS Control Tower](https://docs.aws.amazon.com/controltower/latest/userguide/external-resources.html) for details.
+
+#### Other AWS Control Tower Tasks
 
 * Applying [AWS Control Tower updates](https://docs.aws.amazon.com/controltower/latest/userguide/configuration-updates.html).
   * Note that you may need to [disable AWS Control Tower's creation of VPCs](https://docs.aws.amazon.com/controltower/latest/userguide/configure-without-vpc.html) after you apply AWS Control Tower updates.
@@ -79,9 +98,7 @@ AWS CloudTrail is an AWS service that helps you enable governance, compliance, a
 **Review Note: Provide guidance on developing and honing IAM skills:** Provide pointers about how to learn more about effective use of IAM. For example, IAM Policy Simulator, testing policy changes before promoting them, IaC code techniques, etc. Reference how [AWS Access Analyzer](https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html) can be used to help identify the resources in organization and accounts, such as Amazon S3 buckets or IAM roles, that are shared with an external entity.
 {{% /notice %}}
 
-## Auditors
-
-### Perform Periodic Audits of the AWS Security Configuration.
+### Perform Periodic Reviews of the AWS Security Configuration.
 
 Although some of the detective guardrails deployed through AWS Control Tower help continuously monitor and audit aspects of your AWS environment, it’s a best practice to periodically audit your security configuration to make sure that it meets your current business needs. See AWS [Security Audit Guidelines](https://docs.aws.amazon.com/general/latest/gr/aws-security-audit-guide.html) for best practices.
 

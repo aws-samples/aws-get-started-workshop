@@ -11,9 +11,7 @@ SPDX-License-Identifier: CC-BY-SA-4.0
 
 The following users are created as part of setting up AWS accounts and establishing your initial foundation on AWS.  After an initial set of human users are onboarded to the platform with the appropriate permissions, the following accounts will rarely be used. A best practice is to store the credentials for these accounts in your enterprise standard secrets or password management solution and grant and audit access to these credentials to a very limited set of foundation team members.
 
-{{% notice note %}}
-**Review Note:** Provide a diagram of system users so that foundation team members can gain a better understanding of where these users are positioned in the overall environment.
-{{% /notice %}}
+{{< toc >}}
 
 ## AWS Account Root User
 
@@ -59,21 +57,8 @@ Once human Cloud Administtrators are granted access to the master account via th
 
 **AWS Accounts:** Each AWS master and member account under management of AWS Control Tower.
 
-**Username:** Email address associated with the AWS account's root user.
+**Username:** Email address associated with the AWS Organizations master AWS account's root user.
 
 **Permissions:** In the master AWS account: [AdministratorAccess](https://console.aws.amazon.com/iam/home#/policies/arn%3Aaws%3Aiam%3A%3Aaws%3Apolicy%2FAdministratorAccess)
 
 In each member AWS account: [AWSOrganizationsFullAccess](https://console.aws.amazon.com/iam/home?#/policies/arn%3Aaws%3Aiam%3A%3Aaws%3Apolicy%2FAWSOrganizationsFullAccess)
-
-## AWS Account Adminstrator
-Once the human Cloud Administrators are granted access to the AWS accounts via their own individual user accounts and are granted at least equivalent permissions to this user, this user will no longer be used.
-
-**Creation:** Automatically created when you create a new member AWS account via AWS Control Tower's Account Factory.
-
-**Identity Store:** AWS SSO
-
-**AWS Accounts:** Each member AWS account created via AWS Control Tower's Account Factory.	
-
-**Username:** Email address associated with the AWS account.
-
-**Permissions:** [AdministratorAccess](https://console.aws.amazon.com/iam/home#/policies/arn%3Aaws%3Aiam%3A%3Aaws%3Apolicy%2FAdministratorAccess)

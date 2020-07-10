@@ -10,6 +10,7 @@ information to effectively respond to your bug report or contribution.
 * [Contributing via Pull Requests](#contributing-via-pull-requests)
 * [Code of Conduct](#code-of-conduct)
 * [Security Issue Notifications](#security-issue-notifications)
+* [Understanding Project Tenets](#understanding-project-tenets)
 * [Working with Content](#working-with-content)
 * [Licensing](#licensing)
 
@@ -56,6 +57,10 @@ opensource-codeofconduct@amazon.com with any additional questions or comments.
 ## Security Issue Notifications
 If you discover a potential security issue in this project we ask that you notify AWS/Amazon Security via our [vulnerability reporting page](http://aws.amazon.com/security/vulnerability-reporting/). Please do **not** create a public github issue.
 
+## Understanding Project Tenets
+
+Ensure that you review the [Project Tenets](https://getstarted.awsworkshop.io/05-project/02-project-tenets.html).
+
 ## Working with Content
 
 ### Use of Hugo Static Site Generator
@@ -84,6 +89,32 @@ $ hugo server -D
 
 Access http://localhost:1313/
 
+### Working with Links and Hugo
+
+#### Using `relref`
+
+To ease the process of referring to local pages and to ease maintenance as the page hierarchy changes, it's recommended that you use the Hugo built-in shortcode [`relref`](https://gohugo.io/content-management/cross-references/).
+
+#### Anchors
+
+When it's helpful to link to another section in the same page or on another page, you can define custom anchors in headings of the target page and refer to those anchors from your pages.
+
+For example, to define a customer anchor on a heading:
+
+```
+## My Heading Title {#my-custom-anchor}
+```
+
+And in another page, you can refer to the anchor:
+
+```
+... [Example Link]({{< relref "my-example-page#my-custom-anchor" >}}) ...
+```
+
+Note that when using `relref`:
+* As long as the page name is unique, you don't need to quality the page name.
+* You don't include the `.md` file suffix.
+
 ### Defer to External Docs Where Feasible
 
 When there's modular, to-the-point official documentation that can be linked to, we prefer that route vs duplicating lengthy instructions within these guides.  
@@ -95,7 +126,7 @@ However, when any of the following conditions apply, in the interest of providin
 
 ### Using Automation and Infrastructure as Code (IaC)
 
-When modular Infrastructure as Code (IaC) automation resources are either already available as open source or can be easily developed and open soruced, the project's preference is to suggest that customers use these automation resources vs documenting and having customers follow what can be complicated and drawn out step-by-step instructions.
+When modular Infrastructure as Code (IaC) automation resources are either already available as open source or can be easily developed and open sourced, the project's preference is to suggest that customers use these automation resources vs documenting and having customers follow what can be complicated and drawn out step-by-step instructions.
 
 A key caveat to the introduction of IaC is that it needs to be simple enough to provide value at this early stage of adoption. i.e. Piling on complicated solutions at this early stage of adoption may be premature.
 
@@ -109,9 +140,9 @@ The project's preference is to prioritize the use of generally reusable IaC reso
 
 ### Using Screenshots
 
-When there's an absence of existing detailed documentation to which the guide can link and there's no sample automation that the customer can use, detailed steps may be necessary to include within the guide.  Under these circumstances, it can be valuabe to include screenshots in support of manual configuration steps.
+When there's an absence of existing detailed documentation to which the guide can link and there's no sample automation that the customer can use, detailed steps may be necessary to include within the guide.  Under these circumstances, it can be valuable to include screenshots in support of manual configuration steps.
 
-### Managing and Referring ot Static Images
+### Managing and Referring to Static Images
 
 Static images are managed under the `static/images/` area of the repository. 
 
@@ -119,14 +150,14 @@ The `images/` directory is structured based on the structure of the guide's cont
 
 #### Referring to Static Images
 
-When Hugo generates the static form of the site, it ensures that all of the folder under `static/` are made available at the root of the site.  For example, references to `/images/...` will resolve to content that is housed under the `statuc/images/` directory of the source repository.  See [Hugo Static Files](https://gohugo.io/content-management/static-files/).
+When Hugo generates the static form of the site, it ensures that all of the folder under `static/` are made available at the root of the site.  For example, references to `/images/...` will resolve to content that is housed under the `static/images/` directory of the source repository.  See [Hugo Static Files](https://gohugo.io/content-management/static-files/).
 
 Consequently, one way to link to images is to use the convention Markdown reference such as the following example. In this example, the image in included inline and enables the user to click on the image to display the native image. This may be helpful when images are large and it's difficult to see details without zooming in on the image.
 
 ```
 [![Initial Development Environment](/images/01-dev/dev-initial.png)](/images/01-dev/dev-initial.png)
 ```
-Alternatively, you can use built-in Hugo shotcode [`figure`](https://gohugo.io/content-management/shortcodes/#figure) when you need more control over how the image is displayed.
+Alternatively, you can use built-in Hugo shortcode [`figure`](https://gohugo.io/content-management/shortcodes/#figure) when you need more control over how the image is displayed.
 
 #### Testing Inclusion of Static Images
 
@@ -134,23 +165,28 @@ Note that both of the styles of including static images will not enable you test
 
 ### Working with draw.io Files
 
+#### Location of Drawing Files
+
 See the `drawings/` directory for the draw.io source files used for pictures and diagrams. 
+
+#### Generating PNG Images
 
 The `.png` drawings used in this repository are created in the following manner:
 
 1. Open the `.drawio` file of interest using either the free online version or your internal instance of draw.io.
-1. Select the tab of interst.
+    * Caution when using Firefox. Make sure that the AWS service and resource icons are rendered properly. If they don't render properly, try Chrome.
+1. Select the tab of interest.
 1. Select "Edit -> Select All"
 1. Select "File -> Export As -> PNG..."
 1. Select "Selection Only" and "Crop".
 1. Select "Export"
 1. Select "Download"
 
-Copy the exported PNG file to the approprite directory under `static/images/` and rename it to suit your needs.
+Copy the exported PNG file to the appropriate directory under `static/images/`.
 
 #### Tab Names in drawio Files
 
-Since the file name and tab name are used to create the file names of exported images, you can minimize work required to export images by ensuring that the tab names represent what you'd like to use for the image names.  When renaming, you'll just need to remove the file name that is included by default in the export image file name.
+Since the file name and tab name are used to create the file names of exported images, you can minimize work required to export images by referring to `<file base name>-<tab name>.png` as the file name of images in your web content.
 
 ## Licensing
 

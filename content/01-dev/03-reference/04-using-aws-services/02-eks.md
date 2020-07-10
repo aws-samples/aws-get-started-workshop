@@ -18,7 +18,7 @@ This document highlights special considerations when using [Amazon Elastic Kuber
 
 ## Using `eksctl` CLI to Create a Cluster
 
-* [Deploy and configure Cloud9 environment](3-2-getting-started-guide-dev-team-members.md#using-aws-cloud9-web-ide)
+* Deploy and configure Cloud9 environment
 * Install `eksctl` and `kubectl` per [Getting Started with eksctl](https://docs.aws.amazon.com/eks/latest/userguide/getting-started-eksctl.html).
   * Ensure that you have at least `eksctl` version `0.14.0` so that permissions boundary support is available.
   * If the latest version of `eksctl` does not get installed, you might need to replace the `latest_release` portion of the download path with the explicit version of interest. For example, `0.14.0`.
@@ -36,8 +36,8 @@ metadata:
   region: us-east-2
 
 iam:
-  serviceRolePermissionsBoundary: arn:aws:iam::123456789012:policy/example-base-dev-team-boundary
-  fargatePodExecutionRolePermissionsBoundary: arn:aws:iam::123456789012:policy/example-base-dev-team-boundary
+  serviceRolePermissionsBoundary: arn:aws:iam::123456789012:policy/example-dev-infra-team-boundary
+  fargatePodExecutionRolePermissionsBoundary: arn:aws:iam::123456789012:policy/example-dev-infra-team-boundary
 
 vpc:
   subnets:
@@ -55,7 +55,7 @@ nodeGroups:
     instanceType: m5.large
     desiredCapacity: 1
     iam:
-      instanceRolePermissionsBoundary: arn:aws:iam::123456789012:policy/example-base-dev-team-boundary
+      instanceRolePermissionsBoundary: arn:aws:iam::123456789012:policy/example-dev-infra-team-boundary
 ```
 
 * Execute `create cluster`:

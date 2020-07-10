@@ -33,7 +33,9 @@ Instead of using a person's email address, it's recommended that you use either 
 Since the email address associated with an AWS account is used as the [root user login for the account](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html), anyone with access to that email account will have access to password reset process for the account. 
 
 ### Define and Request DLs or Shared Mailboxes
-The following table includes the minimum set of email addresses to get started. Each AWS account must have a globally unique email address. 
+The following diagram and table includes the minimum set of email addresses to get started. Each AWS account must have a globally unique email address. 
+
+Several optional AWS accounts and email addresses are included in the table depending on the extent of capabilities you expect to require in the initial form of your AWS environment.
 
 If your organization already has a naming standard for mail addresses associated with services, you should use that standard format and include references to at least "aws" and and an abbreviation of the unique role or purpose of each account.
 
@@ -43,28 +45,39 @@ Use your organization's process to request either DLs or shared mailboxes based 
 **Reusing existing master AWS account:** If you're reusing an existing master AWS account, you'll reuse the email address associated with that account.
 {{% /notice %}}
 
-|AWS Account	|Example Email Address|Example with "+" Style Email Address|
+[![Initial OUs and AWS Accounts](/images/01-dev/aws-accounts-ous.png)](/images/01-dev/aws-accounts-ous.png)
+
+### Master AWS Account {#initial-aws-accounts}
+
+|AWS Account Name|Purpose|Example Email Address|
 |---|---|---|
-|**Foundation AWS Accounts**||
-|Master (only needed when creating a new master AWS account)|aws-account-master@example.com|aws-account+master@example.com|
-|Audit|aws-account-audit@example.com|aws-account+audit@example.com|
-|Log Archive|aws-account-log-archive@example.com|aws-account+log-archive@example.com|
-|Network Production|aws-account-network-prod@example.com|aws-account+network-prod@example.com|
-|**Team Development AWS Accounts**|||
-|Foundation Team Development|aws-account-foundation-dev@example.com|aws-account+foundation-dev@example.com|
-|Builder Team 1 Development|aws-account-team-a-dev@example.com|aws-account+team-a-dev@example.com|
+|**`master`**|You'll either create a new master AWS account or reuse an existing compatible AWS account.|`aws-account-master@example.com`|
+
+### Foundational AWS Accounts {#foundation-aws-accounts}
+
+|AWS Account Name|Purpose|Example Email Address|
+|---|---|---|
+|**`Audit`**|Created by AWS Control Tower.|`aws-account-audit@example.com`|
+|**`Log archive`**|Created by AWS Control Tower.|`aws-account-log-archive@example.com`|
+|**`dev-infra`**|Environment where your Cloud Foundation team can develop and perform early testing of foundation changes.<br><br>If you have a very small cross-functional team responsible for managing your initial foundation, then you'll likely need to start with only one foundation team development AWS account.|`aws-account-dev-infra@example.com`|
+|**`network-prod`**|Centrally managed network resources.<br><br>For example, hybrid networking resources such as AWS Site-to-Site VPN and AWS Transit Gateway resources.|`aws-account-network-prod@example.com`|
+|**`infra-shared-prod`**|Shared infrastructure services.<br><br>Recommended if you plan to connect your on-premises network to your AWS environment.<br><br>For example, this AWS account can host shared directory services such as Microsoft Active Directory and contain resources to support integration with your on-premises DNS services.|`aws-account-infra-shared-prod@example.com`|
+
+### Business-Oriented AWS Accounts {#business-aws-accounts}
+
+|AWS Account Name|Purpose|Example Email Address|
+|---|---|---|
+|**`dev-<team identifier>`**|A team development environment for your builder team that needs to experiment, develop, and perform early testing of their initial workloads.<br><br>You should 1) identify how many distinct teams will be developing and performing early testing of your initial workloads and 2) arrive at an AWS account name and email address for each team.|`aws-account-dev-<team identifier>@example.com`|
+|**`workloads-test-<workload group identifier>`**|Formal test environments for your business-oriented workloads and data.<br><br>You should 1) identify how many distinct groups of related workloads you'll initially be supporting and 2) arrive at an AWS account name and email address for each distinct group.<br><br>For example `workloads-test-sap`, and `workloads-prod-sap`.|`aws-account-workloads-test-<workload-group-identifier>@example.com`|
+|**`workloads-prod-<workload group identifier>`**|Environment where your initial production workloads and data will reside.|`aws-account-workloads-prod-<workload-group-identifier>@example.com`|
 
 {{% notice tip %}}
-**Use of “+” style email addresses:** If your organization’s email system supports the use of “+” style email addresses in which email multiple email addresses are aliased to the same email account, then you might find it beneficial to use this form to consolidate the root user email addresses for either all or collections of AWS accounts to either one or a few actual email accounts. For example: [aws-account1+master@example.com](mailto:aws-account1+master@example.com) and [aws-account1+audit@example.com](mailto:aws-account1+audit@example.com) will be treated as unique addresses in AWS but your mail system may deliver the mail to the same [aws-account1@example.com](mailto:aws-account1@example.com) email address.
+**Use of “+” style email addresses:** If your organization’s email system supports the use of “+” style email addresses in which email multiple email addresses are aliased to the same email account, then you might find it beneficial to use this form to consolidate the root user email addresses for either all or collections of AWS accounts to either one or a few actual email accounts. For example: [aws-account1+master@example.com](mailto:aws-account+master@example.com) and [aws-account1+audit@example.com](mailto:aws-account+audit@example.com) will be treated as unique addresses in AWS but your mail system may deliver the mail to the same [aws-account1@example.com](mailto:aws-account@example.com) email address.
 {{% /notice %}}
 
-{{% notice tip %}}
-**Office 365 Customers:** It appears that plus style addressing is on the [Office 365 roadmap for 2020](https://techcommunity.microsoft.com/t5/exchange-team-blog/exchange-transport-news-from-microsoft-ignite-2019/ba-p/993417).
-{{% /notice %}}
+## 3. Obtain Non-Overlapping IP Address Range {#ip-address-range}
 
-## 3. Obtain Non-Overlapping IP Address Range
-
-In this step you should consult with your existing Network team to obtain a suitably sized, non-overlapping IP address range or [CIDR block](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) that can be used not only for the initial shared development network that will be set up in this guide, but also to accomodate pre-production test and and production networks that you will provision on AWS as you progress in your journey.
+In this step you should consult with your existing Network team to obtain a suitably sized, non-overlapping IP address range or [CIDR block](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) that can be used not only for the initial shared development network that will be set up in this guide, but also to accommodate pre-production test and and production networks that you will provision on AWS as you progress in your journey.
 
 Since your organization will likely interconnect at least a portion of your on-premises networks to your emerging AWS hosted networks, a best practice is to assign a large IP address range or CIDR block for use in AWS that does not overlap with your existing allocated IP addresses. By using non-overlapping IP address ranges, your organization will avoid needing to introduce a complicated network address translation (NAT) solution.
 
@@ -92,7 +105,7 @@ In the future, when you need to interconnect a portion of your existing on-premi
 
 ## 4. Decide on Organizational Identifier
 
-Since you will be assigning names to several cloud resources while you follow the steps in this guide, it's useful for you to decide on a unique organizational identifier to assign as a prefix to those names so that:
+Since you will be assigning names to centrally managed cloud resources while you follow the steps in this guide, it's useful for you to decide on a unique organizational identifier to assign as a prefix to those names so that:
 * Names of your resources won't collide with other names when working in global namespaces.
 * You'll be able to create security policies to restrict access based on resources with that prefix.
 

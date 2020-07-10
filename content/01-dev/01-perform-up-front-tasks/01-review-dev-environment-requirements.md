@@ -64,7 +64,7 @@ The following requirements are organized based on a series of perspectives defin
 **User Documentation** - Sufficient documentation to enable builders to get started in the new AWS environment.
 
 {{% notice tip %}}
-**Access to on-premises resources:** It's common that your builder teams' development environments and your test and/or production environments in AWS will need to have connectivity to some of your on-premises resources. For example, there may be existing test and production data services in your on-premises environment that your workloads in AWS will need to access.  If this is the case, you should review [On-premises Network Integration]({{< relref "01-on-premises-network-integration" >}}) for an overview of your options.
+**Access to on-premises resources:** It's common that your builder teams' development environments and your test and/or production environments in AWS will need to have connectivity to some of your on-premises resources. For example, there may be existing test and production data services in your on-premises environment that your workloads in AWS will need to access.  If this is the case, you should review [On-premises Network Integration]({{< relref "01-hybrid-networking" >}}) for an overview of your options.
 {{% /notice %}}
 
 #### Cloud Platform Team Requirements
@@ -90,7 +90,7 @@ The initial cloud platform team needs an isolated environment in which they can 
 **Inhibit Use of Long-term AWS Access Keys** - Inhibit use of long-term access keys to access AWS services.
 
 {{% notice tip %}}
-**Reuse your corporate identity store and overall RBAC processes:** It's common for organizations planning to adopt AWS to require use of their existing corporate identity store and overall role based access control (RBAC) tools and procedures to grant users entitlements to applications. This guide recommends that you start simple by first using a small set of users and groups defined locally in the AWS SSO service.  Once you've established your initial foundation in AWS, the guide provides a summary of your federated access options and resources to enable you to evolve your AWS environment to use your existing corporate identity source.  See [Federated Access to Your AWS Environment]({{< relref "01-federated-access-to-aws" >}}) for an overview of your options.
+**Reuse your corporate identity store and overall RBAC processes:** It's common for organizations planning to adopt AWS to require use of their existing corporate identity store and overall role based access control (RBAC) tools and procedures to grant users entitlements to applications. This guide recommends that you start simple by first using a small set of users and groups defined locally in the AWS SSO service.  Once you've established your initial foundation in AWS, the guide provides a summary of your federated access options and resources to enable you to evolve your AWS environment to use your existing corporate identity source.  See [Federated Access to Your AWS Environment]({{< relref "02-federated-access-to-aws" >}}) for an overview of your options.
 {{% /notice %}}
 
 ### Operations

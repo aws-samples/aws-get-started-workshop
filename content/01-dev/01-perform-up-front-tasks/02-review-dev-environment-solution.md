@@ -14,7 +14,7 @@ The following diagram represents a typical team development environment as a dis
 
 Since your specific requirements may include some of the optional [development fast follow capabilities]({{< relref "02-dev-fast-follow" >}}), aspects of your initial solution may be different than shown in this diagram.
 
-[![Initial Development Environment](/images/01-dev/dev-initial.png)](/images/01-dev/dev-initial.png)
+[![Initial Development Environment](/images/01-dev/initial-foundation-dev-initial.png)](/images/01-dev/initial-foundation-dev-initial.png)
 
 Key aspects of the initial, minimal solution include:
 
@@ -39,7 +39,7 @@ As a best practice, it’s strongly recommended that all users managed via AWS S
 AWS SSO includes the ability to manage permission sets that define which groups of users can access which AWS accounts and the fine grained AWS Identity and Access Management (IAM) permissions associated with this access.  AWS SSO automatically propagates these permissions to each member AWS account in your AWS organization.
 
 {{% notice tip %}}
-**Reuse your corporate identity store and overall RBAC processes:** It's common for organizations planning to adopt AWS to require use of their existing corporate identity store and overall role based access control (RBAC) tools and procedures to grant users entitlements to applications. This guide recommends that you start simple by first using a small set of users and groups defined locally in the AWS SSO service.  Once you've established your initial foundation in AWS, the guide provides a summary of your federated access options and resources to enable you to evolve your AWS environment to use your existing corporate identity source.  See [Federated Access to Your AWS Environment]({{< relref "01-federated-access-to-aws" >}}) for an overview of your options.
+**Reuse your corporate identity store and overall RBAC processes:** It's common for organizations planning to adopt AWS to require use of their existing corporate identity store and overall role based access control (RBAC) tools and procedures to grant users entitlements to applications. This guide recommends that you start simple by first using a small set of users and groups defined locally in the AWS SSO service.  Once you've established your initial foundation in AWS, the guide provides a summary of your federated access options and resources to enable you to evolve your AWS environment to use your existing corporate identity source.  See [Federated Access to Your AWS Environment]({{< relref "02-federated-access-to-aws" >}}) for an overview of your options.
 {{% /notice %}}
 
 ## Initial Users of Your AWS Environment
@@ -54,7 +54,7 @@ Each builder team is allocated a distinct team development AWS account to act as
 
 In addition to your initial application and data engineering teams that need access to the AWS platform, you should view your initial cloud and security administrators as a team of builders in its own right that should have its own AWS account for its own work to iterate on, develop, and perform early testing of changes to the foundation.
 
-## Common Development Network
+## Common Development Network {#common-development-network}
 
 A centrally managed development network in the form of an AWS Virtual Private Cloud (VPC) is used to support the networking needs of builder teams for their development tasks.  Your Cloud Administrators will provision this centrally managed VPC to a new "Network" AWS account and share a common set of private subnets with team development AWS accounts.
 
@@ -84,14 +84,14 @@ Benefits of using a common VPC for builder team's development needs include:
 
 + Costs for builder teams' cloud resources are still allocated to their respective team development AWS accounts.
 
-+ Costs for shared VPC foundation resources are allocated to the Network AWS account.
++ Costs for shared VPC foundation resources are allocated to the **network-prod** AWS account.
 
 {{% notice tip %}}
 **Learn more about sharing VPC resources** See [NET320-R1 - The right AWS network architecture for the right reason](https://youtu.be/Ot1kcQfUIdg?t=1003) for more background on the benefits and practical considerations of sharing VPC resources.
 {{% /notice %}}
 
 {{% notice tip %}}
-**Access to on-premises resources:** It's common that your builder teams' development environments and your test and/or production environments in AWS will need to have connectivity to some of your on-premises resources. For example, there may be existing test and production data services in your on-premises environment that your workloads in AWS will need to access.  If this is the case, you should review [On-premises Network Integration]({{< relref "01-on-premises-network-integration" >}}) for an overview of your options.
+**Access to on-premises resources:** It's common that your builder teams' development environments and your test and/or production environments in AWS will need to have connectivity to some of your on-premises resources. For example, there may be existing test and production data services in your on-premises environment that your workloads in AWS will need to access.  If this is the case, you should review [On-premises Network Integration]({{< relref "01-hybrid-networking" >}}) for an overview of your options.
 {{% /notice %}}
 
 ## Access AWS Services via Internet
