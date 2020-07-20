@@ -16,7 +16,7 @@ SPDX-License-Identifier: CC-BY-SA-4.0
 
 Once you've established your initial foundation and delivered the initial set of development environments to teams, your next step is to expand your foundation by introducing a set of capabilities that organizations typically require before moving workloads into production.
 
-[![Initial Pre-Production Test and Production Environments in Single AWS Region](/images/03-preprod-prod/initial-foundation-preprod-prod-single-region.png)](/images/03-preprod-prod/initial-foundation-preprod-prod-single-region.png)
+[![Initial Pre-Production Test and Production Environments in Single AWS Region](/images/03-preprod-prod/initial-foundation-test-prod-single-region.png)](/images/03-preprod-prod/initial-foundation-test-prod-single-region.png)
 
 ## Refine Requirements and Identify Solutions
 

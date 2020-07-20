@@ -12,7 +12,7 @@ SPDX-License-Identifier: CC-BY-SA-4.0
 
 Beyond supporting initial development and early testing within the development environments, your organization will soon need to support formal testing and eventually production hosting of your new applications and data services.  The following diagram represents typical extensions to your cloud foundation and a new set of AWS accounts to support formal testing and production hosting environments.
 
-[![Initial Test and Production Environments in Single AWS Region](/images/03-preprod-prod/initial-foundation-preprod-prod-single-region.png)](/images/03-preprod-prod/initial-foundation-preprod-prod-single-region.png)
+[![Initial Test and Production Environments in Single AWS Region](/images/03-preprod-prod/initial-foundation-test-prod-single-region.png)](/images/03-preprod-prod/initial-foundation-test-prod-single-region.png)
 
 Key aspects of a solution that supports a typical transition toward support for several projects and their workloads progressing toward formal pre-production testing and production include:
 
