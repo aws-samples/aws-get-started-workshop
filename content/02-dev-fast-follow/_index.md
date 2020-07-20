@@ -1,5 +1,5 @@
 ---
-title: 'Development Environment Fast Follow Capabilities'
+title: 'Extending Your Foundation with Fast Follow Capabilities'
 menuTitle: '2. Development Fast Follows'
 disableToc: true
 weight: 20
