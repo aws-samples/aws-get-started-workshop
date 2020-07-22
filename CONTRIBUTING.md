@@ -19,7 +19,7 @@ information to effectively respond to your bug report or contribution.
 We welcome you to use the GitHub issue tracker to report bugs or suggest features.
 
 When filing an issue, please check existing open, or recently closed, issues to make sure somebody else hasn't already
-reported the issue. 
+reported the issue.
 
 See the project [Kanban board](https://github.com/aws-samples/aws-get-started-workshop/projects/1?fullscreen=true) for the set of already filed issues and work in progress.
 
@@ -87,7 +87,15 @@ $  git submodule init ; git submodule update
 $ hugo server -D
 ```
 
-Access http://localhost:1313/
+
+#### Testing and Validation
+Starting the Hugo server will trigger the HTML generation process.  Content will be viewable at the Hugo default http://localhost:1313/.  Before you submit your pull request, please validate the following:
+
+- Changes should render completely and fully into HTML in accordance with the styling of the existing documentation
+- Relative links work and link to the referenced area
+- Hyperlinks to external documentation are complete and valid
+
+Our build toolchain uses the [html-proofer](https://github.com/gjtorikian/html-proofer) to perform the above validations in addition to manual reviews.  The `webspec.yml` at the root of this repository is an [AWS CodeBuild buildspec file](https://docs.aws.amazon.com/codebuild/latest/userguide/getting-started-create-build-spec-console.html) which can be used to validate your changes before submission.  Use this file to set up a CodeBuild project in an AWS account or use the [AWS CodeBuild agent](https://docs.aws.amazon.com/codebuild/latest/userguide/use-codebuild-agent.html) to run the build locally.  The validations use the latest version of Hugo and the Learn theme.
 
 ### Working with Links and Hugo
 
@@ -144,7 +152,7 @@ When there's an absence of existing detailed documentation to which the guide ca
 
 ### Managing and Referring to Static Images
 
-Static images are managed under the `static/images/` area of the repository. 
+Static images are managed under the `static/images/` area of the repository.
 
 The `images/` directory is structured based on the structure of the guide's content folders.  As a convention, you should copy any static images associated with sections to the same area of the site hierarchy as represented in the `static/images/` area of the repository.
 
@@ -167,7 +175,7 @@ Note that both of the styles of including static images will not enable you test
 
 #### Location of Drawing Files
 
-See the `drawings/` directory for the draw.io source files used for pictures and diagrams. 
+See the `drawings/` directory for the draw.io source files used for pictures and diagrams.
 
 #### Generating PNG Images
 
