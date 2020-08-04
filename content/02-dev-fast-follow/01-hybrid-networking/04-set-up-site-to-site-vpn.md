@@ -354,12 +354,12 @@ In this step, you'll update the route table for each of the private subnets in t
 |**`Destination`**|Specify the CIDR range of your on-premises network|
 |**`Target`**|Select your transit gateway. For example, **`infra-main`**|
 
-## 11. Test Connectivity
+## 15. Test Connectivity
 
 One of the easiest means to test basic connectivity is to deploy either a Linux or Windows EC2 instance to one of the development network's private subnets and attempt to ping between that instance and one or more OS instances hosted in your on-premises network.
 
 See [Testing the Site-to-Site VPN connection](https://docs.aws.amazon.com/vpn/latest/s2svpn/HowToTestEndToEnd_Linux.html).
 
-## 12. Monitor Your VPN Connection
+## 16. Monitor Your VPN Connection
 
 See [Monitoring Your Site-to-Site VPN connection](https://docs.aws.amazon.com/vpn/latest/s2svpn/monitoring-overview-vpn.html).
