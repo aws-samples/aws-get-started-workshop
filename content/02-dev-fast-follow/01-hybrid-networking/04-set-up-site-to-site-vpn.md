@@ -97,7 +97,7 @@ Register your on-premises customer gateway device in AWS.
 |**`Name`**|`infra-on-prem-dc1-gw1`|Accounting for the possibility of multiple customer gateway devices in each of multiple data centers.|
 |**`Routing`**|`Dynamic Routing`||
 |**`BGP ASN`**|`6500`||
-|**`IP Address`**|Public IP Address of your on-premises customer gateway||
+|**`IP Address`**|Public IP Address of your on-premises customer gateway||   
 |**`Certificate ARN`**|Leave empty||
 |**`Device`**|Leave empty||
 
@@ -118,11 +118,16 @@ Register your on-premises customer gateway device in AWS.
 |**`Amazon side ASN`**|Consult your Network team|One consideration is to use a unique private ASN per transit gateway to provide more flexible routing options.|
 |**`DNS support`**|checked||
 |**`VPN ECMP support`**|checked|Enables you to use multiple VPN connections to aggregate VPN throughput.|
-|**`Default route table association`**|checked||
+|**`Default route table association`**|**Unchecked**|Uncheck this option so you can specify which routing is allowed between accounts and environments|
 |**`Default route table propagation`**|**Unchecked**|Uncheck this option so that you don't enable any-to-any connectivity between attachments by default.|
 |**`Auto accept shared attachments`**|Unchecked||
 
 4. Select **`Create Transit Gateway`**
+
+{{% notice info %}}
+**Default Table Association and Propagation:** Refer to the following VPC guides in regards to isolated VPCs and shared services. See [Isolated VPCs](https://docs.aws.amazon.com/vpc/latest/tgw/transit-gateway-isolated.html) and [Isolated VPCs with shared services](https://docs.aws.amazon.com/vpc/latest/tgw/transit-gateway-isolated-shared.html).  In cases where you want development environments to be able to communicate to one another (or like for like environments), but do not want dev to talk to test and/or prod, you will want to manage the route table associations manually.  This will take some additional effort, however, will ensure that you proper environment communication isolation in place.
+{{% /notice %}}
+
 
 ## 5. Create VPN Transit Gateway Attachment
 
@@ -177,37 +182,163 @@ After your on-premises customer gateway has been configured, check the status of
 
 If at least one of the tunnels does not come up, then see [Troubleshooting your customer gateway device](https://docs.aws.amazon.com/vpn/latest/s2svpn/Troubleshooting.html)
 
-## 8. Review Transit Gateway Route Table
+## 8. Create Transit Gateway Route Tables
 
 If you configured your site-to-site VPN connection to use BGP, then your customer gateway and the transit gateway will propagate routes to each other. However, your on-premises routes will not be automatically propagated from the transit gateway to you VPC route tables of the attached VPCs. You need to manually configure these route entries.
 
 Review the transit gateway route table to verify that routing information for the on-premises CIDR is included.
 
 1. Select **`Transit Gateway Route Tables`**
-2. Select **`Routes`**
-3. Inspect the routes. If your VPN connection is using BGP, then you should see the CIDR block of your on-premises network associated with the VPN attachment.
-
-Similarly, when using BGP, the CIDR block of the attached VPC(s) should appear in the routing tables in your on-premises customer gateway.
-
-## 9. Create a VPC Transit Gateway Attachment
-
-Next, attach the development VPC to the transit gateway.
-
-1. Select **`Transit Gateway Attachments`**
-2. Select **`Create Transit Gateway Attachment`**
-3. Provide the Transit Gateway Attachment details:
+2. Click **`Create Transit Gateway Route Table`**
+3. Provide the Transit Gateway Route Table details:
 
 |Field|Recommendation|
 |-----|---------------|
-|**`Transit Gateway ID`**|Select the transit gateway you just created.|
-|**`Attachment Type`**|`VPC`|
-|**`Attachment name tag`**|**`dev-infra-shared`**|
-|**`DNS support`**|checked|
-|**`IPv6 support`**|unchecked|
-|**`VPC ID`**|**`dev-infra-shared`**|
-|**`Subnet IDs`**|Select each of the **private** subnets|
+|**`Name`**|tgw-vpn-rt|
+|**`Transit Gateway ID`**|Select your transit gateway from the list|
 
-## 10. Update VPC Route Table
+Click **`Create Transit Gateway Route Table`**
+
+Once the Transit Gateway Route Table is **`available`**, click on the **`Associations`** table at the bottom of the screen.
+1. Click **`Create association`**
+2. Choose the attachment to associate
+
+|Field|Recommendation|
+|-----|---------------|
+|**`Choose attachment to associate`**|Choose the transit Gateway attachment id for the VPN attachment|
+
+Click **`Create association`**
+
+Once the Association is **`associated`**, click on the **`Propagations`** tab
+1. Click **`Create propagation`**
+2. Choose the attachment to propagate
+
+|Field|Recommendation|
+|-----|---------------|
+|**`Choose attachment to propogate`**|Choose the transit Gateway attachment id for the VPN attachment|
+
+Click **`Create propagation`**
+
+Click on the **`Routes`** tab and you should see that there is a route entry for your on-prem/VPN CIDR.
+(When using BGP, the CIDR block of the attached VPC(s) should appear in the routing tables in your on-premises customer gateway.)
+
+## 9. Enable resource sharing in your master account
+
+You will need to enable sharing resources within your AWS Organizations from your master account.  This will allow you to access Transit Gateway from each of your accounts created and maintained within Control Tower.
+
+1. As a Cloud Administrator, use your personal user to log into AWS SSO.
+2. Select the **`master`** AWS account
+3. Select **`Management console`** associated with the **`AWSAdministratorAccess`** role.
+4. Select the appropriate AWS region.
+5. Navigate to **`Resource Access Manager`**
+6. Click the **`Settings`** in the left navigation panel
+7. Check the **`Enable sharing within your AWS Organizations`** checkbox, then click the **`Save settings`** button
+
+{{% notice info %}}
+**Find your Organization ID:** Navigate to AWS Organizations and click on any of the accounts to open the information panel on the right.  Within the **`ARN`**, after the word account, you will see your Organization ID (starts with **`o-`**).  Note this down for the next set of steps.
+{{% /notice %}}
+
+## 10. Sharing your Transit Gateway to your other accounts
+
+You will use AWS Resource Access Manager (RAM) to share your Transit Gateway for VPC attachments across your accounts and/or your organizations in AWS Organizations.
+
+1. Navigate to **`Resource Access Manager`**
+2. Click the **`Create a resource share`** button
+3. Fill out the resource share form details.  Some suggested fields are below:
+
+
+|Field|Recommendation|
+|-----|---------------|
+|**`Name`**|infra-network-tgw-share-01|
+|**`Select resource type`**|Transit Gateways (and select your Transit Gateway)|
+|**`Allow external accounts`**|(checked)|
+|**`Add AWS account number, OU or organization`**|Enter the Organization ID from your master account (captured in the above steps)|
+
+
+
+## 11. Create VPC attachments to your Transit Gateway
+
+You will create VPC attachments to your Transit Gateway within each individual account.  THis is available now that you have shared the Transit Gateway via Resource Access Manager to your root organization.
+
+1. As a Cloud Administrator, use your personal user to log into AWS SSO.
+2. Select the **`dev`** AWS account
+3. Select **`Management console`** associated with the **`AWSAdministratorAccess`** role.
+4. Select the appropriate AWS region.
+5. Navigate to **`VPC`**
+6. Click the **`Transit Gateway Attachments`** in the left navigation panel
+7. Click the **`Create Transit Gateway Attachment`** button
+8. Fill out the resource share form details.  Some suggested fields are below:
+
+
+|Field|Recommendation|
+|-----|---------------|
+|**`Transit Gateway ID`**|Select your transit gateway|
+|**`Attachment type`**|VPC|
+|**`Attachment tag name`**|tgw-dev|
+|**`DNS support`**|checked|
+|**`IP v6 support`**|only check if you are using IP v6 - otherwise, leave unchecked|
+|**`VPC ID`**|Choose the VPC within your shared dev account that you want to attach|
+|**`Subnet IDs`**|check any private subnets in the VPC that you want as part of the attachment|
+
+{{% notice info %}}
+**Repeat for other VPCs:** Repeat this step for any other accounts and VPCs that you want attached to the Transit Gateway.
+{{% /notice %}}
+
+## 12. Accept the Transit Gateway attachment requests
+
+1. As a Cloud Administrator, use your personal user to log into AWS SSO.
+2. Select the **`infrastructure`** AWS account
+3. Select **`Management console`** associated with the **`AWSAdministratorAccess`** role.
+4. Select the appropriate AWS region.
+5. Navigate to **`VPC`**
+6. Click the **`Transit Gateway Attachments`** in the left navigation panel
+
+Within the table, you will see the list of your new **`pending acceptance`** transit gateway attachments.
+
+1. Click the checkbox next to a row where the status is **`pending acceptance`** 
+2. Click on the **`Actions`** button and select **`Accept`**
+3. A prompt will popup - click **`Accept`** to confirm acceptance of the attachment
+
+
+## 13. Create your VPC Transit Gateway Route tables for your Shared Dev environment
+
+1. Select **`Transit Gateway Route Tables`**
+2. Click **`Create Transit Gateway Route Table`**
+3. Provide the Transit Gateway Route Table details:
+
+|Field|Recommendation|
+|-----|---------------|
+|**`Name`**|tgw-ssdev-rt|
+|**`Transit Gateway ID`**|Select your transit gateway from the list|
+
+Click **`Create Transit Gateway Route Table`**
+
+Once the Transit Gateway Route Table is **`available`**, click on the **`Associations`** table at the bottom of the screen.
+1. Click **`Create association`**
+2. Choose the attachment to associate
+
+|Field|Recommendation|
+|-----|---------------|
+|**`Choose attachment to associate`**|Choose the transit Gateway attachment id for the VPC attachment|
+
+Click **`Create association`**
+
+Once the Association is **`associated`**, click on the **`Propagations`** tab
+1. Click **`Create propagation`**
+2. Choose the attachment to propagate (your VPC attachments setup in Step 11 - Repeat for each association to be added)
+
+Repeat for each association to be added
+
+|Field|Recommendation|
+|-----|---------------|
+|**`Choose attachment to propogate`**|Choose the transit Gateway attachment id for the VPC attachment|
+
+Click **`Create propagation`**
+
+Click on the **`Routes`** tab and you should see that there is a route entry for your VPC CIDR.
+
+
+## 14. Update VPC Route Table
 
 In this step, you'll update the route table for each of the private subnets in the **`dev-infra-shared`** VPC to add an entry to route traffic destined to your on-premises network to the transit gateway.
 
@@ -223,12 +354,12 @@ In this step, you'll update the route table for each of the private subnets in t
 |**`Destination`**|Specify the CIDR range of your on-premises network|
 |**`Target`**|Select your transit gateway. For example, **`infra-main`**|
 
-## 11. Test Connectivity
+## 15. Test Connectivity
 
 One of the easiest means to test basic connectivity is to deploy either a Linux or Windows EC2 instance to one of the development network's private subnets and attempt to ping between that instance and one or more OS instances hosted in your on-premises network.
 
 See [Testing the Site-to-Site VPN connection](https://docs.aws.amazon.com/vpn/latest/s2svpn/HowToTestEndToEnd_Linux.html).
 
-## 12. Monitor Your VPN Connection
+## 16. Monitor Your VPN Connection
 
 See [Monitoring Your Site-to-Site VPN connection](https://docs.aws.amazon.com/vpn/latest/s2svpn/monitoring-overview-vpn.html).
