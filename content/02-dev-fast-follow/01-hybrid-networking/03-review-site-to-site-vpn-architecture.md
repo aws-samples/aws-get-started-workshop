@@ -16,27 +16,23 @@ This section provides an overview of the recommended initial Site-to-Site VPN ar
 
 ## Initial Architecture
 
-The following architecture is provides as an example initial architecture that you can evolve to meet your needs as you learn more about the AWS platform and expand adoption of AWS.  Even for your initial implementation, you may choose to customize this example architecture to meet your immediate needs.
+The following architecture provides a starting point that you can evolve to meet your needs as you learn more about the AWS platform and expand adoption of AWS.  Even for your initial implementation, you may choose to customize this example architecture to meet your immediate needs.
 
 ### Using AWS Transit Gateway with AWS Site-to-Site VPN
 
 Given that you'll likely want to enable your development, test, and production VPCs to have newtork connectivity to your on-premises environment, it's recommended that you use an AWS Site-to-Site VPN connection in conjunction with the [AWS Transit Gateway](https://docs.aws.amazon.com/vpc/latest/tgw/what-is-transit-gateway.html) service.  By doing so, you'll be able to easily reuse your site-to-site VPN connection across your VPCs and control which networks can connect to each other.
 
-#### Future State: Multiple VPCs Connected to On-premises Network
-
 In the following diagram, your on-premises IPsec-capable VPN device is represented as the "Customer Gateway".  Your customer gateway device will initiate a site-to-site VPN connection using two IPsec tunnels with VPN Transit Gateway attachment in your **network-prod** AWS account.  
 
-Initially, you'll configure your AWS Tranit Gateway to attach to your development VPC.  Later in this guide, you'll add attachments for your emerging set of test and production VPCs.
+Initially, you'll configure your AWS Tranit Gateway to attach to your development VPC.  Later in this guide, you'll add attachments for your emerging set of infrastructure shared services, test, and production VPCs.
 
-[![Site-to-Site VPN Connection - Multiple VPCs](/images/02-dev-fast-follow/01-hybrid-networking/site-to-site-vpn-high-level-generic.png)](/images/02-dev-fast-follow/01-hybrid-networking/site-to-site-vpn-high-level-generic.png)
+[![Site-to-Site VPN Connection - Multiple VPCs](/images/02-dev-fast-follow/01-hybrid-networking/site-to-site-vpn-high-level-generic.png?height=500px)](/images/02-dev-fast-follow/01-hybrid-networking/site-to-site-vpn-high-level-generic.png)
 
-#### Initial State: Development VPC Connected to On-premises Network
+### Initial State: Development VPC Connected to On-premises Network
 
-The following diagram depicts an initial architecture where only the common development VPC has connectivity to your on-premises networks.  The next section addresses connectivity and routing considerations for your initial hybrid connectivity. 
+The following diagram depicts an initial architecture where only the common development VPC has connectivity to your on-premises networks.
 
 [![Site-to-Site VPN Connection - Initial Development Connectivity](/images/02-dev-fast-follow/01-hybrid-networking/site-to-site-vpn-site-to-site-vpn-dev.png)](/images/02-dev-fast-follow/01-hybrid-networking/site-to-site-vpn-site-to-site-vpn-dev.png)
-
-### Connectivity and Routing Considerations
 
 In this initial stage of establishing hybrid connectivity with your AWS environment, you'll need to work with your Network team to ensure that the necessary on-premises router configuration changes are made and tested.  
 
@@ -53,7 +49,7 @@ You might have a requirement to ensure that all egress traffic to the Internet f
 Once you've established your hybrid connectivity to your AWS environment, you have the option to route all egress Internet traffic back through the site-to-site VPN connection and through your existing network security services before the traffic is sent over your existing on-premises connections to the Internet.
 
 {{% notice info %}}
-**Alternative architecture: Using cloud-based centralized egress filtering:** Typically, the approach of routing Internet egress traffic through your on-premises network security services is viewed as a temporary solution. As a longer term solution, you should consider establishing the necessary network security services in your AWS environment. This cloud-based solution can be more effective by avoiding the need to send Internet egress traffic to your on-premises environment.  See [Centralized Egress to the Internet](https://docs.aws.amazon.com/whitepapers/latest/building-scalable-secure-multi-vpc-network-infrastructure/centralized-egress-to-internet.html) for details on this more optimal architecture.
+**Using cloud-based centralized egress filtering:** Typically, the approach of routing Internet egress traffic through your on-premises network security services is viewed as a temporary solution. As a longer term solution, you should consider establishing the necessary network security services in your AWS environment. This cloud-based solution can be more effective by avoiding the need to send Internet egress traffic to your on-premises environment.  See [Centralized Egress to the Internet](https://docs.aws.amazon.com/whitepapers/latest/building-scalable-secure-multi-vpc-network-infrastructure/centralized-egress-to-internet.html) for details on this more optimal architecture.
 {{% /notice %}}
 
 If you take this temporary approach to securing egress traffic to the Internet, then you'll be able to decommission the NAT Gateway(s), public subnets, and Internet Gateway in your common development VPC.  
@@ -68,9 +64,17 @@ For example, you may want to constrain resources in your development VPC to acce
 
 In the future, when you build out production VPCs in your AWS environment, you would likely need to constrain your production VPC to accessing only allowed on-premises production services and data. 
 
-## More Advanced Architectures
+## Attaching Additional VPCs to Transit Gateway
 
-You should review the following more advanced architecures in case you have requirements in the near term that might be satisfied by these approaches.
+Later in this guide, as you create VPCs for test and production environments and consider adding a VPC to house infrastructure shared services, you'll be able to easily attach those VPCs to your transit gateway.
+
+In the following diagram, test and production VPCs are shown attached to the transit gateway.  An infrastructure shared services VPC is shown with hybrid DNS support and VPC endpoints.  The public subnet and internet gateway resources have been removed from the common development VPC based on the assumption that your traffic from all of your VPCs destined for the Internet will be routed across your site-to-site VPN connection.
+
+[![Site-to-Site VPN Connection - Attaching More VPCs](/images/02-dev-fast-follow/01-hybrid-networking/site-to-site-vpn-site-to-site-vpn-full.png)](/images/02-dev-fast-follow/01-hybrid-networking/site-to-site-vpn-site-to-site-vpn-full.png)
+
+## Extending the Architecture
+
+As your use of AWS expands, some of the following enhancements of your on-premises network integration architecture may be of interest.
 
 ### Improving Resiliency of VPN Connections
 
@@ -83,3 +87,11 @@ You may opt to use [Accelerated Site-to-Site VPN](https://docs.aws.amazon.com/vp
 ### Scaling VPN Throughput
 
 If your initial use of a site-to-site VPN connection exceeds the 1.25 Gbps limit of a single IPsec tunnel, consider scaling VPN throughput via equal cost multi-path (ECMP) routing support over multiple VPN tunnels. See [Scaling VPN throughput using AWS Transit Gateway](https://aws.amazon.com/blogs/networking-and-content-delivery/scaling-vpn-throughput-using-aws-transit-gateway/) for more information.
+
+## Reviewing Costs
+
+If you would like to review an example set of costs for the network integration architecture, see [Network Integration Architecture Cost Example]({{< relref "01-network-integration-costs-example" >}}).
+
+## Reviewing Alternative Architectures
+
+If you would like to compare the recommended approach of using AWS Transit Gateway, see [Alternative Network Integration Architectures]({{< relref "02-alternative-network-integration-architectures" >}}) including operational and cost considerations.

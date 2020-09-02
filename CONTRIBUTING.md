@@ -156,7 +156,7 @@ Static images are managed under the `static/images/` area of the repository.
 
 The `images/` directory is structured based on the structure of the guide's content folders.  As a convention, you should copy any static images associated with sections to the same area of the site hierarchy as represented in the `static/images/` area of the repository.
 
-#### Referring to Static Images
+#### Referring to Images
 
 When Hugo generates the static form of the site, it ensures that all of the folder under `static/` are made available at the root of the site.  For example, references to `/images/...` will resolve to content that is housed under the `static/images/` directory of the source repository.  See [Hugo Static Files](https://gohugo.io/content-management/static-files/).
 
@@ -167,7 +167,15 @@ Consequently, one way to link to images is to use the convention Markdown refere
 ```
 Alternatively, you can use built-in Hugo shortcode [`figure`](https://gohugo.io/content-management/shortcodes/#figure) when you need more control over how the image is displayed.
 
-#### Testing Inclusion of Static Images
+#### Resizing Images
+
+You can append `height` and `width` to the image resource:
+
+```
+[![Transit VPC Architecture](/images/02-dev-fast-follow/01-hybrid-networking/transit-vpc-architecture.png?height=600px)](/images/02-dev-fast-follow/01-hybrid-networking/transit-vpc-architecture.png)
+```
+
+#### Testing Inclusion of Images
 
 Note that both of the styles of including static images will not enable you test the image simply by previewing the markdown document. You'll need to run Hugo locally to see how the image will be displayed.
 
