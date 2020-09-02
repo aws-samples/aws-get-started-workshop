@@ -1,6 +1,5 @@
 ---
-title: 'Review Site-to-Site VPN Architecture and Connection Options'
-menuTitle: 'Site-to-Site VPN Architecture'
+title: 'Review Site-to-Site VPN Architecture'
 disableToc: true
 weight: 30
 ---

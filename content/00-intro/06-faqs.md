@@ -24,11 +24,11 @@ See [Change History]({{< relref "04-change-history" >}})
 
 ## Federated Access to AWS Platform
 
-### Q: Why isn't federated access addressed from the start?
+### Q: Why isn't federated access with an existing identity store addressed from the start?
 
-It's typical for an organization to require several weeks to plan and coordinate the work required to set up federated access. Accordingly, this guide provides you with the option to address that work in parallel while you temporarily use locally managed users and groups in AWS SSO. 
+It's typical for an organization to require at least several weeks to plan and coordinate the work required to set up federated access using an existing identity source. Consequently, the guide defaults to the use of AWS Single Sign-On (AWS SSO) to provide federated access to your AWS accounts. This transitional approach entails managing users and groups in an identity source maintained within AWS SSO.
 
-See [Federated Access to the AWS Platform]({{< relref "02-federated-access-to-aws" >}}) for more background.
+You have the option to implement federated access using your existing identity source. See [Federated Access to the AWS Platform]({{< relref "02-federated-access-to-aws" >}}) for more background.
 
 ## AWS Accounts Design
 

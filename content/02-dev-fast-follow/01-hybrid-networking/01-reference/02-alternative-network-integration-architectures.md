@@ -16,6 +16,10 @@ This section provides an overview of several alternative architectures to consol
 
 ## AWS Site-to-Site VPN Virtual Private Gateway per VPC and VPC Peering
 
+{{% notice warning %}}
+We don't recommend using the following architecture. It's included only to demonstrate the implications of using more of a point-to-point approach to integrating site-to-site VPN connections with VPCs.  We recommend that you consolidate such connections by using either the [AWS Transit Gateway based architecture]({{< relref "03-review-site-to-site-vpn-architecture" >}}) or, if conditions warrant, a transit VPC architecture that is introduced below.
+{{% /notice %}}
+
 In this architecture, you establish a site-to-site VPN connection to each of your VPCs and use VPC peering to provide network connecticity between your team development and workload hosting VPCs and an infrastructure shared services VPC.
 
 * You establish a distinct VPN connection from your on-premises environment to a virtual private gateway in each VPC.
