@@ -35,7 +35,7 @@ In this architecture, you establish a site-to-site VPN connection to each of you
 
 #### AWS Costs
 
-We'll use the same assumptions concerning the number of VPCs, their dependencies, and the amount of data transferred that are used in the Transit Gateway architecture [Cost Considerations]({{< relref "03-review-site-to-site-vpn-architecture#cost-considerations" >}}) section.
+We'll use the same assumptions concerning the number of VPCs, their dependencies, and the amount of data transferred that are used in the Transit Gateway architecture [Cost Example]({{< relref "01-network-integration-costs-example" >}}) section.
 
 **Pricing**
 
