@@ -95,7 +95,15 @@ Starting the Hugo server will trigger the HTML generation process.  Content will
 - Relative links work and link to the referenced area
 - Hyperlinks to external documentation are complete and valid
 
-Our build toolchain uses the [html-proofer](https://github.com/gjtorikian/html-proofer) to perform the above validations in addition to manual reviews.  The `webspec.yml` at the root of this repository is an [AWS CodeBuild buildspec file](https://docs.aws.amazon.com/codebuild/latest/userguide/getting-started-create-build-spec-console.html) which can be used to validate your changes before submission.  Use this file to set up a CodeBuild project in an AWS account or use the [AWS CodeBuild agent](https://docs.aws.amazon.com/codebuild/latest/userguide/use-codebuild-agent.html) to run the build locally.  The validations use the latest version of Hugo and the Learn theme.
+To test locally and avoid the potential of a rejected pull request:
+1.  Use the latest version of Hugo ([Upgrading Hugo](https://gohugo.io/getting-started/installing/#upgrade-hugo))
+2. Install [html-proofer](https://github.com/gjtorikian/html-proofer)
+3. Execute `hugo -D` to compile with Hugo
+4.  Execute `htmlproofer ./public --check-html --empty-alt-ignore --allow-hash-href` and resolve any issues you introduced
+
+Also, the `webspec.yml` at the root of this repository is an [AWS CodeBuild buildspec file](https://docs.aws.amazon.com/codebuild/latest/userguide/getting-started-create-build-spec-console.html).  You can use this file to set up a CodeBuild project in an AWS account, or alternatively use the [AWS CodeBuild agent](https://docs.aws.amazon.com/codebuild/latest/userguide/use-codebuild-agent.html) to run the build locally.  The validations use the latest version of Hugo and the Learn theme.
+
+
 
 ### Working with Links and Hugo
 
