@@ -16,8 +16,6 @@ uglyurls = true
 
 #relativeURLs = true # Need to research: https://gohugo.io/content-management/urls/
 
-googleAnalytics = "UA-164515818-1"
-
 enableGitInfo = true
 
 enableEmoji = true
