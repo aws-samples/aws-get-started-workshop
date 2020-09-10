@@ -86,8 +86,6 @@ $  git submodule init ; git submodule update
 ```
 $ hugo server -D
 ```
-
-
 #### Testing and Validation
 Starting the Hugo server will trigger the HTML generation process.  Content will be viewable at the Hugo default http://localhost:1313/.  Before you submit your pull request, please validate the following:
 
@@ -96,14 +94,25 @@ Starting the Hugo server will trigger the HTML generation process.  Content will
 - Hyperlinks to external documentation are complete and valid
 
 To test locally and avoid the potential of a rejected pull request:
-1.  Use the latest version of Hugo ([Upgrading Hugo](https://gohugo.io/getting-started/installing/#upgrade-hugo))
-2. Install [html-proofer](https://github.com/gjtorikian/html-proofer)
-3. Execute `hugo -D` to compile with Hugo
-4.  Execute `htmlproofer ./public --check-html --empty-alt-ignore --allow-hash-href` and resolve any issues you introduced
-
+1. Use the latest version of Hugo ([Upgrading Hugo](https://gohugo.io/getting-started/installing/#upgrade-hugo))
+2. Install [html-proofer](https://github.com/gjtorikian/html-proofer). For example, on macOS:
+```
+% brew install ruby
+% echo 'export PATH="/usr/local/opt/ruby/bin:$PATH"' >> ~/.zshrc
+% gem install html-proofer
+% echo 'export PATH="/usr/local/lib/ruby/gems/2.7.0/bin:$PATH"' >> ~/.zshrc
+% . ~/.zshrc
+% htmlproofer --version
+```
+3. Execute `hugo` to build the static site under the `./public/` directory:
+```
+% hugo -D
+```
+4. Execute `htmlproofer` and resolve any issues you introduced:
+```
+% htmlproofer ./public --check-html --empty-alt-ignore --allow-hash-href
+```
 Also, the `webspec.yml` at the root of this repository is an [AWS CodeBuild buildspec file](https://docs.aws.amazon.com/codebuild/latest/userguide/getting-started-create-build-spec-console.html).  You can use this file to set up a CodeBuild project in an AWS account, or alternatively use the [AWS CodeBuild agent](https://docs.aws.amazon.com/codebuild/latest/userguide/use-codebuild-agent.html) to run the build locally.  The validations use the latest version of Hugo and the Learn theme.
-
-
 
 ### Working with Links and Hugo
 
