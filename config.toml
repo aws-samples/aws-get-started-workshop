@@ -6,7 +6,7 @@ defaultContentLanguage = "en"
 defaultContentLanguageInSubdir= false
 enableMissingTranslationPlaceholders = false
 
-title = "Getting Started with AWS for Formal Projects"
+title = "Get Started with AWS for Production Workloads"
 
 theme = "learn"
 
