@@ -71,11 +71,11 @@ Combined monthly cost for site-to-site VPN + VPC peering:
 |--------|----------|
 |Site-to-Site VPN|$235.91|
 |VPC Peering|$20.00|
-|Total monthly cost:|**$255.91**|
+|Total monthly cost:|**$255.91** (as compared to **$348.91** for [transit gateway-based example]({{< relref "01-network-integration-costs-example" >}}))|
 
 ## Transit VPC and Commercial Router Virtual Appliances
 
-See [AWS Global Transit Network](https://aws.amazon.com/solutions/implementations/aws-global-transit-network/) solution for an architecture and solution that uses commercial router virtual appliances in a transit VPC. This architecture was a common pattern used by customers prior to the advent of AWS Transit Gateway.
+See the [AWS Global Transit Network](https://aws.amazon.com/solutions/implementations/aws-global-transit-network/) solution for an architecture and solution that uses commercial router virtual appliances in a transit VPC. This architecture was a common pattern used by customers prior to the advent of AWS Transit Gateway.
 
 In this architecture, you establish a site-to-site VPN connection directly from your on-premises network to several commercial router virtual appliances that you manage in a central infrastucture transit VPC. AWS Site-to-Site VPN is not used for the on-premises to commercial router integration.
 
