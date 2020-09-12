@@ -16,8 +16,4 @@ By following these instructions, you will enable network connectivity between yo
 
 Later in this guide, when you set up your test and production VPCs, the steps required to enable those VPCs to reuse your site-to-site VPN connection will be addressed.  The process in your AWS environment will be largely a repeat of the steps in this section that are used to connect your development VPC to your on-premises network.
 
-{{% notice tip %}}
-**Set up a virtual on-premises environment:** If you don't have access to an actual on-premises data center environment and you'd like to either evaluate or demonstrate the AWS Site-to-Site VPN capabilities, see [Setting Up a Virtual On-Premises Environment]({{< relref "05-virtual-on-premises" >}}) for instructions on how to set up a test on-premises environment in AWS.  You can deploy either open source or commercial VPN/router appliances in your virtual on-premises environment to act as the customer gateway device.
-{{% /notice %}}
-
 {{% children showhidden="false" %}}
