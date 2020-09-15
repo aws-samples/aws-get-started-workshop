@@ -1,8 +1,8 @@
 ---
 title: 'Monitor VPN Connection'
-menuTitle: '8. Monitor VPN Connection'
+menuTitle: '11. Monitor VPN Connection'
 disableToc: true
-weight: 80
+weight: 110
 ---
 
 {{% comment %}}

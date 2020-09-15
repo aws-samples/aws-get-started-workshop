@@ -1,8 +1,8 @@
 ---
 title: 'Test Connectivity Between On-premises and Development Network'
-menuTitle: '7. Test Connectivity'
+menuTitle: '10. Test Connectivity'
 disableToc: true
-weight: 70
+weight: 100
 ---
 
 {{% comment %}}

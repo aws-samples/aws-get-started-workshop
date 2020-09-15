@@ -16,4 +16,8 @@ By following these instructions, you will enable network connectivity between yo
 
 Later in this guide, when you set up your test and production VPCs, the steps required to enable those VPCs to reuse your site-to-site VPN connection will be addressed.  The process in your AWS environment will be largely a repeat of the steps in this section that are used to connect your development VPC to your on-premises network.
 
+{{% notice info %}}
+**Automated solution:** As you expand the number of VPCs in your AWS environment, you may benefit from implementing the [Serverless Transit Network Orchestrator](https://aws.amazon.com/solutions/implementations/serverless-transit-network-orchestrator/) AWS solution.  This solution automates much of the work required to integrate newly created VPCs with your transit gateway.
+{{% /notice %}}
+
 {{% children showhidden="false" %}}
