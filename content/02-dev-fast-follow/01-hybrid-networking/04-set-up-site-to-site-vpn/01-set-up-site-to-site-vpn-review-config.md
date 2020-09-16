@@ -23,12 +23,12 @@ The resources you'll be configuring in the **`network-prod`** AWS account includ
 * Workloads VPCs transit gateway route table
 * Development VPC route table entries
 
-The development VPC transit gateway attachment will attach your centrally managed common development VPC with the transit gateway so that network traffic can be exchanged between the VPC and your on-premises network.
+Once you create test and production workloads AWS accounts and VPCs, you'll also attach those VPCs to your transit gateway and update the newtork services route table accordingly.
 
-You'll need to update the VPC's route tables so that traffic from the development VPC and destined for your on-premises environment is router to the transit gateway.
+The overall configuration in this guide is patterned after the example [Isolated VPCs with shared services](https://docs.aws.amazon.com/vpc/latest/tgw/transit-gateway-isolated-shared.html).
+
+[![Site-to-Site VPN with Transit Gateway](/images/02-dev-fast-follow/01-hybrid-networking/site-to-site-vpn-tgw-route-tables.png?height=500px)](/images/02-dev-fast-follow/01-hybrid-networking/site-to-site-vpn-tgw-route-tables.png)
 
 {{% notice tip %}}
 **Routing internet egress traffic to your on-premises network:** An optional step is to remove the public subnets and NAT gateways from the development VPC and route all Internet egress traffic from the development VPC to your on-premises network. You might choose this option as a short-term solution to direct the egress traffic through your existing network security filtering services in your on-premises environment. Longer term, you would likely host those filtering services in your AWS environment.
 {{% /notice %}}
-
-[![Site-to-Site VPN with Transit Gateway](/images/02-dev-fast-follow/01-hybrid-networking/site-to-site-vpn-tgw-route-tables.png?height=500px)](/images/02-dev-fast-follow/01-hybrid-networking/site-to-site-vpn-tgw-route-tables.png)
