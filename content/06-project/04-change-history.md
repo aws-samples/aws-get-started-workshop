@@ -14,6 +14,7 @@ A history of notable changes to the guide.
 
 |Date|Change|Description|Upgrading|
 |----|------|-----------|---------|
+|September 15, 2020|**Integrated AWS Site-to-Site VPN with AWS Transit Gateway**|New section added to address this optional capability.|Not applicable. New capability.|
 |June 24, 2020|**Changed example system identifier from `base` to `infra`**|Example resource names were changed to refer to `infra` vs the previous `base`.  This change was done to more closely align with use of the term infrastructure for foundational resources.|No changes necessary unless you've already used `base` and would like to switch to using `infra` or similar.|
 |June 23, 2020|**Provide Cloud Foundation team with development environment and sufficient access**|Addressed provisioning a distinct team development AWS account for the Cloud Foundation team and a separate OU with less restrictive access controls so that the team can have more write access to VPC resources than other teams.|No changes necessary. You can review the updated documentation if you'd like to learn from the new configuration.|
 |June 23, 2020|**Streamline new AWS account user management**|No longer create a new AWS SSO user when using AWS Control Tower's Account Factory when creating a new AWS account.  Instruct the customer to remove the individual permissions granted by Account Factory.|No changes necessary. You can review the updated documentation and remove any lingering and unnecessary AWS account level AWS SSO users.|
