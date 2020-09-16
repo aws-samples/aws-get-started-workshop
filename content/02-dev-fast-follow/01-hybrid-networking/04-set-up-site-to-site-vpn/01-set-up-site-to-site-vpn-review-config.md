@@ -27,6 +27,10 @@ Once you create test and production workloads AWS accounts and VPCs, you'll also
 
 The overall configuration in this guide is patterned after the example [Isolated VPCs with shared services](https://docs.aws.amazon.com/vpc/latest/tgw/transit-gateway-isolated-shared.html).
 
+{{% notice tip %}}
+**Detailed traffic flow examples:** If you'd like to walk through detailed traffic flow examples when using AWS Tranist Gateway, see [Field Notes: Working with Route Tables in AWS Transit Gateway](https://aws.amazon.com/blogs/architecture/field-notes-working-with-route-tables-in-aws-transit-gateway/).
+{{% /notice %}}
+
 [![Site-to-Site VPN with Transit Gateway](/images/02-dev-fast-follow/01-hybrid-networking/site-to-site-vpn-tgw-route-tables.png?height=500px)](/images/02-dev-fast-follow/01-hybrid-networking/site-to-site-vpn-tgw-route-tables.png)
 
 {{% notice tip %}}
