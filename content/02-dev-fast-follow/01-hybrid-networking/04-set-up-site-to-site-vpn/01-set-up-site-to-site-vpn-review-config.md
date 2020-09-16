@@ -29,4 +29,6 @@ You'll need to update the VPC's route tables so that traffic from the developmen
 
 {{% notice tip %}}
 **Routing internet egress traffic to your on-premises network:** An optional step is to remove the public subnets and NAT gateways from the development VPC and route all Internet egress traffic from the development VPC to your on-premises network. You might choose this option as a short-term solution to direct the egress traffic through your existing network security filtering services in your on-premises environment. Longer term, you would likely host those filtering services in your AWS environment.
-{{% /notice %}
+{{% /notice %}}
+
+[![Site-to-Site VPN with Transit Gateway](/images/02-dev-fast-follow/01-hybrid-networking/site-to-site-vpn-tgw-route-tables.png?height=500px)](/images/02-dev-fast-follow/01-hybrid-networking/site-to-site-vpn-tgw-route-tables.png)
