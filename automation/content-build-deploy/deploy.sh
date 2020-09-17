@@ -1,6 +1,7 @@
 #!/bin/bash
 
 set -vex
+echo CUSTOM_CODEBUILD_GIT_BRANCH_CLEAN = $CUSTOM_CODEBUILD_GIT_BRANCH_CLEAN
 [ -n "${WEB_SITE_BUCKET}" ] || exit 1
 [ -n "${CUSTOM_CODEBUILD_GIT_BRANCH_CLEAN}" ] || exit 1
 [ -n "${CLOUDFRONT_DISTRO_ID}" ] || exit 1
