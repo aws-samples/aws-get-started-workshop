@@ -43,7 +43,7 @@ phases:
       #    export CUSTOM_CODEBUILD_PR=${CUSTOM_CODEBUILD_GIT_BRANCH#pr-};
       #  fi
       #- export CUSTOM_CODEBUILD_GIT_BRANCH_CLEAN="$(echo $CUSTOM_CODEBUILD_GIT_BRANCH | tr '/' '.')"
-      - automation/content-build-deploy/build-env.sh
+      - . automation/content-build-deploy/build-env.sh
 
   build:
     commands:
