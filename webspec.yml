@@ -33,7 +33,13 @@ phases:
       # Copy deployment script so that build stage can access it
       - cp automation/content-build-deploy/deploy.sh /usr/local/bin/
       # Set additional custom build environment variables
-      - automation/content-build-deploy/build-env.sh
+      - export CODEBUILD_GIT_BRANCH="$(git symbolic-ref HEAD --short 2>/dev/null)"
+      - if [ "$CODEBUILD_GIT_BRANCH" = "" ] ; then
+          CODEBUILD_GIT_BRANCH="$(git branch -a --contains HEAD | sed -n 2p | awk '{ printf $1 }')";
+          export CODEBUILD_GIT_BRANCH=${CODEBUILD_GIT_BRANCH#remotes/origin/};
+        fi
+      - export CODEBUILD_GIT_CLEAN_BRANCH="$(echo $CODEBUILD_GIT_BRANCH | tr '/' '.')"
+      #- automation/content-build-deploy/build-env.sh
 
   build:
     commands:
