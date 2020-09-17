@@ -1,7 +1,7 @@
 ---
 title: 'Project Information'
 disableToc: true
-weight: 50
+weight: 60
 ---
 
 {{% comment %}}

@@ -1,8 +1,8 @@
 ---
 title: 'Establish Foundation for Development Environments'
-menuTitle: '2. Foundation for Development'
+menuTitle: '3. Foundation for Development'
 disableToc: true
-weight: 20
+weight: 30
 ---
 
 {{% comment %}}

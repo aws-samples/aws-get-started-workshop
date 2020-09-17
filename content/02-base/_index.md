@@ -1,8 +1,8 @@
 ---
 title: 'Establish Base Foundation'
-menuTitle: '1. Base Foundation'
+menuTitle: '2. Set Up Base Foundation'
 disableToc: true
-weight: 10
+weight: 20
 ---
 
 {{% comment %}}

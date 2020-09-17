@@ -16,7 +16,7 @@ SPDX-License-Identifier: CC-BY-SA-4.0
 
 ### Q: Where can I learn more about this project including who's involved and how I can contribute?
 
-See [Project Information]({{< relref "05-project" >}})
+See [Project Information]({{< relref "06-project" >}})
 
 ### Q: How can I see what has materially changed in the guide?
 

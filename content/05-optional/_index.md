@@ -1,8 +1,8 @@
 ---
-title: 'Extend Your Foundation with Optional Capabilities'
-menuTitle: 'Optional Capabilities'
+title: 'Extend Your Foundation with Common Optional Capabilities'
+menuTitle: 'Common Optional Capabilities'
 disableToc: true
-weight: 40
+weight: 50
 ---
 
 {{% comment %}}
