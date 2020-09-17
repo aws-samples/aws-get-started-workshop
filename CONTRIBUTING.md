@@ -87,6 +87,7 @@ $  git submodule init ; git submodule update
 $ hugo server -D
 ```
 #### Testing and Validation
+
 Starting the Hugo server will trigger the HTML generation process.  Content will be viewable at the Hugo default http://localhost:1313/.  Before you submit your pull request, please validate the following:
 
 - Changes should render completely and fully into HTML in accordance with the styling of the existing documentation
