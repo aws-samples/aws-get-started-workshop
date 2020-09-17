@@ -1,5 +1,5 @@
 ---
-title: "Review Development Environment Requirements"
+title: "Review Foundational Requirements"
 menuTitle: "1. Review Requirements"
 disableToc: true
 weight: 10
@@ -10,7 +10,7 @@ Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 SPDX-License-Identifier: CC-BY-SA-4.0
 {{% /comment %}}
 
-This section introduces the typical requirements for your inital formal development environments and the supporting foundation. Organizations typically require at least the following capabilities when establishing their initial formal development environments. A separate set of sections address a series of [optional capabilities]({{< relref "04-optional" >}}) that might be required up front depending on your organization's needs.
+This section introduces the typical requirements for your inital foundation in support of development, test, and production environments. Organizations typically require at least the following capabilities when establishing their initial formal environments. A typical set of [optional capabilities]({{< relref "04-optional" >}}) are also addressed in this guide.
 
 ## Cloud Adoption Framework Perspectives
 

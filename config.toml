@@ -16,8 +16,6 @@ uglyurls = true
 
 relativeURLs = true # Need to research: https://gohugo.io/content-management/urls/
 
-enableGitInfo = true
-
 enableEmoji = true
 
 # Code Syntax Highlighting
@@ -26,7 +24,7 @@ pygmentsUseClasses = true
 pygmentsStyle = "monokailight"
 
 [params]
-editURL = "https://github.com/aws-samples/aws-get-started-workshop/edit/master/content/"
+editURL = "https://github.com/aws-samples/aws-get-started-workshop/edit/dev/content/"
 
 showVisitedLinks = false
 disableInlineCopyToClipBoard = true

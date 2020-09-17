@@ -1,6 +1,6 @@
 ---
-title: "Review Development Environment Solution"
-menuTitle: "2. Review Solution"
+title: "Review Overall Solution"
+menuTitle: "2. Review Overall Solution"
 disableToc: true
 weight: 20
 ---
@@ -9,6 +9,8 @@ weight: 20
 Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 SPDX-License-Identifier: CC-BY-SA-4.0
 {{% /comment %}}
+
+***TO DO: Need to rework so that it provides an overview of the overall foundation - not just dev environments ***
 
 The following diagram represents a typical team development environment as a distinct AWS account supported by an initial set of foundation capabilities managed via a set of shared AWS accounts to meet the typical requirements outlined above. 
 
