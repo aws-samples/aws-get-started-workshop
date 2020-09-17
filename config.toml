@@ -14,7 +14,7 @@ theme = "learn"
 # public read access to the web content S3 bucket.
 uglyurls = true
 
-#relativeURLs = true # Need to research: https://gohugo.io/content-management/urls/
+relativeURLs = true # Need to research: https://gohugo.io/content-management/urls/
 
 enableGitInfo = true
 
