@@ -33,20 +33,17 @@ phases:
       # Copy deployment script so that build stage can access it
       - cp automation/content-build-deploy/deploy.sh /usr/local/bin/
       # Set additional custom build environment variables
-      - export CUSTOM_CODEBUILD_GIT_BRANCH="$(git symbolic-ref HEAD --short 2>/dev/null)"
-      - if [ "$CUSTOM_CODEBUILD_GIT_BRANCH" = "" ] ; then
-          CUSTOM_CODEBUILD_GIT_BRANCH="$(git branch -a --contains HEAD | sed -n 2p | awk '{ printf $1 }')";
-          export CUSTOM_CODEBUILD_GIT_BRANCH=${CUSTOM_CODEBUILD_GIT_BRANCH#remotes/origin/};
-        fi
-      - export CUSTOM_CODEBUILD_PR=''
-      - if [ "${CUSTOM_CODEBUILD_GIT_BRANCH#pr-}" != "$CUSTOM_CODEBUILD_GIT_BRANCH" ] ; then
-          export CUSTOM_CODEBUILD_PR=${CUSTOM_CODEBUILD_GIT_BRANCH#pr-};
-        fi
-      - export CUSTOM_CODEBUILD_GIT_CLEAN_BRANCH="$(echo $CUSTOM_CODEBUILD_GIT_BRANCH | tr '/' '.')"
-      - echo CUSTOM_CODEBUILD_GIT_BRANCH = ${CUSTOM_CODEBUILD_GIT_BRANCH}
-      - echo CUSTOM_CODEBUILD_GIT_CLEAN_BRANCH = ${CUSTOM_CODEBUILD_GIT_CLEAN_BRANCH}
-      - echo CUSTOM_CODEBUILD_PR = ${CUSTOM_CODEBUILD_PR}
-      #- automation/content-build-deploy/build-env.sh
+      #- export CUSTOM_CODEBUILD_GIT_BRANCH="$(git symbolic-ref HEAD --short 2>/dev/null)"
+      #- if [ "$CUSTOM_CODEBUILD_GIT_BRANCH" = "" ] ; then
+      #    CUSTOM_CODEBUILD_GIT_BRANCH="$(git branch -a --contains HEAD | sed -n 2p | awk '{ printf $1 }')";
+      #    export CUSTOM_CODEBUILD_GIT_BRANCH=${CUSTOM_CODEBUILD_GIT_BRANCH#remotes/origin/};
+      #  fi
+      #- export CUSTOM_CODEBUILD_PR=''
+      #- if [ "${CUSTOM_CODEBUILD_GIT_BRANCH#pr-}" != "$CUSTOM_CODEBUILD_GIT_BRANCH" ] ; then
+      #    export CUSTOM_CODEBUILD_PR=${CUSTOM_CODEBUILD_GIT_BRANCH#pr-};
+      #  fi
+      #- export CUSTOM_CODEBUILD_GIT_BRANCH_CLEAN="$(echo $CUSTOM_CODEBUILD_GIT_BRANCH | tr '/' '.')"
+      - automation/content-build-deploy/build-env.sh
 
   build:
     commands:
@@ -56,7 +53,6 @@ phases:
       - echo running html-proofer
       - $HTML_PROOFER  ./public --check-html --empty-alt-ignore --allow-hash-href
       # fail if proofer has issues... if you want to deploy anyway, move these back to post_build
-      - echo CUSTOM_CODEBUILD_GIT_CLEAN_BRANCH = ${CUSTOM_CODEBUILD_GIT_CLEAN_BRANCH}
       - deploy.sh
       - echo Deploy website static content to S3 Bucket
       - aws s3 cp public/ s3://${WEB_SITE_BUCKET}/ --recursive
