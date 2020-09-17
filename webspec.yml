@@ -42,7 +42,10 @@ phases:
       - if [ "${CUSTOM_CODEBUILD_GIT_BRANCH#pr-}" != "$CUSTOM_CODEBUILD_GIT_BRANCH" ] ; then
           export CUSTOM_CODEBUILD_PR=${CUSTOM_CODEBUILD_GIT_BRANCH#pr-};
         fi
-      - export CUSTOM_CODEBUILD_GIT_CLEAN_BRANCH="$(echo $CODEBUILD_GIT_BRANCH | tr '/' '.')"
+      - export CUSTOM_CODEBUILD_GIT_CLEAN_BRANCH="$(echo $CUSTOM_CODEBUILD_GIT_BRANCH | tr '/' '.')"
+      - echo CUSTOM_CODEBUILD_GIT_BRANCH = ${CUSTOM_CODEBUILD_GIT_BRANCH}
+      - echo CUSTOM_CODEBUILD_GIT_CLEAN_BRANCH = ${CUSTOM_CODEBUILD_GIT_CLEAN_BRANCH}
+      - echo CUSTOM_CODEBUILD_PR = ${CUSTOM_CODEBUILD_PR}
       #- automation/content-build-deploy/build-env.sh
 
   build:
