@@ -16,8 +16,3 @@ This guided workshop is intended to help you move from the stage of experimentin
 **Draft Content** Content in this repository is in a preliminary draft form and should not be used to formally build out AWS environments unless an AWS specialist is working with you. The documentation is currently undergoing frequent changes as it is reviewed and tested.
 {{% /notice %}}
 
-|   |   |   |
-|:-:|:-:|:-:|
-|{{< figure src="/images/01-dev/initial-foundation-dev-initial.png" alt="Development Environments" >}}|{{< figure src="/images/02-dev-fast-follow/initial-foundation-dev-fast-follow.png" alt="Development Fast Follow Capabilities" >}}|{{< figure src="/images/03-preprod-prod/initial-foundation-test-prod-single-region.png" alt="Initial Pre-Production Test and Production Environments" >}}|
-|[**1. Establish Foundation for Development Environments**]({{< relref "01-dev" >}})|[**2. Extend Foundation with Fast Follow Capabilities**]({{< relref "02-dev-fast-follow" >}})|[**3. Extend Foundation for Pre-Production Test and Production Environments**]({{< relref "03-preprod-prod" >}})|
-
