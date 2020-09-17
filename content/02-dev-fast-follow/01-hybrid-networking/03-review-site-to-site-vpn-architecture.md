@@ -53,15 +53,15 @@ Once you've established your hybrid connectivity to your AWS environment, you ha
 
 If you take this temporary approach to securing egress traffic to the Internet, then you'll be able to decommission the NAT Gateway(s), public subnets, and Internet Gateway in your common development VPC.  
 
-To support this temporary architecture, you'll need to work with your Network team to ensure that the proper routing configuration is put in place in your on-premises network. You'll also need to adjust the development VPC routing configuration to forward all Internet bound traffic through your site-to-site VPN connection instead of out through the NAT Gateway(s) in your development VPC.
+To support this temporary architecture, you'll need to work with your Network team to ensure that the proper routing configuration is put in place in your on-premises network. You'll also need to adjust the development VPC routing configuration to forward all Internet bound traffic through your site-to-site VPN connection instead of through the NAT Gateway(s) in your development VPC.
 
-#### 3. Segmenting Access to On-premises Resources
+#### 3. Segmenting Access Between Your On-premises and AWS Networks
 
 You'll need to work with your Network team to ensure that your customer gateway router and/or firewall configurations are aligned with how your organization expects to segregate traffic between your on-premises and AWS environments.
 
-For example, you may want to constrain resources in your development VPC to accessing only allowed infrastructure, builder services, and development quality on-premises services and data.  
+For example, you may want to constrain resources in your development VPC to accessing only allowed infrastructure, builder services, and development quality on-premises services and data.  In the future, when you build out production VPCs in your AWS environment, you would likely need to constrain your production VPC to accessing only allowed on-premises production services and data. 
 
-In the future, when you build out production VPCs in your AWS environment, you would likely need to constrain your production VPC to accessing only allowed on-premises production services and data. 
+Similarly, you may need to configure your on-premises routers and/or firewalls to ensure that only certain on-premises networks or specific clients can access your AWS networks.
 
 ## Attaching Additional VPCs to Transit Gateway
 

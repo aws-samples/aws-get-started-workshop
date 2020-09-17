@@ -27,6 +27,11 @@ Parameters:
     Description: repo name
     Default: aws-get-started-workshop
 
+  pBranch:
+    Type: String
+    Description: branch name to monitor
+    Default: master
+
   FullRepoURL:
     Type: String
     Description: The full url to the repo
@@ -157,7 +162,7 @@ Resources:
               Configuration:
                 Owner: !Ref GitHubOwner
                 Repo: !Ref GitHubRepo
-                Branch: master
+                Branch: !Ref pBranch
                 PollForSourceChanges: false
                 OAuthToken: '{{resolve:secretsmanager:GitHub/WorkshopOwnerToken:SecretString:OwnerToken}}'
               OutputArtifacts:
