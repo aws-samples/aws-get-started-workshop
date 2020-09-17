@@ -20,5 +20,10 @@ echo CUSTOM_CODEBUILD_GIT_BRANCH_CLEAN = $CUSTOM_CODEBUILD_GIT_BRANCH_CLEAN
 echo CUSTOM_CODEBUILD_GIT_PR = $CUSTOM_CODEBUILD_GIT_PR
 echo DEPLOY_DIR = $DEPLOY_DIR
 
+echo Deploy website static content to S3 Bucket
+
+aws s3 cp public/ s3://${WEB_SITE_BUCKET}/${DEPLOY_DIR} --recursive
+aws cloudfront create-invalidation --distribution-id ${CLOUDFRONT_DISTRO_ID} --paths /${DEPLOY_DIR}\*
+
 #aws s3 sync public/ s3://${WEB_SITE_BUCKET}/${DEPLOY_DIR} --delete;
 #aws cloudfront create-invalidation --distribution-id ${CLOUDFRONT_DISTRO_ID} --paths /${DEPLOY_DIR}\*
