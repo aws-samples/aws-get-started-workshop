@@ -18,9 +18,9 @@ This document is intended to provide foundation team members with awareness of t
 
 {{< toc >}}
 
-## All Foundation Team Members
+## All foundation team members
 
-### Understanding Your Team's Initial Development Environment
+### Understanding your team's initial development environment
 
 Since your team will need to experiment, develop, and perform early testing of changes to foundation resources and may need to reproduce issues as you support other teams using the environment, your team also needs a development environment.
 
@@ -35,17 +35,17 @@ Just like other builder teams, your foundation team has been allocated a team de
 
 See [Getting Started Guide for Builder Teams]({{< relref "01-getting-started-guide-builder-team-members" >}}) for information on using your team development environment.
 
-## Cloud Administrators
+## Cloud administrators
 
-### Gain More Familiarity with AWS Control Tower
+### Gain more familiarity with AWS Control Tower
 
 Since AWS Control Tower is the primary means by which you'll be creating AWS accounts, organizing them in OUs, and managing guardrails, it's important that you become familiar with recurring tasks.
 
-#### Making Changes to OUs and AWS Account Names
+#### Making changes to OUs and AWS account names
 
 When you make changes to AWS account names and AWS Organizations OU names outside of AWS Control Tower, you'll need to take steps in AWS Control Tower to ensure that it us up-to-date. See [Managing Resources Outside of AWS Control Tower](https://docs.aws.amazon.com/controltower/latest/userguide/external-resources.html) for details.
 
-#### Other AWS Control Tower Tasks
+#### Other AWS Control Tower tasks
 
 * Applying [AWS Control Tower updates](https://docs.aws.amazon.com/controltower/latest/userguide/configuration-updates.html).
   * Note that you may need to [disable AWS Control Tower's creation of VPCs](https://docs.aws.amazon.com/controltower/latest/userguide/configure-without-vpc.html) after you apply AWS Control Tower updates.
@@ -53,7 +53,7 @@ When you make changes to AWS account names and AWS Organizations OU names outsid
 * Responding to alerts from AWS Control Tower guardrails and other AWS platform monitoring services.
 * Monitoring costs across accounts on at least a weekly basis.
 
-## Security Administrators
+## Security administrators
 
 By following this guide, your foundation team has already established a foundation for security:
 
@@ -63,7 +63,7 @@ By following this guide, your foundation team has already established a foundati
 * Secured the root user of your AWS accounts with multi-factor authentication (MFA).
 * Set up an initial degree of AWS platform access management.
 
-### Identify Day-to-Day Tasks for This Role.
+### Identify day-to-day tasks for this role
 
 Consider starting with the following list:
 
@@ -73,7 +73,7 @@ Consider starting with the following list:
   * AWS SSO Permission Sets.
   * AWS Organizations Service Control Policies (SCPs) 
 
-### Review and Enable Foundational Security Services
+### Review and enable foundational security services
 
 While security is weaved within all AWS services and capabilities, a few explicit AWS Security, Identity, & Compliance services you should be aware of at this point in your journey are:
 
@@ -83,26 +83,26 @@ While security is weaved within all AWS services and capabilities, a few explici
 
 ****[AWS Security Hub](https://docs.aws.amazon.com/securityhub/index.html)**** AWS Security Hub provides you with a comprehensive view of the security state of your AWS resources. Security Hub collects security data from across AWS accounts and services, and helps you analyze your security trends to identify and prioritize the security issues across your AWS environment.
 
-### Access CloudTrail
+### Access AWS CloudTrail
 
-AWS CloudTrail is an AWS service that helps you enable governance, compliance, and operational and risk auditing of your AWS account. Actions taken by a user, role, or an AWS service are recorded as events in CloudTrail. Events include actions taken in the AWS Management Console, AWS Command Line Interface, and AWS SDKs and APIs.
+[AWS CloudTrail](https://aws.amazon.com/cloudtrail/) is an AWS service that helps you enable governance, compliance, and operational and risk auditing of your AWS account. Actions taken by a user, role, or an AWS service are recorded as events in CloudTrail. Events include actions taken in the AWS Management Console, AWS Command Line Interface, and AWS SDKs and APIs.
 
 1. Sign in to the AWS Management Console and open the CloudTrail console at https://console.aws.amazon.com/cloudtrail/home/.
 2. Review the information in your dashboard about the most recent events that have occurred in your AWS account. One of these events should be a "ConsoleLogin" event, showing that you just signed in to the AWS Management Console.
 3. Expand the event to see additional information.
 4. As your usage of the platform grows you will find value in additional capabilities like search, filtering, and exporting the CloudTrail data.
 
-### Develop and Hone Your AWS IAM Skills
+### Develop and hone your AWS IAM skills
 
 {{% notice note %}}
 **Review Note: Provide guidance on developing and honing IAM skills:** Provide pointers about how to learn more about effective use of IAM. For example, IAM Policy Simulator, testing policy changes before promoting them, IaC code techniques, etc. Reference how [AWS Access Analyzer](https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html) can be used to help identify the resources in organization and accounts, such as Amazon S3 buckets or IAM roles, that are shared with an external entity.
 {{% /notice %}}
 
-### Perform Periodic Reviews of the AWS Security Configuration.
+### Perform periodic reviews of the AWS security configuration
 
 Although some of the detective guardrails deployed through AWS Control Tower help continuously monitor and audit aspects of your AWS environment, it’s a best practice to periodically audit your security configuration to make sure that it meets your current business needs. See AWS [Security Audit Guidelines](https://docs.aws.amazon.com/general/latest/gr/aws-security-audit-guide.html) for best practices.
 
-### Monitor and Manage Resource Configuration State
+### Monitor and manage resource configuration state
 
 As resources are deployed in your account, managing the growing inventory of resources and ensuring that they are deployed consistently and maintained consistently can become a challenge. [AWS Config](https://docs.aws.amazon.com/config/latest/developerguide/WhatIsConfig.html) is a Management and Governance tool available to help you with:
 
@@ -122,19 +122,19 @@ More specifically, you can do the following with AWS Config:
 
 Once you have resources deployed in your account, consider [Getting Started with AWS Config](https://docs.aws.amazon.com/config/latest/developerguide/getting-started.html).
 
-## Cost Managers
+## Cost managers
 
 AWS Cost Management tools give you and your team visibility into AWS account costs and usage. Each account you create will have access to view their individual account costs and usage. The Master account can see the total organizational cost and usage rollup.
 
-### Access the Billing and Cost Management Dashboard
+### Access the billing and cost management dashboard
 
 Sign in to the AWS Management Console and open the Billing and Cost Management console at [https://console.aws.amazon.com/billing/home#/](https://console.aws.amazon.com/billing/home)
 
 There are a range of AWS Cost Management tools to help you access, organize, understand, control, and optimize your costs. You start to access detailed information about your AWS costs and usage using the built-in dashboard in the Billing and Management area of the AWS Management Console.
 
-### Enable Cost Explorer
+### Enable AWS Cost Explorer
 
-To see more detailed cost information for the entire organization of AWS accounts and to enable builder teams to access cost reporting within their own AWS accounts, you should enable the Cost Explorer:
+To see more detailed cost information for the entire organization of AWS accounts and to enable builder teams to access cost reporting within their own AWS accounts, you should enable the [AWS Cost Explorer](https://aws.amazon.com/aws-cost-management/aws-cost-explorer/):
 
 1. As a **Cost Manager**, use your personal user to log into AWS SSO.
 2. Select the AWS **master** account.
@@ -143,11 +143,11 @@ To see more detailed cost information for the entire organization of AWS account
 5. Select `Cost Explorer`.
 6. Choose `Enable Cost Explorer`.
 
-### Enable EC2 Right Sizing Recommendations
+### Enable EC2 right sizing recommendations
 
 Enable [Amazon EC2 Right Sizing Recommendations](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/ce-rightsizing.html) so that the foundation and workload builder teams can gain insight into recommendedations for downsizing and terminating EC2 instances.
 
-### Create a Budget
+### Create a budget
 
 For more proactive management of your AWS costs, set up budgets within the Billing and Management console. Budgets allow you to:
 

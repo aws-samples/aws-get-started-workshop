@@ -48,7 +48,7 @@ You'll follow these steps twice: Once to create the initial builder team develop
 
 |Field|Recommendation|
 |-----|---------------|
-|**`Account email`**|Consult the [set of AWS account root user email addresses]({{< relref "04-address-prerequisites#business-aws-accounts" >}}) that you established earlier.|
+|**`Account email`**|Consult the [set of AWS account root user email addresses]({{< relref "04-address-prerequisites#other-aws-accounts" >}}) that you established earlier.|
 |**`Display name`**|**`dev-infra`** or **`dev-<team identifier>`**|
 |**`AWS SSO email`**|Use the email address of your **`AWS Control Tower Admin`** user in AWS SSO.  As long as you reference an existing AWS SSO user, the Account Factory will not create another AWS SSO user for this new AWS account.|
 |**`AWS SSO First Name`**|**`AWS Control Tower`**|

@@ -16,7 +16,7 @@ This step should take about 10 minutes to complete.
 
 {{< toc >}}
 
-## 1. Review Example OUs
+## 1. Review example OUs
 
 The following diagram represents an example set of OUs and AWS accounts that can help you get started with your initial AWS environment in support of your first few production workloads. This initial set of OUs is intended to enable you to group AWS accounts that have similar security and management needs.
 
@@ -32,7 +32,7 @@ The development and workloads AWS accounts names shown in the diagram are exampl
 |**`infrastructure_dev`**|Includes the team development AWS account(s) for your Cloud Foundation teams. These AWS accounts will have more write access to AWS resources as compared to your standard team development AWS accounts. For example, the ability to create and manage foundational VPC resources.|
 |**`infrastructure_prod`**|Includes foundation infrastructure related AWS accounts including the Network Production and Infrastructure Shared Services AWS accounts that you will create later in this guide. These accounts are managed by your Cloud Foundation team.|
 
-### Business-oriented OUs
+### Workload-oriented OUs
 
 |OU Name|Description|
 |-------|------------|

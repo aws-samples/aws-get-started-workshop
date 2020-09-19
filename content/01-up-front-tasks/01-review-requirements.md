@@ -108,4 +108,6 @@ Since your first few proof of value workloads will be deployed to production, yo
 
 **Workload Operational Runbooks** - A sufficient set of runbooks to support common operational needs and scenarios for the first few proof of value workloads.
 
-**Cloud Foudation Operational Runbooks** - A sufficient set of runbooks to support setup and ongoing management of using AWS.
+**Cloud Foundation Operational Runbooks** - A sufficient set of runbooks to support setup and ongoing management of using AWS.
+
+**AWS Support** - Prior to deploying workloads to production, you should sign up for "Business" level AWS Support for at least one of your AWS accounts.

@@ -10,8 +10,6 @@ Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 SPDX-License-Identifier: CC-BY-SA-4.0
 {{% /comment %}}
 
-***TO DO: Need to rework so that it provides an overview of the overall foundation - not just dev environments ***
-
 The following diagram represents a typical team development environment as a distinct AWS account supported by an initial set of foundation capabilities managed via a set of shared AWS accounts to meet the typical requirements outlined above. 
 
 Since your specific requirements may include some of the [optional capabilities]({{< relref "05-optional" >}}), aspects of your initial solution may be different than shown in this diagram.

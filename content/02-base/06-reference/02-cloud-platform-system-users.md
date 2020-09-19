@@ -13,7 +13,7 @@ The following users are created as part of setting up AWS accounts and establish
 
 {{< toc >}}
 
-## AWS Account Root User
+## AWS account root user
 
 It is strongly recommended that AWS account root users not be used for day-to-day administrative tasks. See [The AWS Account Root User](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html) for more specific guidance.
 
@@ -31,7 +31,7 @@ Your Cloud Administrators will only need to use the AWS account root user for ca
 
 **Permissions:** Full administrative access. Also see [AWS Tasks That Require AWS Account Root User Credentials](https://docs.aws.amazon.com/general/latest/gr/aws_tasks-that-require-root.html).
 
-## Administrative Bootstrap IAM User
+## Administrative bootstrap IAM user
 
 Since it's best practice to avoid using the AWS account root user unless absolutely necessary and setting up a landing zone via AWS Control Tower cannot be done with the root user, it is recommended that a bootstrap administrative user be defined in the Master AWS account to be used to carry out the initial landing zone set up.
 
@@ -47,7 +47,7 @@ Once the human Cloud Administrators are granted access to the master account via
 
 **Permissions:** [AdministratorAccess](https://console.aws.amazon.com/iam/home#/policies/arn%3Aaws%3Aiam%3A%3Aaws%3Apolicy%2FAdministratorAccess)
 
-## AWS Control Tower Administrator
+## AWS Control Tower administrator
 
 Once human Cloud Administtrators are granted access to the master account via their own individual user accounts and are granted at least equivalent permissions to this user, this user will no longer be used.
 

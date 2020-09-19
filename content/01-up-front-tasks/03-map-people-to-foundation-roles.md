@@ -1,5 +1,5 @@
 ---
-title: "Map People to Foundation Functional Roles"
+title: "Map People to Foundational Functional Roles"
 menuTitle: "3. Map People to Roles"
 disableToc: true
 weight: 30
@@ -10,7 +10,7 @@ Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 SPDX-License-Identifier: CC-BY-SA-4.0
 {{% /comment %}}
 
-In this step you will identify the people on your nascent cloud foundation team who will play an initial set of functional roles in establishing, securing, and maintaining the cloud foundation so that your expectations are set in terms of accountability, ownership, and required skills and training.
+In this step you will identify the few people who will play an initial set of functional roles in establishing, securing, and maintaining the cloud foundation so that your expectations are set in terms of accountability, ownership, and required skills and training.
 
 A subsequent section of this guide helps you tie these functional roles to specific permissions on the AWS platform. 
 

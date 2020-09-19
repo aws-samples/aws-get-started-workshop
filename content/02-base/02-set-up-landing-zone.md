@@ -10,7 +10,7 @@ Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 SPDX-License-Identifier: CC-BY-SA-4.0
 {{% /comment %}}
 
-In this step your Cloud Administrators will use the AWS Control Tower service in your master AWS account to establish an initial “landing zone” or a foundation of security guardrails and other resources that will help your organization manage use of the AWS platform. You can learn more by reviewing [AWS Control Tower Features](https://aws.amazon.com/controltower/features/).
+In this step your Cloud Administrators will use the AWS Control Tower service in your AWS Organizations management AWS account to establish an initial “landing zone” or a foundation of security guardrails and other resources that will help your organization manage use of the AWS platform. You can learn more by reviewing [AWS Control Tower Features](https://aws.amazon.com/controltower/features/).
 
 This step should take about 90 minutes to complete.
 
@@ -28,7 +28,7 @@ Before using AWS Control Tower to create an initial landing zone, ensure that yo
 
 * **Email Distribution Lists** - Consult the [set of AWS account root user email addresses]({{< relref "04-address-prerequisites#initial-aws-accounts" >}}) that you established earlier.
 
-* **Pre-Launch Checks** - If you’ve just created a new master AWS account, the pre-launch check considerations for creating your landing zone should already be met. If you're reusing an exisitng master AWS account, the pre-launch checks might detect issues.
+* **Pre-Launch Checks** - If you’ve just created a new management AWS account, the pre-launch check considerations for creating your landing zone should already be met. If you're reusing an exisitng management AWS account, the pre-launch checks might detect issues.
 
 Follow the steps in [Getting Started with AWS Control Tower](https://docs.aws.amazon.com/controltower/latest/userguide/getting-started-with-control-tower.html) to set up your landing zone. 
 
@@ -47,9 +47,9 @@ See [Enable MFA on the AWS Account Root User](https://docs.aws.amazon.com/IAM/la
 
 ## 4. Log In Via Control Tower Administrator User
 
-As part of the landing zone set up, AWS Control Tower creates a Control Tower Administrator user in the AWS Single-Sign On (AWS SSO) service in your master account. 
+As part of the landing zone set up, AWS Control Tower creates a Control Tower Administrator user in the AWS Single-Sign On (AWS SSO) service in your management account. 
 
-The email address associated with the master AWS account’s root user will receive a message containing an invite to activate the Control Tower Administrator user account.  Review the invitation and accept it.
+The email address associated with the management AWS account’s root user will receive a message containing an invite to activate the Control Tower Administrator user account.  Review the invitation and accept it.
 
 [![Invitation to Access AWS SSO User Portal](/images/01-dev/accept-aws-sso-invitation.png)](/images/01-dev/accept-aws-sso-invitation.png)
 
@@ -65,7 +65,7 @@ In the following steps, you will modify your AWS SSO configuration to align with
 
 1. Since you just set the password for the **`Control Tower Administrator`** user, you should already be logged into the AWS SSO portal.
 2. From within the portal, select **`AWS Account`** icon to expand the current list of AWS accounts.
-3. Select the AWS **`master`** account.
+3. Select the AWS **`management`** account.
 4. Select **`Management console`** associated with the **`AWSAdministratorAccess`** role.
 5. Select the appropriate AWS region.
 6. Navigate to **`AWS Single Sign-on`**.
@@ -93,7 +93,7 @@ Follow the instruction in [How to Register a Device for Use with Multi-Factor Au
 
 ### AWS Organizations Email Verification Request
 
-You will receive one more email with subject AWS Organizations email verification request to the master account email address. Click on Verify your email address to continue with inviting newly created accounts into AWS Organization.
+You will receive one more email with subject AWS Organizations email verification request to the management account email address. Click on Verify your email address to continue with inviting newly created accounts into AWS Organization.
 
 ### AWS Notification Email Messages for Each Region
 
