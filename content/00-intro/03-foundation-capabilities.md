@@ -34,7 +34,7 @@ Later, after your organization has demonstrated success with the initial few pro
 
 Initial forms of foundation capabilities addressed by this guide include:
 
-**AWS Environment Structure**
+**Your Initial Overall AWS Environment**
 * An initial AWS account structure
 * Automated AWS account provisioning
 * AWS accounts for foundation management and workload hosting environments including development, pre-production, and production

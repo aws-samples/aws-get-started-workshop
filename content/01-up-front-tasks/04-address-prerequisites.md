@@ -10,21 +10,21 @@ Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 SPDX-License-Identifier: CC-BY-SA-4.0
 {{% /comment %}}
 
-In this step your foundation team will address several prerequsites before you build out the environment.
+In this step your foundation team will address several prerequsites before you build out the initial form of your foundation.
 
 {{< toc >}}
 
-## 1. Determine Whether to Reuse Existing Master AWS Account
+## 1. Determine Whether to Reuse Existing Management AWS Account
 
-Later in this guide you'll be using AWS Control Tower to set up an initial landing zone or basis of your AWS environment.  Since AWS Control Tower supports reusing existing master AWS accounts and using newly created master AWS accounts, you need to decide which option best suites your needs.
+Later in this guide you'll be using AWS Control Tower to set up an initial landing zone or basis of your AWS environment.  Since AWS Control Tower supports reusing existing AWS Organizations management AWS accounts and using newly created management AWS accounts, you need to decide which option best suites your needs.
 
-Review [Plan Your AWS Control Tower Landing Zone](https://docs.aws.amazon.com/controltower/latest/userguide/planning-your-deployment.html) for guidance when considering whether or not to use an existing master AWS account.
+Review [Plan Your AWS Control Tower Landing Zone](https://docs.aws.amazon.com/controltower/latest/userguide/planning-your-deployment.html) for guidance when considering whether or not to use an existing management AWS account.
 
-If you have any doubts about the quality of an existing master AWS account, then it's recommended that you create a new master AWS account later in this guide to support your new AWS environment.
+If you have any doubts about the quality of an existing management AWS account, then it's recommended that you create a new management AWS account via this guide to support your new AWS environment. You can easily move existing AWS accounts into your new management AWS account later on.
 
 ## 2. Create Email Addresses for New AWS Accounts
 
-Regardless as to whether you create a new master AWS account or reuse an existing master AWS account, you'll need to prepare a set of email addresses to represent the root user of each of the new AWS accounts that will be created. In later steps, when you create AWS accounts, you'll be referring to these email addresses. Each AWS account must have a unique email address associated with it.
+Regardless as to whether you create a new management AWS account or reuse an existing management AWS account, you'll need to prepare a set of email addresses to represent the root user of each of the new AWS accounts that will be created. In later steps, when you create AWS accounts, you'll be referring to these email addresses. Each AWS account must have a unique email address associated with it.
 
 ### Use Either Email Distribution Lists (DLs) or Shared Mailboxes
 Instead of using a person's email address, it's recommended that you use either email distribution lists (DLs) or shared mailboxes so that you can enable at least several trusted people in your organization, for example, your Cloud Administrators, access to email messages associated with each AWS account.
@@ -42,16 +42,16 @@ If your organization already has a naming standard for mail addresses associated
 Use your organization's process to request either DLs or shared mailboxes based on set of addresses you identify.
 
 {{% notice tip %}}
-**Reusing existing master AWS account:** If you're reusing an existing master AWS account, you'll reuse the email address associated with that account.
+**Reusing existing management AWS account:** If you're reusing an existing management AWS account, you'll reuse the email address associated with that account.
 {{% /notice %}}
 
 [![Initial OUs and AWS Accounts](/images/01-dev/aws-accounts-ous.png)](/images/01-dev/aws-accounts-ous.png)
 
-### Master AWS Account {#initial-aws-accounts}
+### Management AWS Account {#initial-aws-accounts}
 
 |AWS Account Name|Purpose|Example Email Address|
 |---|---|---|
-|**`master`**|You'll either create a new master AWS account or reuse an existing compatible AWS account.|`aws-account-master@example.com`|
+|**`management`**|You'll either create a new managemnt AWS account or reuse an existing compatible AWS account.|`aws-account-management@example.com`|
 
 ### Foundational AWS Accounts {#foundation-aws-accounts}
 
@@ -72,7 +72,7 @@ Use your organization's process to request either DLs or shared mailboxes based 
 |**`workloads-prod-<workload group identifier>`**|Environment where your initial production workloads and data will reside.|`aws-account-workloads-prod-<workload-group-identifier>@example.com`|
 
 {{% notice tip %}}
-**Use of “+” style email addresses:** If your organization’s email system supports the use of “+” style email addresses in which email multiple email addresses are aliased to the same email account, then you might find it beneficial to use this form to consolidate the root user email addresses for either all or collections of AWS accounts to either one or a few actual email accounts. For example: [aws-account1+master@example.com](mailto:aws-account+master@example.com) and [aws-account1+audit@example.com](mailto:aws-account+audit@example.com) will be treated as unique addresses in AWS but your mail system may deliver the mail to the same [aws-account1@example.com](mailto:aws-account@example.com) email address.
+**Use of “+” style email addresses:** If your organization’s email system supports the use of “+” style email addresses in which email multiple email addresses are aliased to the same email account, then you might find it beneficial to use this form to consolidate the root user email addresses for either all or collections of AWS accounts to either one or a few actual email accounts. For example: [aws-account1+management@example.com](mailto:aws-account+management@example.com) and [aws-account1+audit@example.com](mailto:aws-account+audit@example.com) will be treated as unique addresses in AWS but your mail system may deliver the mail to the same [aws-account1@example.com](mailto:aws-account@example.com) email address.
 {{% /notice %}}
 
 ## 3. Obtain Non-Overlapping IP Address Range {#ip-address-range}

@@ -22,7 +22,7 @@ In some cases, where the people resources can be made available and there’s a 
 
 Even in cases where roles are initially played by the same people, it’s recommended that you start with a separate set of functional roles so that, in the spirit of separation of duties, the access permissions are separated from the start and pave the way for an easier transition to a broader set of administrative teams as your adoption of the cloud expands.
 
-A common mistake made in this early stage of the journey is to assume that people playing certain functional roles in your existing on-premises environment must play a set of corresponding functional roles in the cloud.  Although eventually many of your infrastructure and security people may transition to functional roles in managing your use of cloud resources, to start, it’s a best practice to have a small number of close-knit technical people manage your initial adoption of the cloud.
+A common assumption made in this early stage of the journey is to assume that people playing certain functional roles in your existing on-premises environment must play a set of corresponding functional roles in the cloud.  Although eventually many of your infrastructure and security people may transition to functional roles in managing your use of cloud resources, to start, it’s a best practice to have a small number of close-knit technical people manage your initial adoption of the cloud.
 
 ## Map People to Typical Starter Foundation Functional Roles
 The following table lists a typical set of minimal functional roles to own and manage your initial iteration of your cloud foundation. You should be able to identify 1-2 people in your organization who will play these functional roles and have these responsibilities for at least this stage of your cloud adoption journey.
@@ -44,6 +44,6 @@ Another common example is for your Security Incident Response team to become mor
 
 ## Use Separate Builder Team Functional Roles
 
-In addition to the foundation functional roles listed above, a later section in this guide will help you represent builder team oriented functional roles to be used by teams that need to experiment, develop, and test early forms of business applications, data services, and/or foundation capabilities.
+In addition to the foundation functional roles listed above, a later section in this guide will help you represent builder team oriented functional roles to be used by teams that need to experiment, develop, test, and deploy into production your initial proof of value workloads.
 
 People playing foundation functional roles will also be granted access to builder team oriented functional roles so that they can select the proper set of permissions depending on which functional role they are playing at a given time. For example, a person who is playing the Cloud Administration functional role will assume the associated permissions when they are performing cloud administration work, but will assume a different set of permissions when performing development and early testing work to help evolve the foundation.

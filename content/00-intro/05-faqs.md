@@ -26,37 +26,34 @@ See [Change History]({{< relref "04-change-history" >}})
 
 ### Q: Why isn't federated access with an existing identity store addressed from the start?
 
-It's typical for an organization to require at least several weeks to plan and coordinate the work required to set up federated access using an existing identity source. Consequently, the guide defaults to the use of AWS Single Sign-On (AWS SSO) to provide federated access to your AWS accounts. This transitional approach entails managing users and groups in an identity source maintained within AWS SSO.
+It's typical for an organization to require more than a few days to plan and coordinate the work required to set up federated access using an existing identity source. Consequently, the guide defaults to the using AWS Single Sign-On (AWS SSO) with locally managed users and groups to provide federated access to your AWS accounts.
 
-You have the option to implement federated access using your existing identity source. See [Federated Access to the AWS Platform]({{< relref "02-federated-access-to-aws" >}}) for more background.
+The[Federated Access to the AWS Platform]({{< relref "02-federated-access-to-aws" >}}) section of this guide helps you start planning to integrate your existing identity source in support of federated access to AWS.
 
-## AWS Accounts Design
+## AWS Accounts
 
 ### Q: Shouldn't we develop a comprehensive design of our AWS account structure before we do any build out?
 
-It's useful to have a design in place for your initial AWS account structure to support your first few workloads. This guide provides recommendations and examples for your starter set of AWS accounts and AWS Organizations Organizational Units (OUs).
-
-You can modify the structure of your AWS environment over time as you learn more about the AWS platform and your requirements.
+This guide starts with a basic starter form of the AWS recommended account structure. You don't need to spend a lot of time designing the ultimate structure of your AWS environment in support of this early project stage of adoption and your first few proof of value workloads.  You can grow and expand this structure as you gain more experience with AWS.
 
 ### Q: Why aren't "Sandbox" AWS accounts included in the initial build out?
 
-Since the premise of the initial guide is to help customers quickly establish a set of formal team development environments in which experimentation, integration, development, and early testing of the first few application and/or data services can take place before they are rapidly moved through formal pre-production testing environments and into production, the traditional role of completely isolated and disconnected sandbox AWS accounts in which your organization's intellectual propertly (IP) including source code is not allowed does not yet apply to this overall scenario.
+The goal of this guide is to help you quickly establish a foundation on which you can deploy your first few proof of value workloads. Since sandbox environments that are disconnected from your internal development services such as source and artifact management are typically not required in support of your first few proof of value workloads, this guide doesn't currently focus on establishing disconnected sandbox environments.
 
-Instead, a focus of this guide is to establish team development AWS accounts to enable the formal work in support of the first few projects to progress rapidly.
+#### Flexible team development environments
 
-#### Similarities to Traditional Sandbox AWS Accounts
-In this very first and minimal stage of the build out, there are similarities between the team development AWS accounts and typical sandbox AWS accounts. For example, the initial lack of on-premises network integration and failrly wide ranging access to AWS services. However, the expectation is that your organization will either 1) require such gaps to be addressed at the outset and before builder teams are onboarded, or 2) quickly address these gaps as fast follow-on requirements.
+Instead, this guide provides detailed set up instructions for establishing team development environments. The optional team development environments are intended to provide your builders with the freedom to experiment and get things done subject to a set of guardrails.  These team development environments are similar to the notion of ["governed sandboxes"](https://www.flux7.com/blog/aws-best-practice-sandbox-accounts-provide-secure-middle-ground/).
 
-We expect that in most cases the initially provisioned developemnt team AWS accounts will quickly evolve to take on these additional properties. Rather than characterizing the initial team development AWS accounts as sandbox AWS accounts and needing to rename and reposition them later, the decision was made to position them as formal team development AWS accounts from the start.
+You will likely enable these team development environments to access some of your existing internal development services.  Access to these services can help your builders perform more formal experiments and development in their team development environments.
 
-#### Governed Sandboxes
-The notion of ["governed sandboxes"](https://www.flux7.com/blog/aws-best-practice-sandbox-accounts-provide-secure-middle-ground/) is similar to the approach taken in this guide where builder teams are provided wide latitude to manage cloud resources in their team development AWS accounts, but within a set of overall guardrails.
+Later, as you expand your use of AWS and onboard more of your builders, you will likely find it useful to establish a formal mechanism to support disconnected sandbox environments.
 
-#### Future Role for Traditional Sandboxes
-Similar to other aspects of overall AWS account design, the guide intentionally avoids overloading your organization with the fuller "to be" state of capabilities too early in your cloud adoption journey. Depending on your needs, in the future and perhaps in the larger "foundation" stage of adoption or even earlier as a parallel workstream, the capability to provide truly isolated and ephemeral sandbox AWS accounts to support a specific set of use cases may be addressed.
+#### Moving existing experimental AWS accounts
+
+You might already have an AWS account or two in which you've been performing early experiments. These accounts can be easily moved into your new AWS environment so that you consolidate billing and cost management and have greater control over these environments.  Over time, you might supplant these environments with either your more formal team development environments or a disconnected sandbox environment capability.
 
 ## Cloud Resource Naming and Tagging
 
 ### Q: Shouldn't we define and implement tagging standards early on in our journey?
 
-In the early stage of cloud adoption addressed by this guide where you'll have relatively few workloads, you likely won't need a sophisticated approach to tagging your cloud resources.  However, before you expand adoption further, it's recommended that you spend the time to begin developing and applying your own cloud resource tagging standards.
+In the early stage of cloud adoption addressed by this guide where you'll have relatively few workloads in just a few AWS accounts, you likely won't need a sophisticated approach to tagging your cloud resources.  However, before you expand adoption further, it's recommended that you spend the time to begin developing and applying your own cloud resource tagging standards.

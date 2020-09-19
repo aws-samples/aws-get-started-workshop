@@ -10,7 +10,11 @@ Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 SPDX-License-Identifier: CC-BY-SA-4.0
 {{% /comment %}}
 
-This section introduces the typical requirements for your inital foundation in support of development, test, and production environments. Organizations typically require at least the following capabilities when establishing their initial formal environments. A typical set of [optional capabilities]({{< relref "05-optional" >}}) are also addressed in this guide.
+This section introduces the typical requirements for your inital foundation in support of development, test, and production environments. You will typically require at least the following capabilities when establishing your initial formal environments. 
+
+Depending on your requirements, you might need to include additional capabilities in support of deploying your first few proof of value workloads to production. Setup instructions for [common optional capabilities]({{< relref "05-optional" >}}) are included later in this guide to help you meet these requirements.
+
+Depending on the types of initial proof of value workload, you'll likely have more requirements that are workload specific.
 
 ## Cloud Adoption Framework Perspectives
 
@@ -26,11 +30,13 @@ The following requirements are organized based on a series of perspectives defin
 
 ### People
 
-**Initial Cloud Platform Team** - The organization must have at least several technologists who are assigned to and capable of configuring and managing the initial phases of the enterprise’s use of AWS.
+**Initial Cloud Foundation Team** - The organization must have at least a few technologists who are assigned to and capable of configuring and managing the initial phases of the enterprise’s use of AWS. Initially, these technologists might be members of either the same team that own the first few proof of value workloads or your central IT organization that supports the team that owns the proof of value workloads. Over time, this initial team may evolve into a larger dedicated "cloud platform" or "cloud platform engineering" team.
+
+**Workload Owners** - The teams who own the first few proof of value workloads.
+
+**Cross-functional Stakeholders** - Cross-functional teams such as Security, Compliance, Network, Operations, and Finance are important stakeholders in the use of the AWS platform and must be part of the initial planning, design, and implementation effort.
 
 ### Governance
-
-**Involvement of Cross-Functional Teams** - Cross-functional departments such as Security, Compliance, Operations, and Finance are important stakeholders in the use of the AWS platform and must be part of the initial planning, design, and implementation effort.
 
 **Sufficient Access Controls** - Sufficient access controls and permissions to protect the cloud foundation resources from inadvertent and intentional modification by unauthorized users.
 
@@ -41,6 +47,7 @@ The following requirements are organized based on a series of perspectives defin
 ### Platform
 
 #### Builder Team Requirements
+
 **Sufficiently Isolated Team Development Environments** - An isolated environment for each team to carry out initial experiments and formal development work.
 
 **Avoid Cross-Team Impacts** - Isolation from other builder teams being able to inadvertently impact a team's cloud resources.
@@ -61,19 +68,21 @@ The following requirements are organized based on a series of perspectives defin
 
 **Self-Service AWS Costs Insights** - Insight into the costs of AWS services consumed in their development environments so that teams can make informed decisions.
 
-**User Documentation** - Sufficient documentation to enable builders to get started in the new AWS environment.
+**Builder User Documentation** - Sufficient documentation to enable builders to get started with your AWS environment.
 
 {{% notice tip %}}
 **Access to on-premises resources:** It's common that your builder teams' development environments and your test and/or production environments in AWS will need to have connectivity to some of your on-premises resources. For example, there may be existing test and production data services in your on-premises environment that your workloads in AWS will need to access.  If this is the case, you should review [On-premises Network Integration]({{< relref "01-hybrid-networking" >}}) for an overview of your options.
 {{% /notice %}}
 
-#### Cloud Platform Team Requirements
+#### Cloud Foundation Team Requirements
 
-The initial cloud platform team needs an isolated environment in which they can develop and test foundation capabilities.
+**Foundation Development Environment** - The initial cloud foundation team needs an isolated environment in which they can develop and test foundation capabilities.
   * Separate from other builder teams and environments.
   * Potentially with wider access permissions than typical development teams to enable deeper foundation development work.
 
 ### Security
+
+Since your first few proof of value workloads will be deployed to production, your existing security requirements for production applications should be applied.  The following requirements are examples that typically apply at this stage of adoption.
 
 **Isolate AWS Development from Corporate Resources** - Sufficient isolation between cloud development environments and existing corporate resources.
 
@@ -81,18 +90,22 @@ The initial cloud platform team needs an isolated environment in which they can 
 
 **Audit All AWS Activity** - Sufficient auditing of cloud access and activity and separation of duty for access to audit data.
 
-**Use of Per User Identities** - Use of per user identities to separate access and ensure sufficient auditing.
-
-**Multi-Factor Authentication** - Use of Multi-Factor Authentication (MFA) for all human user access to the AWS platform.
-
-**Inhibit Use of Locally Managed IAM Users** - Inhibit use of IAM users for human access.
-
-**Inhibit Use of Long-term AWS Access Keys** - Inhibit use of long-term access keys to access AWS services.
+**Role Based Access Control** - Access to the AWS platform must be controlled via role based access control.  Permissions should be assigned to roles. Your Cloud Fountation team members and workload owning builders who need direct access to AWS services should must their own identies rather than shared user accounts.
 
 {{% notice tip %}}
 **Reuse your corporate identity store and overall RBAC processes:** It's common for organizations planning to adopt AWS to require use of their existing corporate identity store and overall role based access control (RBAC) tools and procedures to grant users entitlements to applications. This guide recommends that you start simple by first using a small set of users and groups defined locally in the AWS SSO service.  Once you've established your initial foundation in AWS, the guide provides a summary of your federated access options and resources to enable you to evolve your AWS environment to use your existing corporate identity source.  See [Federated Access to Your AWS Environment]({{< relref "02-federated-access-to-aws" >}}) for an overview of your options.
 {{% /notice %}}
 
+**Multi-Factor Authentication** - Use Multi-Factor Authentication (MFA) for all human user access to the AWS platform.
+
+**Inhibit Use of Locally Managed IAM Users** - Inhibit use of IAM users for human access.
+
+**Inhibit Use of Long-term AWS Access Keys** - Inhibit use of long-term access keys to access AWS services.
+
 ### Operations
 
-A sufficient set of runbooks and playbooks to support common operational needs and scenarios.
+Since your first few proof of value workloads will be deployed to production, your existing operational requirements for production applications should be applied.  The following requirements are examples that typically apply at this stage of adoption.
+
+**Workload Operational Runbooks** - A sufficient set of runbooks to support common operational needs and scenarios for the first few proof of value workloads.
+
+**Cloud Foudation Operational Runbooks** - A sufficient set of runbooks to support setup and ongoing management of using AWS.
