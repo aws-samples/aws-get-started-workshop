@@ -12,7 +12,7 @@ SPDX-License-Identifier: CC-BY-SA-4.0
 
 This section provides an overview of example costs for this architecture as it is applied to an AWS environment in which team development, test, production, and infrastructure shared services VPCs are connected to your on-premises network. It also assumes connectivity between your the team development, test, and production VPCs and an infrastructure shared services VPC.
 
-[![Site-to-Site VPN Connection - Attaching More VPCs](/images/02-dev-fast-follow/01-hybrid-networking/site-to-site-vpn-site-to-site-vpn-full.png)](/images/02-dev-fast-follow/01-hybrid-networking/site-to-site-vpn-site-to-site-vpn-full.png)
+[![Site-to-Site VPN Connection - Attaching More VPCs](/images/05-optional/01-hybrid-networking/site-to-site-vpn-site-to-site-vpn-full.png)](/images/05-optional/01-hybrid-networking/site-to-site-vpn-site-to-site-vpn-full.png)
 
 ## Toplogy and Data Transfer Assumptions
 

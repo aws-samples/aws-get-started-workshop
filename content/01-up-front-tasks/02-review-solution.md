@@ -10,14 +10,14 @@ Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 SPDX-License-Identifier: CC-BY-SA-4.0
 {{% /comment %}}
 
-The following diagram represents an initial set of foundational capabilities that you may choose to establish by using this guide.  You should view the capabilities as a superset of common capabilities that are needed in this early "project" stage of adoption. Depending on your requirements and the needs of your initial proof of value workloads, you might choose to defer establishing some of the basic capabilities shown in the diagram until later in your adoption of AWS.
+The following diagram represents an initial set of foundational capabilities that you may choose to establish by using this guide.  You should view the capabilities as a superset of capabilities that typically provide value in this early "project" stage of adoption. Depending on your requirements and the needs of your initial proof of value workloads, you might choose to defer establishing some of the capabilities shown in the diagram until later in your adoption of AWS.
 
 For example, you might choose to defer establishing:
 *  **Team development environments** - If you defer establishing formal team development environments for your builders and Cloud Foundation team, you would perform your early integration and testing work in your test environment. You can skip the [Foundation for Development]({{< relref "03-dev" >}}) section in the guide that establishes team development environments and return to it later. 
 * **On-premises network connectivity** - Initially, you might not need network connectivity with your on-premises network at this early stage. You can add this capability later as your needs warrant. Later, you can review [Hybrid Networking]({{< relref "01-hybrid-networking" >}}) for an overview of your options.
-* **Reuse of your existing identity source** - You might not need to integrate federated access to AWS via your existing identity store. Instead, use of locally managed users and groups in AWS Single Sign-On (AWS SSO) might be sufficient at this early stage.  Later, you can review [Federated Access to Your AWS Environment]({{< relref "02-federated-access-to-aws" >}}) for an overview of your options.
+* **Integration with your existing identity source** - You might not need to integrate federated access to AWS via your existing identity store. Instead, use of locally managed users and groups in AWS Single Sign-On (AWS SSO) might be sufficient at this early stage.  Later, you can review [Federated Access to Your AWS Environment]({{< relref "02-federated-access-to-aws" >}}) for an overview of your options.
 
-[![Overall Environment](/images/03-preprod-prod/initial-foundation-test-prod-single-region.png)](/images/03-preprod-prod/initial-foundation-test-prod-single-region.png)
+[![Overall Environment](/images/02-base/initial-foundation-superset.png)](/images/02-base/initial-foundation-superset.png)
 
 Key aspects of the initial solution include:
 

@@ -25,7 +25,7 @@ In this architecture, you establish a site-to-site VPN connection to each of you
 * You establish a distinct VPN connection from your on-premises environment to a virtual private gateway in each VPC.
 * You use VPC peering to enable VPCs to interact with services in the infrastructure shared services VPC.
 
-[![VPN Connection Per VPC](/images/02-dev-fast-follow/01-hybrid-networking/site-to-site-vpn-site-to-site-vpn-each-vpc.png?height=600px)](/images/02-dev-fast-follow/01-hybrid-networking/site-to-site-vpn-site-to-site-vpn-each-vpc.png)
+[![VPN Connection Per VPC](/images/05-optional/01-hybrid-networking/site-to-site-vpn-site-to-site-vpn-each-vpc.png?height=600px)](/images/05-optional/01-hybrid-networking/site-to-site-vpn-site-to-site-vpn-each-vpc.png)
 
 ### Operational Considerations
 
@@ -81,7 +81,7 @@ In this architecture, you establish a site-to-site VPN connection directly from 
 
 AWS Site-to-Site VPN connections are established between the router virtual appliances and a virtual private gateway in each of your VPCs.
 
-[![Transit VPC Architecture](/images/02-dev-fast-follow/01-hybrid-networking/transit-vpc-architecture.png?height=600px)](/images/02-dev-fast-follow/01-hybrid-networking/transit-vpc-architecture.png)
+[![Transit VPC Architecture](/images/05-optional/01-hybrid-networking/transit-vpc-architecture.png?height=600px)](/images/05-optional/01-hybrid-networking/transit-vpc-architecture.png)
 
 ### Operational Considerations
 

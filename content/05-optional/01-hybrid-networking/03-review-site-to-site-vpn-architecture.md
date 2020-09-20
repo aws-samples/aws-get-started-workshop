@@ -26,13 +26,13 @@ In the following diagram, your on-premises IPsec-capable VPN device is represent
 
 Initially, you'll configure your AWS Tranit Gateway to attach to your development VPC.  Later in this guide, you'll add attachments for your emerging set of infrastructure shared services, test, and production VPCs.
 
-[![Site-to-Site VPN Connection - Multiple VPCs](/images/02-dev-fast-follow/01-hybrid-networking/site-to-site-vpn-high-level-generic.png?height=500px)](/images/02-dev-fast-follow/01-hybrid-networking/site-to-site-vpn-high-level-generic.png)
+[![Site-to-Site VPN Connection - Multiple VPCs](/images/05-optional/01-hybrid-networking/site-to-site-vpn-high-level-generic.png?height=500px)](/images/05-optional/01-hybrid-networking/site-to-site-vpn-high-level-generic.png)
 
 ### Initial State: Development VPC Connected to On-premises Network
 
 The following diagram depicts an initial architecture where only the common development VPC has connectivity to your on-premises networks.
 
-[![Site-to-Site VPN Connection - Initial Development Connectivity](/images/02-dev-fast-follow/01-hybrid-networking/site-to-site-vpn-site-to-site-vpn-dev.png)](/images/02-dev-fast-follow/01-hybrid-networking/site-to-site-vpn-site-to-site-vpn-dev.png)
+[![Site-to-Site VPN Connection - Initial Development Connectivity](/images/05-optional/01-hybrid-networking/site-to-site-vpn-site-to-site-vpn-dev.png)](/images/05-optional/01-hybrid-networking/site-to-site-vpn-site-to-site-vpn-dev.png)
 
 In this initial stage of establishing hybrid connectivity with your AWS environment, you'll need to work with your Network team to ensure that the necessary on-premises router configuration changes are made and tested.  
 
@@ -70,7 +70,7 @@ Later in this guide, as you create VPCs for test and production environments and
 
 In the following diagram, test and production VPCs are shown attached to the transit gateway.  An infrastructure shared services VPC is shown with hybrid DNS support and VPC endpoints.  The public subnet and internet gateway resources have been removed from the common development VPC based on the assumption that your traffic from all of your VPCs destined for the Internet will be routed across your site-to-site VPN connection.
 
-[![Site-to-Site VPN Connection - Attaching More VPCs](/images/02-dev-fast-follow/01-hybrid-networking/site-to-site-vpn-site-to-site-vpn-full.png)](/images/02-dev-fast-follow/01-hybrid-networking/site-to-site-vpn-site-to-site-vpn-full.png)
+[![Site-to-Site VPN Connection - Attaching More VPCs](/images/05-optional/01-hybrid-networking/site-to-site-vpn-site-to-site-vpn-full.png)](/images/05-optional/01-hybrid-networking/site-to-site-vpn-site-to-site-vpn-full.png)
 
 ## Extending the Architecture
 
