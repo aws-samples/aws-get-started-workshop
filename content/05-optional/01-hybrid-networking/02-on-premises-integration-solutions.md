@@ -1,6 +1,6 @@
 ---
 title: 'Review On-Premises Network Integration Options'
-menuTitle: 'Review Integration Options'
+menuTitle: '2. Review Integration Options'
 disableToc: true
 weight: 20
 ---

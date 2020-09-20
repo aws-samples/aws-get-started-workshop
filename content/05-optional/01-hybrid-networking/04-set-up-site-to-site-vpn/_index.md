@@ -1,6 +1,6 @@
 ---
 title: 'Establish Site-to-Site VPN Connection with AWS Transit Gateway'
-menuTitle: 'Establish VPN Integration'
+menuTitle: '4. Establish VPN Integration'
 disableToc: true
 weight: 40
 ---
