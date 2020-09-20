@@ -14,7 +14,7 @@ The following diagram represents a typical team development environment as a dis
 
 Since your specific requirements may include some of the [optional capabilities]({{< relref "05-optional" >}}), aspects of your initial solution may be different than shown in this diagram.
 
-[![Initial Development Environment](/images/01-dev/initial-foundation-dev-initial.png)](/images/01-dev/initial-foundation-dev-initial.png)
+[![Initial Development Environment](/images/03-dev/initial-foundation-dev.png)](/images/03-dev/initial-foundation-dev.png)
 
 Key aspects of the initial, minimal solution include:
 

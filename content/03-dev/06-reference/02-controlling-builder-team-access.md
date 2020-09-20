@@ -135,7 +135,7 @@ If you followed the steps in section [6. Set Up Team Development Environment Acc
 
 The following diagram shows how the IAM policy and permissions boundary were provisioned in the earlier step.
 
-[![Team Development Access Policy Provisioning](/images/01-dev/team-dev-env-access-provisioning.png)](/images/01-dev/team-dev-env-access-provisioning.png)
+[![Team Development Access Policy Provisioning](/images/03-dev/team-dev-env-access-provisioning.png)](/images/03-dev/team-dev-env-access-provisioning.png)
 
 #### Using the Policies
 
@@ -147,7 +147,7 @@ The SCPs you provisioned earlier add an extra layer of control to what any user 
 
 In this scenario, we're delegating a degree of permissions management to builder team members in their team development AWS accounts so that they can create and manage workload specific IAM service roles, but at the same time using a permissions boundary to constrain what actions services associated with those roles can perform and the resources that can be affected.
 
-[![Team Development Access Policy Usage](/images/01-dev/team-dev-env-access-usage.png)](/images/01-dev/team-dev-env-access-usage.png)
+[![Team Development Access Policy Usage](/images/03-dev/team-dev-env-access-usage.png)](/images/03-dev/team-dev-env-access-usage.png)
 
 1. Builder authenticates via AWS SSO.
 

@@ -22,7 +22,7 @@ The following diagram represents an example set of OUs and AWS accounts that can
 
 The development and workloads AWS accounts names shown in the diagram are examples. Depending on your needs, your AWS account names will vary. Refer to the [initial AWS accounts]({{< relref "04-address-prerequisites#initial-aws-accounts" >}}) for a description of the AWS accounts referenced in the diagram.
 
-[![Initial OUs and AWS Accounts](/images/01-dev/aws-accounts-ous.png)](/images/01-dev/aws-accounts-ous.png)
+[![Initial OUs and AWS Accounts](/images/02-base/aws-accounts-ous.png)](/images/02-base/aws-accounts-ous.png)
 
 ### Foundational OUs
 

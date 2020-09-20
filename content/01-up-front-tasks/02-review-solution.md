@@ -17,7 +17,7 @@ For example, you might choose to defer establishing:
 * **On-premises network connectivity** - Initially, you might not need network connectivity with your on-premises network at this early stage. You can add this capability later as your needs warrant. Later, you can review [Hybrid Networking]({{< relref "01-hybrid-networking" >}}) for an overview of your options.
 * **Integration with your existing identity source** - You might not need to integrate federated access to AWS via your existing identity store. Instead, use of locally managed users and groups in AWS Single Sign-On (AWS SSO) might be sufficient at this early stage.  Later, you can review [Federated Access to Your AWS Environment]({{< relref "02-federated-access-to-aws" >}}) for an overview of your options.
 
-[![Overall Environment](/images/02-base/initial-foundation-superset.png)](/images/02-base/initial-foundation-superset.png)
+[![Overall Environment](/images/01-up-front-tasks/initial-foundation-superset.png)](/images/01-up-front-tasks/initial-foundation-superset.png)
 
 Key aspects of the initial solution include:
 

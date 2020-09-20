@@ -51,7 +51,7 @@ As part of the landing zone set up, AWS Control Tower creates a Control Tower Ad
 
 The email address associated with the management AWS account’s root user will receive a message containing an invite to activate the Control Tower Administrator user account.  Review the invitation and accept it.
 
-[![Invitation to Access AWS SSO User Portal](/images/01-dev/accept-aws-sso-invitation.png)](/images/01-dev/accept-aws-sso-invitation.png)
+[![Invitation to Access AWS SSO User Portal](/images/02-base/accept-aws-sso-invitation.png)](/images/02-base/accept-aws-sso-invitation.png)
 
 When accepting the invite, you will be directed to set the password for the Control Tower Administrator user.
 

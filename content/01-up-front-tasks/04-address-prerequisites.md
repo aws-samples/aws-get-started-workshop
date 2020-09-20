@@ -45,7 +45,7 @@ Use your organization's process to request either DLs or shared mailboxes based 
 **Reusing existing management AWS account:** If you're reusing an existing management AWS account, you'll reuse the email address associated with that account.
 {{% /notice %}}
 
-[![Initial OUs and AWS Accounts](/images/01-dev/aws-accounts-ous.png)](/images/01-dev/aws-accounts-ous.png)
+[![Initial OUs and AWS Accounts](/images/02-base/aws-accounts-ous.png)](/images/02-base/aws-accounts-ous.png)
 
 ### Management AWS account {#initial-aws-accounts}
 
