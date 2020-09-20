@@ -10,19 +10,22 @@ Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 SPDX-License-Identifier: CC-BY-SA-4.0
 {{% /comment %}}
 
-The following diagram represents a typical team development environment as a distinct AWS account supported by an initial set of foundation capabilities managed via a set of shared AWS accounts to meet the typical requirements outlined above. 
+The following diagram represents an initial set of foundational capabilities that you may choose to establish by using this guide.  You should view the capabilities as a superset of common capabilities that are needed in this early "project" stage of adoption. Depending on your requirements and the needs of your initial proof of value workloads, you might choose to defer establishing some of the basic capabilities shown in the diagram until later in your adoption of AWS.
 
-Since your specific requirements may include some of the [optional capabilities]({{< relref "05-optional" >}}), aspects of your initial solution may be different than shown in this diagram.
+For example, you might choose to defer establishing:
+*  **Team development environments** - If you defer establishing formal team development environments for your builders and Cloud Foundation team, you would perform your early integration and testing work in your test environment. You can skip the [Foundation for Development]({{< relref "03-dev" >}}) section in the guide that establishes team development environments and return to it later. 
+* **On-premises network connectivity** - Initially, you might not need network connectivity with your on-premises network at this early stage. You can add this capability later as your needs warrant. Later, you can review [Hybrid Networking]({{< relref "01-hybrid-networking" >}}) for an overview of your options.
+* **Reuse of your existing identity source** - You might not need to integrate federated access to AWS via your existing identity store. Instead, use of locally managed users and groups in AWS Single Sign-On (AWS SSO) might be sufficient at this early stage.  Later, you can review [Federated Access to Your AWS Environment]({{< relref "02-federated-access-to-aws" >}}) for an overview of your options.
 
-[![Initial Development Environment](/images/01-dev/initial-foundation-dev-initial.png)](/images/01-dev/initial-foundation-dev-initial.png)
+[![Overall Environment](/images/03-preprod-prod/initial-foundation-test-prod-single-region.png)](/images/03-preprod-prod/initial-foundation-test-prod-single-region.png)
 
-Key aspects of the initial, minimal solution include:
+Key aspects of the initial solution include:
 
-## Master AWS Account and Initial Landing Zone
+## Management AWS Account and Initial Landing Zone
 
-Once you’ve either identified a compatible existing AWS account or signed up for a new AWS account, the “master” account, your cloud administrators will use AWS Control Tower via the Master AWS account to establish a “landing zone” of conventional shared AWS accounts and resources to help provide an initial foundation for your use of AWS. 
+Once you’ve either identified a compatible existing AWS account or signed up for a new AWS account, the “management” account, your cloud administrators will use AWS Control Tower via the Management AWS account to establish a “landing zone” of conventional shared AWS accounts and resources to help provide an initial foundation for your use of AWS. 
 
-Your master AWS account will be the place in which your cloud administrators will use AWS Control Tower’s [Account Factory](https://docs.aws.amazon.com/controltower/latest/userguide/account-factory.html) via AWS Service Catalog to create new team development accounts, AWS SSO to create and manage groups and users in the locally managed directory, and generally monitor the overall use and health of your AWS environment.
+Your management AWS account will be the place in which your cloud administrators will use AWS Control Tower’s [Account Factory](https://docs.aws.amazon.com/controltower/latest/userguide/account-factory.html) via AWS Service Catalog to create new team development accounts, AWS SSO to create and manage groups and users in the locally managed directory, and generally monitor the overall use and health of your AWS environment.
 
 AWS Control Tower sets up a Log Archive AWS account to securely store AWS platform-wide logs such as AWS CloudTrail logs that record access to all AWS APIs across your AWS accounts and AWS Config logs that record all changes to AWS resources across your AWS accounts.
 
