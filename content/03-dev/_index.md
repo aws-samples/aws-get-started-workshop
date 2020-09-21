@@ -10,9 +10,7 @@ Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 SPDX-License-Identifier: CC-BY-SA-4.0
 {{% /comment %}}
 
-After you've addressed a few up front tasks, in about a day, this guide will help you establish an initial foundation in support of a set of development environments based on the following architecture.
-
-[![Initial Development Environment](/images/03-dev/initial-foundation-dev.png)](/images/03-dev/initial-foundation-dev.png)
+After you've set up your base foundation, you have the option to set up the foundation for team development environments. 
 
 ## Value of Development Environments
 
@@ -24,6 +22,10 @@ Compared to the cost and complexity of setting up and maintaining development en
 
 As your organization's use of the cloud matures, your builders are encouraged to begin using Infrastructure as Code (IaC) to gain the benefits of greater automation. Adoption of IaC practices means that at least some of your traditional infrastructure teams will evolve to become builder teams in their own right.
 
-## Set Up Steps
+## Deferring Set up of Team Development Environments
+
+You're encouraged to set up your initial team development environments this time. However, you can skip to [Establishing Foundation for Test and Production Environments]({{< relref "04-test-prod" >}}). Later, when you're ready, you can come back to this section and set up you team development environments.
+
+## Set Up Steps for Team Development Environments
 
 {{% children showhidden="false" %}}
