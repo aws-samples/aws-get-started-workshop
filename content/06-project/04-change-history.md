@@ -1,6 +1,5 @@
 ---
 title: 'History of Changes'
-menuTitle: 'Changes'
 disableToc: true
 weight: 40
 ---
