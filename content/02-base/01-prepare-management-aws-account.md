@@ -22,7 +22,7 @@ AWS accounts are coarse grained resource containers that help you isolate and se
 
 In support of your initial need for team development environments, this guide first leads you through the process to create an initial set of foundation and builder team development AWS accounts.  Later in the guide, you will create a series of test and production AWS accounts to isolate the formal test and production environments from your development environments.
 
-Over the course of your cloud adoption journey, you will likely end up with a number of accounts ranging from a dozen or so to hundreds depending on the size of your application and data services portfolio and the granularity by which you choose to isolate the associated cloud resources and data across your organization and across the software development lifecycle (SDLC).
+Over the course of your cloud adoption journey, you will likely end up with a number of accounts ranging from a dozen or so to hundreds depending on the size of your application and data services portfolio and the granularity by which you choose to isolate the associated cloud resources and data across your environments and across the software development lifecycle (SDLC).
 
 ## 2. Determine whether to reuse existing management AWS account
 
@@ -62,7 +62,7 @@ Add a payment method and contact information for the billing method.  You’ll g
 
 ### Select a support plan
 
-On the Select a Support Plan page, choose one of the available support plans.  Since your organization is going to be using AWS for formal development and eventually production purposes, we recommend that you start by selecting at least “Developer” support. 
+On the Select a Support Plan page, choose one of the available support plans.  Since you're going to be using AWS for formal development and eventually production purposes, we recommend that you start by selecting at least “Developer” support. 
 
 Before you transition any applications or data services to production, it's strongly recommended that you upgrade to "Business" support.  
 

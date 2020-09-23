@@ -58,7 +58,7 @@ To support this temporary architecture, you'll need to work with your Network te
 
 #### 3. Segmenting Access Between Your On-premises and AWS Networks
 
-You'll need to work with your Network team to ensure that your customer gateway router and/or firewall configurations are aligned with how your organization expects to segregate traffic between your on-premises and AWS environments.
+You'll need to work with your Network team to ensure that your customer gateway router and/or firewall configurations are aligned with how you expect to segregate traffic between your on-premises and AWS environments.
 
 For example, you may want to constrain resources in your development VPC to accessing only allowed infrastructure, builder services, and development quality on-premises services and data.  In the future, when you build out production VPCs in your AWS environment, you would likely need to constrain your production VPC to accessing only allowed on-premises production services and data. 
 

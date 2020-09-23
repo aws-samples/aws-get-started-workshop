@@ -10,7 +10,7 @@ Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 SPDX-License-Identifier: CC-BY-SA-4.0
 {{% /comment %}}
 
-Beyond supporting initial development and early testing within the development environments, your organization will soon need to support formal testing and eventually production hosting of your new applications and data services.  The following diagram represents typical extensions to your cloud foundation and a new set of AWS accounts to support formal testing and production hosting environments.
+Beyond supporting initial development and early testing within the development environments, you will soon need to support formal testing and eventually production hosting of your new applications and data services.  The following diagram represents typical extensions to your cloud foundation and a new set of AWS accounts to support formal testing and production hosting environments.
 
 [![Initial Test and Production Environments in Single AWS Region](/images/04-test-prod/initial-foundation-test-prod-single-region.png)](/images/04-test-prod/initial-foundation-test-prod-single-region.png)
 
@@ -18,7 +18,7 @@ Key aspects of a solution that supports a typical transition toward support for 
 
 ## Separate AWS Accounts for Hosting test and Production Workloads
 
-AWS best practices recommend isolating test and production workloads, data, and supporting cloud resources from each other and from development environments through the use of distinct AWS accounts.  Whether your organization chooses to define test and production AWS hosting accounts based on the owning delivery teams, collections of related services, or another basis, will depend on your requirements.  Typically some analysis and design is needed to define the specific approach.
+AWS best practices recommend isolating test and production workloads, data, and supporting cloud resources from each other and from development environments through the use of distinct AWS accounts.  Whether you choose to define test and production AWS hosting accounts based on the owning delivery teams, collections of related services, or another basis, will depend on your requirements.  Typically some analysis and design is needed to define the specific approach.
 
 ## Separate AWS Accounts for Shared Builder Services
 

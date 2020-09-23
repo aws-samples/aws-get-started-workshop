@@ -12,7 +12,7 @@ SPDX-License-Identifier: CC-BY-SA-4.0
 
 The sample IAM policies and Service Control Policies (SCPs) described in this document are intended to be used as a starting point for how you might control builder team access in team development AWS accounts so that builders have the freedom to get many things done on their own, but are constrained from adversely impacting the security and stability of the underlying foundation.
 
-Your organization is expected to understand these sample policies in detail before potentially applying them.  
+You're expected to understand these sample policies in detail before potentially applying them.  
 
 As you progress on your journey, managing and controlling changes to these types of policies will be a critical responsibility of your foundation team.  Typically, only your Cloud Security team would have the permissions needed to create and update such policies.
 
@@ -59,7 +59,7 @@ For example, it's a common need to be able to define workload specific IAM servi
 
 ### User Experience
 
-**Avoid Prematurely Requiring Standard Resource Naming and Tagging:** Although your organization will find value in the introduction of cloud resource naming and tagging standards in support of a variety of needs, these standards are not necessary to impose sufficient constraints on builders at this early stage in your journey.
+**Avoid Prematurely Requiring Standard Resource Naming and Tagging:** Although you will find value in the introduction of cloud resource naming and tagging standards in support of a variety of needs, these standards are not necessary to impose sufficient constraints on builders at this early stage in your journey.
 
 However, it is important that foundation resources adhere to a naming convention so that IAM policies can be defined to inhibit unauthorized modification of those resources.
 

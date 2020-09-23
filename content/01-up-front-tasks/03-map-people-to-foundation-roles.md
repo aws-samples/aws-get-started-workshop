@@ -25,7 +25,7 @@ Even in cases where roles are initially played by the same people, it’s recomm
 A common assumption made in this early stage of the journey is to assume that people playing certain functional roles in your existing on-premises environment must play a set of corresponding functional roles in the cloud.  Although eventually many of your infrastructure and security people may transition to functional roles in managing your use of cloud resources, to start, it’s a best practice to have a small number of close-knit technical people manage your initial adoption of the cloud.
 
 ## Map People to Typical Starter Foundation Functional Roles
-The following table lists a typical set of minimal functional roles to own and manage your initial iteration of your cloud foundation. You should be able to identify 1-2 people in your organization who will play these functional roles and have these responsibilities for at least this stage of your cloud adoption journey.
+The following table lists a typical set of minimal functional roles to own and manage your initial iteration of your cloud foundation. You should be able to identify 1-2 people who will play these functional roles and have these responsibilities for at least this stage of your cloud adoption journey.
 
 |Foundation Functional Role	|Description	|Responsibilities	|
 |---	|---	|---	|

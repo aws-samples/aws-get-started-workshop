@@ -10,20 +10,12 @@ Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 SPDX-License-Identifier: CC-BY-SA-4.0
 {{% /comment %}}
 
-{{% notice note %}}
-**Review Note:** Since we recently changed the guidance to disallow use of public subnets in team development AWS accounts and AWS Cloud9 does not currently support deployment of Cloud9 environments in private subnets, we need to remove this section from the guide.
-{{% /notice %}}
-
 This document highlights special considerations when using the [AWS Cloud9](https://aws.amazon.com/cloud9/) IDE in your team development AWS accounts.
 
 ## Why Use AWS Cloud9?
 If you have challenges getting the AWS CLI and other tools installed on your corporate desktop, you may find it useful to use AWS Cloud9, a web-based IDE that enables you to deploy a development environment in your AWS account.  
 
 Each Cloud9 environment is an Amazon EC2 Linux instance that includes a browser-based IDE. You deploy a Cloud9 environment in one of your public subnets and access it via the Cloud9 service.
-
-{{% notice info %}}
-**Cloud9 Environments Require Public Subnets:** Currently, AWS Cloud9 development environments must be deployed to public subnets. If your organization chooses to not provide public subnets in the shared development network, then Cloud9 will not be applicable until Cloud9 environments are supported in private subnets.
-{{% /notice %}}
 
 ## Creating a Cloud9 Environment
 

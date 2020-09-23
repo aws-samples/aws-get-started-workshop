@@ -10,7 +10,7 @@ Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 SPDX-License-Identifier: CC-BY-SA-4.0
 {{% /comment %}}
 
-In this step your Cloud Administrators will use the AWS Control Tower service in your AWS Organizations management AWS account to establish an initial “landing zone” or a foundation of security guardrails and other resources that will help your organization manage use of the AWS platform. You can learn more by reviewing [AWS Control Tower Features](https://aws.amazon.com/controltower/features/).
+In this step your Cloud Administrators will use the AWS Control Tower service in your AWS Organizations management AWS account to establish an initial “landing zone” or a foundation of security guardrails and other resources that will help you manage use of the AWS platform. You can learn more by reviewing [AWS Control Tower Features](https://aws.amazon.com/controltower/features/).
 
 This step should take about 90 minutes to complete.
 
