@@ -22,7 +22,7 @@ Other capabilities that are specific to your workloads and your desired Software
 
 Even in the early project stage of adoption, AWS recommends that an initial foundation be established that can be extended over time as your organization transitions into the foundation stage to prepare for larger scale cloud adoption. This guide will help you establish the beginning of a secure foundation on AWS in support of your initial few projects.
 
-The guide starts with establishing an initial foundation in support of several development environments before it addresses how to extend your foundation to support deploying your first few workloads to pre-production test and production environments.  
+The guide starts with establishing an initial foundation in support of several development environments before it addresses how to extend your foundation to support deploying your first few workloads to test and production environments.  
 
 The guide also address a set of "fast follow" capabilities that, for some organizations, are required before those organizations either perform formal experiments and development in the cloud or move an initial set of workloads into production.
 
@@ -37,7 +37,7 @@ Initial forms of foundation capabilities addressed by this guide include:
 **Your Initial Overall AWS Environment**
 * An initial AWS account structure
 * Automated AWS account provisioning
-* AWS accounts for foundation management and workload hosting environments including development, pre-production, and production
+* AWS accounts for foundation management and workload hosting environments including development, test, and production
 
 **Security**
 * AWS account hardening
@@ -47,7 +47,7 @@ Initial forms of foundation capabilities addressed by this guide include:
 * Policies for managing access to AWS accounts:
   * Cloud platform team access including cloud and security administration, audit, and finance
   * Builder team access to team development environments
-  * Least privileged workload administrative access to pre-production and production environments
+  * Least privileged workload administrative access to test and production environments
 
 **Networking**
 * Virtual networking for hosting workloads

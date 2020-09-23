@@ -16,7 +16,7 @@ After you've set up your base foundation, you have the option to set up the foun
 
 This section of the guide helps your organization establish an initial foundation in support of a set of development environments. If your organization mainly focuses on integrating commercial off the shelf (COTS) software products and Software as a Service (SaaS) offerings, you might not have "development teams" in the traditional sense.  However, you will still benefit from establishing development environments in AWS.
 
-Setting up development environments in AWS helps your builders experiment with and perform early testing of migration and application and data integration solutions in flexible and safe environments that are isolated from your more formally controlled pre-production test and production environments.
+Setting up development environments in AWS helps your builders experiment with and perform early testing of migration and application and data integration solutions in flexible and safe environments that are isolated from your more formally controlled test and production environments.
 
 Compared to the cost and complexity of setting up and maintaining development environments in physical data centers, carving out virtual development environments in AWS is relatively low-cost and straightforward.
 

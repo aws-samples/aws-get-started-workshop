@@ -11,12 +11,12 @@ SPDX-License-Identifier: CC-BY-SA-4.0
 {{% /comment %}}
 
 {{% notice note %}}
-**Review Note:** The pre-production test and production environment section is only sketched out topically at this stage. We expect to begin addressing this section after drafting the higher priority [Optional Capabilities]({{< relref "05-optional" >}}) section. If you have comments and suggestions about this guide, see [Contributing]({{< relref "03-contributors" >}}).
+**Review Note:** The test and production environment section is only sketched out topically at this stage. We expect to begin addressing this section after drafting the higher priority [Optional Capabilities]({{< relref "05-optional" >}}) section. If you have comments and suggestions about this guide, see [Contributing]({{< relref "03-contributors" >}}).
 {{% /notice %}}
 
 Once you've established your initial foundation and delivered the initial set of development environments to teams, your next step is to expand your foundation by introducing a set of capabilities that organizations typically require before moving workloads into production.
 
-[![Initial Pre-Production Test and Production Environments in Single AWS Region](/images/04-test-prod/initial-foundation-test-prod-single-region.png)](/images/04-test-prod/initial-foundation-test-prod-single-region.png)
+[![Initial test and Production Environments in Single AWS Region](/images/04-test-prod/initial-foundation-test-prod-single-region.png)](/images/04-test-prod/initial-foundation-test-prod-single-region.png)
 
 ## Refine Requirements and Identify Solutions
 
@@ -28,10 +28,10 @@ Once you've established your initial foundation and delivered the initial set of
   * Key Management 
   * Certificate Management
 * Multi-Region
-* Pre-Production Test and Production AWS Account Design and Tenancy Model
+* test and Production AWS Account Design and Tenancy Model
   * Pre-Production Test, Production, and Builder Services AWS Accounts
   * Grouping like workloads together in same AWS accounts
-* Pre-Production Test and Production Networks
+* test and Production Networks
   * VPC Design
   * On-premises Network Integration
   * DNS Integration
@@ -54,10 +54,10 @@ Once you've established your initial foundation and delivered the initial set of
 
 ## Establish the Environments
 
-* Establish Pre-Production Test and Production AWS Accounts
-* Establish Pre-Production Test and Product AWS Account Access Controls
+* Establish test and Production AWS Accounts
+* Establish test and Product AWS Account Access Controls
 * Enhance Development AWS Accounts with Production-like Access Controls (for early testing)
-* Establish Pre-Production Test and Production Networks
+* Establish test and Production Networks
 * Onboard Foundation Team
   * Promotion and Release Management
   * Operational Monitoring and Support

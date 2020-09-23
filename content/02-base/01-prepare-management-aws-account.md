@@ -20,7 +20,7 @@ This step should take about 20 minutes to create a new AWS management account an
 
 AWS accounts are coarse grained resource containers that help you isolate and secure different collections of cloud resources and data. Use of multiple AWS accounts can make your use of cloud more secure by providing clear ownership and control boundaries and lowering the blast radius of any particular set of cloud resources. 
 
-In support of your initial need for team development environments, this guide first leads you through the process to create an initial set of foundation and builder team development AWS accounts.  Later in the guide, you will create a series of pre-production test and production AWS accounts to isolate the formal pre-production test and production environments from your development environments.
+In support of your initial need for team development environments, this guide first leads you through the process to create an initial set of foundation and builder team development AWS accounts.  Later in the guide, you will create a series of test and production AWS accounts to isolate the formal test and production environments from your development environments.
 
 Over the course of your cloud adoption journey, you will likely end up with a number of accounts ranging from a dozen or so to hundreds depending on the size of your application and data services portfolio and the granularity by which you choose to isolate the associated cloud resources and data across your organization and across the software development lifecycle (SDLC).
 

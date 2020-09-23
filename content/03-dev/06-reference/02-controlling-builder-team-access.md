@@ -22,7 +22,7 @@ As you progress on your journey, managing and controlling changes to these types
 
 The overall intent of the policies is to enable your builders to have broad permissions to innovate, experiment, develop, and perform early testing in their team development AWS accounts while being prevented from adversely impacting the overall security and the stability of the underlying foundation of those AWS accounts.
 
-These policies are not intended to be applied beyond team development AWS accounts.  For example, it's a best practice for organizations to apply strict policies for the creation and management of cloud resources in formal pre-production test and production AWS accounts.
+These policies are not intended to be applied beyond team development AWS accounts.  For example, it's a best practice for organizations to apply strict policies for the creation and management of cloud resources in formal test and production AWS accounts.
 
 ## Requirements
 
@@ -88,7 +88,7 @@ When builders are formally developing and performing preliminary testing of AWS 
 
 Once the workload specific IAM service roles and policies are created, they are associated with AWS services so that those services can operate with the appropriate permissions. Instead of relying on a central team to develop and test workload specific IAM service roles and policies, this workload specific work is best performed by the builder teams that are also developing the workloads.
 
-Typically, before workload specific IAM service roles and policies are used in more strictly controlled pre-production test and production environments and associated AWS accounts, organizations implement either human powered workflows or, in more advanced cases, highly automated code pipelines to review and test workload specific IAM service roles and policies.
+Typically, before workload specific IAM service roles and policies are used in more strictly controlled test and production environments and associated AWS accounts, organizations implement either human powered workflows or, in more advanced cases, highly automated code pipelines to review and test workload specific IAM service roles and policies.
 
 #### Creating IAM Service Roles
 
@@ -98,7 +98,7 @@ When experimenting, developing, and testing workload specific IAM service roles 
 * AWS CLI or SDKs.
 * AWS CloudFormation or other Infrastructure as Code (IaC) tools such as Terraform.
 
-IaC tools are typically used before workload specific IAM service roles and policies can be promoted to pre-production test and production environments.
+IaC tools are typically used before workload specific IAM service roles and policies can be promoted to test and production environments.
 
 #### Using IAM Service Roles
 
