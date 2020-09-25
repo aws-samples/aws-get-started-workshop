@@ -127,7 +127,7 @@ To keep things simple, you can size the subnets identically.
 
 ### Determine VPC CIDR Block
 
-If your Network team has supplied a relatively large non-overlapping CIDR block, for example a `/16` - `/20`, you should consider using only a subset of that block for your centrally managed development VPC so that the remaining address space can be used in support of pre-production test and production networks.  Otherwise, if you've been allocated a `/21` - `/22`, then you should use the entire block for the centrally managed development VPC.
+If your Network team has supplied a relatively large non-overlapping CIDR block, for example a `/16` - `/20`, you should consider using only a subset of that block for your centrally managed development VPC so that the remaining address space can be used in support of test and production networks.  Otherwise, if you've been allocated a `/21` - `/22`, then you should use the entire block for the centrally managed development VPC.
 
 If you need to break down a larger block:
 

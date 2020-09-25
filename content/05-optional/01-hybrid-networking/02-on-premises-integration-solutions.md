@@ -10,7 +10,7 @@ Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 SPDX-License-Identifier: CC-BY-SA-4.0
 {{% /comment %}}
 
-In cases where your organization needs to quickly establish on-premises network integration with the VPCs in your emerging AWS environment, it's recommended that you consider starting with an AWS Site-to-Site VPN connection. Later, if you have needs that will be better served through the use of AWS Direct Connect, you can transition to using AWS Direct Connect with or without a site-to-site VPN connection.
+In cases where you need to quickly establish on-premises network integration with the VPCs in your emerging AWS environment, it's recommended that you consider starting with an AWS Site-to-Site VPN connection. Later, if you have needs that will be better served through the use of AWS Direct Connect, you can transition to using AWS Direct Connect with or without a site-to-site VPN connection.
 
 ## Advantages and Limitations
 

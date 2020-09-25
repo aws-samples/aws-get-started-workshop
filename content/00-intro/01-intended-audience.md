@@ -11,7 +11,7 @@ SPDX-License-Identifier: CC-BY-SA-4.0
 
 ## Your Initial Cloud Foundation Team
 
-This guide is primarily intended to be used by your organization's technologists who will be responsible for establishing and maintaining your inital AWS environment. These technologists will make up the initial form of your "cloud foundation" or "cloud platform" team.
+This guide is primarily intended to be used by your technologists who will be responsible for establishing and maintaining your inital AWS environment. These technologists will make up the initial form of your "cloud foundation" or "cloud platform" team.
 
 ## Your Business Workload Owners
 
