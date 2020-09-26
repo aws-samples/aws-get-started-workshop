@@ -61,3 +61,10 @@ home = [ "HTML", "RSS", "JSON"]
     startLevel = 2
     endLevel = 2
     ordered = false
+
+[menu]
+
+[[menu.shortcuts]]
+name = "<i class='fab fa-github'></i> GitHub Project"
+url = "https://github.com/aws-samples/aws-get-started-workshop"
+weight = 30
