@@ -21,4 +21,4 @@ Your workload owners are customers of your cloud foundation team and will benefi
 
 ## Collectively: "Builders"
 
-At AWS we refer to both your workload oriented technologists - app developers, data engineers, data scientists, data analysts - and your infrastructure oriented cloud foundation team members as ["builders"](https://aws.amazon.com/campaigns/build-on-aws/) in that they are all responsible for building value using the AWS platform.
+At AWS we refer to both your workload oriented technologists - app developers, data engineers, data scientists, data analysts - and your security and infrastructure oriented cloud foundation team members as ["builders"](https://aws.amazon.com/campaigns/build-on-aws/) in that they are all responsible for building value using the AWS platform.
