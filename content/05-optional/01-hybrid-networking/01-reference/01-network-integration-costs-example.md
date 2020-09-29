@@ -14,7 +14,7 @@ This section provides an overview of example costs for this architecture as it i
 
 [![Site-to-Site VPN Connection - Attaching More VPCs](/images/05-optional/01-hybrid-networking/site-to-site-vpn-site-to-site-vpn-full.png)](/images/05-optional/01-hybrid-networking/site-to-site-vpn-site-to-site-vpn-full.png)
 
-## Toplogy and Data Transfer Assumptions
+## Topology and Data Transfer Assumptions
 
 * US East (Ohio) region
 * 4 VPCs
