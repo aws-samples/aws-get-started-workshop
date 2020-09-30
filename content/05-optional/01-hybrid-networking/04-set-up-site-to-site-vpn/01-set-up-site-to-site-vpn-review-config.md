@@ -39,12 +39,12 @@ The transit gateway and routing configuration shown in the diagram above support
 * Your infrastructure shared services VPC can connect to your team development and workload VPCs and to your on-premises network via the site-to-site VPN connection.
 
 |Source|On-Premises via Site-to-Site VPN|Infrastructure Shared Services VPC|Team Development VPC|Test VPC|Production VPC|
-|-|-|-|-|-|-|
-|On-Premises via Site-to-Site VPN|NA|Y|Y|Y|Y|
-|Infrastructure Shared Services VPC|Y|NA|Y|Y|Y|
-|Team Development VPC|Y|Y|NA|N|N|N|
-|Test VPC|Y|Y|N|NA|N|
-|Production VPC|Y|Y|N|N|NA|
+|-|:-:|:-:|:-:|:-:|:-:|
+|**On-Premises via Site-to-Site VPN**|NA|Y|Y|Y|Y|
+|**Infrastructure Shared Services VPC**|Y|NA|Y|Y|Y|
+|**Team Development VPC**|Y|Y|NA|N|N|N|
+|**Test VPC**|Y|Y|N|NA|N|
+|**Production VPC**|Y|Y|N|N|NA|
 
 By adjusting the configuration of your transit gateway route tables, you can modify the allowed connectivity.
 

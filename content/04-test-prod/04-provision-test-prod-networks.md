@@ -10,13 +10,16 @@ Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 SPDX-License-Identifier: CC-BY-SA-4.0
 {{% /comment %}}
 
-In this step your Cloud Administrators will review the initial development network design, create a new **network-test** AWS account, provision a common centrally managed development network, and share the private subnets will all team development AWS accounts in your AWS organization.
+In this step your Cloud Administrators will review the solution's networking requirements and provision VPCs in the workload accounts if required.
 
 This step should take about 60 minutes to complete.
 
 {{< toc >}}
 
-## 1. Review Initial Network Design
+## 1. Review Networking Requirements
+{{% notice tip %}}
+If you've determined that the workload will not require VPC networking support, you can skip this step.
+{{% /notice %}}
 
 ### Dedicated VPCs
 Unlike the development/sandbox accounts, test and production environments would typically call for dedicated VPCs.  Dedicated VPCs increase isolation of the accounts and provide additional flexibility in certain deployment scenarios.
@@ -31,7 +34,7 @@ At least one public subnet will have a NAT Gateway that enables workloads in any
 **Option to filter outbound Internet traffic:** As you progress in your journey, you may transition from this initial approach of providing builder teams with unfiltered outbound or egress Internet access via the initial set of public subnets and NAT Gateway to a more secure architecture where all Internet egress traffic is routed through your standard enterprise edge security services so that all egress traffic is inspected for compliance. This capability is highlighted in the [optional capabilities]({{< relref "05-optional" >}}).
 {{% /notice %}}
 
-[![Test and Production Network Details](/images/04-test-prod/initial-foundation-test-prod-single-region.png)](/images/04-test-prod/initial-foundation-test-prod-single-region.png)
+[![Test and Production Network Details](/images/04-test-prod/initial-foundation-test-prod-single-region.jpg)](/images/04-test-prod/initial-foundation-test-prod-single-region.jpg)
 
 ## 2. Determine IP Address CIDR Blocks
 If you have a formally assigned CIDR block to use, in this step you'll:
@@ -58,8 +61,10 @@ The CloudFormation template requires you to supply a CIDR block for each of the 
 To keep things simple, you can size the subnets identically.
 
 ### Determine VPC CIDR Block
-
-If your Network team has supplied a relatively large non-overlapping CIDR block, for example a `/16` - `/20`, you should consider using only a subset of that block for your centrally managed development VPC so that the remaining address space can be used in support of test and production networks.
+{{% notice tip %}}
+Allocate a distinct CIDR range for each AWS account if possible to allow for ease of future VPC peering and/or hybrid connectivity scenarios.  As you will be subdividing this CIDR block into six different subnets, please try and allocate at minimum a `/20` and ideally a `/18` for each workload account to allow for scale-out.
+{{% /notice %}}
+If you followed earlier instructions, your Network team has supplied a relatively large non-overlapping CIDR block, for example a `/16` - `/20`. You should strive to use a distinct CIDR range for each VPC you build, so make sure it's different from what you've previously used for [your shared development VPC]({{< relref "02-set-up-common-dev-network#dev-cidr" >}})
 
 If you need to break down a larger block:
 
@@ -91,7 +96,7 @@ Download the sample AWS CloudFormation template [vpc-multi-tier.yml](https://raw
 Next, access the `workload-prod` AWS account:
 
 1. As a Cloud Administrator, use your personal user to log into AWS SSO.
-2. Select the **`workload-prod`** AWS account.
+2. Select the **`workload-prod-<workloadId>`** AWS account.
 3. Select **`Management console`** associated with the **`AWSAdministratorAccess`** role.
 4. Select the appropriate AWS region.
 
@@ -113,6 +118,13 @@ Now create a new AWS CloudFormation stack using the sample template you download
 
 Leave all of the other parameters at their default settings unless you're comfortable changing them.  You can always easily create another stack to experiment with other parameter values. Review the [README](https://github.com/aws-samples/vpc-multi-tier/blob/master/README.md) for details on parameters.
 
+{{% notice info %}}
+**If you have reviewed guidance above and you do not need public subnets, set the following parameters:**
+- `pTier1Create`: false
+- `pCreateNatGateways`: false
+- `pCreateInternetGateways`: false
+{{% /notice %}}
+
 8. Select **`Next`**.
 9. Select **`Next`**.
 10. Scrolls to the bottom and mark the checkbox to acknowledge that IAM resources will be created.
@@ -122,4 +134,4 @@ In the **`Events`** tab, monitor the progress of the stack creation process. Aft
 
 ## 4. Provision Test Workload VPCs {#provision-test-vpc}
 
-Repeat step 3 above for each new account in `workloads_test`.
+Repeat steps 1-3 above for the `workloads-test-<workloadId>` account.

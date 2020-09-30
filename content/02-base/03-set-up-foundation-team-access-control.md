@@ -67,7 +67,7 @@ Access the AWS SSO service:
 
 ## 4. Customize AWS SSO Portal URL
 
-As an optional step, you may want to customize the URL that your organization uses to access the AWS SSO portal.  
+As an optional step, you may want to customize the URL that you use to access the AWS SSO portal.  
 
 If you have plans to implement your own vanity URL for the portal, you can skip this step.
 
@@ -76,7 +76,7 @@ The default form the portal URL is similar to this example of: `https://d-3a274d
 1. Access **`Groups`** in AWS SSO.
 2. Select **`Settings`**.
 3. Under **`User portal`**, select **`Customize`**.
-4. Set the first portion of the URL to a unique value.  Use your organization identifier, stock ticker symbol, or another identier that you use as an abbreviated reference to your organization.
+4. Set the first portion of the URL to a unique value.  Use your identifier, stock ticker symbol, or another identier that you use as an abbreviated reference to your environments.
 
 ## 5. Add a Cloud Admin Group in AWS SSO
 

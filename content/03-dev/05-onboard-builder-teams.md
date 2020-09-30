@@ -18,7 +18,7 @@ This step should take about 60 minutes to complete.
 
 ## 1. Assemble Onboarding Documentation
 
-Work with your cross-functional colleagues in Security, Compliance, and Finance to assemble the basic form of a getting started document and share it with the members of the initial builder teams so that they understand the fundamentals of their responsibilities, access permissions, and how to access and begin using their team development AWS accounts. 
+Work with your cross-functional colleagues in Security, Compliance, and Finance to assemble the basic form of a getting started document and share it with the members of the initial builder teams so that they understand the fundamentals of their responsibilities, access permissions, and how to access and begin using their team development AWS accounts.
 
 See the [Example Getting Started Guide for Builder Team Members]({{< relref "01-getting-started-guide-builder-team-members.md" >}}) as a recommended starting point.
 
@@ -60,7 +60,7 @@ Next, enable each team development group to access the associated team developme
 
 Repeat the process above to address all of the initial team development groups and AWS accounts.
 
-## 4. Create Builder Team Users in AWS SSO
+## 4. Create Builder Team Users in AWS SSO {#create-builder-team-users}
 
 Now that you've established the two team development groups in AWS SSO and granted those groups permissions to access their respective team development AWS accounts, your next step is to create a user in AWS SSO for each builder team member.
 

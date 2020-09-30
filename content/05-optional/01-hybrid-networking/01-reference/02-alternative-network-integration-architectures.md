@@ -27,27 +27,27 @@ In this architecture, you establish a site-to-site VPN connection to each of you
 
 [![VPN Connection Per VPC](/images/05-optional/01-hybrid-networking/site-to-site-vpn-site-to-site-vpn-each-vpc.png?height=600px)](/images/05-optional/01-hybrid-networking/site-to-site-vpn-site-to-site-vpn-each-vpc.png)
 
-### Operational Considerations
+### AWS Service Costs
 
-* You need to manage and monitor a distinct VPN connection for each VPC.
-* As you add VPCs that need connectivity to on-premises resources, you need to add more VPN connections. Doing so will involve work both in your on-premises router and AWS environments.
-* As you add VPCs that need connectivity to the infrastructure shared services VPC, you'll need to configure VPC peering relationships.
-* If and when you need to enable connectivity between VPCs, you will need to add and manage more VPC peering relationships.
-* If and when you decide to use AWS Direct Connect in place of AWS Site-to-Site VPN to integrate your on-premises network with your AWS environment, you will have to migrate all of your VPCs from using VPN connections to another solution.
-
-### Cost Considerations
-
-#### AWS Costs
-
-We'll use the same assumptions concerning the number of VPCs, their dependencies, and the amount of data transferred that are used in the Transit Gateway architecture [Cost Example]({{< relref "01-network-integration-costs-example" >}}) section.
+We'll use the same assumptions concerning the number of VPCs, their dependencies, and the amount of data transferred that are used in the Transit Gateway architecture [Cost Example]({{< relref "01-network-integration-costs-example#topology-data-transfer-example" >}}) section.
 
 **Pricing**
 
 See the following resources for the most up-to-date AWS pricing information. Prices are subject to change.
 
+* [VPC Peering](https://docs.aws.amazon.com/vpc/latest/peering/vpc-peering-basics.html#vpc-peering-pricing)
 * [AWS VPN Pricing](https://aws.amazon.com/vpn/pricing/)
 * [Data Transfer Out](https://aws.amazon.com/ec2/pricing/on-demand/)
-* [VPC Peering](https://docs.aws.amazon.com/vpc/latest/peering/vpc-peering-basics.html#vpc-peering-pricing)
+
+**VPC Peering Costs**
+
+VPC Peering connections in the same AWS Region is charged at $0.01/GB in each direction. The same as inter-AZ pricing within the same AWS region.
+
+|Dimension|Unit Cost|Example Monthly Cost|
+|---------|---------|------------|
+|1,000 GB data transfer from Dev, Test, and Prod VPCs to Infrastructure Shared Services VPC|$0.01/GB|$10.00|
+|1,000 GB data transfer from Infrastructure Shared Services VPC to Dev, Test, and Prod VPCs|$0.01/GB|$10.00|
+| | |**$20.00**|
 
 **Site-to-Site VPN Costs**
 
@@ -55,23 +55,38 @@ See the following resources for the most up-to-date AWS pricing information. Pri
 * Data transfer out for data flowing from AWS to your on-premises environment is $0.09 per GB with the first GB free.
 * Data transfer into AWS over a VPN connection is free.
 
-Monthly site-to-site VPN cost = ((4 site-to-site VPN connections x $36.50/month) + (999 GB out/month x $0.09/GB) = $146 + $89.91 = $235.91/month
-
-**VPC Peering Costs**
-
-VPC Peering connections in the same AWS Region is charged at $0.01/GB in each direction. The same as inter-AZ pricing within the same AWS region.
-
-Monthly VPC peering cost = 2,000 GB/month x $0.01/GB = $20/month
+|Dimension|Unit Cost|Example Monthly Cost|
+|---------|---------|------------|
+|4 site-to-site VPN connections|$36.50/month|$146.00|
+|999 GB data transfer out/month|$0.09/GB|$89.91|
+| | |**$235.91**|
 
 **Combined Costs**
 
 Combined monthly cost for site-to-site VPN + VPC peering: 
 
-|Services|Month Cost|
+|Services|Example Monthly Cost|
 |--------|----------|
-|Site-to-Site VPN|$235.91|
 |VPC Peering|$20.00|
-|Total monthly cost:|**$255.91** (as compared to **$348.91** for [transit gateway-based example]({{< relref "01-network-integration-costs-example" >}}))|
+|Site-to-Site VPN|$235.91|
+|Total monthly cost:|**$255.91** (as compared to **$388.91** for [transit gateway-based example]({{< relref "01-network-integration-costs-example" >}}))|
+
+### Operational Costs and Architectural Considerations
+
+The example monthly AWS service cost for this alternative architecture is less than the recommended architecture in which AWS Transit Gateway is used.  However, there are some drawbacks to this alternative architecture.
+
+#### Operational Costs
+
+* You will need to manage and monitor a distinct VPN connection for each VPC.
+* As you add VPCs that require connectivity to on-premises resources, you will need to add more VPN connections. Doing so will involve work in both your on-premises router and your AWS environments.
+* As you add VPCs that need connectivity to the infrastructure shared services VPC, you'll need to configure VPC peering relationships.
+* If you need to enable connectivity between VPCs, you will need to add and manage more VPC peering relationships.
+
+#### Architectural Considerations
+
+* If you need to include a "bump in the wire" network security capability, the VPC peering architecture does not lend itself to this architecture.
+* If you need to include centralized internet egress filtering, the VPC peering architecture does not lend itself to this architecture.
+* If you decide to use AWS Direct Connect in place of AWS Site-to-Site VPN to integrate your on-premises network with your AWS environment, you will have to migrate all of your VPCs from using VPN connections to another solution. When using a transit gateway architecture, you can replace or augment the site-to-site VPN connection with an AWS Direct Connect connection without needing to reconfigure your VPCs.
 
 ## Transit VPC and Commercial Router Virtual Appliances
 

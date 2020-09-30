@@ -12,7 +12,7 @@ SPDX-License-Identifier: CC-BY-SA-4.0
 
 The sample IAM policies and Service Control Policies (SCPs) described in this document are intended to be used as a starting point for how you might control builder team access in team development AWS accounts so that builders have the freedom to get many things done on their own, but are constrained from adversely impacting the security and stability of the underlying foundation.
 
-Your organization is expected to understand these sample policies in detail before potentially applying them.  
+You're expected to understand these sample policies in detail before potentially applying them.  
 
 As you progress on your journey, managing and controlling changes to these types of policies will be a critical responsibility of your foundation team.  Typically, only your Cloud Security team would have the permissions needed to create and update such policies.
 
@@ -22,7 +22,7 @@ As you progress on your journey, managing and controlling changes to these types
 
 The overall intent of the policies is to enable your builders to have broad permissions to innovate, experiment, develop, and perform early testing in their team development AWS accounts while being prevented from adversely impacting the overall security and the stability of the underlying foundation of those AWS accounts.
 
-These policies are not intended to be applied beyond team development AWS accounts.  For example, it's a best practice for organizations to apply strict policies for the creation and management of cloud resources in formal pre-production test and production AWS accounts.
+These policies are not intended to be applied beyond team development AWS accounts.  For example, it's a best practice for organizations to apply strict policies for the creation and management of cloud resources in formal test and production AWS accounts.
 
 ## Requirements
 
@@ -59,7 +59,7 @@ For example, it's a common need to be able to define workload specific IAM servi
 
 ### User Experience
 
-**Avoid Prematurely Requiring Standard Resource Naming and Tagging:** Although your organization will find value in the introduction of cloud resource naming and tagging standards in support of a variety of needs, these standards are not necessary to impose sufficient constraints on builders at this early stage in your journey.
+**Avoid Prematurely Requiring Standard Resource Naming and Tagging:** Although you will find value in the introduction of cloud resource naming and tagging standards in support of a variety of needs, these standards are not necessary to impose sufficient constraints on builders at this early stage in your journey.
 
 However, it is important that foundation resources adhere to a naming convention so that IAM policies can be defined to inhibit unauthorized modification of those resources.
 
@@ -88,7 +88,7 @@ When builders are formally developing and performing preliminary testing of AWS 
 
 Once the workload specific IAM service roles and policies are created, they are associated with AWS services so that those services can operate with the appropriate permissions. Instead of relying on a central team to develop and test workload specific IAM service roles and policies, this workload specific work is best performed by the builder teams that are also developing the workloads.
 
-Typically, before workload specific IAM service roles and policies are used in more strictly controlled pre-production test and production environments and associated AWS accounts, organizations implement either human powered workflows or, in more advanced cases, highly automated code pipelines to review and test workload specific IAM service roles and policies.
+Typically, before workload specific IAM service roles and policies are used in more strictly controlled test and production environments and associated AWS accounts, organizations implement either human powered workflows or, in more advanced cases, highly automated code pipelines to review and test workload specific IAM service roles and policies.
 
 #### Creating IAM Service Roles
 
@@ -98,7 +98,7 @@ When experimenting, developing, and testing workload specific IAM service roles 
 * AWS CLI or SDKs.
 * AWS CloudFormation or other Infrastructure as Code (IaC) tools such as Terraform.
 
-IaC tools are typically used before workload specific IAM service roles and policies can be promoted to pre-production test and production environments.
+IaC tools are typically used before workload specific IAM service roles and policies can be promoted to test and production environments.
 
 #### Using IAM Service Roles
 
@@ -131,7 +131,7 @@ In support of the requirements described above, two IAM policies and two Service
 
 #### Provisioning the Policies
 
-If you followed the steps in section [6. Set Up Team Development Environment Access Controls]({{< relref "03-set-up-team-dev-env-access-control" >}}), you already provisioned the SCPs, associated the SCPs with the `workloads_dev` OU, provisioned the team development IAM SAML policy as an AWS SSO permission set, and provisioned the permissions boundary policy via an AWS CloudFormation StackSet.  The result of those steps is that the SCPs are automatically applied to all AWS accounts in the `workloads_dev` OU and the supporting IAM policies are available in each of the team development AWS accounts.
+If you followed the steps in section [Set Up Team Development Environment Access Controls]({{< relref "03-set-up-team-dev-env-access-control" >}}), you already provisioned the SCPs, associated the SCPs with the `workloads_dev` OU, provisioned the team development IAM SAML policy as an AWS SSO permission set, and provisioned the permissions boundary policy via an AWS CloudFormation StackSet.  The result of those steps is that the SCPs are automatically applied to all AWS accounts in the `workloads_dev` OU and the supporting IAM policies are available in each of the team development AWS accounts.
 
 The following diagram shows how the IAM policy and permissions boundary were provisioned in the earlier step.
 
