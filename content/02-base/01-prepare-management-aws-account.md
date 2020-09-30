@@ -32,7 +32,7 @@ Review [Plan Your AWS Control Tower Landing Zone](https://docs.aws.amazon.com/co
 
 If you plan to create a new management AWS account, proceed to the next step.
 
-If you'd like to reuse an existing management AWS account, proceed to [8. Create an IAM user for Administrative Bootstrap Purposes]({{< relref "#iam-bootstrap-user" >}}) to ensure that you have a suitable AWS IAM administrative user account that you'll use in the next section.
+If you'd like to reuse an existing management AWS account, proceed to [Create an IAM user for Administrative Bootstrap Purposes]({{< relref "#iam-bootstrap-user" >}}) to ensure that you have a suitable AWS IAM administrative user account that you'll use in the next section.
 
 ## 3. Start with a new management AWS account
 

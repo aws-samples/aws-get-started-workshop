@@ -14,7 +14,9 @@ This section provides an overview of example costs for this architecture as it i
 
 [![Site-to-Site VPN Connection - Attaching More VPCs](/images/05-optional/01-hybrid-networking/site-to-site-vpn-site-to-site-vpn-full.png)](/images/05-optional/01-hybrid-networking/site-to-site-vpn-site-to-site-vpn-full.png)
 
-## Toplogy and Data Transfer Assumptions
+## Topology and Data Transfer Assumptions {#topology-data-transfer-example}
+
+The following architecture and data transfer numbers are examples. Your actual architecture and data transfer needs will vary.
 
 * US East (Ohio) region
 * 4 VPCs
@@ -41,7 +43,14 @@ When using AWS Transit Gateway with AWS Site-to-Site VPN, pricing for each servi
 * Since each VPC and VPN transit gateway attachment is priced at $0.05/hour, an attachment for one month equates to about $36.50.
 * Data processing charges of $0.02 apply for each GB sent from a VPC, Direct Connect or VPN to the AWS Transit Gateway.
 
-Monthly transit gateway cost = (5 transit gateway attachments x $36.50/month) + ((1,000 GB data transfer in via VPN + 1,000 GB data transfer in via VPCs) x $0.02/GB) = $182.50 + $40 = $222.50
+|Dimension|Unit Cost|Example Monthly Cost|
+|---------|---------|------------|
+|5 transit gateway attachments: Site-to-Site VPN + 4 VPC attachments|$36.50/month|$182.50|
+|1,000 GB data processing for data received via VPN|$0.02/GB|$20|
+|1,000 GB data processing for data received via Dev, Test, and Prod VPCs and destined for Infrastructure Shared Services VPC |$0.02/GB|$20|
+|1,000 GB data processing for data received via Infrastructure Shared Services VPC and destined for Dev, Test, and Prod VPCs|$0.02/GB|$20|
+|1,000 GB data processing for data received via all VPCs and destined for AWS Site-to-Site VPN connection|$0.02/GB|$20|
+| | |**$262.50**|
 
 ## Example Site-to-Site VPN Costs
 
@@ -49,14 +58,18 @@ Monthly transit gateway cost = (5 transit gateway attachments x $36.50/month) + 
 * Data transfer out of AWS over a VPN connection is $0.09 per GB with the first GB free.
 * Data transfer into AWS over a VPN connection is free.
 
-Monthly site-to-site VPN cost = (1 site-to-site VPN connection x $36.50/month) + (999 GB data transfer out/month x $0.09/GB) = $36.50 + $89.91 = $126.41
+|Dimension|Unit Cost|Example Monthly Cost|
+|---------|---------|------------|
+|1 site-to-site VPN connection|$36.50/month|$36.50|
+|999 GB data transfer out/month|$0.09/GB|$89.91|
+| | |**$126.41**|
 
 ## Example Combined Costs
 
 Combined monthly cost for site-to-site VPN + VPC peering: 
 
-|Services|Month Cost|
+|Services|Example Monthly Cost|
 |--------|----------|
-|Transit Gateway|$222.50|
+|Transit Gateway|$262.50|
 |Site-to-Site VPN|$126.41|
-|Total monthly cost:|**$348.91**|
+|Total monthly cost:|**$388.91**|
