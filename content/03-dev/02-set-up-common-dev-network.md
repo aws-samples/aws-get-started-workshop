@@ -18,7 +18,7 @@ This step should take about 60 minutes to complete.
 
 ## 1. Review Initial Network Design
 
-As mentioned in the [Initial Development Environment Solution Overview]({{< relref "01-review-dev-solution" >}}), it's recommended that you start with a single centrally managed development VPC that has a set of public and private subnets of which only the private subnets will be shared across all team development AWS accounts. 
+As mentioned in the [Initial Development Environment Solution Overview]({{< relref "01-review-dev-solution" >}}), it's recommended that you start with a single centrally managed development VPC that has a set of public and private subnets of which only the private subnets will be shared across all team development AWS accounts.
 
 In those AWS regions in which at least 3 Availability Zones (AZs) are available for customer use, it's recommended that your initial set of VPCs have subnets in each of the 3 AZs so that your builder teams can experiment with and perform early testing of workloads and AWS services that can take advantage of 3 AZs.
 
@@ -32,7 +32,7 @@ At least one public subnet will have a NAT Gateway that enables workloads in any
 
 ## 2. Create network-prod AWS Account
 
-In AWS Control Tower, provision a new **network-prod** AWS account that will initially contain the centrally managed development VPC. 
+In AWS Control Tower, provision a new **network-prod** AWS account that will initially contain the centrally managed development VPC.
 
 Later in your journey, you'll deploy more network related resources to this AWS account. For example, you will likely configure  and manage [AWS Transit Gateway](https://aws.amazon.com/transit-gateway/) resources in this dedicated AWS account when you start integrating on-premises network connectivity in your overall AWS environment.
 
@@ -98,7 +98,7 @@ Since Cloud Administrators won't automatically be granted sufficient access to t
 
 Now you've enabled all users who are part of the Cloud Administrator group in AWS SSO administrator access to the **network-prod** AWS account.
 
-## 5. Determine IP Address CIDR Blocks
+## 5. Determine IP Address CIDR Blocks {#dev-cidr}
 
 If you're just experimenting and don't care which IP address CIDR block is used to build the centrally managed development VPC, you can move to the next step, [7. Provision Development VPC]({{< relref "#provision-dev-vpc" >}}).
 
@@ -111,7 +111,7 @@ Otherwise, if you have a formally assigned CIDR block to use, in this step you'l
 ### Review Default VPC Topology
 
 The default parameters of the AWS CloudFormation template that you will use in the next step will result in a VPC with:
-* 2 tiers of subnets: 
+* 2 tiers of subnets:
   * Public tier
   * Private tier
 * 3 subnets for each tier.
@@ -131,7 +131,7 @@ If your Network team has supplied a relatively large non-overlapping CIDR block,
 
 If you need to break down a larger block:
 
-1. Access the [Visual Subnet Calculator](http://www.davidc.net/sites/default/subnets/subnets.html). 
+1. Access the [Visual Subnet Calculator](http://www.davidc.net/sites/default/subnets/subnets.html).
 2. Enter your network address without the mask portion **`/nn`** in the **`Network Address`** field.
 3. Enter the size of allocated block in the **`Mask bits`** field.
 4. Click **`Update`**.  
@@ -141,7 +141,7 @@ When you've reached block sizes from **`/20`** - **`/22`**, select a block size 
 
 ### Determine Subnet CIDR Blocks
 
-Once you've determined the VPC CIDR block, breaking it down into an equal size block per subnets is straightforward. 
+Once you've determined the VPC CIDR block, breaking it down into an equal size block per subnets is straightforward.
 
 1. Access the [Visual Subnet Calculator](http://www.davidc.net/sites/default/subnets/subnets.html)
 2. Enter your network address without the mask portion **`/nn`** the **`Network Address`** field.

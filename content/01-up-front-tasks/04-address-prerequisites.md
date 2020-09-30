@@ -22,7 +22,7 @@ Review [Plan Your AWS Control Tower Landing Zone](https://docs.aws.amazon.com/co
 
 If you have any doubts about the quality of an existing management AWS account, then it's recommended that you create a new management AWS account via this guide to support your new AWS environment. You can easily move existing AWS accounts into your new management AWS account later on.
 
-## 2. Create email addresses for new AWS accounts
+## 2. Create email addresses for new AWS accounts {#create-email-addresses}
 
 Regardless as to whether you create a new management AWS account or reuse an existing management AWS account, you'll need to prepare a set of email addresses to represent the root user of each of the new AWS accounts that will be created. In later steps, when you create AWS accounts, you'll be referring to these email addresses. Each AWS account must have a unique email address associated with it.
 
@@ -30,10 +30,10 @@ Regardless as to whether you create a new management AWS account or reuse an exi
 Instead of using a person's email address, it's recommended that you use either email distribution lists (DLs) or shared mailboxes so that you can enable at least several trusted people, for example, your Cloud Administrators, access to email messages associated with each AWS account.
 
 ### Carefully control access to the email accounts
-Since the email address associated with an AWS account is used as the [root user login for the account](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html), anyone with access to that email account will have access to password reset process for the account. 
+Since the email address associated with an AWS account is used as the [root user login for the account](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html), anyone with access to that email account will have access to password reset process for the account.
 
 ### Define and request DLs or shared mailboxes
-The following diagram and table includes the minimum set of email addresses to get started. Each AWS account must have a globally unique email address. 
+The following diagram and table includes the minimum set of email addresses to get started. Each AWS account must have a globally unique email address.
 
 Several optional AWS accounts and email addresses are included in the table depending on the extent of capabilities you expect to require in the initial form of your AWS environment.
 
@@ -77,7 +77,7 @@ Use your standard internal process to request either DLs or shared mailboxes bas
 
 ## 3. Obtain non-overlapping IP address range {#ip-address-range}
 
-If your initial proof of value workloads will require AWS networking resources, then you should address this prerequisite. If your your initial workloads don't depend on AWS networking resources, you can skip this step.  For example, if your initial workloads use Aamazon Simple Storage Service (Amazon S3), they might not need AWS networking resources.
+If your initial proof of value workloads will require AWS networking resources, then you should address this prerequisite. If your initial workloads don't depend on AWS networking resources, you can skip this step.  For example, if your initial workloads use Amazon Simple Storage Service (Amazon S3), they might not need AWS networking resources.
 
 In this step you should consult with your existing Network team to obtain a suitably sized, non-overlapping IP address range or [CIDR block](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) that can be used not only for the initial shared development network that will be set up in this guide, but also to accommodate test and and production networks that you will provision on AWS as you progress in your journey.
 
@@ -95,7 +95,7 @@ If the desired sizes of non-overlapping CIDR block cannot be obtained at this st
 
 ### Unable to obtain non-overlapping IP address range
 
-If you cannot obtain a non-overlapping CIDR block at this stage, you can temporarily use an overlapping block for your initial shared development network. 
+If you cannot obtain a non-overlapping CIDR block at this stage, you can temporarily use an overlapping block for your initial shared development network.
 
 In the future, when you need to interconnect a portion of your existing on-premises network, you will need to create a new VPC with a non-overlapping CIDR block, migrate the workloads to the new VPC, and decommission the old VPC.
 
