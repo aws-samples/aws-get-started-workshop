@@ -1,0 +1,45 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: |
+  Creates roles and instance profile to support "no-ingress EC2 instance" for Cloud9
+  https://docs.aws.amazon.com/cloud9/latest/user-guide/ec2-ssm.html
+
+Parameters:
+  PermissionsBoundaryName:
+    Description: |
+      Name of the Permissions Boundary to attach to the role.
+      You might need to edit this, see ...
+    Type: String
+    Default: example-infra-team-dev-boundary
+Resources:
+  AWSCloud9SSMAccessRole:
+      Type: AWS::IAM::Role
+      Properties:
+        RoleName: AWSCloud9SSMAccessRole
+        Description: Service role for Cloud9 access
+        Path: /service-role/
+        PermissionsBoundary: !Sub "arn:aws:iam::${AWS::AccountId}:policy/${PermissionsBoundaryName}"
+        ManagedPolicyArns:
+          - arn:aws:iam::aws:policy/AWSCloud9SSMInstanceProfile
+        AssumeRolePolicyDocument: |
+          {
+            "Version": "2012-10-17",
+            "Statement": [
+              {
+                "Effect": "Allow",
+                "Principal": {
+                  "Service": [
+                    "ec2.amazonaws.com",
+                    "cloud9.amazonaws.com"
+                  ]
+                },
+                "Action": "sts:AssumeRole"
+              }
+            ]
+          }
+  AWSCloud9SSMInstanceProfile:
+    Type: AWS::IAM::InstanceProfile
+    Properties:
+      InstanceProfileName: AWSCloud9SSMInstanceProfile
+      Path: /cloud9/
+      Roles:
+        - !Ref AWSCloud9SSMAccessRole
