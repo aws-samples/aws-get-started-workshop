@@ -18,14 +18,14 @@ This section of the guide helps you establish an initial foundation in support o
 
 Setting up development environments in AWS helps your builders experiment with and perform early testing of migration and application and data integration solutions in flexible and safe environments that are isolated from your more formally controlled test and production environments.
 
-Compared to the cost and complexity of setting up and maintaining development environments in physical data centers, carving out virtual development environments in AWS is relatively low-cost and straightforward.
+Compared to the cost and complexity of setting up and maintaining development environments in physical data centers, establishing virtual development environments in AWS is relatively low-cost and straightforward.
 
 As your use of the cloud matures, your builders are encouraged to begin using Infrastructure as Code (IaC) to gain the benefits of greater automation. Adoption of IaC practices means that at least some of your traditional infrastructure teams will evolve to become builder teams in their own right.
 
 ## Deferring Set up of Team Development Environments
 
-You're encouraged to set up your initial team development environments this time. However, you can skip to [Establishing Foundation for Test and Production Environments]({{< relref "04-test-prod" >}}). Later, when you're ready, you can come back to this section and set up you team development environments.
+You're encouraged to set up your initial team development environments at this time. If you'd like to defer setting up development environments, you can skip forward to [Establishing Foundation for Test and Production Environments]({{< relref "04-test-prod" >}}). Later, you can come back to this section and set up your team development environments.
 
-## Set Up Steps for Team Development Environments
+## Establishing Team Development Environments
 
 {{% children showhidden="false" %}}
