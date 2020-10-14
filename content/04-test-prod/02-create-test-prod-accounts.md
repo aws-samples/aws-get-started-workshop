@@ -1,6 +1,6 @@
 ---
-title: 'Create Prod and Test Workload AWS Accounts'
-menuTitle: '2. Create Prod and Test Workload AWS Accounts'
+title: 'Create Test and Production Workload AWS Accounts'
+menuTitle: '2. Create Test and Prod Accounts'
 disableToc: true
 weight: 20
 ---
@@ -9,6 +9,10 @@ weight: 20
 Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 SPDX-License-Identifier: CC-BY-SA-4.0
 {{% /comment %}}
+
+{{% notice note %}}
+Review Note: This section is an early draft and undergoing reviewing and editing.
+{{% /notice %}}
 
 If you've followed this guide, you've already created the Organizational Units (OUs) for your workload, and provisioned an initial account in the `workloads_dev` OU.  This step assumes you are ready to provision In this step your Cloud Administrators will create new AWS accounts dedicated for your workload via AWS Control Tower's Account Factory.  
 

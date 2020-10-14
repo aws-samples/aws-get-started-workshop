@@ -1,14 +1,22 @@
 ---
-title: 'Set Up Test and Prod Access'
+title: 'Set Up Test and Production Access'
 menuTitle: '5. Set Up Test and Prod Access'
 disableToc: true
 weight: 50
 ---
 
+{{% comment %}}
+Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+SPDX-License-Identifier: CC-BY-SA-4.0
+{{% /comment %}}
+
+{{% notice note %}}
+Review Note: This section is an early draft and undergoing reviewing and editing.
+{{% /notice %}}
+
 In this step either Security or Cloud Administrators will onboard a limited set of responsible analysts who will have access to the workload environments.  We will introduce IAM Permission Boundaries on the workload organizational units to constrain the set of IAM permissions that can be granted.  This will enable the access necessary to manage operational events in the workload account.
 
 This step should take about 30 minutes to complete.
-
 
 ## 1. Distribute Permissions Boundary to Workload Test and Prod OUs
 

@@ -1,6 +1,6 @@
 ---
-title: 'Set Up Test and Prod Workload Guardrails'
-menuTitle: '3. Set Up Test and Prod Workload Guardrails'
+title: 'Set Up Test and Production Workload Guardrails'
+menuTitle: '3. Set Up Test and Prod Guardrails'
 disableToc: true
 weight: 30
 ---
@@ -9,7 +9,11 @@ weight: 30
 Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 SPDX-License-Identifier: CC-BY-SA-4.0
 {{% /comment %}}
-a
+
+{{% notice note %}}
+Review Note: This section is an early draft and undergoing reviewing and editing.
+{{% /notice %}}
+
 In this step your Security and Cloud Administrators will author and apply guardrails to protect the test and production workload organizational units.
 
 This step should take about 20 minutes to complete.

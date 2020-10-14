@@ -1,6 +1,6 @@
 ---
-title: 'Configure Test and Prod Networking'
-menuTitle: 4. Configure Test and Prod Networking'
+title: 'Configure Test and Production Networks'
+menuTitle: '4. Configure Test and Prod Networks'
 disableToc: true
 weight: 40
 ---
@@ -9,6 +9,10 @@ weight: 40
 Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 SPDX-License-Identifier: CC-BY-SA-4.0
 {{% /comment %}}
+
+{{% notice note %}}
+Review Note: This section is an early draft and undergoing reviewing and editing.
+{{% /notice %}}
 
 In this step your Cloud Administrators will review the solution's networking requirements and provision VPCs in the workload accounts if required.
 
