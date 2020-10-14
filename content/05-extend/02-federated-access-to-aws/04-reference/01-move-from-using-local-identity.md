@@ -28,7 +28,7 @@ Be sure that your Active Directory domain is configured with granular AD groups 
 
 When you are ready to change AWS SSO over from the internal directory to Active Directory or a Third Party Identity Provider, take note of the implications of such a change **most notibly** all existing entitlements will be lost -- so have your AD groups configured and your Master Account root username, password and MFA handy in case you are logged out. Alternatively you could use an IAM User in the Master Account as a backup. [Follow this guide](https://docs.aws.amazon.com/singlesignon/latest/userguide/manage-your-identity-source-change.html) to switch your AWS SSO identity source.
 
-[![SSO to AD](/images/05-optional/02-federated-access-to-aws/awssso_converttoAD.png)](/images/05-optional/02-federated-access-to-aws/awssso_converttoAD.png)
+[![SSO to AD](/images/05-extend/02-federated-access-to-aws/awssso_converttoAD.png)](/images/05-extend/02-federated-access-to-aws/awssso_converttoAD.png)
 
 {{% notice note %}}
 The URL you were using to access AWS SSO may change and users may need to update their links.

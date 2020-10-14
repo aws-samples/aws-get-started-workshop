@@ -12,7 +12,7 @@ SPDX-License-Identifier: CC-BY-SA-4.0
 
 This section introduces the typical requirements for your inital foundation in support of development, test, and production environments. You will typically require at least the following capabilities when establishing your initial formal environments. 
 
-Depending on your requirements, you might need to include additional capabilities in support of deploying your first few proof of value workloads to production. Setup instructions for [common optional capabilities]({{< relref "05-optional" >}}) are included later in this guide to help you meet these requirements.
+Depending on your requirements, you might need to include additional capabilities in support of deploying your first few proof of value workloads to production. Setup instructions for [common optional capabilities]({{< relref "05-extend" >}}) are included later in this guide to help you meet these requirements.
 
 Depending on the types of initial proof of value workload, you'll likely have more requirements that are workload specific.
 

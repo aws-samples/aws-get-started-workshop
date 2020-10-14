@@ -90,7 +90,7 @@ Ideally, taking into account future networks beyond the initial development netw
 If the desired sizes of non-overlapping CIDR block cannot be obtained at this stage, you should obtain a block of at least size `/22` to address the initial shared development network.  You can obtain additional non-overlapping CIDR blocks later to support your build out of test and production networks.
 
 {{% notice warning %}}
-**Larger CIDR Range is Better:** Although 1,000 IP addresses may sound like a lot, don't assume that it's a sufficiently sized range even for your initial few workloads.  Since your initial shared development environment will likely have at least 4 subnets, when you divide a `/22` CIDR block across the 4 subnets, you end up with only 254 IP available addresses per subnet. Using a `/23` block would leave only 126 IP addresses per subnet. Depending on the number of workloads your infrastructure and workload builder teams will be experimenting and testing, these smaller ranges can end up being exhausted faster than you might expect.
+**Larger CIDR range is better:** Although 1,000 IP addresses may sound like a lot, don't assume that it's a sufficiently sized range even for your initial few workloads.  Since your initial shared development environment will likely have at least 4 subnets, when you divide a `/22` CIDR block across the 4 subnets, you end up with only 254 IP available addresses per subnet. Using a `/23` block would leave only 126 IP addresses per subnet. Depending on the number of workloads your infrastructure and workload builder teams will be experimenting and testing, these smaller ranges can end up being exhausted faster than you might expect.
 {{% /notice %}}
 
 ### Unable to obtain non-overlapping IP address range
@@ -118,9 +118,16 @@ You should limit the length of the abbeviated organization identifier to a handf
 As an example, this guide uses the prefix **`example`** throughout. As you progress through the guide, you're expected to replace this example prefix with your own identifier.
 
 {{% notice tip %}}
-**More Extensive Resource Naming Standards:** As you progress on your journey, you may find it useful to adopt more extensive cloud resource naming standards.
+**More extensive resource naming standards:** As you progress on your journey, you may find it useful to adopt more extensive cloud resource naming standards.
 {{% /notice %}}
 
-## 5. Identify Your preferred AWS Region
+## 5. Identify your preferred AWS Region(s)
 
-When you build out the foundation of your AWS environment using the AWS Control Tower service, you will need to specify a “home” AWS region in which AWS Control Tower will configure a set of resources. Typically, this AWS region will be the AWS region in which you expect to host most of your workloads.  See [AWS Regions and Availability Zones](https://aws.amazon.com/about-aws/global-infrastructure/regions_az/) for a list of the current regions.
+AWS provides you with a diverse set of AWS Regions in which you can deploy and operate your workloads.  You'll need to identity the Region(s) in which you'll deploy your first proof of value workloads into production. See [AWS Regions and Availability Zones](https://aws.amazon.com/about-aws/global-infrastructure/regions_az/) for a list of the current regions.
+
+This step-by-step instructions in this guide assume that you'll focus on using a single Region in this early stage of your journey.
+
+{{% notice info %}}
+**Specify a "home" Region for AWS Control Tower:** In the next section, when you build out the base foundation of your AWS environment using the AWS Control Tower service, you will need to specify a “home” AWS Region in which AWS Control Tower will configure a set of resources. Typically, this Region will be the same Region in which you expect to host most of your initial workloads.
+{{% /notice %}}
+

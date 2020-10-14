@@ -33,7 +33,7 @@ If the optional guardrails don't satisfy your governance requirements, you can c
 {{% /notice %}}
 
 {{% notice tip %}}
-The default configuration of AWS Organizations supports using SCPs to explicitly deny or blacklist services and/or regions.  Please review [Strategies for using SCPs](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps_strategies.html) for more details
+The default configuration of AWS Organizations supports using SCPs to explicitly deny services and/or regions.  Please review [Strategies for using SCPs](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps_strategies.html) for more details
 {{% /notice %}}
 
 ### Example: Restriction on AWS Region Usage
@@ -165,7 +165,7 @@ Using AWS Organizations, create Service Control Policies (SCPs) that will be app
 4. On the right side of the console, select the **`Attach`** link next to the SCPs and select the SCP you created in step 1.
 
 {{% notice warning %}}
-**Test your SCPs before using them in a production capacity.** Remember that an SCP affects every user and role and even the root user in every account that it's attached to.  Deploying and testing the workload to the workload's test account will exercise the SCP before it's applied to the production OU.
+**Test your SCPs before using them in production:** Remember that an SCP affects every user and role and even the root user in every account that it's attached to.  Deploying and testing the workload to the workload's test account will exercise the SCP before it's applied to the production OU.
 {{% /notice %}}
 
 Repeat the above step for the `workloads_prod` OU.
