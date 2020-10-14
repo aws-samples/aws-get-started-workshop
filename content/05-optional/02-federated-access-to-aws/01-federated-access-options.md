@@ -21,12 +21,10 @@ This section introduces the options to enable your human users federated access 
 You may have one or more of the following requirements as you consider reusing your existing identity source to help control human access to your AWS environment:
 
 **End User Requirements**
-
 * Ease of requesting access to AWS via standard enterprise processes.
 * Ease of authorized users using the AWS CLI, SDKs, and API based on their corporate identities and federated access.
 
 **Security Requirements**
-
 * Use your existing identity source and enterprise access control capabilities so that you can take advantage of your standard processes for defining, requesting, granting, and revoking access across all applications including your AWS environment.
 * Avoid management of human user and group information within your AWS environment.
 * Multi-factor authentication (MFA) for all human access to your AWS environment.
@@ -34,7 +32,6 @@ You may have one or more of the following requirements as you consider reusing y
 * Ease of updating and distributing access permissions throughout your AWS environment.
 
 **Operational requirements**
-
 * Ease of extending and removing access as new AWS account are created and retired.
 
 ## Solution options
@@ -68,20 +65,17 @@ Review [Integrating third-party SAML solution providers with AWS](https://docs.a
 In this option, you take on the responsibility of provisioning IAM SAML provider resources in each AWS account and managing the distribution of SAML IAM roles to each account.  Setting up and making use of end user to the AWS CLI, SDK, and APIs requires more work on your part.
 
 AWS SSO provides some benefits over this traditional option:
-
 * AWS SSO automatically provisions SAML provider resources in your AWS accounts.
 * AWS SSO automatically distributes permissions to your AWS accounts.
 * AWS SSO provides built-in support for your users to use AWS CLI, SDK, and API with federated access.
 * AWS SSO integrated with AWS Organizations to ease federated access management in a multi-account environment.
 
 There are a few considerations that might still lead you to use this traditional option:
-
 * Your IdP of interest isn't yet supported by AWS SSO.
 * You need to integrate multiple SAML 2.0 IdPs into your AWS environment.
 * You need complete control over distribution and provisioning of federated access permissions via SAML IAM roles.
 
 Here are several examples of using external SAML IdPs directy with AWS IAM:
-
 * [Okta](https://support.okta.com/help/s/article/Support-for-Multiple-Accounts-in-AWS)
 * [ADFS](https://aws.amazon.com/blogs/security/enabling-federation-to-aws-using-windows-active-directory-adfs-and-saml-2-0/)
 * [OneLogin](https://onelogin.service-now.com/kb_view_customer.do?sysparm_article=KB0010344)
