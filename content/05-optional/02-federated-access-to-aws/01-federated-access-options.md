@@ -1,6 +1,6 @@
 ---
-title: 'Federated Access to AWS Options'
-menuTitle: 'Federated Access Options'
+title: 'Review and Select Options for Federated Access with an Existing Identity Source'
+menuTitle: 'Select Federated Access Option'
 disableToc: true
 weight: 10
 ---
@@ -10,92 +10,85 @@ Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 SPDX-License-Identifier: CC-BY-SA-4.0
 {{% /comment %}}
 
-This section addresses options and resources to enable your internal users federated access to your AWS environment by using an identity provider external to AWS. 
+This section introduces the options to enable your human users federated access to your AWS environment by using an identity source that is external to AWS Single Sign-On (AWS SSO). Once you've selected an option, further sections lead you through the process of setting up the desired option.
 
-## Out of Scope: Application Level Federated Access
-
-The section does not address federated access in support or your applications hosted on AWS. Although your enterprise identity and access management solution may also be used in support of application level federated access, different considerations and mechanisms come into play in this simialr, but different use case.
-
-## Motivation and Common Practices
-It is common practice for organizations to reuse their existing enterpise identity and access management solution to form the basis of controlling access to the AWS platform.  Doing so, reuses existing security controls, lifecycle management practices, and audit processes.
-
-The source of truth for users and group-based entitlement definitions is often based in Active Directory (AD) and commonly exposed via SAML-based Identity Providers (IdPs) for integration with publicly accessible services including SaaS services and cloud platforms such as AWS.
-
-AD security groups are often used to represent entitlements that are mapped to permissions in a given application, product, or cloud platform. In an enterprise's access management solution such entitlements are associated with roles that are associated with people and teams.  As people and teams change, their associated roles are reviewed and membership is either manually or automatically changed so that access to entitlements is automatically updated.
-
-
+{{% notice info %}}
+**Moving from using AWS SSO local identity store to an external identity source:** Earlier in this guide, you may have taken the default path to begin defining users and groups in the local identity source within AWS SSO.  This is a common initial step to help you quickly set up your AWS environment and provide you with the time to consider your options to reuse an existing identity source.  If you choose one of the AWS SSO options listed below, you will need to plan for the implications of the change. See [Considerations for Changing Your Identity Source](https://docs.aws.amazon.com/singlesignon/latest/userguide/manage-your-identity-source-considerations.html) for details.
+{{% /notice %}}
 
 ## Requirements
 
-Generally customers have the following requirements regarding identity when embarking on the cloud journey, as it relates to perspectives in the [AWS Cloud Adoption Framework](https://aws.amazon.com/professional-services/CAF/):
+You may have one or more of the following requirements as you consider reusing your existing identity source to help control human access to your AWS environment:
 
-1. Simple and scalable access to the AWS console or API. (Business)
-2. Ability for Account Owners and an IT Identity Team to manage access. (People)
-3. Cascade down job hirings, terminations, or job-change-transfer events to take effect on downstream applications to stay compliant. (Governance)
-4. Reuse of an existing centralized directory as a source of truth for users. (Platform) 
-5. Granular access control to the role level, following the Organization's role-based-access-control requirements. (Security)
-6. Minimum maintenance going forward as accounts are added or removed. (Operations)
+**End User Requirements**
 
+* Ease of requesting access to AWS via standard enterprise processes.
+* Ease of authorized users using the AWS CLI, SDKs, and API based on their corporate identities and federated access.
 
+**Security Requirements**
 
-## Solution Options and Resources
+* Use your existing identity source and enterprise access control capabilities so that you can take advantage of your standard processes for defining, requesting, granting, and revoking access across all applications including your AWS environment.
+* Avoid management of human user and group information within your AWS environment.
+* Multi-factor authentication (MFA) for all human access to your AWS environment.
+* Ease of mapping enteprise access control roles and entitlements to combinations of AWS accounts and IAM roles in those accounts.
+* Ease of updating and distributing access permissions throughout your AWS environment.
 
-Presumably you are visiting this page because you are using [AWS SSO](https://aws.amazon.com/blogs/security/how-to-create-and-manage-users-within-aws-sso/) as a built-in Identity Provider and User Directory. Often, customers will choose to migrate to more enterprise solutions that meet the requirements detailed above. There are 3 common paths when deciding what to do with Federated Access to AWS. There are 3 common options outlined below and the decision tree can help you decide.
+**Operational requirements**
 
-[![Federation Choice](/images/05-optional/02-federated-access-to-aws/SSODecTree.png)](/images/05-optional/02-federated-access-to-aws/SSODecTree.png)
+* Ease of extending and removing access as new AWS account are created and retired.
 
-{{% notice warning %}}
-Switching from AWS SSO to one of these other options will disrupt the way users and administrators log into the AWS console, see the *Migration From Use of Locally Managed Groups and Users in AWS SSO* section below.
-{{% /notice %}}
+## Solution options
 
-1) Use the built-in AWS SSO Identity service as an Identity Provider and Microsoft Active Directory (self-managed or AWS Managed Active Directory) as a centralized source of truth for user identity.
-	* Customers often choose this option because they can maintain an existing source of truth for user identity hosted in a self-managed Active Directory Domain. In this design, a VPC is needed in a Shared Services VPC to host self-managed Active Directory or AWS Managed Active Directory with subnets shared to the AWS Master Account where AWS SSO will reside. [Learn more here.]({{< relref "02-aws-sso-ad" >}})
-		* [Connect AWS SSO to AWS Managed Active Directory](https://docs.aws.amazon.com/singlesignon/latest/userguide/connectawsad.html) running in a VPC in an Infrastructure Shared Services account with shared subnets to the Master Account.
-		* [Connect AWS SSO to an On-Premises Active Directory](https://docs.aws.amazon.com/singlesignon/latest/userguide/connectonpremad.html) using a VPC in an Infrastructure Shared Services account that has an established VPN or Direct Connect connection to the on-premises datacenter. [Here is another blog](https://aws.amazon.com/blogs/security/how-to-connect-your-on-premises-active-directory-to-aws-using-ad-connector/) post with additional detail.
-2) Use the built-in AWS SSO Identity service as an Identity Provider and connect an external third party Identity Directory over a SAML federation..
-	* This is a popular and recommended option for customers that already use AzureAD or Okta as a source of truth for Identity. This will eliminate some heavy lifting, but often does not provide a level of granular control that some large enterprises require. Most customers choose this option unless additional customization is required.
-		* [Connect AWS SSO to AzureAD](https://aws.amazon.com/blogs/aws/the-next-evolution-in-aws-single-sign-on/) using AzureAD's SCIM (System for Cross-domain Identity Management) endpoint. This enables automated provisioning which is very useful for AWS Organizations with more than 20 Accounts!
-		* [Connect AWS SSO to Okta](https://youtu.be/_zqHFlaqSTg) for automated provisioning using Okta's SCIM capability, enabling automated provisioning for organizations with more than 20 accounts.
-3) Use an external third party Identity Provider and a self-managed User Identity Directory (Microsoft Active Directory or LDAP).
-	* If you already use a publicly accessible Identity Provider, you can continue to use this portal for federated access to AWS. This assumes the Identity Provider you are using has access to User Identities stored in a central source of truth, such as Active Directory. Common examples include: OneLogin, Okta, ADFS. See the [full list](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_saml_3rd-party.html) of third-party SAML 2.0 IdP's that work with AWS Federation. Often customers land on this choice if they are required to funnel access to applications through a centralized SSO landing page, or they require customization or additional granular control that option #2 cannot provide.
-		* [Connect your AWS accounts to Okta](https://support.okta.com/help/s/article/Support-for-Multiple-Accounts-in-AWS)
-		* [Connect your AWS accounts to ADFS](https://aws.amazon.com/blogs/security/enabling-federation-to-aws-using-windows-active-directory-adfs-and-saml-2-0/)
-		* [Connect your AWS accounts to OneLogin](https://onelogin.service-now.com/kb_view_customer.do?sysparm_article=KB0010344)
+The following options are typically considered when you intend to reuse an existing identity source in support of your requirements for federated access to your AWS environment.
 
+In later sections, this guides goes into more detail on the first two options given that they suit the majority of customers' needs.
 
-{{% notice info %}}
-When new AWS Accounts are created in the Organization, there is configuration necessary to onboard it into the Identity Provider and create relative Active Directory Security Groups for each Role you wish you provision. This is called Manual Provisioning. For less than 20 AWS accounts this generally isn't a problem, however, when larger Enterprises start to create hundreds or even thousands of accounts, this creates unnecessary management overhead and requires an automated solution. AWS SSO and AzureAD support Automatic Provisioning. [Review the Considerations](https://docs.aws.amazon.com/singlesignon/latest/userguide/provision-automatically.html).
-{{% /notice %}}
+### SAML 2.0 Identity Provider with AWS SSO
 
-### Multi-Factor Authentication
+If you either already have a SAML 2.0 IdP that you use in support of other enterprise applications or you plan to establish an IdP for this purpose, the most straightforward route is to use AWS SSO in conjunction with a SAML 2.0 IdP.
 
-Multi-factor authentication (MFA) is supported with AWS SSO. If you choose to use a third party identity provider, review the documentation for that product on how to configure MFA. [See the User Guide](https://docs.aws.amazon.com/singlesignon/latest/userguide/enable-mfa.html) for MFA considerations and options on AWS SSO.
+Review the [Connect to Your External Identity Provider](https://docs.aws.amazon.com/singlesignon/latest/userguide/manage-your-identity-source-idp.html) for an overview of this option and a list of the supported identity providers.
 
-### Migration From Use of Locally Managed Groups and Users in AWS SSO
+Here are several examples of this option:
+* [AzureAD](https://aws.amazon.com/blogs/aws/the-next-evolution-in-aws-single-sign-on/) using AzureAD's SCIM (System for Cross-domain Identity Management) endpoint. This enables automated provisioning which is very useful for AWS Organizations with more than 20 Accounts!
+* [Okta](https://youtu.be/_zqHFlaqSTg) for automated provisioning using Okta's SCIM capability, enabling automated provisioning for organizations with more than 20 accounts.
 
-If you began using AWS SSO initially to configure single-sign-on for your AWS environment, you may be considering switching to Active Directory or another Identity Provider as the source of truth. Be sure that your Active Directory domain is configured with granular AD groups for (at least) your Master Account, but ideally all accounts you wish to manage with AWS SSO. Consider some best practices when using AWS SSO with Active Directory (either self-managed or AWS Managed Active Directory):
+### Microsoft Active Directory (AD) Directory with AWS SSO
 
-* Get granular for users and have overarching roles for the Cloud Center of Excellence team
-* Group users into personas. Each persona will be assigned a Permission Set (or Role) in an account. Some default permissions sets in AWS SSO: AWSAdministratorAccess, AWSPowerUserAccess, AWSReadOnlyAccess, AWSOrganizationsFullAccess, AWSServiceCatalogAdminFullAccess, AWSServiceCataLogEndUserAccess.
-* In Active Directory, create an AD Security Groups for each Account for each Permission Set following a naming convention: ***OrganizationName_AWSAccountName_PermissionSetRole***
-	* Some Granular Examples: AWS_Network_Administrators, AWS_SharedServices_Administrators, AWS_Master_BillingAdmins, AWS_Network_NetworkAdmins
-	* Some "overarching" Examples: AWS_GlobalAdministrators, AWS_GlobalNetworkAdmins, AWS_GlobalSecurityAdmins
-* Considering creating new AD groups and permission sets for personas that don't come out of the box -- Developers, for example.
-* Don't simply grant full Administrator to all users for an account. Taking the time to build out role-based access contributes to defense in depth, ensuring a more secure environment.
+If you don't already have a SAML 2.0 IdP that you use in support other enterprise applications and you don't plan to establish one, then you might consider integrating your Microsoft Active Directory (AD) directory with AWS SSO.  This option may be especially convenient if you already plan to have AD directory services in your AWS environment in support of workloads that depend on AD.
 
-When you are ready to change AWS SSO over from the internal directory to Active Directory or a Third Party Identity Provider, take note of the implications of such a change **most notibly** all existing entitlements will be lost -- so have your AD groups configured and your Master Account root username, password and MFA handy in case you are logged out. Alternatively you could use an IAM User in the Master Account as a backup. [Follow this guide](https://docs.aws.amazon.com/singlesignon/latest/userguide/manage-your-identity-source-change.html) to switch your AWS SSO identity source.
+Review [Connect to Your Microsoft AD Directory](https://docs.aws.amazon.com/singlesignon/latest/userguide/manage-your-identity-source-ad.html) for an overview of this option.
 
-[![SSO to AD](/images/05-optional/02-federated-access-to-aws/awssso_converttoAD.png)](/images/05-optional/02-federated-access-to-aws/awssso_converttoAD.png)
+### SAML Identity Provider with AWS IAM
 
-{{% notice note %}}
-The URL you were using to access AWS SSO may change and users may need to update their links.
-{{% /notice %}}
+If you have a requirement to use a SAML 2.0 IdP, but AWS SSO does not meet your needs, you can establish federated access directly via AWS IAM.  This option predates AWS SSO.
 
+Review [Integrating third-party SAML solution providers with AWS](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_saml_3rd-party.html) for an overview of this option.
 
+In this option, you take on the responsibility of provisioning IAM SAML provider resources in each AWS account and managing the distribution of SAML IAM roles to each account.  Setting up and making use of end user to the AWS CLI, SDK, and APIs requires more work on your part.
 
-As new AWS accounts are introduced, there will be some setup tasks necessary:
-1) Creating AD groups that correspond to the Personas you want to provision
-2) Adding AD Users to the group
-3) Assigning the AD Group to a Permission Set for the new AWS Account in AWS SSO.
+AWS SSO provides some benefits over this traditional option:
 
-This could be automated when at scale to reduce overhead, as well as integration with Identity Management solutions.
+* AWS SSO automatically provisions SAML provider resources in your AWS accounts.
+* AWS SSO automatically distributes permissions to your AWS accounts.
+* AWS SSO provides built-in support for your users to use AWS CLI, SDK, and API with federated access.
+* AWS SSO integrated with AWS Organizations to ease federated access management in a multi-account environment.
+
+There are a few considerations that might still lead you to use this traditional option:
+
+* Your IdP of interest isn't yet supported by AWS SSO.
+* You need to integrate multiple SAML 2.0 IdPs into your AWS environment.
+* You need complete control over distribution and provisioning of federated access permissions via SAML IAM roles.
+
+Here are several examples of using external SAML IdPs directy with AWS IAM:
+
+* [Okta](https://support.okta.com/help/s/article/Support-for-Multiple-Accounts-in-AWS)
+* [ADFS](https://aws.amazon.com/blogs/security/enabling-federation-to-aws-using-windows-active-directory-adfs-and-saml-2-0/)
+* [OneLogin](https://onelogin.service-now.com/kb_view_customer.do?sysparm_article=KB0010344)
+
+## Integrate your selected option
+
+If you choose either of the first two options, you can proceed to one of the following sections to review the detailed architecture and setup steps:
+ 
+* SAML 2.0 Identity Provider with AWS SSO (section forthcoming)
+* [Microsoft Active Directory (AD) Directory with AWS SSO]({{< relref "03-aws-sso-ad" >}})

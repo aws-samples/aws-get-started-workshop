@@ -2,7 +2,7 @@
 title: 'AWS SSO and Microsoft Active Directory'
 menuTitle: 'AWS SSO and Active Directory'
 disableToc: true
-weight: 20
+weight: 30
 ---
 
 {{% comment %}}
@@ -10,12 +10,17 @@ Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 SPDX-License-Identifier: CC-BY-SA-4.0
 {{% /comment %}}
 
-This section explores the detailed design to connect AWS SSO with Self-Managed Active Directory or AWS Managed Active Directory solutions.
+{{% notice note %}}
+Review Note: This section is an early draft and undergoing reviewing and editing.
+{{% /notice %}}
 
+This section explores the detailed design to connect AWS SSO with Self-Managed Active Directory or AWS Managed Active Directory solutions.
 
 ## AWS SSO and AWS Managed Active Directory
  
-In this configuration, AWS SSO is configured to use AD Connector as an identity source. AD Connector is running in shared subnets from the Infrastructure Shared Services VPC. The subnets are shared using [Resource Access Manager](https://aws.amazon.com/ram/) from the Shared Services account to the Master account. To learn how to share subnets (or other resources), review the [RAM Documentation](https://docs.aws.amazon.com/ram/latest/userguide/getting-started-sharing.html) or review the existing ["Getting Started" guidance on sharing subnets]({{< relref "02-set-up-common-dev-network#share-dev-subnets" >}}). This keeps Active Directory in an Infrastructure Shared Services VPC and does not require a dedicated VPC in the Master account, which simplifies the network. Consider the following diagram:
+In this configuration, AWS SSO is configured to use AD Connector as an identity source. AD Connector is running in shared subnets from the Infrastructure Shared Services VPC. 
+
+The subnets are shared using [Resource Access Manager](https://aws.amazon.com/ram/) from the Shared Services account to the Master account. To learn how to share subnets (or other resources), review the [RAM Documentation](https://docs.aws.amazon.com/ram/latest/userguide/getting-started-sharing.html) or review the existing ["Getting Started" guidance on sharing subnets]({{< relref "02-set-up-common-dev-network#share-dev-subnets" >}}). This keeps Active Directory in an Infrastructure Shared Services VPC and does not require a dedicated VPC in the Master account, which simplifies the network. Consider the following diagram:
 [![AWS SSO Managed AD](/images/05-optional/02-federated-access-to-aws/awsssomad.png)](/images/05-optional/02-federated-access-to-aws/awsssomad.png)
 In this diagram, we have a Corporate Datacenter on the left with two self-managed Active Directory Domain Controllers configured in an Active Directory Site (let's call it CorpDC). It is connected to an AWS Network account over a VPN or Direct Connect connection. For most customers starting off, VPN will work fine here and is the faster option to set up. See [On-premises Network Integration]({{< relref "01-hybrid-networking" >}}) for details on establishing a site-to-site VPN connection.
 
@@ -50,3 +55,7 @@ To get started with a step-by-step guide, here are some resources:
 * [Connect AWS SSO to AWS Managed Active Directory](https://docs.aws.amazon.com/singlesignon/latest/userguide/connectawsad.html) running in a VPC in the Master account
 * [Connect AWS SSO to an On-Premises Active Directory](https://docs.aws.amazon.com/singlesignon/latest/userguide/connectonpremad.html) using a VPC in the Master Account that has an established VPN or Direct Connect connection to the on-premises datacenter.
 * [How to Connect Your On-Premises Active Directory Using AD Connector](https://aws.amazon.com/blogs/security/how-to-connect-your-on-premises-active-directory-to-aws-using-ad-connector/)
+
+## Multi-Factor authentication
+
+Multi-factor authentication (MFA) is supported with AWS SSO. If you choose to use a third party identity provider, review the documentation for that product on how to configure MFA. [See the User Guide](https://docs.aws.amazon.com/singlesignon/latest/userguide/enable-mfa.html) for MFA considerations and options on AWS SSO.
