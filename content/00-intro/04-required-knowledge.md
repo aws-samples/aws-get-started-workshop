@@ -31,6 +31,11 @@ In cases where you expect to deploy workloads that require network resources in 
 * [AWS Virtual Private Cloud (VPC)](https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html)
 * [Network IP address ranges (CIDRs)](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html)
 
+## AWS Ramp-Up Guide: Architect
+
+[AWS Training and Certification](https://aws.amazon.com/training/) offers a series of [ramp-up guides](https://aws.amazon.com/training/course-descriptions/#Build_Your_AWS_Cloud_Knowledge_with_Ramp-Up_Guides) to help you get started with AWS. One particular guide of note that you may consider reviewing is the 
+[AWS Ramp Up Guide - Architect](https://d1.awsstatic.com/training-and-certification/ramp-up_guides/Ramp-Up_Guide_Architect.pdf?achp_addrcs7)
+
 ## AWS Certified Cloud Practitioner
 
 Another means of gaining an introduction to AWS is to become an [AWS Certified Cloud Practitioner](https://aws.amazon.com/certification/certified-cloud-practitioner/). 
