@@ -10,11 +10,6 @@ Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 SPDX-License-Identifier: CC-BY-SA-4.0
 {{% /comment %}}
 
-
-{{% notice note %}}
-Review Note: This section is an early draft and undergoing reviewing and editing.
-{{% /notice %}}
-
 After you've established your team development environments to support experimentation, development, and early testing, you will soon need to support formal testing and eventually production hosting of your first few proof of value workloads.
 
 The following diagram represents the addition of test and production AWS accounts to your initial AWS environment. A set of optional networks are also depicted.
@@ -85,9 +80,9 @@ If your initial workload requires access either to or from the internet, then we
 
 |Approach|Description|Advantages|Disadvantages|
 |--------|-----------|----------|-------------|
-|Direct internet access from VPCs|Deploy a set of public subnets and associated internet and potentially NAT gateways in each VPC. Ensure use of direct internet access is performed in a secure manner.|Easy setup<br><br>No dependencies on other teams<br><br>No on-premises dependencies|Might not meet your internet security requirements<br><br>Responsibility on team managing the workloads to ensure secure internet access,|
-|Temporarily route internet traffic to on-premises|Use only private subnets in each VPC. Route all internet traffic over private connection to on-premises and reuse your existing enterprise internet security services.|Relatively straighforward to configure if you already plan on setting up private connectivity with your on-premises environment.|Stopgap solution<br><br>Increased latency.<br><br>Potentially insufficient bandwidth<br><br>Cost depending on the amount of data transferred out of AWS to your on-premises environment<br><br>Dependencies on other teams|
-|Establish centrally managed internet egress/ingress security capabilities in AWS|Use only private subnets in each VPC. Route all internet traffic through a new centralized internet security services in your AWS environment.<br><br>For example, [Securing VPC Egress Using IDS/IPS Leveraging Transit Gateway](https://aws.amazon.com/blogs/networking-and-content-delivery/securing-egress-using-ids-ips-leveraging-transit-gateway/) and [How to Integrate Third-Party Firewall Appliances into an AWS Environment](https://aws.amazon.com/blogs/networking-and-content-delivery/how-to-integrate-third-party-firewall-appliances-into-an-aws-environment/).|Performance<br><br>Scales for broader adoption of AWS|Significant undertaking<br><br>Dependencies on other teams|  
+|**Direct internet access from VPCs**|Deploy a set of public subnets and associated internet and potentially NAT gateways in each VPC. Ensure use of direct internet access is performed in a secure manner.|Easy setup<br><br>No dependencies on other teams<br><br>No on-premises dependencies|Might not meet your internet security requirements<br><br>Responsibility on team managing the workloads to ensure secure internet access,|
+|**Temporarily route internet traffic to on-premises**|Use only private subnets in each VPC. Route all internet traffic over private connection to on-premises and reuse your existing enterprise internet security services.|Relatively straighforward to configure if you already plan on setting up private connectivity with your on-premises environment.|Stopgap solution<br><br>Increased latency.<br><br>Potentially insufficient bandwidth<br><br>Cost depending on the amount of data transferred out of AWS to your on-premises environment<br><br>Dependencies on other teams|
+|**Establish centrally managed internet egress/ingress security capabilities in AWS**|Use only private subnets in each VPC. Route all internet traffic through a new centralized internet security services in your AWS environment.<br><br>For example, [Securing VPC Egress Using IDS/IPS Leveraging Transit Gateway](https://aws.amazon.com/blogs/networking-and-content-delivery/securing-egress-using-ids-ips-leveraging-transit-gateway/) and [How to Integrate Third-Party Firewall Appliances into an AWS Environment](https://aws.amazon.com/blogs/networking-and-content-delivery/how-to-integrate-third-party-firewall-appliances-into-an-aws-environment/).|Performance<br><br>Scales for broader adoption of AWS|Significant undertaking<br><br>Dependencies on other teams|  
 
 ### On-premises network integration
 
