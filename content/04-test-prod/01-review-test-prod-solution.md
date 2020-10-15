@@ -54,7 +54,7 @@ Independent of the model that you choose to apply to your first few proof of val
 **Cloud Operating Model:** See [Building a Cloud Operating Model](https://d1.awsstatic.com/whitepapers/building-a-cloud-operating-model.pdf) and specifically section "6. Own your own lifecycle" for more information on considering how your organization can operate more efficiently with the cloud.
 {{% /notice %}}
 
-### Apply foundation functions roles
+### Apply foundation functional roles
 
 Similar to how you applied the foundational functional roles of Cloud Administration and Security Administration to your other accounts, you will also enable these roles to access your test and production accounts. By doing so, you'll enable your foundation team with the necessary access to manage the foundational resources in the test and production accounts.
 
