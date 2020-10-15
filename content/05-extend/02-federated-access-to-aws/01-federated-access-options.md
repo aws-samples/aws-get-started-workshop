@@ -36,7 +36,11 @@ You may have one or more of the following requirements as you consider reusing y
 
 ## Solution options
 
-The following options are typically considered when you intend to reuse an existing identity source in support of your requirements for federated access to your AWS environment.
+The following options are typically considered when you intend to reuse an existing identity source in support of your requirements for federated access to your AWS environment:
+
+* SAML 2.0 Identity Provider with AWS SSO
+* Microsoft Active Directory (AD) Directory with AWS SSO
+* SAML Identity Provider with AWS IAM
 
 In later sections, this guides goes into more detail on the first two options given that they suit the majority of customers' needs.
 
