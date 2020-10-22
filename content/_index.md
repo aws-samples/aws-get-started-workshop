@@ -16,3 +16,5 @@ This guided workshop is intended to help you move from the stage of experimentin
 **Draft Content** Content in this repository is in a preliminary draft form and should not be used to formally build out AWS environments unless an AWS specialist is working with you. The documentation is currently undergoing frequent changes as it is reviewed and tested.
 {{% /notice %}}
 
+[![Initial Test and Production Environments in Single AWS Region](/images/04-test-prod/initial-foundation-test-prod-single-region.png?height=600px)](/images/04-test-prod/initial-foundation-test-prod-single-region.png)
+

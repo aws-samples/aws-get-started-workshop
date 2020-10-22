@@ -38,7 +38,7 @@ At least one public subnet will have a NAT Gateway that enables workloads in any
 **Option to filter outbound Internet traffic:** As you progress in your journey, you may transition from this initial approach of providing builder teams with unfiltered outbound or egress Internet access via the initial set of public subnets and NAT Gateway to a more secure architecture where all Internet egress traffic is routed through your standard enterprise edge security services so that all egress traffic is inspected for compliance. This capability is highlighted in the [optional capabilities]({{< relref "05-extend" >}}).
 {{% /notice %}}
 
-[![Test and Production Network Details](/images/04-test-prod/initial-foundation-test-prod-single-region.jpg)](/images/04-test-prod/initial-foundation-test-prod-single-region.jpg)
+[![Test and Production Network Details](/images/04-test-prod/initial-foundation-test-prod-single-region.png)](/images/04-test-prod/initial-foundation-test-prod-single-region.png)
 
 ## 2. Determine IP Address CIDR Blocks
 If you have a formally assigned CIDR block to use, in this step you'll:
