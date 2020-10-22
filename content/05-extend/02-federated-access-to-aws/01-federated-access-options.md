@@ -44,6 +44,14 @@ The following options are typically considered when you intend to reuse an exist
 
 In later sections, this guides goes into more detail on the first two options given that they suit the majority of customers' needs.
 
+### Overview of options
+
+The following decision tree provides a summary of your options based on your requirements.  Generally, if you already have a SAML identity provider (IdP) or intend to establish one, we recommend using your SAML IdP to enable reuse of your existing identity source.  If you don't plan on having a SAML IdP to use for this purpose, then you can integrate your existing AD with AWS SSO.
+
+If you have specific SAML IdP needs that can't be met via integration with AWS SSO, then it's likely that you can use your SAML IdP directly with AWS IAM.  For example, if you need to integrate multiple SAML IdPs, then you would integrate those IdPs directly with AWS IAM.
+
+[![Federated Access Options](/images/05-extend/02-federated-access-to-aws/federated-access-to-aws-decision-tree.png?height=500px)](/images/05-extend/02-federated-access-to-aws/federated-access-to-aws-decision-tree.png)
+
 ### SAML 2.0 Identity Provider with AWS SSO
 
 If you either already have a SAML 2.0 IdP that you use in support of other enterprise applications or you plan to establish an IdP for this purpose, the most straightforward route is to use AWS SSO in conjunction with a SAML 2.0 IdP.

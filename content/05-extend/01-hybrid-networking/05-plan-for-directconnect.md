@@ -1,6 +1,6 @@
 ---
 title: 'Plan for Use of AWS Direct Connect'
-menuTitle: '5. Plan for Direct Connect'
+menuTitle: '5. Plan for AWS Direct Connect'
 disableToc: true
 weight: 50
 ---
