@@ -23,7 +23,7 @@ This step should take about 60 minutes to complete.
 {{< toc >}}
 
 ## 1. Verify Pre-requisites
-- **Confirm email addresses** Every AWS account requires a unique email address for the "root" user.  You may have [created these addresses in an earlier step]({{< relref "04-address-prerequisites#create-email-addresses" >}}).  If not, please go back and review the guidance and provision the test and production workload addresses before you continue.  You will need to be capable of accessing the inboxes of the email accounts to proceed through the steps below.
+- **Confirm email addresses** Every AWS account requires a unique email address for the "root" user.  You may have [created these addresses in an earlier step]({{< relref "02-obtain-email-addresses" >}}).  If not, please go back and review the guidance and provision the test and production workload addresses before you continue.  You will need to be capable of accessing the inboxes of the email accounts to proceed through the steps below.
 
 - **Choose Workload Group Identifier** When you [created the development workload environment]({{< ref "04-create-team-dev-environments" >}}), you used `<team identifier>` as a differentiator.  Test and production workloads are best provisioned in workload-specific accounts so we'll use the workload group ID to label them.  For example, `workloads-test-sap` and `workloads-prod-sap` where `sap` would be the workload group ID.
 

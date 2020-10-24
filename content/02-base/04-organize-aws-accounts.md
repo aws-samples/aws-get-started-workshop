@@ -20,7 +20,7 @@ This step should take about 10 minutes to complete.
 
 Depending on the extent of your initial foundation build out, your initial OU and account structure will likely resemble one of the following examples.
 
-The development and workloads AWS accounts names shown in the diagrams are examples. Depending on your needs, your AWS account names will vary. Refer to the [initial AWS accounts]({{< relref "04-address-prerequisites#initial-aws-accounts" >}}) for a description of the AWS accounts referenced in the diagrams.
+The development and workloads AWS accounts names shown in the diagrams are examples. Depending on your needs, your AWS account names will vary. Refer to the [initial AWS accounts]({{< relref "02-obtain-email-addresses" >}}) for a description of the AWS accounts referenced in the diagrams.
 
 {{% notice note %}}
 **Your OU design is not intended to reflect your company's organizational structure:** AWS Organizations OUs are not meant to be used to reflect your enterprise's organizational structure. Instead, OUs are intended to provide a means to group AWS accounts that have similar security and operational requirements. 
