@@ -25,22 +25,17 @@ pygmentsStyle = "monokailight"
 
 [params]
 editURL = "https://github.com/aws-samples/aws-get-started-workshop/edit/master/content/"
-
 showVisitedLinks = false
 disableInlineCopyToClipBoard = true
-
 themeVariant = "mine"
-
 ordersectionsby = "weight" # ordersectionsby = "title"
-
 disableHomeIcon = true
+disableLandingPageButton = true
 disableSearch = false
-
 disableNavChevron = false # set true to hide next/prev chevron, default is false
 highlightClientSide = false # set true to use highlight.pack.js instead of the default hugo chroma highlighter
 menushortcutsnewtab = false # set true to open shortcuts links to a new tab/window
 enableGitInfo = true
-
 dateformat = "" # default "2 Jan 2006"
 
 # Analytic section
