@@ -1,6 +1,6 @@
 ---
 title: 'Create or Prepare Management AWS Account'
-menuTitle: '1. Prepare Management AWS Account'
+menuTitle: '1. Prepare Management Account'
 disableToc: true
 weight: 10
 ---
