@@ -199,6 +199,8 @@ Note that both of the styles of including static images will not enable you test
 
 ### Working with draw.io Files
 
+Our project uses [Draw.io](https://app.diagrams.net/) to create diagrams that are published in PNG format.
+
 #### Location of Drawing Files
 
 See the `drawings/` directory for the draw.io source files used for pictures and diagrams.
@@ -211,8 +213,8 @@ The `.png` drawings used in this repository are created in the following manner:
     * Caution when using Firefox. Make sure that the AWS service and resource icons are rendered properly. If they don't render properly, try Chrome.
 1. Select the tab of interest.
 1. Select "Edit -> Select All"
-1. Select "File -> Export As -> PNG..."
-1. Select "Selection Only" and "Crop".
+1. Select "File -> Export As -> Advanced..."
+1. Select "400" as the "DPI".  Do this so that images are not blurry when zoomed in.
 1. Select "Export"
 1. Select "Download"
 
