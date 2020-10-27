@@ -41,7 +41,7 @@ In AWS Control Tower, provision a new **network-prod** AWS account that will ini
 Later in your journey, you'll deploy more network related resources to this AWS account. For example, you will likely configure  and manage [AWS Transit Gateway](https://aws.amazon.com/transit-gateway/) resources in this dedicated AWS account when you start integrating on-premises network connectivity in your overall AWS environment.
 
 1. As a Cloud Administrator, use your personal user to log into AWS SSO.
-2. Select the AWS **`master`** account.
+2. Select the AWS **`management`** account.
 3. Select **`Management console`** associated with the **`AWSAdministratorAccess`** role.
 4. Select the appropriate AWS region.
 5. Navigate to **`Control Tower`**.
@@ -216,7 +216,7 @@ Now that the centrally managed development VPC has been provisioned, your next s
 This is a one-time operation.
 
 1. As a Cloud Administrator, use your personal user to log into AWS SSO.
-2. Select the AWS **`master`** account.
+2. Select the AWS **`management`** account.
 3. Select **`Management console`** associated with the **`AWSAdministratorAccess`** role.
 4. Navigate to **`Resource Access Manager`**.
 5. Select **`Settings`**.

@@ -124,7 +124,7 @@ Once you have resources deployed in your account, consider [Getting Started with
 
 ## Cost managers
 
-AWS Cost Management tools give you and your team visibility into AWS account costs and usage. Each account you create will have access to view their individual account costs and usage. The Master account can see the total organizational cost and usage rollup.
+AWS Cost Management tools give you and your team visibility into AWS account costs and usage. Each account you create will have access to view their individual account costs and usage. The management account can see the total organizational cost and usage rollup.
 
 ### Access the billing and cost management dashboard
 

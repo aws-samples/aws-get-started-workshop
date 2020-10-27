@@ -27,7 +27,7 @@ You will need to enable sharing resources within your AWS Organizations from you
 {{% /notice %}}
 
 1. As a Cloud Administrator, use your personal user to log into AWS SSO.
-2. Select the **`master`** AWS account
+2. Select the **`management`** AWS account
 3. Select **`Management console`** associated with the **`AWSAdministratorAccess`** role.
 4. Select the appropriate AWS region.
 5. Navigate to **`Resource Access Manager`**

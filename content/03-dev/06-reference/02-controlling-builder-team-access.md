@@ -124,10 +124,10 @@ In support of the requirements described above, two IAM policies and two Service
 
 |Policy|Purpose|Usage|Sample Code|
 |------|-------|-----|-----------|
-|**Team Development IAM SAML Policy**|A JSON format IAM policy used for control human user access to team development AWS accounts.|This policy is used to create a custom permission set in AWS SSO that is associated with team development groups and team development AWS accounts. AWS SSO converts this policy into an IAM SAML role that is applied when user's access the team development AWS accounts.|[`example-infra-team-dev-saml.json`](/code-samples/01-iam-policies/example-infra-team-dev-saml.json)|
-|**Team Development IAM Permissions Boundary**|A customer managed IAM permissions boundary policy that is used to control permissions of IAM service roles created by team development users in their team development AWS accounts.|This AWS CloudFormation template forms the basis of a CloudFormation StackSet that is applied to all team development AWS accounts.|[`example-infra-team-dev-boundary.yml`](/code-samples/01-iam-policies/example-infra-team-dev-boundary.yml)|
-|**Networking Core SCP**|A JSON format SCP used to disallow creating and updating VPC core resources such as VPCs, subnets, route tables, etc.|Initially, in the context of this guide, this SCP is used to ensure that all users - both builder teams and foundation team members cannot create and modify these resources in team development AWS accounts.<br><br>If and when you encounter other situations for which this SCP would apply, you can reuse the SCP.|[`example-infra-scp-vpc-core.json`](/code-samples/02-scps/example-infra-scp-vpc-core.json)|
-|**Networking Boundaries SCP**|A JSON format SCP used to disallow creating and updating VPC boundary resources such as Internet Gateways, NAT Gateways, Transit Gateways, Site-to-Site VPN Connections, DirectConnect, etc.|Initially, in the context of this guide, this SCP is used to ensure that all users - both builder teams and foundation team members cannot create and modify these resources in team development AWS accounts. <br><br>If and when you encounter other situations for which this SCP would apply, you can reuse the SCP.|[`example-infra-scp-vpc-boundaries.json`](/code-samples/02-scps/example-infra-scp-vpc-boundaries.json)|
+|**Team Development IAM SAML Policy**|A JSON format IAM policy used for control human user access to team development AWS accounts.|This policy is used to create a custom permission set in AWS SSO that is associated with team development groups and team development AWS accounts. AWS SSO converts this policy into an IAM SAML role that is applied when user's access the team development AWS accounts.|[`example-infra-team-dev-saml.json`](/code-samples/iam-policies/example-infra-team-dev-saml.json)|
+|**Team Development IAM Permissions Boundary**|A customer managed IAM permissions boundary policy that is used to control permissions of IAM service roles created by team development users in their team development AWS accounts.|This AWS CloudFormation template forms the basis of a CloudFormation StackSet that is applied to all team development AWS accounts.|[`example-infra-team-dev-boundary.yml`](/code-samples/iam-policies/example-infra-team-dev-boundary.yml)|
+|**Networking Core SCP**|A JSON format SCP used to disallow creating and updating VPC core resources such as VPCs, subnets, route tables, etc.|Initially, in the context of this guide, this SCP is used to ensure that all users - both builder teams and foundation team members cannot create and modify these resources in team development AWS accounts.<br><br>If and when you encounter other situations for which this SCP would apply, you can reuse the SCP.|[`example-infra-scp-vpc-core.json`](/code-samples/scps/example-infra-scp-vpc-core.json)|
+|**Networking Boundaries SCP**|A JSON format SCP used to disallow creating and updating VPC boundary resources such as Internet Gateways, NAT Gateways, Transit Gateways, Site-to-Site VPN Connections, DirectConnect, etc.|Initially, in the context of this guide, this SCP is used to ensure that all users - both builder teams and foundation team members cannot create and modify these resources in team development AWS accounts. <br><br>If and when you encounter other situations for which this SCP would apply, you can reuse the SCP.|[`example-infra-scp-vpc-boundaries.json`](/code-samples/scps/example-infra-scp-vpc-boundaries.json)|
 
 #### Provisioning the Policies
 
@@ -167,7 +167,7 @@ In this scenario, we're delegating a degree of permissions management to builder
 
 ### IAM SAML Policy Walkthrough
 
-[`example-infra-team-dev-saml.json`](/code-samples/01-iam-policies/example-infra-team-dev-saml.json)
+[`example-infra-team-dev-saml.json`](/code-samples/iam-policies/example-infra-team-dev-saml.json)
 
 Each section of the sample policy is explained here.
 
@@ -359,7 +359,7 @@ Ensure that foundation related CloudFormation stack instances that have been cre
 
 ### Permissions Boundary Walkthrough
 
-[`example-infra-team-dev-boundary.yml`](/code-samples/01-iam-policies/example-infra-team-dev-boundary.yml)
+[`example-infra-team-dev-boundary.yml`](/code-samples/iam-policies/example-infra-team-dev-boundary.yml)
 
 Since the overall intent in this development environment scenario is to enable AWS services acting on behalf of the builders to have similar access permissions as the builders themselves, the permissions boundary policy has similar permissions as the IAM SAML policy for builder team members.  
 
@@ -408,8 +408,8 @@ The main difference is that write access to all IAM resources is disallowed in t
 
 These are the SCPs you created and initially associated with the `workloads_dev` OU:
 
-* [`example-infra-scp-vpc-core.json`](/code-samples/02-scps/example-infra-scp-vpc-core.json)
-* [`example-infra-scp-vpc-boundaries.json`](/code-samples/02-scps/example-infra-scp-vpc-boundaries.json)
+* [`example-infra-scp-vpc-core.json`](/code-samples/scps/example-infra-scp-vpc-core.json)
+* [`example-infra-scp-vpc-boundaries.json`](/code-samples/scps/example-infra-scp-vpc-boundaries.json)
 
 SCPs look very similar to IAM policies. See [Managing AWS Organizations policies](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies.html) for more details on using SCPs.
 

@@ -35,7 +35,7 @@ Your Cloud Administrators will only need to use the AWS account root user for ca
 
 Since it's best practice to avoid using the AWS account root user unless absolutely necessary and setting up a landing zone via AWS Control Tower cannot be done with the root user, it is recommended that a bootstrap administrative user be defined in the Master AWS account to be used to carry out the initial landing zone set up.
 
-Once the human Cloud Administrators are granted access to the master account via their own individual user accounts and are granted at least equivalent permissions to this user, this user will no longer be used.
+Once the human Cloud Administrators are granted access to the management account via their own individual user accounts and are granted at least equivalent permissions to this user, this user will no longer be used.
 
 **Creation:** Manually created by your Cloud Administrators as part of setting up your initial master AWS account.
 
@@ -49,7 +49,7 @@ Once the human Cloud Administrators are granted access to the master account via
 
 ## AWS Control Tower administrator
 
-Once human Cloud Administtrators are granted access to the master account via their own individual user accounts and are granted at least equivalent permissions to this user, this user will no longer be used.
+Once human Cloud Administtrators are granted access to the management account via their own individual user accounts and are granted at least equivalent permissions to this user, this user will no longer be used.
 
 **Creation:** Automatically created when you create your landing zone via AWS Control Tower.
 

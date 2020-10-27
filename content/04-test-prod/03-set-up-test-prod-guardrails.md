@@ -137,7 +137,7 @@ EC2 Instance (Savings Plans)[https://aws.amazon.com/savingsplans/] provide the l
 Once you've determined the correct content of the SCP that you want to apply to the `workloads` OUs, have your Cloud Administration team create it.
 
 1. As a Cloud Administrator, use your personal user to log into AWS SSO.
-2. Select the AWS **`master`** account.
+2. Select the AWS **`management`** account.
 3. Select **`Management console`** associated with the **`AWSAdministratorAccess`** role.
 4. Select the appropriate AWS region.
 5. Navigate to **`AWS Organizations`**.
@@ -178,7 +178,7 @@ In a later section, when you create several team test AWS accounts, you will ass
 
 ### Download AWS CloudFormation Template
 
-Next, download the sample AWS CloudFormation template [`example-infra-team-dev-boundary.yml`](/code-samples/01-iam-policies/example-infra-team-dev-boundary.yml) to your desktop.
+Next, download the sample AWS CloudFormation template [`example-infra-team-dev-boundary.yml`](/code-samples/iam-policies/example-infra-team-dev-boundary.yml) to your desktop.
 
 ### Deploy Permissions Boundary as a StackSet
 
@@ -234,12 +234,12 @@ Next, you'll create a custom permission set in AWS SSO to represent the initial 
 
 ### Download and Customize Sample IAM Policy
 
-1. Download the sample policy [`example-infra-team-dev-saml.json`](/code-samples/01-iam-policies/example-infra-team-dev-saml.json) to your desktop.
+1. Download the sample policy [`example-infra-team-dev-saml.json`](/code-samples/iam-policies/example-infra-team-dev-saml.json) to your desktop.
 2. Open the file and replace all occurrences of **`example`** with a reference to your own organization's identifier.
 
 ### Create Permission Set in AWS SSO
 1. As a Cloud Administrator, use your personal user to log into AWS SSO.
-2. Select the AWS **`master`** account.
+2. Select the AWS **`management`** account.
 3. Select **`Management console`** associated with the **`AWSAdministratorAccess`** role.
 4. Select the appropriate AWS region.
 5. Navigate to **`AWS Single Sign-On`** service.

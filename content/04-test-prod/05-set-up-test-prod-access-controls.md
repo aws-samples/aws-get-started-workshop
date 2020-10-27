@@ -27,7 +27,7 @@ Since the permissions boundaries are placed at the OU level, this step only need
 
 ### Download AWS CloudFormation Template
 
-Next, download the sample AWS CloudFormation template [`example-infra-team-dev-boundary.yml`](/code-samples/01-iam-policies/example-infra-team-dev-boundary.yml) to your desktop.
+Next, download the sample AWS CloudFormation template [`example-infra-team-dev-boundary.yml`](/code-samples/iam-policies/example-infra-team-dev-boundary.yml) to your desktop.
 
 ### Deploy Permissions Boundary as a StackSet
 
@@ -73,7 +73,7 @@ Next, you'll create a custom permission set in AWS SSO to represent the initial 
 
 ### Download and Customize Sample IAM Policy
 
-1. Download the sample policy [`example-infra-team-dev-saml.json`](/code-samples/01-iam-policies/example-infra-team-dev-saml.json) to your desktop.
+1. Download the sample policy [`example-infra-team-dev-saml.json`](/code-samples/iam-policies/example-infra-team-dev-saml.json) to your desktop.
 2. Open the file and replace all occurrences of **`example`** with a reference to your own organization's identifier.
 
 ### Create Permission Set in AWS SSO
@@ -101,7 +101,7 @@ Later, when you onboard the workload admin teams to the new workload AWS account
 Create a new group in AWS SSO for each of the builder teams and associate those groups with an initial set of permissions and their respective team development AWS accounts.
 
 1. As a Cloud Administrator, use your personal user to log into AWS SSO.
-2. Select the AWS **`master`** account.
+2. Select the AWS **`management`** account.
 3. Select **`Management console`** associated with the **`AWSAdministratorAccess`** role.
 4. Select the appropriate AWS region.
 5. Navigate to **`AWS SSO`**.

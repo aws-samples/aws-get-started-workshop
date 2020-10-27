@@ -78,7 +78,7 @@ These OUs can be easily changed later.
 Using AWS Control Tower, add the OUs:
 
 1. Sign in to the AWS SSO URL for your environment using the **AWS Control Tower Administrator** user.
-2. Select the AWS **`master`** account.
+2. Select the AWS **`management`** account.
 3. Select **`Management console`** associated with the **`AWSAdministratorAccess`** role.
 4. Select the appropriate AWS region.
 5. Navigate to **`AWS Control Tower`**.

@@ -16,7 +16,7 @@ Review Note: This section is an early draft and undergoing reviewing and editing
 
 If you began using AWS SSO initially to configure single-sign-on for your AWS environment, you may be considering switching to Active Directory or another identity provider as the source of truth. 
 
-Be sure that your Active Directory domain is configured with granular AD groups for (at least) your Master Account, but ideally all accounts you wish to manage with AWS SSO. Consider some best practices when using AWS SSO with Active Directory (either self-managed or AWS Managed Active Directory):
+Be sure that your Active Directory domain is configured with granular AD groups for (at least) your management account, but ideally all accounts you wish to manage with AWS SSO. Consider some best practices when using AWS SSO with Active Directory (either self-managed or AWS Managed Active Directory):
 
 * Get granular for users and have overarching roles for the Cloud Center of Excellence team
 * Group users into personas. Each persona will be assigned a Permission Set (or Role) in an account. Some default permissions sets in AWS SSO: AWSAdministratorAccess, AWSPowerUserAccess, AWSReadOnlyAccess, AWSOrganizationsFullAccess, AWSServiceCatalogAdminFullAccess, AWSServiceCataLogEndUserAccess.
@@ -26,7 +26,7 @@ Be sure that your Active Directory domain is configured with granular AD groups 
 * Considering creating new AD groups and permission sets for personas that don't come out of the box -- Developers, for example.
 * Don't simply grant full Administrator to all users for an account. Taking the time to build out role-based access contributes to defense in depth, ensuring a more secure environment.
 
-When you are ready to change AWS SSO over from the internal directory to Active Directory or a Third Party Identity Provider, take note of the implications of such a change **most notibly** all existing entitlements will be lost -- so have your AD groups configured and your Master Account root username, password and MFA handy in case you are logged out. Alternatively you could use an IAM User in the Master Account as a backup. [Follow this guide](https://docs.aws.amazon.com/singlesignon/latest/userguide/manage-your-identity-source-change.html) to switch your AWS SSO identity source.
+When you are ready to change AWS SSO over from the internal directory to Active Directory or a Third Party Identity Provider, take note of the implications of such a change **most notibly** all existing entitlements will be lost -- so have your AD groups configured and your management account root username, password and MFA handy in case you are logged out. Alternatively you could use an IAM User in the management account as a backup. [Follow this guide](https://docs.aws.amazon.com/singlesignon/latest/userguide/manage-your-identity-source-change.html) to switch your AWS SSO identity source.
 
 [![SSO to AD](/images/05-extend/02-federated-access-to-aws/awssso_converttoAD.png)](/images/05-extend/02-federated-access-to-aws/awssso_converttoAD.png)
 

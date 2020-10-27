@@ -40,7 +40,7 @@ The following table represents a mapping of those functional roles to a set of A
 | |`example-cloud-admin`|[Administrator](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_job-functions.html#jf_administrator) access in all other AWS accounts.
 |**Security Administration**|`AWSAuditAccountAdmins`|[Administrator](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_job-functions.html#jf_administrator) access in the audit account.|
 | |`AWSLogArchiveAdmins`|[Administrator](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_job-functions.html#jf_administrator) access in the log archive account.|
-|**Cost Management**|`example-cost-mgmt`|[Billing and cost management](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_job-functions.html#jf_accounts-payable) access in the master account.|
+|**Cost Management**|`example-cost-mgmt`|[Billing and cost management](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_job-functions.html#jf_accounts-payable) access in the management account.|
 |**Audit**|`AWSSecurityAuditors`|Read only access in all accounts.|
 
 {{% notice info %}}
@@ -56,7 +56,7 @@ Since you have not yet created users in AWS SSO for each member of your foundati
 Access the AWS SSO service:
 
 1. Sign in to the AWS SSO URL for your environment using the **AWS Control Tower Administrator** user.
-2. Select the AWS **`master`** account.
+2. Select the AWS **`management`** account.
 3. Select **`Management console`** associated with the **`AWSAdministratorAccess`** role.
 4. Select the appropriate AWS region.
 5. Navigate to **`AWS SSO`**.
@@ -110,10 +110,10 @@ In the spirit of least privilege access, the resulting permissions will enable c
 4. Provide a description. For example, **'Cost management and billing`**.
 5. Select **`Create`**.
 
-### Associate Group and Permission Set with AWS Master Account
+### Associate Group and Permission Set with AWS Management Account
 
 1. Access **`AWS accounts`** in AWS SSO.
-2. Select the checkbox next to your **`master`** AWS account.
+2. Select the checkbox next to your **`management`** AWS account.
 3. Select **`Assign users`**.
 4. Select **`Groups`**.
 5. Select the checkbox next to **`example-cost-mgmt`** or similar.
