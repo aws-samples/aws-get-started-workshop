@@ -13,6 +13,7 @@ A history of notable changes to the guide.
 
 |Date|Change|Description|Upgrading|
 |----|------|-----------|---------|
+|October 27, 2020|**AWS Cloud9 private subnet support**|Following the release of Cloud9's support for using private subnets, the guide has been updated to describe how you can make use of this capability in your team development AWS accounts.|Not applicable. New capability.|
 |September 21, 2020|**Simplified site structure**|Decoupled setting up your base foundation from setting up your foundation for team development environments. Made team development environments an optional capability that you can defer if you'd like to go straight to setting up your foundation for test and production environments.|Not applicable. New capability.|
 |September 15, 2020|**Integrated AWS Site-to-Site VPN with AWS Transit Gateway**|New section added to address this optional capability.|Not applicable. New capability.|
 |June 24, 2020|**Changed example system identifier from `base` to `infra`**|Example resource names were changed to refer to `infra` vs the previous `base`.  This change was done to more closely align with use of the term infrastructure for foundational resources.|No changes necessary unless you've already used `base` and would like to switch to using `infra` or similar.|
