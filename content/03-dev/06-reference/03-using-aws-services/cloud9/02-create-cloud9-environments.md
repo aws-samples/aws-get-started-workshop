@@ -12,11 +12,13 @@ SPDX-License-Identifier: CC-BY-SA-4.0
 
 This document addresses special considerations for creating [AWS Cloud9](https://aws.amazon.com/cloud9/) development environments in your team development AWS accounts. As long as a pre-requisite has been addressed by your Cloud Administration team, you as a builder can self-service create AWS Cloud9 environments in your team development AWS account.
 
-## Ensure pre-requisite has been satisfied
+{{< toc >}}
+
+## 1. Ensure pre-requisite has been satisfied
 
 If you do not see the AWS IAM role `AWSCloud9SSMAccessRole` in your team development AWS account, then your Cloud Administration team has not yet established this IAM role in your environment. Contact the team and ask them to follow the instructions to [Establish IAM Service Role for AWS Cloud9]({{< relref "01-prepare-for-cloud9" >}}).
 
-## Creating a Cloud9 environment
+## 2. Create a Cloud9 environment
 
 1. Use your personal user to log into AWS SSO.
 2. Select your team development AWS account.
@@ -31,13 +33,15 @@ If you do not see the AWS IAM role `AWSCloud9SSMAccessRole` in your team develop
 |**`Platform`**|If you would like to use an Amazon Linux platform, it's recommended that you select **`Amazon Linux 2`**.|
 |**`Network settings`**|The shared development VPC should be pre-selected. You can select any of the shared development private subnets.|
 
-## Limitations of using Cloud9 in your team development environment
+## 3. Review limitations of using Cloud9 in your team development environment
 
 In your Cloud9 environment, the EC2 instance has an EC2 instance profile and IAM service role `AWSCloud9SSMAccessRole` associated with it. Since the IAM service role is fixed, you as a builder do not have access to change it. Consequently, your Cloud9 environment might be constrained by the actions in can perform in your team development AWS account.
 
-## Using Cloud9
+## 4, Review Cloud9 user guide
 
 See the [AWS Cloud9 User Guide](https://docs.aws.amazon.com/cloud9/latest/user-guide/welcome.html) for information on using Cloud9.
+
+## 5. Consider optional set up steps
 
 ### Update Your Bash Prompt
 
