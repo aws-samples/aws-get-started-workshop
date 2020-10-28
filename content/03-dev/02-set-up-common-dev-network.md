@@ -205,7 +205,7 @@ Review the newly created VPC and associated resources.
 7. Navigate to **`CloudWatch`**.
 8. Select **`Log groups`**.
 9. Select the log group associated with the VPC Flow Logs. For example, `/infra/dev-shared/flowlogs`.
-10. Explore the log streams. You should see a log stream for each Elastic Network Interface (ENI) used in the VPC. For example, each NAT Gateway has one ENI. Each entry in a log stream represents a the source, destination, and other overall information about the network traffic flowing through the ENI.
+10. Explore the log streams. You should see a log stream for each Elastic Network Interface (ENI) used in the VPC. For example, each NAT Gateway has one ENI. Each entry in a log stream represents the source, destination, and other overall information about the network traffic flowing through the ENI.
 
 ## 8. Share Private Subnets With Development OUs {#share-dev-subnets}
 

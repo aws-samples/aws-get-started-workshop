@@ -32,7 +32,7 @@ The development and workloads AWS accounts names shown in the diagrams are examp
 
 ### Minimal starter structure
 
-The following OU and account structure is the bare minimum we recommend in support of your initial few production workloads.  In addition the AWS Organizations management account, there are the Audit and Log archive accounts created by AWS Control Tower.
+The following OU and account structure is the bare minimum we recommend in support of your initial few production workloads.  In addition, the AWS Organizations management account, there are the Audit and Log archive accounts created by AWS Control Tower.
 
 We recommend that you create at least test and production workload accounts and associated OUs so that you have isolated environments in which to test and validate changes to your workload environments before promoting those changes to your production environment.
 
@@ -50,7 +50,7 @@ If you have requirements to establish network connectivity between your on-premi
 
 If you choose to set up the foundation for team development environments, you'll see later in this guide the recommendation to use a shared network across those environments.  Since it's expected to be a production quality foundational service, this centrally managed development network would also be managed within your production network environment.
 
-If you have a need to support shared infratructure services such as hybrid DNS resolution or Active Directory (AD) in your AWS environment, we recommend that you establish a production infrastructure shared services account.
+If you have a need to support shared infrastructure services such as hybrid DNS resolution or Active Directory (AD) in your AWS environment, we recommend that you establish a production infrastructure shared services account.
 
 {{% notice note %}}
 **Establishing test environments in the future:** As your use of AWS expands, you will likely benefit from establishing test environments to test and validate changes to your network and shared infrastructure before promoting those changes to your production environments.
@@ -85,3 +85,5 @@ Using AWS Control Tower, add the OUs:
 6. Select **`Organizational units`**.
 7. Select **`Add an OU`**.  
 8. Follow the prompts to create a new OU based on the names listed in table above.
+
+Wait for each OU to be created successfully before proceeding on to the next one.

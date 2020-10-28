@@ -18,7 +18,7 @@ This step should take about 20 minutes to complete.
 
 ## 1. Create AWS SSO users for foundation team members
 
-In prepartion for adding foundation team users to AWS SSO, decide on the format of the user name.  Typically, the user name will simply be the user's corporate email address that is often used for SaaS services.
+In preparation for adding foundation team users to AWS SSO, decide on the format of the user name.  Typically, the user name will simply be the user's corporate email address that is often used for SaaS services.
 
 Next, access the AWS SSO service to begin adding an AWS SSO user for each foundation team member:
 

@@ -150,7 +150,7 @@ Next, you'll create a custom permission set in AWS SSO to represent the initial 
 5. Enter a **`Name`**. For example **`example-infra-team-dev`**. 
 6. Enter a **`Description`**. For example, **`Day-to-day permission used by builders in their team development AWS accounts.`**.
 7. Set the **`Session duration`** to the desired value.
-8. Select the checkbox **`Create a custom permissions policy`**.
+8. Select the checkbox **`Create a custom permissions policy`**.  Select **`Next:Details`**.
 9. Open the sample policy file that you just customized in a text editor, copy, and paste the content.
 
 {{% notice warning %}}

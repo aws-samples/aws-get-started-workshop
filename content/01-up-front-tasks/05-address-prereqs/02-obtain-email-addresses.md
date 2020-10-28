@@ -19,11 +19,11 @@ Instead of using a person's email address, it's recommended that you use either 
 Since the email address associated with an AWS account is used as the [root user login for the account](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html), anyone with access to that email account will have access to password reset process for the account.
 
 ## Define and request DLs or shared mailboxes
-The following diagram and table includes the minimum set of email addresses to get started. Each AWS account must have a globally unique email address.
+The following diagram and table include the minimum set of email addresses to get started. Each AWS account must have a globally unique email address.
 
 Several optional AWS accounts and email addresses are included in the table depending on the extent of capabilities you expect to require in the initial form of your AWS environment.
 
-If you already have a naming standard for mail addresses associated with services, you should use that standard format and include references to at least "aws" and and an abbreviation of the unique role or purpose of each account.
+If you already have a naming standard for mail addresses associated with services, you should use that standard format and include references to at least "aws" and an abbreviation of the unique role or purpose of each account.
 
 Use your standard internal process to request either DLs or shared mailboxes based on set of addresses you identify.
 
@@ -37,7 +37,7 @@ Depending on the scope of your initial foundation, you will need to have email a
 
 |AWS Account Name|Purpose|Example Email Address|
 |---|---|---|
-|**`management`**|You'll either create a new managemnt AWS account or reuse an existing compatible AWS account.|`aws-account-management@example.com`|
+|**`management`**|You'll either create a new management AWS account or reuse an existing compatible AWS account.|`aws-account-management@example.com`|
 
 ## Foundational AWS accounts {#foundation-aws-accounts}
 

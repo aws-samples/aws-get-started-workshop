@@ -48,7 +48,7 @@ For example, will the team that owns the workload also deploy and manage the wor
 
 The former model can be considered a "you build it, you run it" or a "DevOps" style model.  The latter model may be considered more of a centralized operations model.
 
-Independent of the model that you choose to apply to your first few proof of value workloads, we recommend that you define a functional role to deply and operate the workloads that are distinct from the roles used to manage your cloud foundation.
+Independent of the model that you choose to apply to your first few proof of value workloads, we recommend that you define a functional role to deploy and operate the workloads that are distinct from the roles used to manage your cloud foundation.
 
 {{% notice tip %}}
 **Cloud Operating Model:** See [Building a Cloud Operating Model](https://d1.awsstatic.com/whitepapers/building-a-cloud-operating-model.pdf) and specifically section "6. Own your own lifecycle" for more information on considering how your organization can operate more efficiently with the cloud.
@@ -68,7 +68,7 @@ Over time, if you apply automation to deploying and managing workloads, then you
 
 ## Networking
 
-If your initial proof of value workloads don't depend on networking, you can skip this section. For example, if your initial workload uses Amazon CloudFront for content delivery network (CND) and Amazon S3 for static web site storage, then you may not need networking in your test and production accounts.  Similarly, use of many of the serverless services such as AWS Lambda and Amazon DynamoDB don't require networks in your environment.
+If your initial proof of value workloads don't depend on networking, you can skip this section. For example, if your initial workload uses Amazon CloudFront for content delivery network (CDN) and Amazon S3 for static web site storage, then you may not need networking in your test and production accounts.  Similarly, use of many of the serverless services such as AWS Lambda and Amazon DynamoDB don't require networks in your environment.
 
 ### Dedicated VPC per account
 

@@ -10,7 +10,7 @@ Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 SPDX-License-Identifier: CC-BY-SA-4.0
 {{% /comment %}}
 
-This section introduces the typical requirements for your inital foundation in support of development, test, and production environments. You will typically require at least the following capabilities when establishing your initial formal environments. 
+This section introduces the typical requirements for your initial foundation in support of development, test, and production environments. You will typically require at least the following capabilities when establishing your initial formal environments. 
 
 Depending on your requirements, you might need to include additional capabilities in support of deploying your first few proof of value workloads to production. Setup instructions for [common optional capabilities]({{< relref "05-extend" >}}) are included later in this guide to help you meet these requirements.
 
@@ -52,7 +52,7 @@ The following requirements are organized based on a series of perspectives defin
 
 **Avoid Cross-Team Impacts** - Isolation from other builder teams being able to inadvertently impact a team's cloud resources.
 
-**Cross-team Workload Access** - Ability to access other builder teams' deployed servies via networking where agreed and explicitly configured.
+**Cross-team Workload Access** - Ability to access other builder teams' deployed services via networking where agreed and explicitly configured.
 
 **Access from Corporate Desktops** - Access to AWS services and AWS-hosted workloads from the corporate desktops on the corporate network. Includes access to the AWS Management Console, AWS services APIs, and use of the AWS CLI.
 
@@ -90,7 +90,7 @@ Since your first few proof of value workloads will be deployed to production, yo
 
 **Audit All AWS Activity** - Sufficient auditing of cloud access and activity and separation of duty for access to audit data.
 
-**Role Based Access Control** - Access to the AWS platform must be controlled via role based access control.  Permissions should be assigned to roles. Your Cloud Fountation team members and workload owning builders who need direct access to AWS services should must their own identies rather than shared user accounts.
+**Role Based Access Control** - Access to the AWS platform must be controlled via role based access control.  Permissions should be assigned to roles. Your Cloud Foundation team members and workload owning builders who need direct access to AWS services should must their own identities rather than shared user accounts.
 
 {{% notice tip %}}
 **Reuse your corporate identity store and overall RBAC processes:** It's common for organizations planning to adopt AWS to require use of their existing corporate identity store and overall role based access control (RBAC) tools and procedures to grant users entitlements to applications. This guide recommends that you start simple by first using a small set of users and groups defined locally in the AWS SSO service.  Once you've established your initial foundation in AWS, the guide provides a summary of your federated access options and resources to enable you to evolve your AWS environment to use your existing corporate identity source.  See [Federated Access to Your AWS Environment]({{< relref "02-federated-access-to-aws" >}}) for an overview of your options.

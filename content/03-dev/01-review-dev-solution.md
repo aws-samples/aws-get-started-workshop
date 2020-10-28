@@ -38,7 +38,7 @@ Benefits of using a common VPC for builder team's development needs include:
 
 + The organization needs to manage and pay for only one set of common shared VPC resources for all builder teams. For example, one set of NAT Gateways - which are billed on an hourly basis.
 
-+ Configuration of organization standard newtork services such as AWS VPC endpoints is easier to manage in a single VPC.
++ Configuration of organization standard network services such as AWS VPC endpoints is easier to manage in a single VPC.
 
 + Builder teams reuse centrally managed VPC resources for multiple builder teams.
 
@@ -48,7 +48,7 @@ Benefits of using a common VPC for builder team's development needs include:
 
 + Builder teams cannot see and manage other teams' workloads even though they're sharing the same VPCs.
 
-+ Builder teams cannot modify the VPC and related resources that are centally hosted and managed in a separate network AWS account. No additional IAM policies are required.
++ Builder teams cannot modify the VPC and related resources that are centrally hosted and managed in a separate network AWS account. No additional IAM policies are required.
 
 + Costs for builder teams' cloud resources are still allocated to their respective team development AWS accounts.
 
