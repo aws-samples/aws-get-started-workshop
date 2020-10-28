@@ -32,7 +32,7 @@ In this initial stage of your foundation, your technologists will use their exis
 
 ## Management AWS Account and Initial Landing Zone
 
-Once you’ve either identified a compatible existing AWS account or signed up for a new AWS account to act as the AWS Ogranizations management account (formerly known as the master account), your cloud administrators will use AWS Control Tower via the management AWS account to establish a “landing zone” of a few foundational AWS accounts and resources that form your initial base foundation of your AWS environment. 
+Once you’ve either identified a compatible existing AWS account or signed up for a new AWS account to act as the AWS Organizations management account (formerly known as the master account), your cloud administrators will use AWS Control Tower via the management AWS account to establish a “landing zone” of a few foundational AWS accounts and resources that form your initial base foundation of your AWS environment. 
 
 Your management AWS account will be the place in which your cloud administrators will use AWS Control Tower’s [Account Factory](https://docs.aws.amazon.com/controltower/latest/userguide/account-factory.html) via AWS Service Catalog to create new team development accounts.  You will use AWS Single Sign-On (AWS SSO) to create and manage groups and users in a locally managed directory.
 

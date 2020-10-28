@@ -54,7 +54,7 @@ It will take several minutes to enroll the new account. You can check the status
 
 
 {{% notice warning %}}
-By default AWS Control Tower will only allow one account provisioning request to be active at a time.  So if you try to enroll a second account while the first one is provisioning, it will fail and you will need to terminate the request in Service Catalog and start over.  You can request an increase in this soft limit via ticket to AWS Support.
+By default, AWS Control Tower will only allow one account provisioning request to be active at a time.  If you try to enroll a second account while the first one is provisioning, it will fail and you will need to terminate the request in Service Catalog and start over.  You can request an increase in this soft limit via ticket to AWS Support.
 {{% /notice %}}
 
 ## 3. Perform Post-Creation Tasks for Prod Account
@@ -70,7 +70,6 @@ Since AWS Control Tower's Account Factory automatically grants the AWS SSO user 
 3. Select the newly created prod AWS account.
 4. Select **`Remove access`** from the **`User/group`** entry that matches the AWS SSO email address you supplied in the previous step.
 5. Select **`Remove access`** to confirm removal.
-6. Repeat steps 1-5 for the test AWS account you've created.
 
 ### Initialize AWS Accounts' Root User  
 
@@ -83,7 +82,7 @@ Follow the same steps to create the test workload account.  Ensure the previous 
 
 1. Select **`Account Factory`** on the left.
 2. In the upper right, click **`Enroll account`**.
-3. Fill out the Enroll account form details to create the Production account for the Workload.
+3. Fill out the Enroll account form details to create the Test account for the Workload.
 
 |Field|Recommendation|
 |-----|---------------|
@@ -109,10 +108,10 @@ Since AWS Control Tower's Account Factory automatically grants the AWS SSO user 
 
 1. Navigate to **`AWS SSO`**.
 2. Access **`AWS accounts`** in AWS SSO.
-3. Select the newly created prod AWS account.
+3. Select the newly created test AWS account.
 4. Select **`Remove access`** from the **`User/group`** entry that matches the AWS SSO email address you supplied in the previous step.
 5. Select **`Remove access`** to confirm removal.
-6. Repeat steps 1-5 for the test AWS account you've created.
+
 
 ### Initialize AWS Accounts' Root User  
 

@@ -31,12 +31,12 @@ The following table lists a typical set of minimal functional roles to own and m
 |---	|---	|---	|
 |**Cloud Administration**|Write access to cloud foundation resources.|<p>* Create and manage shared cloud infrastructure. For example, AWS accounts and shared networking resources.<br><br>* Onboard new development teams on usage of their cloud development environments.<br><br>* Manage IP address CIDR block allocations.</p>|
 |**Security Administration**|Write access to cloud foundation security resources.|<p>* Become skilled in AWS security including IAM.<br><br>* Provision and manage IAM roles and policies.<br><br>* Create and manage baseline security policies in AWS.<br><br>* Analyze access and configuration logs.<br><br>* Monitor and respond to AWS usage security events.<br><br>* Learn and promote cloud security best practices.</p>|
-|**Cost Management**|Write access to cost budgets and reporting.|<p>* Monitor overall clound spend.<br><br>* Create, manage, and ensure access to cost and budget reports.<br><br>* Learn and apply fundamentals of cloud cost optimization practices.|
+|**Cost Management**|Write access to cost budgets and reporting.|<p>* Monitor overall cloud spend.<br><br>* Create, manage, and ensure access to cost and budget reports.<br><br>* Learn and apply fundamentals of cloud cost optimization practices.|
 |**Audit**|Read only access to all AWS resources.|Periodically review environment configuration and data hosted in AWS for compliance.	|
 
 ## Define Additional Foundation Functional Roles Over Time
 
-When adoption of the cloud expands and the foundation becomes more capable and complicated, you may chose to introduce additional foundation functional roles to spread the ownership and work of managing the foundation across more teams. 
+When adoption of the cloud expands and the foundation becomes more capable and complicated, you may choose to introduce additional foundation functional roles to spread the ownership and work of managing the foundation across more teams. 
 
 For example, a Network Administration functional role played by Network Engineering team members may be useful as the cloud foundation networking capabilities expand over time. 
 

@@ -49,7 +49,7 @@ Next, enable each team development group to access the associated team developme
 2. Select the checkbox next to the team development AWS account of interest. For example:
   * `dev-infra`
   * `dev-<team identifier>`
-3. Select **`Assgn users`**.
+3. Select **`Assign users`**.
 4. Select **`Groups`**.
 5. Select the checkbox next to the group of interest. For example:
   * `example-dev-infra`
