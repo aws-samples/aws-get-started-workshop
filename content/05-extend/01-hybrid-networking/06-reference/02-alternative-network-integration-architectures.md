@@ -77,16 +77,15 @@ The example monthly AWS service cost for this alternative architecture is less t
 
 #### Operational Costs
 
-* You will need to manage and monitor a distinct VPN connection for each VPC.
-* As you add VPCs that require connectivity to on-premises resources, you will need to add more VPN connections. Doing so will involve work in both your on-premises router and your AWS environments.
-* As you add VPCs that need connectivity to the infrastructure shared services VPC, you'll need to configure VPC peering relationships.
-* If you need to enable connectivity between VPCs, you will need to add and manage more VPC peering relationships.
+* **Managing a VPN connection per VPC:** You will need to manage and monitor a distinct VPN connection for each VPC. As you add VPCs that require connectivity to on-premises resources, you will need to add more VPN connections. Doing so will involve work in both your on-premises router and your AWS environments.
+* **Managing an expanding set of VPC peering relationships:** As you add VPCs that need connectivity to the infrastructure shared services VPC, you'll need to configure VPC peering relationships. If you need to enable connectivity between VPCs, you will need to add and manage more VPC peering relationships.
+* **Dual VPN connections for enhanced resiliency:** If you intend to use multiple VPN connections to further enhance resiliency, you would need to build the additional VPN connections into your cost calculations. See [Resilience in AWS Site-to-Site VPN](https://docs.aws.amazon.com/vpn/latest/s2svpn/disaster-recovery-resiliency.html) for details on using second VPN connection.
 
 #### Architectural Considerations
 
-* If you need to include a "bump in the wire" network security capability, the VPC peering architecture does not lend itself to this architecture.
-* If you need to include centralized internet egress filtering, the VPC peering architecture does not lend itself to this architecture.
-* If you decide to use AWS Direct Connect in place of AWS Site-to-Site VPN to integrate your on-premises network with your AWS environment, you will have to migrate all of your VPCs from using VPN connections to another solution. When using a transit gateway architecture, you can replace or augment the site-to-site VPN connection with an AWS Direct Connect connection without needing to reconfigure your VPCs.
+* **Inline security filtering:** If you need to include a "bump in the wire" network security capability, the VPC peering architecture does not lend itself to this architecture.
+* **Centralized egress filtering:** If you need to include centralized internet egress filtering, the VPC peering architecture does not lend itself to this architecture.
+* **Transitioning to AWS Direct Connect:** If you decide to use AWS Direct Connect in place of AWS Site-to-Site VPN to integrate your on-premises network with your AWS environment, you will have to migrate all of your VPCs from using VPN connections to another solution. When using a transit gateway architecture, you can replace or augment the site-to-site VPN connection with an AWS Direct Connect connection without needing to reconfigure your VPCs.
 
 ## Transit VPC and Commercial Router Virtual Appliances
 

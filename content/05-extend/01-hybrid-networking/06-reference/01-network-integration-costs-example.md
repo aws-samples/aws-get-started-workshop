@@ -64,6 +64,10 @@ When using AWS Transit Gateway with AWS Site-to-Site VPN, pricing for each servi
 |999 GB data transfer out/month|$0.09/GB|$89.91|
 | | |**$126.41**|
 
+{{% notice info %}}
+**Cost of additional site-to-site VPN connection:** If you choose to establish a second VPN connection to further improve resiliency, then you would add the second connection to your cost calculations. See [Resilience in AWS Site-to-Site VPN](https://docs.aws.amazon.com/vpn/latest/s2svpn/disaster-recovery-resiliency.html) for details on using a second VPN connection.
+{{% /notice %}}
+
 ## Example Combined Costs
 
 Combined monthly cost for site-to-site VPN + VPC peering: 
@@ -73,3 +77,5 @@ Combined monthly cost for site-to-site VPN + VPC peering:
 |Transit Gateway|$262.50|
 |Site-to-Site VPN|$126.41|
 |Total monthly cost:|**$388.91**|
+
+You can compare this example cost with [Alternative On-Premises Connectivity Architectures]({{< relref "02-alternative-network-integration-architectures" >}}).
