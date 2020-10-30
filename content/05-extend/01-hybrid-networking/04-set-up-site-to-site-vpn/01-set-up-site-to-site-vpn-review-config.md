@@ -23,11 +23,11 @@ The resources you'll be configuring in the **`network-prod`** AWS account includ
 * Workloads VPCs transit gateway route table
 * Development VPC route table entries
 
-Once you create test and production workloads AWS accounts and VPCs, you'll also attach those VPCs to your transit gateway and update the newtork services route table accordingly.
+Once you create test and production workloads AWS accounts and VPCs, you'll also attach those VPCs to your transit gateway and update the network services route table accordingly.
 
 The overall configuration in this guide is patterned after the example [Isolated VPCs with shared services](https://docs.aws.amazon.com/vpc/latest/tgw/transit-gateway-isolated-shared.html).
 
-The following diagram represents a transit gateway and related resources that enable defined connectivity between VPCs and your on-premises network.  Based on the configuration of the transit gateway routing tables, you have control over which VPCs have connectivty to each other and with your on-premises network.
+The following diagram represents a transit gateway and related resources that enable defined connectivity between VPCs and your on-premises network.  Based on the configuration of the transit gateway routing tables, you have control over which VPCs have connectivity to each other and with your on-premises network.
 
 [![Site-to-Site VPN with Transit Gateway](/images/05-extend/01-hybrid-networking/site-to-site-vpn-tgw-route-tables.png?height=500px)](/images/05-extend/01-hybrid-networking/site-to-site-vpn-tgw-route-tables.png)
 
@@ -55,7 +55,7 @@ By adjusting the configuration of your transit gateway route tables, you can mod
 The subsequent sections in this guide lead you through the detailed set up steps to establish this configuration.
 
 {{% notice tip %}}
-**Detailed traffic flow examples:** If you'd like to walk through detailed traffic flow examples when using AWS Tranist Gateway, see [Field Notes: Working with Route Tables in AWS Transit Gateway](https://aws.amazon.com/blogs/architecture/field-notes-working-with-route-tables-in-aws-transit-gateway/).
+**Detailed traffic flow examples:** If you'd like to walk through detailed traffic flow examples when using AWS Transit Gateway, see [Field Notes: Working with Route Tables in AWS Transit Gateway](https://aws.amazon.com/blogs/architecture/field-notes-working-with-route-tables-in-aws-transit-gateway/).
 {{% /notice %}}
 
 {{% notice tip %}}

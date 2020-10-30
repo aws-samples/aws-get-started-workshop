@@ -28,7 +28,7 @@ Before using AWS Control Tower to create an initial landing zone, ensure that yo
 
 * **Email Distribution Lists** - Consult the [set of AWS account root user email addresses]({{< relref "02-obtain-email-addresses" >}}) that you established earlier.
 
-* **Pre-Launch Checks** - If you’ve just created a new management AWS account, the pre-launch check considerations for creating your landing zone should already be met. If you're reusing an exisitng management AWS account, the pre-launch checks might detect issues.
+* **Pre-Launch Checks** - If you’ve just created a new management AWS account, the pre-launch check considerations for creating your landing zone should already be met. If you're reusing an existing management AWS account, the pre-launch checks might detect issues.
 
 Follow the steps in [Getting Started with AWS Control Tower](https://docs.aws.amazon.com/controltower/latest/userguide/getting-started-with-control-tower.html) to set up your landing zone. 
 
@@ -55,7 +55,7 @@ The email address associated with the management AWS account’s root user will 
 
 When accepting the invite, you will be directed to set the password for the Control Tower Administrator user.
 
-The email message you recieved contains a portal URL that you should bookmark given that it will be used by human users to access your new AWS accounts.
+The email message you received contains a portal URL that you should bookmark given that it will be used by human users to access your new AWS accounts.
 
 ## 5. Configure Multi-Factor Authentication (MFA) Requirements
 
@@ -74,7 +74,7 @@ In the following steps, you will modify your AWS SSO configuration to align with
 
 |Setting|Recommended Value|
 |-------|-----------------|
-|`Multifactor authentication`|`Configure`|
+|`Multi-factor authentication`|`Configure`|
 |`Users should be prompted for multi-factor authentication (MFA)`|`Every time they sign in (always-on)`|
 |`When prompted for a MFA code`|`Require them to provide a one-time password sent by email`|
 |`Who can manage MFA devices`|`Users and administrators can add and manage MFA devices`|

@@ -41,7 +41,7 @@ Create a VPC attachment to your transit gateway for your common team development
 |**`VPC ID`**|Select the common team development VPC|
 |**`Subnet IDs`**|Select all of the private subnets in the VPC|
 
-9. Select **`Create attachement`**
+9. Select **`Create attachment`**
 
 ## 2. Update team development VPC route table
 

@@ -65,14 +65,14 @@ Register your on-premises customer gateway device in AWS:
 |**`Amazon side ASN`**|Consult your Network team|One consideration is to use a unique private ASN per transit gateway to provide more flexible routing options.|
 |**`DNS support`**|checked||
 |**`VPN ECMP support`**|checked|Enables you to use multiple VPN connections to aggregate VPN throughput.|
-|**`Default route table association`**|**Unchecked**|Uncheck this option so that you can have greater control over routing between your VPCs.|
-|**`Default route table propagation`**|**Unchecked**|Since we're not using the transit gateway's default route table, uncheck this option.|
+|**`Default route table association`**|**Unchecked**|Deselect this option so that you can have greater control over routing between your VPCs.|
+|**`Default route table propagation`**|**Unchecked**|Since we're not using the transit gateway's default route table, deselect this option.|
 |**`Auto accept shared attachments`**|Unchecked||
 
 4. Select **`Create Transit Gateway`**
 
 {{% notice info %}}
-**Default Table Association and Propagation:** In this guide a single transit gateway is configured to enable your VPCs to reuse a common site-to-site VPN connection with your on-premises environment.  However, by default, we don't want to allow your production, test, and team development VPCs to connect to each other.  In this scenario, you'll want to avoid use of the transit gateway's default route table. Instead, this guide leads you through the set up of two transit gateway route tables so that you have greater control over conectivity and routing between your VPCs. Refer to the following VPC guides in regards to isolated VPCs and shared services. See [Isolated VPCs](https://docs.aws.amazon.com/vpc/latest/tgw/transit-gateway-isolated.html) and [Isolated VPCs with shared services](https://docs.aws.amazon.com/vpc/latest/tgw/transit-gateway-isolated-shared.html).
+**Default Table Association and Propagation:** In this guide a single transit gateway is configured to enable your VPCs to reuse a common site-to-site VPN connection with your on-premises environment.  However, by default, we don't want to allow your production, test, and team development VPCs to connect to each other.  In this scenario, you'll want to avoid use of the transit gateway's default route table. Instead, this guide leads you through the set up of two transit gateway route tables so that you have greater control over connectivity and routing between your VPCs. Refer to the following VPC guides in regards to isolated VPCs and shared services. See [Isolated VPCs](https://docs.aws.amazon.com/vpc/latest/tgw/transit-gateway-isolated.html) and [Isolated VPCs with shared services](https://docs.aws.amazon.com/vpc/latest/tgw/transit-gateway-isolated-shared.html).
 {{% /notice %}}
 
 ## 4. Create VPN transit gateway attachment
@@ -94,7 +94,7 @@ Register your on-premises customer gateway device in AWS:
 4. Select **`Create attachment`**.
 5. Once you're returned to the list of attachments, select the **`Name`** cell of the newly created attachment and assign a name to the attachment. For example, **`infra-dc1-01`**, the same name as your customer gateway resource. 
 
-## 5. Assign mame to site-to-Site VPN connection
+## 5. Assign name to site-to-Site VPN connection
 
 As a result of the VPN attachment being provisioned, you will notice in the Site-to-Site VPN Connections area of the console that a new connection resource has been created. If you review the **`Tunnel Details`** of the connection, it will show both tunnels in the **`DOWN`** state because you have not yet configured the on-premises side of the connection.
 

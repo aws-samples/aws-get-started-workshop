@@ -62,7 +62,7 @@ This guide recommends that each builder team be allocated a distinct team develo
 
 In addition to your initial application and data engineering teams that need access to the AWS platform, you should view your initial cloud and security administrators as a team of builders in its own right that should have its own AWS account for its own work to iterate on, develop, and perform early testing of changes to the foundation.
 
-Access controls and guardrails are established via AWS Identity and Access Management (IAM) to provide your builders with the freedom to get things done in their team development environents,, but with overarching security controls.
+Access controls and guardrails are established via AWS Identity and Access Management (IAM) to provide your builders with the freedom to get things done in their team development environments, but with overarching security controls.
 
 A common team development network is established so that you can share a set of subnets across your team development environments.  See [Benefits of Using Shared Subnets]({{< relref "01-review-dev-solution#common-development-network" >}}) for more information.
 

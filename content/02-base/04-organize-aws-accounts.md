@@ -56,7 +56,7 @@ If you have a need to support shared infrastructure services such as hybrid DNS 
 **Establishing test environments in the future:** As your use of AWS expands, you will likely benefit from establishing test environments to test and validate changes to your network and shared infrastructure before promoting those changes to your production environments.
 {{% /notice %}}
 
-[![Network and Shared Infrasructure Services Included](/images/02-base/aws-accounts-ous-with-infra.png)](/images/02-base/aws-accounts-ous-with-infra.png)
+[![Network and Shared Infrastructure Services Included](/images/02-base/aws-accounts-ous-with-infra.png)](/images/02-base/aws-accounts-ous-with-infra.png)
 
 ### OU Descriptions
 

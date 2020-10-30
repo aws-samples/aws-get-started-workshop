@@ -246,7 +246,7 @@ While you're in the master AWS account, obtain and record the resource ID of eac
 7. Enter a **`Name`** of **`dev-infra-shared-vpc-private-subnets`**.
 8. Under **`Resources`**, by default, the subnets that were just provisioned should be listed.
 9. Select only the private subnets.
-10. Under **`Principals`**, uncheck **`Allow external accounts`** given that we're sharing the subnets only with other AWS accounts within this AWS organization.
+10. Under **`Principals`**, deselect **`Allow external accounts`** given that we're sharing the subnets only with other AWS accounts within this AWS organization.
 11. In the search field, copy the organization ID of the **`infrastructure_dev`** OU.
 12. Select the matched OU.
 13. Perform the same task for the **`workloads_dev`** OU.

@@ -25,7 +25,7 @@ The following architecture and data transfer numbers are examples. Your actual a
   * Production workloads VPC
   * Infrastructure shared services VPC
 * On-premises network connectivity
-  * Each VPC requires connecticity to your on-premises network
+  * Each VPC requires connectivity to your on-premises network
   * 1 TB/month of data is transferred in total per month in each direction across combined set of site-to-site VPN connections.
 * The common development VPC and workloads VPCs require network connectivity to the infrastructure shared services VPC.
   * 1 TB/month of data is transferred in each direction between the common development VPC and workloads VPCs and the infrastructure shared services VPC.

@@ -20,11 +20,11 @@ The following architecture provides a starting point that you can evolve to meet
 
 ### Using AWS Transit Gateway with AWS Site-to-Site VPN
 
-Given that you'll likely want to enable your development, test, and production VPCs to have newtork connectivity to your on-premises environment, it's recommended that you use an AWS Site-to-Site VPN connection in conjunction with the [AWS Transit Gateway](https://docs.aws.amazon.com/vpc/latest/tgw/what-is-transit-gateway.html) service.  By doing so, you'll be able to easily reuse your site-to-site VPN connection across your VPCs and control which networks can connect to each other.
+Given that you'll likely want to enable your development, test, and production VPCs to have network connectivity to your on-premises environment, it's recommended that you use an AWS Site-to-Site VPN connection in conjunction with the [AWS Transit Gateway](https://docs.aws.amazon.com/vpc/latest/tgw/what-is-transit-gateway.html) service.  By doing so, you'll be able to easily reuse your site-to-site VPN connection across your VPCs and control which networks can connect to each other.
 
 In the following diagram, your on-premises IPsec-capable VPN device is represented as the "Customer Gateway".  Your customer gateway device will initiate a site-to-site VPN connection using two IPsec tunnels with VPN Transit Gateway attachment in your **network-prod** AWS account.  
 
-Initially, you'll configure your AWS Tranit Gateway to attach to your development VPC.  Later in this guide, you'll add attachments for your emerging set of infrastructure shared services, test, and production VPCs.
+Initially, you'll configure your AWS Transit Gateway to attach to your development VPC.  Later in this guide, you'll add attachments for your emerging set of infrastructure shared services, test, and production VPCs.
 
 [![Site-to-Site VPN Connection - Multiple VPCs](/images/05-extend/01-hybrid-networking/site-to-site-vpn-high-level-generic.png?height=500px)](/images/05-extend/01-hybrid-networking/site-to-site-vpn-high-level-generic.png)
 

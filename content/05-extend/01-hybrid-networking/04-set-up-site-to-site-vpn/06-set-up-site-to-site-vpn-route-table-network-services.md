@@ -57,7 +57,7 @@ Now that you've associated the site-to-site VPN attachment with the route table,
 
 |Field|Recommendation|
 |-----|---------------|
-|**`Choose attachment to propogate`**|Select the transit gateway attachment id for the common team development VPC attachment|
+|**`Choose attachment to propagate`**|Select the transit gateway attachment id for the common team development VPC attachment|
 
 4. Select **`Create propagation`**
 

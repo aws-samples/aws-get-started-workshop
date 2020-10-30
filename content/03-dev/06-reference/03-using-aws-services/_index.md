@@ -14,7 +14,7 @@ The following documents address how builders can access a variety of AWS service
 
 ## Special Considerations
 
-Why do buider teams need special instructions to use AWS services in their team development AWS accounts?
+Why do builder teams need special instructions to use AWS services in their team development AWS accounts?
 
 **Use of Shared Private Subnets**
 

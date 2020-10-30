@@ -76,7 +76,7 @@ The default form the portal URL is similar to this example of: `https://d-3a274d
 1. Access **`Groups`** in AWS SSO.
 2. Select **`Settings`**.
 3. Under **`User portal`**, select **`Customize`**.
-4. Set the first portion of the URL to a unique value.  Use your identifier, stock ticker symbol, or another identier that you use as an abbreviated reference to your environments.
+4. Set the first portion of the URL to a unique value.  Use your identifier, stock ticker symbol, or another identifier that you use as an abbreviated reference to your environments.
 
 ## 5. Add a Cloud Admin Group in AWS SSO
 
@@ -93,7 +93,7 @@ Since Cloud Administrators don't have administrator access to newly created AWS 
 {{% /notice %}}
 
 {{% notice tip %}}
-**Cloud Resource Naming - Lower Case, Camel Case, etc:** Most AWS cloud resource names support using a range of characters and cases.  Typically, AWS-managed resources use camelcase, but organizations often standardize on one style and strive to use that style throughout their cloud environment.
+**Cloud Resource Naming - Lower Case, Camel Case, etc:** Most AWS cloud resource names support using a range of characters and cases.  Typically, AWS-managed resources use camel case, but organizations often standardize on one style and strive to use that style throughout their cloud environment.
 {{% /notice %}}
 
 ## 6. Add a Cost Management Group and Assign Permissions in AWS SSO

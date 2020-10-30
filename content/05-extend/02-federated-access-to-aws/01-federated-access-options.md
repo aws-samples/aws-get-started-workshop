@@ -28,7 +28,7 @@ You may have one or more of the following requirements as you consider reusing y
 * Use your existing identity source and enterprise access control capabilities so that you can take advantage of your standard processes for defining, requesting, granting, and revoking access across all applications including your AWS environment.
 * Avoid management of human user and group information within your AWS environment.
 * Multi-factor authentication (MFA) for all human access to your AWS environment.
-* Ease of mapping enteprise access control roles and entitlements to combinations of AWS accounts and IAM roles in those accounts.
+* Ease of mapping enterprise access control roles and entitlements to combinations of AWS accounts and IAM roles in those accounts.
 * Ease of updating and distributing access permissions throughout your AWS environment.
 
 **Operational requirements**
@@ -87,7 +87,7 @@ There are a few considerations that might still lead you to use this traditional
 * You need to integrate multiple SAML 2.0 IdPs into your AWS environment.
 * You need complete control over distribution and provisioning of federated access permissions via SAML IAM roles.
 
-Here are several examples of using external SAML IdPs directy with AWS IAM:
+Here are several examples of using external SAML IdPs directly with AWS IAM:
 * [Okta](https://support.okta.com/help/s/article/Support-for-Multiple-Accounts-in-AWS)
 * [ADFS](https://aws.amazon.com/blogs/security/enabling-federation-to-aws-using-windows-active-directory-adfs-and-saml-2-0/)
 * [OneLogin](https://onelogin.service-now.com/kb_view_customer.do?sysparm_article=KB0010344)

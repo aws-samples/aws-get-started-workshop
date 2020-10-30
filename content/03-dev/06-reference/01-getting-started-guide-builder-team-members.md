@@ -1,6 +1,6 @@
 ---
 title: "Getting Started Guide for Builder Teams"
-menuTitle: 'Gettting Started: Builders'
+menuTitle: 'Getting Started: Builders'
 disableToc: true
 weight: 10
 ---
@@ -136,7 +136,7 @@ If you have production workloads, contact your cloud foundations team to absorb 
 
 ## Getting Support
 
-*...address how builder teams get support to get things done in their team development AWS accounts... include: 1) organization-specific support needds; 2) support for AWS services - can the dev teams file tickets?...*
+*...address how builder teams get support to get things done in their team development AWS accounts... include: 1) organization-specific support needs; 2) support for AWS services - can the dev teams file tickets?...*
 
 Typically, best practices are:
 

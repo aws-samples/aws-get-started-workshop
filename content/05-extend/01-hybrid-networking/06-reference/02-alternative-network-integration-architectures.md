@@ -10,7 +10,7 @@ Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 SPDX-License-Identifier: CC-BY-SA-4.0
 {{% /comment %}}
 
-This section provides an overview of several alternative architectures to consolidate site-to-site VPN connections from your on-premises network to your AWS environment and support connectivity between your team develpment and workload hosting VPCs and your infrastructure shared services VPC.  This information is intended to help you make a more informed decision as you considered the recommended approach of using AWS Transit Gateway.
+This section provides an overview of several alternative architectures to consolidate site-to-site VPN connections from your on-premises network to your AWS environment and support connectivity between your team development and workload hosting VPCs and your infrastructure shared services VPC.  This information is intended to help you make a more informed decision as you considered the recommended approach of using AWS Transit Gateway.
 
 {{< toc >}}
 
@@ -20,7 +20,7 @@ This section provides an overview of several alternative architectures to consol
 We don't recommend using the following architecture. It's included only to demonstrate the implications of using more of a point-to-point approach to integrating site-to-site VPN connections with VPCs.  We recommend that you consolidate such connections by using either the [AWS Transit Gateway based architecture]({{< relref "03-review-site-to-site-vpn-architecture" >}}) or, if conditions warrant, a transit VPC architecture that is introduced below.
 {{% /notice %}}
 
-In this architecture, you establish a site-to-site VPN connection to each of your VPCs and use VPC peering to provide network connecticity between your team development and workload hosting VPCs and an infrastructure shared services VPC.
+In this architecture, you establish a site-to-site VPN connection to each of your VPCs and use VPC peering to provide network connectivity between your team development and workload hosting VPCs and an infrastructure shared services VPC.
 
 * You establish a distinct VPN connection from your on-premises environment to a virtual private gateway in each VPC.
 * You use VPC peering to enable VPCs to interact with services in the infrastructure shared services VPC.
@@ -91,7 +91,7 @@ The example monthly AWS service cost for this alternative architecture is less t
 
 See the [AWS Global Transit Network](https://aws.amazon.com/solutions/implementations/aws-global-transit-network/) solution for an architecture and solution that uses commercial router virtual appliances in a transit VPC. This architecture was a common pattern used by customers prior to the advent of AWS Transit Gateway.
 
-In this architecture, you establish a site-to-site VPN connection directly from your on-premises network to several commercial router virtual appliances that you manage in a central infrastucture transit VPC. AWS Site-to-Site VPN is not used for the on-premises to commercial router integration.
+In this architecture, you establish a site-to-site VPN connection directly from your on-premises network to several commercial router virtual appliances that you manage in a central infrastructure transit VPC. AWS Site-to-Site VPN is not used for the on-premises to commercial router integration.
 
 AWS Site-to-Site VPN connections are established between the router virtual appliances and a virtual private gateway in each of your VPCs.
 

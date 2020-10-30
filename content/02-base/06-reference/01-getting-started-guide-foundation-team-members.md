@@ -1,6 +1,6 @@
 ---
 title: 'Getting Started Guide for Foundation Team'
-menuTitle: 'Gettting Started: Foundation'
+menuTitle: 'Getting Started: Foundation'
 disableToc: true
 weight: 10
 ---
@@ -145,7 +145,7 @@ To see more detailed cost information for the entire organization of AWS account
 
 ### Enable EC2 right sizing recommendations
 
-Enable [Amazon EC2 Right Sizing Recommendations](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/ce-rightsizing.html) so that the foundation and workload builder teams can gain insight into recommendedations for downsizing and terminating EC2 instances.
+Enable [Amazon EC2 Right Sizing Recommendations](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/ce-rightsizing.html) so that the foundation and workload builder teams can gain insight into recommendations for downsizing and terminating EC2 instances.
 
 ### Create a budget
 

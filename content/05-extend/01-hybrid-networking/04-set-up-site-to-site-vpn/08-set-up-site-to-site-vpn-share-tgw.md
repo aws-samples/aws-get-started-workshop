@@ -54,6 +54,6 @@ You will use AWS Resource Access Manager (RAM) to share your transit gateway for
 |-----|---------------|
 |**`Name`**|`infra-main`|
 |**`Select resource type`**|Transit Gateways (and select your transit gateway)|
-|**`Allow external accounts`**|Uncheck this option so that you disallow access from AWS accounts outside your AWS organization|
+|**`Allow external accounts`**|Deselect this option so that you disallow access from AWS accounts outside your AWS organization|
 
 8. Select  **`Create resource share`**

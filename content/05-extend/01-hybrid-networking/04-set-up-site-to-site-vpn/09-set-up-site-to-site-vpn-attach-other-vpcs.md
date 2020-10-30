@@ -39,7 +39,7 @@ First, access the AWS account in which the workload VPC of interest resides and 
 |**`VPC ID`**|Choose the VPC that you want to attach|
 |**`Subnet IDs`**|Select all of the subnets with which you want to associate with the transit gateway|
 
-9. Select **`Create attachement`**
+9. Select **`Create attachment`**
 
 ## 2. Accept transit gateway attachment request
 
@@ -82,7 +82,7 @@ In order to allow traffic from your site-to-site VPN connection to be routed to 
 
 |Field|Recommendation|
 |-----|---------------|
-|**`Choose attachment to propogate`**|Select the transit gateway attachment id for the workload VPC attachment of interest|
+|**`Choose attachment to propagate`**|Select the transit gateway attachment id for the workload VPC attachment of interest|
 
 5. Select **`Create propagation`**
 

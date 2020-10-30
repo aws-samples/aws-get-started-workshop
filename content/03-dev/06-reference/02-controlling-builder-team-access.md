@@ -165,7 +165,7 @@ In this scenario, we're delegating a degree of permissions management to builder
 **Learn more about permissions boundaries:** [AWS IAM Permissions Boundaries](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html).
 {{% /notice %}}
 
-### IAM SAML Policy Walkthrough
+### IAM SAML Policy Walk-through
 
 [`example-infra-team-dev-saml.json`](/code-samples/iam-policies/example-infra-team-dev-saml.json)
 
@@ -357,7 +357,7 @@ Ensure that foundation related CloudFormation stack instances that have been cre
         },
 ```
 
-### Permissions Boundary Walkthrough
+### Permissions Boundary Walk-through
 
 [`example-infra-team-dev-boundary.yml`](/code-samples/iam-policies/example-infra-team-dev-boundary.yml)
 
@@ -404,7 +404,7 @@ The main difference is that write access to all IAM resources is disallowed in t
             }
 ```
 
-### Service Control Policies (SCPs) Walkthrough {#scps}
+### Service Control Policies (SCPs) Walk-through {#scps}
 
 These are the SCPs you created and initially associated with the `workloads_dev` OU:
 

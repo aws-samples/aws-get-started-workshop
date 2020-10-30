@@ -49,7 +49,7 @@ Once the human Cloud Administrators are granted access to the management account
 
 ## AWS Control Tower administrator
 
-Once human Cloud Administtrators are granted access to the management account via their own individual user accounts and are granted at least equivalent permissions to this user, this user will no longer be used.
+Once human Cloud Administrators are granted access to the management account via their own individual user accounts and are granted at least equivalent permissions to this user, this user will no longer be used.
 
 **Creation:** Automatically created when you create your landing zone via AWS Control Tower.
 

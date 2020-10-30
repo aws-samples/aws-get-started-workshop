@@ -81,7 +81,7 @@ It’s strongly recommended and an AWS security best practice to enable multi-fa
 See [Enable MFA on the AWS Account Root User](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html#id_root-user_manage_mfa) for instructions.
 
 {{% notice warning %}}
-**Do not create administrative access keys for the root user:** Under no circumstances create programmatic access keys for your AWS account root user and admininistrative bootstrap users.
+**Do not create administrative access keys for the root user:** Under no circumstances create programmatic access keys for your AWS account root user and administrative bootstrap users.
 {{% /notice %}}
 
 ## 7. Set alternate contacts
