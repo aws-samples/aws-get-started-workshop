@@ -1,5 +1,5 @@
 ---
-title: 'Setting Up Foundation for Test and Production Environments'
+title: 'Establish Foundation for Test and Production Environments'
 menuTitle: '4. Foundation for Test and Prod'
 disableToc: true
 weight: 40
