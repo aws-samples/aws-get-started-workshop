@@ -1,6 +1,6 @@
 ---
-title: 'Configure Test and Production Networks'
-menuTitle: '4. Configure Test and Prod Networks'
+title: 'Set Up Test and Production Networks'
+menuTitle: '4. Set Up Test and Prod Networks'
 disableToc: true
 weight: 40
 ---
