@@ -33,11 +33,13 @@ Next, download the sample AWS CloudFormation template [`example-infra-team-dev-b
 
 Create a StackSet to deploy the permissions boundary policy to all AWS accounts associated with the test OUs.
 
-1. Select **`Create StackSet`**.
-2. Select **`Upload a template file`**.
-3. Select **`Choose file`** to select the downloaded template file from your desktop.
-4. Select **`Next`**.
-5. Enter a **`StackSet name`**. For example, **`example-infra-team-prod-boundary`**.
+1. From the management account, navigate to **CloudFormation** from the Services menu.
+2. Pull out the left menu and select **`StackSets`**.
+3. Select **`Create StackSet`**.
+4. Select **`Upload a template file`**.
+5. Select **`Choose file`** to select the downloaded template file from your desktop.
+6. Select **`Next`**.
+7. Enter a **`StackSet name`**. For example, **`example-infra-team-prod-boundary`**.
 
 It's useful to prefix your custom cloud resources that live in a larger name space with your organization identifier and a qualifier such as **`infra`** to represent foundation resources. The important consideration is to be consistent with naming of foundation cloud resources so that you can apply IAM policies that will inhibit unauthorized modification of those resources.
 
@@ -55,7 +57,7 @@ Leave the other parameters at their default settings.
 10. In **`Deployment targets`**, select **`Deploy to organizational units (OUs)`**.
 11. Enter the OU IDs of the test OUs that you created previously.  
 
-If you didn't make a copy of the test OU IDs, open a new browser tab and access **`AWS Control Tower`**. Select **`Organizational units`**, and select each of the following test OUs to obtain its OU ID:
+If you didn't make a copy of the test and prod OU IDs, open a new browser tab and access **`AWS Control Tower`**. Select **`Organizational units`**, and select each of the following test OUs to obtain its OU ID:
 
 * **`workloads_prod`**
 * **`workloads_test`**

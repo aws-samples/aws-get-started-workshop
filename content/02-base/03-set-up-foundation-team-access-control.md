@@ -121,9 +121,11 @@ In the spirit of least privilege access, the resulting permissions will enable c
 
 ### Create New Permission Set for Billing
 
-7. Select **`Create new permission set`**.
-8. Select **`Billing`**.
-9. Select **`Create`**.
+7. Select **`Use an existing job function policy`**.
+8. Click **`Next: Details`**.
+9. Select **`Billing`**.
+10. Click **`Next: Tags`**.
+11. Select **`Create`**.
 
 ### Associate Billing Permission Set 
 

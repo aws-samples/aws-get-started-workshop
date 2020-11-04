@@ -205,10 +205,10 @@ Leave the other parameters at their default settings.
 8. Leave the **`Permissions`** set to **`Service managed permissions`**.
 9. Select **`Next`**.
 10. In **`Deployment targets`**, select **`Deploy to organizational units (OUs)`**.
-11. Enter the OU IDs of the test OUs that you created previously.  
+11. Enter the OU IDs of the test and prod OUs that you created previously.  
 
 {{% notice tip %}}
-If you didn't make a copy of the test OU IDs, open a new browser tab and access **`AWS Control Tower`**. Select **`Organizational units`**, and select each of the following OUs to obtain its OU ID:
+If you didn't make a copy of the test and prod OU IDs, open a new browser tab and access **`AWS Control Tower`**. Select **`Organizational units`**, and select each of the following OUs to obtain its OU ID:
 
 * **`workloads_prod`**
 * **`workloads_test`**
@@ -224,7 +224,7 @@ Because IAM is a global service, you only create the policies in one region and 
 14. Scrolls to the bottom and mark the checkbox to acknowledge that IAM resources will be created.
 15. Select **`Submit`**.
 
-Since you have not yet created the team test AWS accounts, this CloudFormation StackSet won't create CloudFormation stacks in the team test AWS accounts until those AWS accounts are created in a subsequent section.
+This CloudFormation Stackset will create CloudFormation stacks in the workloads-prod-<workloadId> and workloads-test-<workloadId> accounts because they were setup under the workloads_prod and workloads_test OUs respectively.  
 
 Proceed to the next step.
 
