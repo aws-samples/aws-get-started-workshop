@@ -10,6 +10,10 @@ Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 SPDX-License-Identifier: CC-BY-SA-4.0
 {{% /comment %}}
 
+{{% notice note %}}
+Review Note: This section is an early draft and undergoing reviewing and editing.
+{{% /notice %}}
+
 In this section your Security and Cloud Administrators will provision an initial set of security guardrails for controlling access within your test and production workloads AWS accounts.
 
 {{% notice tip %}}
@@ -18,7 +22,11 @@ In this section your Security and Cloud Administrators will provision an initial
 
 This step should take about 15 minutes to complete.
 
-## Distribute permissions boundary to test and production OUs
+## 1. Verify that you've created the test and production workloads OUs
+
+Before proceeding further, verify that you've created the test and production workloads OUs. See [Organizing Your AWS Accounts]({{< relref "04-organize-aws-accounts" >}}) for details.
+
+## 2. Distribute permissions boundary to test and production OUs
 
 We recommend that you apply at least the following guardrail that will help inhibit your workload administrators from modifying the underlying foundation of the test and production workloads environments.
 
@@ -30,18 +38,28 @@ Any AWS account that is added to the test and production workloads OUs will auto
 
 ### Download AWS CloudFormation Template
 
+{{% notice note %}}
+Draft Review Note: Determine whether or not the team development environment permissions boundary makes sense to apply in the test and production environments.
+{{% /notice %}}
+
 Next, download the sample AWS CloudFormation template [`example-infra-team-dev-boundary.yml`](/code-samples/iam-policies/example-infra-team-dev-boundary.yml) to your desktop.
 
 ### Deploy Permissions Boundary as a StackSet
 
 Create a StackSet to deploy the permissions boundary policy to all AWS accounts associated with the test OUs.
-1. Navigate to **CloudFormation** from the Services menu.
-2. Pull out the left menu and select **`StackSets`**.
-3. Select **`Create StackSet`**.
+
+1. As a Cloud Administrator, use your personal user to log into AWS SSO.
+2. Select the AWS **`management`** account.
+3. Navigate to **CloudFormation** from the Services menu.
+
+Now create a stack set:
+
+1. Pull out the left menu and select **`StackSets`**.
+2. Select **`Create StackSet`**.
 3. Select **`Upload a template file`**.
 4. Select **`Choose file`** to select the downloaded template file from your desktop.
 5. Select **`Next`**.
-6. Enter a **`StackSet name`**. For example, **`example-infra-team-prod-boundary`**.
+6. Enter a **`StackSet name`**. For example, **`example-infra-test-prod-boundary`**
 
 It's useful to prefix your custom cloud resources that live in a larger name space with your organization identifier and a qualifier such as **`infra`** to represent foundation resources. The important consideration is to be consistent with naming of foundation cloud resources so that you can apply IAM policies that will inhibit unauthorized modification of those resources.
 
@@ -49,7 +67,8 @@ It's useful to prefix your custom cloud resources that live in a larger name spa
 
 |Parameter|Guidance|
 |---------|--------|
-|**`pOrg`**|Replace **`example`** with your organization identifier or stock ticker if that applies. This value is used as a prefix in the name of IAM managed policy that is created by the template.|
+|**`Business Scope`** (**`pOrg`**)|Replace **`example`** with your organization identifier or stock ticker if that applies. This value is used as a prefix in the name of IAM managed policy that is created by the template.|
+|**`IAM policy name qualifier`** (**`pPolicyNameQualifier`**)|Replace with **`test-prod-boundary`**.|
 
 Leave the other parameters at their default settings.
 
@@ -60,12 +79,7 @@ Leave the other parameters at their default settings.
 12. Enter the OU IDs of the test OUs that you created previously.  
 
 {{% notice tip %}}
-If you didn't make a copy of the test OU IDs, open a new browser tab and access **`AWS Control Tower`**. Select **`Organizational units`**, and select each of the following OUs to obtain its OU ID:
-
-* **`workloads_prod`**
-* **`workloads_test`**
-
-OUs entered should be in the format `ou-xxxx-yyyyyyy`
+If you didn't make a copy of the test OU IDs, open a new browser tab and access **`AWS Control Tower`**. Select **`Organizational units`**, and select each of the following OUs to obtain its OU ID: **`workloads_prod`** and **`workloads_test`**. OUs entered should be in the format `ou-xxxx-yyyyyyy`. If you don't see these OUs, see [Organizing Your AWS Accounts]({{< relref "04-organize-aws-accounts" >}}) for details for creating the OUs.
 {{% /notice %}}
 13. In **`Specify regions`**, select your home AWS region.
 

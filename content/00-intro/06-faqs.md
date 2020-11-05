@@ -2,7 +2,7 @@
 title: 'Frequently Asked Questions (FAQs)'
 menuTitle: 'FAQs'
 disableToc: true
-weight: 50
+weight: 60
 ---
 
 {{% comment %}}

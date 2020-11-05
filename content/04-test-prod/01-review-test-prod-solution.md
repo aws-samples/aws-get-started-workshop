@@ -40,7 +40,7 @@ Moving workloads into a production phase often requires increased levels of gove
 
 Guardrails are governance rules for security, operations, and compliance that customers can select and apply enterprise-wide or to specific groups of accounts. You might start with a basic set of guardrails and expand them as you gain experience and your needs evolve.
 
-See [Security Guardrails]({{< relref "03-guardrails" >}}) for an introduction to the use of guardrails that you can apply to your AWS environments.
+See [Environment Guardrails]({{< relref "03-guardrails" >}}) for an introduction to the use of guardrails that you can apply to your AWS environments.
 
 ## Access control
 
