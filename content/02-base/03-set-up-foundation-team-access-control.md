@@ -122,14 +122,14 @@ In the spirit of least privilege access, the resulting permissions will enable c
 ### Create New Permission Set for Billing
 
 7. Select **`Use an existing job function policy`**.
-8. Click **`Next: Details`**.
+8. Select **`Next: Details`**.
 9. Select **`Billing`**.
-10. Click **`Next: Tags`**.
-11. Select **`Create`**.
+10. Select **`Next: Tags`**.
+11. Select **`Create`**. 
 
 ### Associate Billing Permission Set 
 
-10. Select the checkbox next to **`Billing`**.
-11. Select **`Finish`**.
+12. Select the checkbox next to **`Billing`**.
+13. Select **`Finish`**.
 
 AWS SSO deploys the selected permission set to the selected AWS account.
