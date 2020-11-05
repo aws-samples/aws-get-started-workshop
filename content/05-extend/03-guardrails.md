@@ -1,5 +1,5 @@
 ---
-title: 'Introduction to Guardrails for Your AWS Environment'
+title: 'Security, Operations, and Compliance Guardrails for Your AWS Environment'
 menuTitle: 'Environment Guardrails'
 disableToc: true
 weight: 30
