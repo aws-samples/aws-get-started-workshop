@@ -1,7 +1,7 @@
 ---
 title: 'Data Protection and Encryption'
 disableToc: true
-weight: 40
+weight: 50
 ---
 
 {{% comment %}}

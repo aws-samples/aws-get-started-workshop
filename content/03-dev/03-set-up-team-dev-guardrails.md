@@ -1,6 +1,6 @@
 ---
-title: 'Set Up Team Development Environment Access Controls'
-menuTitle: '3. Set Up Team Dev Access'
+title: 'Set Up Team Development Environment Guardrails'
+menuTitle: '3. Set Up Team Dev Guardrails'
 disableToc: true
 weight: 30
 ---
@@ -10,17 +10,23 @@ Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 SPDX-License-Identifier: CC-BY-SA-4.0
 {{% /comment %}}
 
-In this step your Security and Cloud Administrators will provision resources to control the access to team development AWS accounts.
+In this section your Security and Cloud Administrators will provision resources to act as overall guardrails for controlling access within your team development AWS accounts. 
+
+Service control policies (SCPs) are used to constrain the ability to modify cloud networking resources in your team development environments. An IAM permissions boundary is distributed as a means to constrain your builders from modifying foundation resources in your team development environment.
 
 This step should take about 20 minutes to complete.
 
 {{% notice tip %}}
-**Automated provisioning of resources:** Ideally, you would use automation to deploy policies and other configurations to your AWS accounts. [Customizations for AWS Control Tower](https://aws.amazon.com/solutions/customizations-for-aws-control-tower/) is an AWS solution that uses AWS services including AWS CodePipeline and [AWS Control Tower Lifecycle Events](https://docs.aws.amazon.com/controltower/latest/userguide/lifecycle-events.html) to help you more efficiently manage these types of resources as code and via pipelines. Both the SCPs and IAM permissions boundary policy resources addressed below are candidates for using this automation solution.
+**Learn more about guardrails:** See [Security Guardrails]({{< relref "03-security-guardrails" >}}) for an introduction to the use of guardrails that you can apply to your AWS environments.  Guardrails provide a means for your Security and Cloud Administrators to apply overall controls on what can be done in your AWS environment. You might start with a basic set of guardrails and expand them as you gain experience and your needs evolve.
 {{% /notice %}}
 
 {{< toc >}}
 
 ## 1. Apply Service Control Policies (SCPs)
+
+{{% notice tip %}}
+**Automated provisioning of resources:** Ideally, you would use automation to deploy policies and other configurations to your AWS accounts. [Customizations for AWS Control Tower](https://aws.amazon.com/solutions/customizations-for-aws-control-tower/) is an AWS solution that uses AWS services including AWS CodePipeline and [AWS Control Tower Lifecycle Events](https://docs.aws.amazon.com/controltower/latest/userguide/lifecycle-events.html) to help you more efficiently manage these types of resources as code and via pipelines. Both the SCPs and IAM permissions boundary policy resources addressed below are candidates for using this automation solution.
+{{% /notice %}}
 
 Using AWS Organizations, create several Service Control Policies (SCPs) that will initially be applied to the `workloads_dev` OU.  Combined, these SCPs will disallow any user from creating and modifying foundation VPC networking resources in standard team development AWS accounts.
 
@@ -129,34 +135,3 @@ If you didn't make a copy of the development OU IDs, open a new browser tab and 
 15. Select **`Submit`**.
 
 Since you have not yet created the team development AWS accounts, this CloudFormation StackSet won't create CloudFormation stacks in the team development AWS accounts until those AWS accounts are created in a subsequent section.
-
-Proceed to the next step.
-
-## 3. Create Team Development Permission Set in AWS SSO
-
-Next, you'll create a custom permission set in AWS SSO to represent the initial iteration of an AWS IAM policy under which builder team members will work in their team development AWS accounts.
-
-### Download and Customize Sample IAM Policy
-
-1. Download the sample policy [`example-infra-team-dev-saml.json`](/code-samples/iam-policies/example-infra-team-dev-saml.json) to your desktop.
-2. Open the file and replace all occurrences of **`example`** with a reference to your own organization's identifier.
-
-### Create Permission Set in AWS SSO
-
-1. Access **`AWS accounts`** in AWS SSO.
-2. Select **`Permission sets`**.
-3. Select **`Create permission set`**.
-4. Select **`Create a custom permission set`**.
-5. Enter a **`Name`**. For example **`example-infra-team-dev`**. 
-6. Enter a **`Description`**. For example, **`Day-to-day permission used by builders in their team development AWS accounts.`**.
-7. Set the **`Session duration`** to the desired value.
-8. Select the checkbox **`Create a custom permissions policy`**.  Select **`Next:Details`**.
-9. Open the sample policy file that you just customized in a text editor, copy, and paste the content.
-
-{{% notice warning %}}
-**Replace `example` with your own identifier:** Before you select **`Create`**, in the permissions policy, ensure that you replace all occurrences of **`example`** with your own organization's identifier.  Otherwise, the permission set will not work as expected.
-{{% /notice %}}
-
-10. Select **`Create`**.
-
-Later, when you onboard the builder teams to their team development AWS accounts, you'll reference this permission set.

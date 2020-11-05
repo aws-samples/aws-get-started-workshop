@@ -1,8 +1,8 @@
 ---
-title: 'Set Up Test and Production Workload Guardrails'
-menuTitle: '3. Set Up Test and Prod Guardrails'
+title: 'Introduction to Security Guardrails for Your AWS Environment'
+menuTitle: 'Introduction to Guardrails'
 disableToc: true
-weight: 30
+weight: 10
 ---
 
 {{% comment %}}
@@ -14,19 +14,21 @@ SPDX-License-Identifier: CC-BY-SA-4.0
 Review Note: This section is an early draft and undergoing reviewing and editing.
 {{% /notice %}}
 
-In this step your Security and Cloud Administrators will author and apply guardrails to protect the test and production workload organizational units.
+## 1. Review AWS Control Tower strongly recommended and elective guardrails
 
-This step should take about 20 minutes to complete.
-{{< toc >}}
+AWS Control Tower provides a set of mandatory guardrails that are always applied.  You also have the option to enable strongly recommended and elective guardrails. You should review [Guardrails in AWS Control Tower](https://docs.aws.amazon.com/controltower/latest/userguide/guardrails.html) for how guardrails work in AWS Control Tower and review the [Guardrail Reference](https://docs.aws.amazon.com/controltower/latest/userguide/guardrails-reference.html) to determine if any of the built-in guardrails are of interest to you at this time.
 
-## 1. Review AWS Control Tower Optional Guardrails
-AWS Control Tower comes with numerous optional guardrails that can be enabled on your OUs.  Many of these are strongly recommended.  As you come closer to running production workloads in AWS, you should become familiar with these and consider whether or not they should be applied.
+If any of these guardrails are of interest to you, you should consider applying them first to your test environments to validate that they meet your needs. See [Enabling Guardrails](https://docs.aws.amazon.com/controltower/latest/userguide/guardrails.html#enable-guardrails) for more information.
 
-Review [Guardrails in AWS Control Tower](https://docs.aws.amazon.com/controltower/latest/userguide/guardrails.html) and follow the documented process therein to apply them where deemed necessary.
+{{% notice tip %}}
+**Consider guardrails for your team development environments:** You may also find that some of the guardrails will be useful to apply to your team development environments.
+{{% /notice %}}
 
+## 2. Review other example guardrails
 
-## 2. Author Policy for Further Preventative Guardrails (If Required)
-If the optional guardrails don't satisfy your governance requirements, you can create a Service Control Policy to enable preventative controls on all workload accounts.  Otherwise you may skip this step and proceed to step 3 below.
+Beyond the guardrails that are available through AWS Control Tower, see [AWS IAM Permissions Guardrails](https://aws-samples.github.io/aws-iam-permissions-guardrails/guardrails/scp-guardrails.html) for additional examples of guardrails in the form of service control policies (SCPs) you may want to consider for your test and production environments.
+
+If you don't need to apply additional guardrails at this time, you can skip to the next step.
 
 {{% notice tip %}}
 **Avoid overly restrictive policies:** Because the policies are applied at the OU level, you  will generally want to avoid being overly restrictive.  SCPs will be applied to every account in the OU and cannot be overrode by individual accounts.  Cloud administrators can leverage IAM in the individual accounts to provide further workload-specific guardrails.  You can also use detective guardrails to trigger exception handling processes.
@@ -149,7 +151,7 @@ Once you've determined the correct content of the SCP that you want to apply to 
     * Description: fill in based on the intent of your policy
     * Policy: Copy the content of the sample policy.
 
-## 2. Apply Guardrails to Test and Prod Workload OUs
+## 3. Apply Guardrails to Test and Prod Workload OUs
 
 Using AWS Organizations, create Service Control Policies (SCPs) that will be applied to the `workloads_prod` and `workloads_test` organizational units.  Service Control Policies are the protective guardrails that define the maximum level of permission that can be granted.  When an SCP is applied to an OU, it will be effective to all accounts under that OU.  When you established the dev team account, you created SCPs to protect against creating and modifying foundation VPC networking resources.
 
@@ -169,96 +171,3 @@ Using AWS Organizations, create Service Control Policies (SCPs) that will be app
 {{% /notice %}}
 
 Repeat the above step for the `workloads_prod` OU.
-
-## 3. Distribute Permissions Boundary to Test and Prod OUs
-
-In this step you'll use AWS CloudFormation StackSets to distribute an IAM permissions boundary policy to the test OUs.  This boundary policy will help ensure that workload admin teams using workload AWS accounts can't modify your foundation cloud resources.
-
-In a later section, when you create several team test AWS accounts, you will associate the AWS accounts with the test OUs. Any AWS account that is added to the test OUs will automatically be configured with the IAM permissions boundary policy resource.  Similarly, when an AWS account is removed from the OUs, the IAM permissions boundary policy resource will be automatically removed from the AWS account.
-
-### Download AWS CloudFormation Template
-
-Next, download the sample AWS CloudFormation template [`example-infra-team-dev-boundary.yml`](/code-samples/iam-policies/example-infra-team-dev-boundary.yml) to your desktop.
-
-### Deploy Permissions Boundary as a StackSet
-
-Create a StackSet to deploy the permissions boundary policy to all AWS accounts associated with the test OUs.
-1. Navigate to **CloudFormation** from the Services menu.
-2. Pull out the left menu and select **`StackSets`**.
-3. Select **`Create StackSet`**.
-3. Select **`Upload a template file`**.
-4. Select **`Choose file`** to select the downloaded template file from your desktop.
-5. Select **`Next`**.
-6. Enter a **`StackSet name`**. For example, **`example-infra-team-prod-boundary`**.
-
-It's useful to prefix your custom cloud resources that live in a larger name space with your organization identifier and a qualifier such as **`infra`** to represent foundation resources. The important consideration is to be consistent with naming of foundation cloud resources so that you can apply IAM policies that will inhibit unauthorized modification of those resources.
-
-6. In **`Parameters`**:
-
-|Parameter|Guidance|
-|---------|--------|
-|**`pOrg`**|Replace **`example`** with your organization identifier or stock ticker if that applies. This value is used as a prefix in the name of IAM managed policy that is created by the template.|
-
-Leave the other parameters at their default settings.
-
-7. Select **`Next`**.
-8. Leave the **`Permissions`** set to **`Service managed permissions`**.
-9. Select **`Next`**.
-10. In **`Deployment targets`**, select **`Deploy to organizational units (OUs)`**.
-11. Enter the OU IDs of the test OUs that you created previously.  
-
-{{% notice tip %}}
-If you didn't make a copy of the test OU IDs, open a new browser tab and access **`AWS Control Tower`**. Select **`Organizational units`**, and select each of the following OUs to obtain its OU ID:
-
-* **`workloads_prod`**
-* **`workloads_test`**
-
-OUs entered should be in the format `ou-xxxx-yyyyyyy`
-{{% /notice %}}
-12. In **`Specify regions`**, select your home AWS region.
-
-{{% notice tip %}}
-Because IAM is a global service, you only create the policies in one region and they will be accessible in all other regions for the given account.  If you try to create in a second region, they will fail.
-{{% /notice %}}
-13. Select **`Next`**.
-14. Scrolls to the bottom and mark the checkbox to acknowledge that IAM resources will be created.
-15. Select **`Submit`**.
-
-Since you have not yet created the team test AWS accounts, this CloudFormation StackSet won't create CloudFormation stacks in the team test AWS accounts until those AWS accounts are created in a subsequent section.
-
-Proceed to the next step.
-
-## 4. Create Workload Admin Team Permission Set in AWS SSO
-
-Next, you'll create a custom permission set in AWS SSO to represent the initial iteration of an AWS IAM policy under which builder team members will work in the workload production AWS accounts.
-
-### Download and Customize Sample IAM Policy
-
-1. Download the sample policy [`example-infra-team-dev-saml.json`](/code-samples/iam-policies/example-infra-team-dev-saml.json) to your desktop.
-2. Open the file and replace all occurrences of **`example`** with a reference to your own organization's identifier.
-
-### Create Permission Set in AWS SSO
-1. As a Cloud Administrator, use your personal user to log into AWS SSO.
-2. Select the AWS **`management`** account.
-3. Select **`Management console`** associated with the **`AWSAdministratorAccess`** role.
-4. Select the appropriate AWS region.
-5. Navigate to **`AWS Single Sign-On`** service.
-6. Access **`AWS accounts`** in AWS SSO.
-7. Select **`Permission sets`**.
-8. Select **`Create permission set`**.
-9. Select **`Create a custom permission set`**.
-10. Enter a **`Name`**. For example **`example-infra-team-test`**.
-11. Enter a **`Description`**. For example, **`Day-to-day permission used by admins in their workload test and prod AWS accounts.`**.
-12. Set the **`Session duration`** to the desired value.
-13. Select *both* checkboxes under  **`What policies do you want to include in your permission set`**.
-14. Under **`Attach AWS Managed polices`, search for `SystemAdministrator` and select it.
-15. Open the sample policy file that you just customized in a text editor, copy the content.
-16. Paste it into the textbox under **`Create a custom permissions policy`**
-
-{{% notice warning %}}
-**Replace `example` with your own identifier:** Before you select **`Create`**, in the permissions policy, ensure that you replace all occurrences of **`example`** with your own organization's identifier.  Otherwise, the permission set will not work as expected.
-{{% /notice %}}
-
-15. Select **`Create`**.
-
-Later, when you onboard the workload admin teams to the new workload AWS accounts, you'll reference this permission set.

@@ -1,8 +1,8 @@
 ---
 title: 'Set Up Test and Production Networks'
-menuTitle: '4. Set Up Test and Prod Networks'
+menuTitle: '5. Set Up Test and Prod Networks'
 disableToc: true
-weight: 40
+weight: 50
 ---
 
 {{% comment %}}

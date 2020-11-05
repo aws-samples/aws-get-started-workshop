@@ -131,7 +131,7 @@ In support of the requirements described above, two IAM policies and two Service
 
 #### Provisioning the Policies
 
-If you followed the steps in section [Set Up Team Development Environment Access Controls]({{< relref "03-set-up-team-dev-env-access-control" >}}), you already provisioned the SCPs, associated the SCPs with the `workloads_dev` OU, provisioned the team development IAM SAML policy as an AWS SSO permission set, and provisioned the permissions boundary policy via an AWS CloudFormation StackSet.  The result of those steps is that the SCPs are automatically applied to all AWS accounts in the `workloads_dev` OU and the supporting IAM policies are available in each of the team development AWS accounts.
+If you followed the steps in section [Set Up Team Development Environment Access Controls]({{< relref "03-set-up-team-dev-guardrails" >}}), you already provisioned the SCPs, associated the SCPs with the `workloads_dev` OU, provisioned the team development IAM SAML policy as an AWS SSO permission set, and provisioned the permissions boundary policy via an AWS CloudFormation StackSet.  The result of those steps is that the SCPs are automatically applied to all AWS accounts in the `workloads_dev` OU and the supporting IAM policies are available in each of the team development AWS accounts.
 
 The following diagram shows how the IAM policy and permissions boundary were provisioned in the earlier step.
 

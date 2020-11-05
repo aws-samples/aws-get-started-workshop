@@ -14,11 +14,11 @@ After you've established your team development environments to support experimen
 
 The following diagram represents the addition of test and production AWS accounts to your initial AWS environment. A set of optional networks are also depicted.
 
-[![Initial Test and Production Environments in Single AWS Region](/images/04-test-prod/initial-foundation-test-prod-single-region.png)](/images/04-test-prod/initial-foundation-test-prod-single-region.png)
+[![Initial Test and Production Environments in Single AWS Region](/images/04-test-prod/initial-foundation-test-prod-single-region.png?height=600px)](/images/04-test-prod/initial-foundation-test-prod-single-region.png)
 
 ## AWS account design
 
-The design of your test and production environments intentionally starts with a simple pair of AWS accounts. After you gain experience securing, deploying, and operating your initial proof of value workloads, you'll want to spend more time assessing the needs of future workloads, reviewing AWS best practices, and designing how you'll expand your AWS account structure.
+The design of your test and production environments intentionally starts with a pair of AWS accounts: one account to  act as your test environment for your initial workload and another account to act as the production environment. After you gain experience securing, deploying, and operating your initial proof of value workloads, you'll want to spend more time assessing the needs of future workloads, reviewing AWS best practices, and designing how you'll expand your AWS account structure.
 
 ### Single production account
 

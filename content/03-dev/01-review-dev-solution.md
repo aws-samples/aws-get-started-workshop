@@ -12,7 +12,7 @@ SPDX-License-Identifier: CC-BY-SA-4.0
 
 The following diagram represents the recommended configuration of an initial set of team development environments.
 
-[![Initial Development Environment](/images/03-dev/initial-foundation-dev.png)](/images/03-dev/initial-foundation-dev.png)
+[![Initial Development Environment](/images/03-dev/initial-foundation-dev.png?height=600px)](/images/03-dev/initial-foundation-dev.png)
 
 Key aspects of the initial solution include:
 

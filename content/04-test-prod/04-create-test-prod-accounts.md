@@ -1,8 +1,8 @@
 ---
 title: 'Create Test and Production Workload AWS Accounts'
-menuTitle: '2. Create Test and Prod Accounts'
+menuTitle: '4. Create Test and Prod Accounts'
 disableToc: true
-weight: 20
+weight: 40
 ---
 
 {{% comment %}}
@@ -25,7 +25,7 @@ This step should take about 60 minutes to complete.
 ## 1. Verify Pre-requisites
 - **Confirm email addresses** Every AWS account requires a unique email address for the "root" user.  You may have [created these addresses in an earlier step]({{< relref "02-obtain-email-addresses" >}}).  If not, please go back and review the guidance and provision the test and production workload addresses before you continue.  You will need to be capable of accessing the inboxes of the email accounts to proceed through the steps below.
 
-- **Choose Workload Group Identifier** When you [created the development workload environment]({{< ref "04-create-team-dev-environments" >}}), you used `<team identifier>` as a differentiator.  Test and production workloads are best provisioned in workload-specific accounts so we'll use the workload group ID to label them.  For example, `workloads-test-sap` and `workloads-prod-sap` where `sap` would be the workload group ID.
+- **Choose Workload Group Identifier** When you [created the development workload environment]({{< ref "05-create-team-dev-accounts" >}}), you used `<team identifier>` as a differentiator.  Test and production workloads are best provisioned in workload-specific accounts so we'll use the workload group ID to label them.  For example, `workloads-test-sap` and `workloads-prod-sap` where `sap` would be the workload group ID.
 
 ## 2. Create Production Workload AWS Account
 Use AWS Control Tower Account Factory to provision the required production workload account.
