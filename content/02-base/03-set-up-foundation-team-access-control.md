@@ -125,7 +125,8 @@ In the spirit of least privilege access, the resulting permissions will enable c
 8. Select **`Next: Details`**.
 9. Select **`Billing`**.
 10. Select **`Next: Tags`**.
-11. Select **`Create`**. 
+11. Select **`Next: Review`**.
+12. Select **`Create`**. 
 
 ### Associate Billing Permission Set 
 
