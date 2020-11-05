@@ -58,6 +58,8 @@ Since guardrails apply to an OU and the AWS accounts in the OU, you should test 
 
 See [Enabling Guardrails](https://docs.aws.amazon.com/controltower/latest/userguide/guardrails.html#enable-guardrails) for more information.
 
+For an end-to-end example of using guardrails with AWS Control Tower, see [How to Detect and Mitigate Guardrail Violation with AWS Control Tower](https://aws.amazon.com/blogs/mt/how-to-detect-and-mitigate-guardrail-violation-with-aws-control-tower/).
+
 ## Other example guardrails
 
 Beyond the guardrails that are available through AWS Control Tower, see 
