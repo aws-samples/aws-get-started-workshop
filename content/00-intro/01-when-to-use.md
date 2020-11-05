@@ -12,7 +12,9 @@ SPDX-License-Identifier: CC-BY-SA-4.0
 
 This guide is intended to address the following use cases:
 
-## Establish a new AWS environment
+{{< toc >}}
+
+## Establish a new AWS environment for production workloads
 
 This guide is primarily intended for AWS customers who need to get an initial proof of value workload into production, but don't already have a suitable AWS environment established.
 
@@ -20,7 +22,7 @@ Independent of the type of workload, you'll need a suitable AWS environment.
 
 You might already have an AWS account in which you've performed early experiments, but that account might not be suitable for supporting formal development, testing, and deployment of a production quality workloads.
 
-This guide also depends on you having one or several technical people that are available and sufficiently skilled to follow the instructions in this guide to establish your initial AWS environment in support of production workloads.  See [Required Knowledge]({{< relref "05-required-knowledge" >}}) for more information on the skills required to be able to use this guide.
+This guide also depends on you having a technical person to two that are available and sufficiently skilled to follow the instructions in this guide. See [Required Knowledge]({{< relref "05-required-knowledge" >}}) for more information on the skills required to be able to use this guide.
 
 ## Enhance your existing AWS environment
 
@@ -28,6 +30,6 @@ You might already have workloads in production in your AWS environment, but you'
 
 Alternatively, you might decide to set up a new AWS environment using this guide and move your existing AWS accounts to your new AWS environment.
 
-## Self-paced learning
+## Support self-paced learning
 
 You simply want to learn best practices for setting up an AWS environment so that you can use this knowledge in your current role. 
