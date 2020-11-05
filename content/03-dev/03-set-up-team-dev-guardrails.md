@@ -17,7 +17,7 @@ Service control policies (SCPs) are used to constrain the ability to modify clou
 This step should take about 20 minutes to complete.
 
 {{% notice tip %}}
-**Learn more about guardrails:** See [Security Guardrails]({{< relref "03-security-guardrails" >}}) for an introduction to the use of guardrails that you can apply to your AWS environments.  Guardrails provide a means for your Security and Cloud Administrators to apply overall controls on what can be done in your AWS environment. You might start with a basic set of guardrails and expand them as you gain experience and your needs evolve.
+**Learn more about guardrails:** See [Environment Guardrails]({{< relref "03-guardrails" >}}) for an introduction to the use of guardrails that you can apply to your AWS environments.  Guardrails are governance rules for security, operations, and compliance that customers can select and apply enterprise-wide or to specific groups of accounts. You might start with a basic set of guardrails and expand them as you gain experience and your needs evolve.
 {{% /notice %}}
 
 {{< toc >}}
@@ -38,10 +38,6 @@ Since you'll likely want your Cloud Foundation team members to be able to develo
 
 {{% notice tip %}}
 **Review the sample team development access controls:** See [Controlling Builder Team Access]({{< relref "02-controlling-builder-team-access" >}}) for a detailed explanation of the requirements and sample implementation of how you can provide freedom to your builder teams in their team development AWS accounts, but inhibit them from adversely impacting the security of your overall AWS environment.
-{{% /notice %}}
-
-{{% notice warning %}}
-**Service Control Policies (SCPs) and AWS Control Tower:** You need to be very careful when using customer-managed SCPs with AWS Control Tower so that your SCPs do not conflict with the new AWS account baselining processes carried out by AWS Control Tower Account Factory. See [Controlling Builder Team Access]({{< relref "02-controlling-builder-team-access#scps" >}}) for further details and an example of how to avoid such potential conflicts.
 {{% /notice %}}
 
 ### Create the SCPs

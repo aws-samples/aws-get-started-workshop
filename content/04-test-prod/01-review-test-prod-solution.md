@@ -34,9 +34,13 @@ Your overall set of account baselines, guardrails, and access control should be 
 
 Your test accounts can be used to host multiple instances of your workload. i.e. multiple workload environments.  The types of testing that you need to perform will help you understand how many workloads environments you might create in your test account.  For example, you might use different workload environments for functional and performance testing of your workload in a single test AWS account.
 
-## Security and governance guardrails
+## Security, operations, and compliance guardrails
 
-Moving workloads into a production phase often requires increased levels of governance and oversight.  There are many mechanisms and tools in AWS that can be used to build a strong governance function while still allowing flexibility and autonomy to the builder teams.  The primary mechanisms we've discussed in this guide are AWS Control Tower Guardrails set on the AWS Organizational Units, and Permission Boundaries to restrict IAM grants.
+Moving workloads into a production phase often requires increased levels of governance and oversight.  There are many mechanisms and tools in AWS that can be used to build a strong governance function while still allowing flexibility and autonomy to the builder teams.  
+
+Guardrails are governance rules for security, operations, and compliance that customers can select and apply enterprise-wide or to specific groups of accounts. You might start with a basic set of guardrails and expand them as you gain experience and your needs evolve.
+
+See [Security Guardrails]({{< relref "03-guardrails" >}}) for an introduction to the use of guardrails that you can apply to your AWS environments.
 
 ## Access control
 

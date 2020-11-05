@@ -13,6 +13,8 @@ A history of notable changes to the guide.
 
 |Date|Change|Description|Upgrading|
 |----|------|-----------|---------|
+|November 5, 2020|**New Environment guardrails section**|Consolidated and enhanced information about using guardrails for your AWS environment in support of security, operations, and compliance requirements.|Not applicable. New capability.|
+|October 29, 2020|**Alternative site-to-site VPN architectures and cost examples**|In the Hybrid Networking section, added alternative site-to-site VPN architecture to compare and contrast with the recommended use of AWS Transit Gateway. Included operational and cost considerations.|Not applicable. New capability.|
 |October 27, 2020|**AWS Cloud9 private subnet support**|Following the release of Cloud9's support for using private subnets, the guide has been updated to describe how you can make use of this capability in your team development AWS accounts.|Not applicable. New capability.|
 |September 21, 2020|**Simplified site structure**|Decoupled setting up your base foundation from setting up your foundation for team development environments. Made team development environments an optional capability that you can defer if you'd like to go straight to setting up your foundation for test and production environments.|Not applicable. New capability.|
 |September 15, 2020|**Integrated AWS Site-to-Site VPN with AWS Transit Gateway**|New section added to address this optional capability.|Not applicable. New capability.|

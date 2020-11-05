@@ -13,7 +13,7 @@ SPDX-License-Identifier: CC-BY-SA-4.0
 In this section your Security and Cloud Administrators will provision an initial set of security guardrails for controlling access within your test and production workloads AWS accounts.
 
 {{% notice tip %}}
-**Learn more about guardrails:** See [Security Guardrails]({{< relref "03-security-guardrails" >}}) for an introduction to the use of guardrails that you can apply to your AWS environments.  Guardrails provide a means for your Security and Cloud Administrators to apply overall controls on what can be done in your AWS environment. You might start with a basic set of guardrails and expand them as you gain experience and your needs evolve.
+**Learn more about guardrails:** See [Environment Guardrails]({{< relref "03-guardrails" >}}) for an introduction to the use of guardrails that you can apply to your AWS environments.  Guardrails are governance rules for security, operations, and compliance that customers can select and apply enterprise-wide or to specific groups of accounts. You might start with a basic set of guardrails and expand them as you gain experience and your needs evolve.
 {{% /notice %}}
 
 This step should take about 15 minutes to complete.
