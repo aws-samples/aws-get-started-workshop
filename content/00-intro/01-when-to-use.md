@@ -22,7 +22,7 @@ Independent of the type and size of workload you intend to deploy to production,
 
 You might already have an AWS account in which you've performed early experiments, but that account might not be suitable for supporting formal development, testing, and deployment of a production quality workloads.
 
-If you're not sure whether your organization has the necessary the skills to set up and maintain an AWS environment that's suitable for production workloads, you can review the [Required Knowledge]({{< relref "05-required-knowledge" >}}) section. It will help you understand the requirements and provide references to AWS partners and sales teams that assist you.
+If you're not sure whether your organization has the necessary skills to set up and maintain an AWS environment that's suitable for production workloads, you can review the [Required Knowledge]({{< relref "05-required-knowledge" >}}) section. It will help you understand the requirements and provide references to AWS partners and sales teams that assist you.
 
 ## You're considering enhancing your existing AWS environment
 
