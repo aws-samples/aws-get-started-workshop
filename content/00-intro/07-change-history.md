@@ -1,7 +1,7 @@
 ---
 title: 'History of Changes'
 disableToc: true
-weight: 40
+weight: 70
 ---
 
 {{% comment %}}
