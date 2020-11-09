@@ -47,7 +47,7 @@ Visit [Create an AWS Account](https://portal.aws.amazon.com/billing/signup#/star
 |Field|Description|Tips|
 |-----|------------|---|
 |**Email address**|A unique email address that identifies the AWS account and is the name of the AWS account root user.|Use the management AWS account [root user email address]({{< relref "02-obtain-email-addresses" >}}) that you already established. Since this email address is used to initially access your AWS account, be very careful that you enter the correct email address and that you have access to the email account.|
-|**Password**|A password for the AWS account root user.|Ensure that secure this value. In a later step, you'll have the option to enable Multi-factor Authentication (MFA) - a highly recommended approach to secure your AWS account.|
+|**Password**|A password for the AWS account root user.|Ensure that you secure this value. In a later step, you'll have the option to enable Multi-factor Authentication (MFA) - a highly recommended approach to secure your AWS account.|
 |**AWS account name**|A brief identifier for the AWS account.|For example, **`management`**. This value does not have to be unique and can be modified later on.|
 
 ### Set personal or professional

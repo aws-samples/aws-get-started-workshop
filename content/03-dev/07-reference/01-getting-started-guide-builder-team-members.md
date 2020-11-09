@@ -132,7 +132,7 @@ Since a common set of private subnets are shared across team development AWS acc
 
 If I already have an AWS account registered with my corporate/company email, can I use it instead?
 
-If you have production workloads, contact your cloud foundations team to absorb that account into our proper environment to ensure compliance and security requirements are met.
+If you have production workloads, contact your cloud foundations team to absorb that account into our proper environment to help ensure compliance and security requirements are met.
 
 ## Getting Support
 

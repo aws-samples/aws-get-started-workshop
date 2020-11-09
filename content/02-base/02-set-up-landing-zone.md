@@ -82,7 +82,7 @@ In the following steps, you will modify your AWS SSO configuration to align with
 9. Select **`Save changes`**.
 
 {{% notice tip %}}
-**Auditing use of MFA:** The configuration shown above does not force the use of MFA, but it does impose an additional overhead of a one-time password sent via email for users that have not yet registered an MFA device. You will likely want to establish either manual or automatic recurring audits to ensure that your users have registered an MFA device.
+**Auditing use of MFA:** The configuration shown above does not force the use of MFA, but it does impose an additional overhead of a one-time password sent via email for users that have not yet registered an MFA device. You will likely want to establish either manual or automatic recurring audits to help ensure that your users have registered an MFA device.
 {{% /notice %}}
 
 ## 6. Enable MFA via AWS SSO for Control Tower Administrator User

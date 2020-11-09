@@ -62,7 +62,7 @@ You'll need to work with your Network team to ensure that your customer gateway 
 
 For example, you may want to constrain resources in your development VPC to accessing only allowed infrastructure, builder services, and development quality on-premises services and data.  In the future, when you build out production VPCs in your AWS environment, you would likely need to constrain your production VPC to accessing only allowed on-premises production services and data. 
 
-Similarly, you may need to configure your on-premises routers and/or firewalls to ensure that only certain on-premises networks or specific clients can access your AWS networks.
+Similarly, you may need to configure your on-premises routers and/or firewalls to help ensure that only certain on-premises networks or specific clients can access your AWS networks.
 
 ## Attaching Additional VPCs to Transit Gateway
 
