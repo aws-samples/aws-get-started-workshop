@@ -1,6 +1,6 @@
 ---
 title: 'Create or Prepare Management AWS Account'
-menuTitle: '1. Address Management Account'
+menuTitle: '1. Identify Management Account'
 disableToc: true
 weight: 10
 ---

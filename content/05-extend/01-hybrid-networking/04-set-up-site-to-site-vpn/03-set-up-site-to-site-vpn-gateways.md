@@ -25,7 +25,7 @@ After create these resources, in the next section, you'll set up your customer o
 Your first step is to register the on-premises side of your site-to-site VPN connection as a customer gateway in your AWS environment.
 
 {{% notice tip %}}
-**Simulating On-Premises Customer Gateway:** If you're either experimenting with AWS Site-to-Site VPN connections or demonstrating how they work, you can easily simulate a customer on-premises environment and customer gateway. See [Simulating Site-to-Site VPN Customer Gateways Using strongSwan](https://aws.amazon.com/blogs/networking-and-content-delivery/simulating-site-to-site-vpn-customer-gateways-strongswan/) for details on setting up an open source based VPN gateway in a separate VPC that simulates an on-premises environment.
+**Simulating on-premises customer gateway:** If you're either experimenting with AWS Site-to-Site VPN connections or demonstrating how they work, you can easily simulate a customer on-premises environment and customer gateway. See [Simulating Site-to-Site VPN Customer Gateways Using strongSwan](https://aws.amazon.com/blogs/networking-and-content-delivery/simulating-site-to-site-vpn-customer-gateways-strongswan/) for details on setting up an open source based VPN gateway in a separate VPC that simulates an on-premises environment.
 {{% /notice %}}
 
 Register your on-premises customer gateway device in AWS:
@@ -45,12 +45,8 @@ Register your on-premises customer gateway device in AWS:
 |**`Routing`**|`Dynamic Routing`||
 |**`BGP ASN`**|`6500`|This is an example value.  Consult your Network team for the proper value that is assigned to the customer gateway in your on-premises environment.|
 |**`IP Address`**|Public IP Address of your on-premises customer gateway||   
-|**`Certificate ARN`**|Leave empty||
+|**`Certificate ARN`**|If you're using certificate-based authentication, select the private certificate that you created to represent your customer gateway.<br><br>If you're using pre-shared key (PSK)-based authentication, leave blank.||
 |**`Device`**|Leave empty||
-
-{{% notice info %}}
-**Pre-shared Key and Certificate Options:** These example set up instructions use the pre-shared key option to authenticate your Site-to-Site VPN tunnel endpoints.  If you don't want to use pre-shared keys, you can use a private certificate from AWS Certificate Manager Private Certificate Authority to authenticate your VPN endpoints. See [Site-to-Site VPN tunnel authentication options](https://docs.aws.amazon.com/vpn/latest/s2svpn/vpn-tunnel-authentication-options.html).
-{{% /notice %}}
 
 ## 2. Create a transit gateway
 

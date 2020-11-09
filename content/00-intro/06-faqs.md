@@ -2,7 +2,7 @@
 title: 'Frequently Asked Questions (FAQs)'
 menuTitle: 'FAQs'
 disableToc: true
-weight: 50
+weight: 60
 ---
 
 {{% comment %}}
@@ -20,7 +20,7 @@ See [Project Information]({{< relref "06-project" >}})
 
 ### Q: How can I see what has materially changed in the guide?
 
-See [Change History]({{< relref "04-change-history" >}})
+See [Change History]({{< relref "07-change-history" >}})
 
 ## Federated Access to AWS Platform
 

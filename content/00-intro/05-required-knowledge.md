@@ -1,7 +1,7 @@
 ---
 title: 'Required Knowledge'
 disableToc: true
-weight: 40
+weight: 50
 ---  
 
 {{% comment %}}

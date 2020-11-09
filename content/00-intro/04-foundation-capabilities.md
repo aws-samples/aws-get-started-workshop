@@ -2,7 +2,7 @@
 title: 'Foundation Capabilities in Scope'
 menuTitle: 'Foundation Capabilities'
 disableToc: true
-weight: 30
+weight: 40
 ---
 
 {{% comment %}}
