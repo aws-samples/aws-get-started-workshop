@@ -79,7 +79,7 @@ Leave the other parameters at their default settings.
 12. Enter the OU IDs of the test OUs that you created previously.  
 
 {{% notice tip %}}
-If you didn't make a copy of the test OU IDs, open a new browser tab and access **`AWS Control Tower`**. Select **`Organizational units`**, and select each of the following OUs to obtain its OU ID: **`workloads_prod`** and **`workloads_test`**. OUs entered should be in the format `ou-xxxx-yyyyyyy`. If you don't see these OUs, see [Organizing Your AWS Accounts]({{< relref "04-organize-aws-accounts" >}}) for details for creating the OUs.
+If you didn't make a copy of the test and prod OU IDs, open a new browser tab and access **`AWS Control Tower`**. Select **`Organizational units`**, and select each of the following OUs to obtain its OU ID: **`workloads_prod`** and **`workloads_test`**. OUs entered should be in the format `ou-xxxx-yyyyyyy`. If you don't see these OUs, see [Organizing Your AWS Accounts]({{< relref "04-organize-aws-accounts" >}}) for details for creating the OUs.
 {{% /notice %}}
 13. In **`Specify regions`**, select your home AWS region.
 
@@ -91,4 +91,4 @@ Because IAM is a global service, you only create the policies in one region and 
 15. Scrolls to the bottom and mark the checkbox to acknowledge that IAM resources will be created.
 16. Select **`Submit`**.
 
-Since you have not yet created the test and production workload AWS accounts, this CloudFormation StackSet won't create CloudFormation stacks in the test and production workloads AWS accounts until those AWS accounts are created in a subsequent section.
+This CloudFormation Stackset will create CloudFormation stacks in the workloads-prod-<workloadId> and workloads-test-<workloadId> accounts because they were setup under the workloads_prod, workloads_test OUs respectively. 
