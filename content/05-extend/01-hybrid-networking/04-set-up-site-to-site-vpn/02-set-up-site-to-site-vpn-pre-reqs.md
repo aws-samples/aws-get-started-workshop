@@ -50,6 +50,6 @@ In this configuration only one tunnel will be up at a given time.  Depending on 
 
 ## 5. Determine private shared key (PSK)- or certificate-based authentication
 
-You have two authentication options for your site-to-site VPN connection.  If you don't want to use pre-shared keys, you can use a private certificate from AWS Certificate Manager Private Certificate Authority to authenticate your VPN endpoints. See [Site-to-Site VPN tunnel authentication options](https://docs.aws.amazon.com/vpn/latest/s2svpn/vpn-tunnel-authentication-options.html) for an overview of your options.  
+You have two authentication options for your site-to-site VPN connection: Pre-shared key (PSK) or certificate.  If you don't want to use pre-shared keys, you can use a private certificate created through AWS Certificate Manager Private Certificate Authority to authenticate your VPN endpoints. See [Site-to-Site VPN tunnel authentication options](https://docs.aws.amazon.com/vpn/latest/s2svpn/vpn-tunnel-authentication-options.html) for an overview of your options.  
 
-If you choose to use certificate-based authentication, see the GitHub repository [https://github.com/aws-samples/vpn-gateway-strongwswan](https://github.com/aws-samples/vpn-gateway-strongwswan) for details on setting up the necessary certificates and other configuration for using certificate-based authentication.
+If you choose to use certificate-based authentication, see the GitHub repository [https://github.com/aws-samples/vpn-gateway-strongwswan](https://github.com/aws-samples/vpn-gateway-strongwswan) for details on setting up the necessary certificates.
