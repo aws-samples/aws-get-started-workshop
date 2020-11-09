@@ -47,3 +47,9 @@ If your customer gateway device does not support BGP, then you will need to use 
 In this configuration only one tunnel will be up at a given time.  Depending on the features of your customer gateway device, you may be able to configure it to:
 * Periodically send keep alive traffic to keep the tunnel active.
 * Force a failover to the other tunnel in case of issues with the current tunnel.
+
+## 5. Determine private shared key (PSK)- or certificate-based authentication
+
+You have two authentication options for your site-to-site VPN connection.  If you don't want to use pre-shared keys, you can use a private certificate from AWS Certificate Manager Private Certificate Authority to authenticate your VPN endpoints. See [Site-to-Site VPN tunnel authentication options](https://docs.aws.amazon.com/vpn/latest/s2svpn/vpn-tunnel-authentication-options.html) for an overview of your options.  
+
+If you choose to use certificate-based authentication, see the GitHub repository [https://github.com/aws-samples/vpn-gateway-strongwswan](https://github.com/aws-samples/vpn-gateway-strongwswan) for details on setting up the necessary certificates and other configuration for using certificate-based authentication.

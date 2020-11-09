@@ -16,6 +16,10 @@ By following these instructions, you will enable network connectivity between yo
 
 Later in this guide, when you set up your test and production VPCs, the steps required to enable those VPCs to reuse your site-to-site VPN connection will be addressed.  The process in your AWS environment will be largely a repeat of the steps in this section that are used to connect your development VPC to your on-premises network.
 
+{{% notice tip %}}
+**Simulating on-premises customer gateway:** If you're either experimenting with AWS Site-to-Site VPN connections or demonstrating how they work, you can easily simulate a customer on-premises environment and customer gateway. See [Simulating Site-to-Site VPN Customer Gateways Using strongSwan](https://aws.amazon.com/blogs/networking-and-content-delivery/simulating-site-to-site-vpn-customer-gateways-strongswan/) for details on setting up an open source based VPN gateway in a separate VPC that simulates an on-premises environment.
+{{% /notice %}}
+
 {{% notice info %}}
 **Automated solution:** As you expand the number of VPCs in your AWS environment, you may benefit from implementing the [Serverless Transit Network Orchestrator](https://aws.amazon.com/solutions/implementations/serverless-transit-network-orchestrator/) AWS solution.  This solution automates much of the work required to integrate newly created VPCs with your transit gateway.
 {{% /notice %}}
