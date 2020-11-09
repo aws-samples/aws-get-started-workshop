@@ -19,13 +19,13 @@ In your team development AWS accounts, you have access to only private subnets. 
 
 ## 2. Download AWS CloudFormation template
 
-As a Cloud Administrator, you will use AWS CloudFormation to deploy a CloudFormation stack set to your organization's management AWS account. This stack set will be based on a CloudFormation template.
+As a Cloud Administrator, you will use AWS CloudFormation to deploy a CloudFormation StackSet to your organization's management AWS account. This StackSet will be based on a CloudFormation template.
 
 Download the following CloudFormation template to your desktop: [example-infra-team-dev-cloud9-service-role.yml](/code-samples/iam-roles/example-infra-team-dev-cloud9-service-role.yml)
 
-## 3. Deploy a stack set to provision the IAM role for Cloud9
+## 3. Deploy a StackSet to provision the IAM role for Cloud9
 
-Create a stack set to deploy the IAM service role for EC2 to all of the AWS accounts associated with your development OUs.
+Create a StackSet to deploy the IAM service role for EC2 to all of the AWS accounts associated with your development OUs.
 
 1. As a **Cloud Administrator**, use your personal user to log into AWS SSO.
 2. Select the AWS **`management`** account.
@@ -33,7 +33,7 @@ Create a stack set to deploy the IAM service role for EC2 to all of the AWS acco
 4. Navigate to the **`CloudFormation`** service
 5. Open the left menu and select **`StackSets`**
 
-Now create the stack set:
+Now create the StackSet:
 
 1. Select **`Create StackSet`**.
 2. Select **`Upload a template file`**.
@@ -62,7 +62,7 @@ If you didn't make a copy of the development OU IDs, open a new browser tab and 
 14. Scrolls to the bottom and mark the checkbox to acknowledge that IAM resources will be created.
 15. Select **`Submit`**.
 
-Monitor the operation to create the stack set. Select **`Stack instances`** tab to see the status of the stack being applied to the AWS accounts.
+Monitor the operation to create the StackSet. Select **`Stack instances`** tab to see the status of the stack being applied to the AWS accounts.
 
 When this StackSet is created, the associated CloudFormation stack is applied to each of the AWS accounts currently associated with the specified OUs.  
 

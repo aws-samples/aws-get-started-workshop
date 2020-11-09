@@ -52,7 +52,7 @@ Create a StackSet to deploy the permissions boundary policy to all AWS accounts 
 2. Select the AWS **`management`** account.
 3. Navigate to **CloudFormation** from the Services menu.
 
-Now create a stack set:
+Now create a StackSet:
 
 1. Pull out the left menu and select **`StackSets`**.
 2. Select **`Create StackSet`**.
@@ -91,4 +91,4 @@ Because IAM is a global service, you only create the policies in one region and 
 15. Scrolls to the bottom and mark the checkbox to acknowledge that IAM resources will be created.
 16. Select **`Submit`**.
 
-This CloudFormation Stackset will create CloudFormation stacks in the workloads-prod-<workloadId> and workloads-test-<workloadId> accounts because they were setup under the workloads_prod, workloads_test OUs respectively. 
+Since you have not yet created the test and production workload AWS accounts, this CloudFormation StackSet won't create CloudFormation stacks in the test and production workloads AWS accounts until those AWS accounts are created in a subsequent section.
