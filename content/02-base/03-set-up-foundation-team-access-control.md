@@ -130,7 +130,7 @@ In the spirit of least privilege access, the resulting permissions will enable c
 
 ### Associate Billing Permission Set 
 
-12. Select the checkbox next to **`Billing`**.
-13. Select **`Finish`**.
+13. Select the checkbox next to **`Billing`**.
+14. Select **`Finish`**.
 
 AWS SSO deploys the selected permission set to the selected AWS account.
