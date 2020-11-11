@@ -30,7 +30,7 @@ Every AWS account requires a unique email address for the "root" user.  You may 
 
 ### 1.2 Choose workload group identifier
 
-Since test and production workloads are best provisioned in workload-specific accounts, you should determine a workload identifier to associate with your first few workloads.  You'll use that identifier when you name your test and production AWS accounts. For example, if you're workload is a virtual desktop infrastructure (VDI) deployment, you might use `vdi` as the workload identifier and name your accounts `workloads-test-vdi` and `workloads-prod-vdi`.
+Since test and production workloads are best provisioned in workload-specific accounts, you should determine a workload identifier to associate with your first few workloads.  You'll use that identifier when you name your test and production AWS accounts. For example, if you're workload is a virtual desktop infrastructure (VDI) deployment using, for example, [Amazon WorkSpaces](https://aws.amazon.com/workspaces/?workspaces-blogs.sort-by=item.additionalFields.createdDate&workspaces-blogs.sort-order=desc), you might use `vdi` as the workload identifier and name your accounts `workloads-test-vdi` and `workloads-prod-vdi`.
 
 ## 2. Create test workloads AWS account
 
