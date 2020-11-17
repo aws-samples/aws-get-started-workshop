@@ -13,7 +13,7 @@ SPDX-License-Identifier: CC-BY-SA-4.0
 
 This guide is primarily intended to be used by your technologists who will be responsible for establishing and maintaining your initial AWS environment. These technologists will make up the initial form of your "cloud foundation" or "cloud platform" team.
 
-Depending on your organization, the size of your team that's responsible for setting up the initial form of your AWS environment might range from a single technologists to multiple people.
+Depending on your organization, the size of your team that's responsible for setting up the initial form of your AWS environment might range from a single technologist to multiple people.
 
 ## Your Business Workload Owners
 
