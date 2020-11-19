@@ -29,30 +29,32 @@ Use your standard internal process to request either DLs or shared mailboxes bas
 
 Depending on the scope of your initial foundation, you will need to have email addresses available for some or all of the following AWS accounts.
 
-{{% notice tip %}}
-**Use of “+” style email addresses:** If your email system supports the use of “+” style email addresses in which email multiple email addresses are aliased to the same email account, then you might find it beneficial to use this form to consolidate the root user email addresses for either all or collections of AWS accounts to either one or a few actual email accounts. For example: [aws-account1+management@example.com](mailto:aws-account+management@example.com) and [aws-account1+audit@example.com](mailto:aws-account+audit@example.com) will be treated as unique addresses in AWS but your mail system may deliver the mail to the same [aws-account1@example.com](mailto:aws-account@example.com) email address.
-{{% /notice %}}
+## Use of “+” style email addresses
+
+If your email system supports the use of “+” style email addresses (also known as plus addressing or subaddressing) in which email multiple email addresses are aliased to the same email account or distribution list, then you might find it beneficial to use this form to consolidate the root user email addresses for either all or collections of AWS accounts to either one or a few actual email accounts.
+
+For example: [aws-account1+management@example.com](mailto:aws-account+management@example.com) and [aws-account1+audit@example.com](mailto:aws-account+audit@example.com) will be treated as unique addresses in AWS but your mail system would deliver messages for both of these addresses to the same [aws-account1@example.com](mailto:aws-account@example.com) email account or distribution list.
 
 ## Management AWS account {#initial-aws-accounts}
 
-|AWS Account Name|Purpose|Example Email Address|
-|---|---|---|
-|**`management`**|You'll either create a new management AWS account or reuse an existing compatible AWS account.|`aws-account-management@example.com`|
+|AWS Account Name|Purpose|Email Address Example|Plus Addressing Example|
+|---|---|---|---|
+|**`management`**|You'll either create a new management AWS account or reuse an existing compatible AWS account.|`aws-account-management@example.com`|`aws-account+management@example.com`|
 
 ## Foundational AWS accounts {#foundation-aws-accounts}
 
-|AWS Account Name|Purpose|Example Email Address|
-|---|---|---|
-|**`Audit`**|Created by AWS Control Tower.|`aws-account-audit@example.com`|
-|**`Log archive`**|Created by AWS Control Tower.|`aws-account-log-archive@example.com`|
-|**`dev-infra`**|Environment where your Cloud Foundation team can develop and perform early testing of foundation changes.<br><br>If you have a very small cross-functional team responsible for managing your initial foundation, then you'll likely need to start with only one foundation team development AWS account.|`aws-account-dev-infra@example.com`|
-|**`network-prod`**|Centrally managed network resources.<br><br>For example, hybrid networking resources such as AWS Site-to-Site VPN and AWS Transit Gateway resources.|`aws-account-network-prod@example.com`|
-|**`infra-shared-prod`**|Shared infrastructure services.<br><br>Recommended if you plan to connect your on-premises network to your AWS environment.<br><br>For example, this AWS account can host shared directory services such as Microsoft Active Directory and contain resources to support integration with your on-premises DNS services.|`aws-account-infra-shared-prod@example.com`|
+|AWS Account Name|Purpose|Email Address Example|Plus Addressing Example|
+|---|---|---|---|
+|**`Audit`**|Created by AWS Control Tower.|`aws-account-audit@example.com`|`aws-account+audit@example.com`|
+|**`Log archive`**|Created by AWS Control Tower.|`aws-account-log-archive@example.com`|`aws-account+log-archive@example.com`|
+|**`dev-infra`**|Environment where your Cloud Foundation team can develop and perform early testing of foundation changes.<br><br>If you have a very small cross-functional team responsible for managing your initial foundation, then you'll likely need to start with only one foundation team development AWS account.|`aws-account-dev-infra@example.com`|`aws-account+dev-infra@example.com`|
+|**`network-prod`**|Centrally managed network resources.<br><br>For example, hybrid networking resources such as AWS Site-to-Site VPN and AWS Transit Gateway resources.|`aws-account-network-prod@example.com`|`aws-account+network-prod@example.com`|
+|**`infra-shared-prod`**|Shared infrastructure services.<br><br>Recommended if you plan to connect your on-premises network to your AWS environment.<br><br>For example, this AWS account can host shared directory services such as Microsoft Active Directory and contain resources to support integration with your on-premises DNS services.|`aws-account-infra-shared-prod@example.com`|`aws-account+infra-shared-prod@example.com`|
 
 ## Other AWS accounts {#other-aws-accounts}
 
-|AWS Account Name|Purpose|Example Email Address|
-|---|---|---|
-|**`dev-<team identifier>`**|A team development environment for your builder team that needs to experiment, develop, and perform early testing of their initial workloads.<br><br>You should 1) identify how many distinct teams will be developing and performing early testing of your initial workloads and 2) arrive at an AWS account name and email address for each team.|`aws-account-dev-<team identifier>@example.com`|
-|**`workloads-test-<workload group identifier>`**|Formal test environments for your business-oriented workloads and data.<br><br>You should 1) identify how many distinct groups of related workloads you'll initially be supporting and 2) arrive at an AWS account name and email address for each distinct group.<br><br>For example `workloads-test-sap`, and `workloads-prod-sap`.|`aws-account-workloads-test-<workload-group-identifier>@example.com`|
-|**`workloads-prod-<workload group identifier>`**|Environment where your initial production workloads and data will reside.|`aws-account-workloads-prod-<workload-group-identifier>@example.com`|
+|AWS Account Name|Purpose|Email Address Example|Plus Addressing Example|
+|---|---|---|---|
+|**`dev-<team identifier>`**|A team development environment for your builder team that needs to experiment, develop, and perform early testing of their initial workloads.<br><br>You should 1) identify how many distinct teams will be developing and performing early testing of your initial workloads and 2) arrive at an AWS account name and email address for each team.|`aws-account-dev-<team identifier>@example.com`|`aws-account+dev-<team identifier>@example.com`|
+|**`workloads-test-<workload group identifier>`**|Formal test environments for your business-oriented workloads and data.<br><br>You should 1) identify how many distinct groups of related workloads you'll initially be supporting and 2) arrive at an AWS account name and email address for each distinct group.<br><br>For example `workloads-test-sap`, and `workloads-prod-sap`.|`aws-account-workloads-test-<workload-group-identifier>@example.com`|`aws-account+workloads-test-<workload-group-identifier>@example.com`|
+|**`workloads-prod-<workload group identifier>`**|Environment where your initial production workloads and data will reside.|`aws-account-workloads-prod-<workload-group-identifier>@example.com`|`aws-account+workloads-prod-<workload-group-identifier>@example.com`|
