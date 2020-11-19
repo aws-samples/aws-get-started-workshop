@@ -12,6 +12,8 @@ SPDX-License-Identifier: CC-BY-SA-4.0
 
 Regardless as to whether you create a new management AWS account or reuse an existing management AWS account, you'll need to prepare a set of email addresses to represent the root user of each of the new AWS accounts that will be created. In later steps, when you create AWS accounts, you'll be referring to these email addresses. Each AWS account must have a unique email address associated with it.
 
+{{< toc >}}
+
 ## Use either email distribution lists (DLs) or shared mailboxes
 Instead of using a person's email address, it's recommended that you use either email distribution lists (DLs) or shared mailboxes so that you can enable at least several trusted people, for example, your Cloud Administrators, access to email messages associated with each AWS account.
 
@@ -27,21 +29,21 @@ If you already have a naming standard for mail addresses associated with service
 
 Use your standard internal process to request either DLs or shared mailboxes based on set of addresses you identify.
 
-Depending on the scope of your initial foundation, you will need to have email addresses available for some or all of the following AWS accounts.
-
 ## Use of “+” style email addresses
 
 If your email system supports the use of “+” style email addresses (also known as plus addressing or subaddressing) in which email multiple email addresses are aliased to the same email account or distribution list, then you might find it beneficial to use this form to consolidate the root user email addresses for either all or collections of AWS accounts to either one or a few actual email accounts.
 
 For example: [aws-account1+management@example.com](mailto:aws-account+management@example.com) and [aws-account1+audit@example.com](mailto:aws-account+audit@example.com) will be treated as unique addresses in AWS but your mail system would deliver messages for both of these addresses to the same [aws-account1@example.com](mailto:aws-account@example.com) email account or distribution list.
 
-## Management AWS account {#initial-aws-accounts}
+## AWS accounts and example email addresses
+
+### Management AWS account {#initial-aws-accounts}
 
 |AWS Account Name|Purpose|Email Address Example|"+" Addressing Example|
 |---|---|---|---|
 |**`management`**|You'll either create a new management AWS account or reuse an existing compatible AWS account.|`aws-account-management@example.com`|`aws-account+management@example.com`|
 
-## Foundational AWS accounts {#foundation-aws-accounts}
+### Foundational AWS accounts {#foundation-aws-accounts}
 
 |AWS Account Name|Purpose|Email Address Example|"+" Addressing Example|
 |---|---|---|---|
@@ -51,7 +53,7 @@ For example: [aws-account1+management@example.com](mailto:aws-account+management
 |**`network-prod`**|Centrally managed network resources.<br><br>For example, hybrid networking resources such as AWS Site-to-Site VPN and AWS Transit Gateway resources.|`aws-account-network-prod@example.com`|`aws-account+network-prod@example.com`|
 |**`infra-shared-prod`**|Shared infrastructure services.<br><br>Recommended if you plan to connect your on-premises network to your AWS environment.<br><br>For example, this AWS account can host shared directory services such as Microsoft Active Directory and contain resources to support integration with your on-premises DNS services.|`aws-account-infra-shared-prod@example.com`|`aws-account+infra-shared-prod@example.com`|
 
-## Other AWS accounts {#other-aws-accounts}
+### Team development and workload environments AWS accounts {#other-aws-accounts}
 
 |AWS Account Name|Purpose|Email Address Example|"+" Addressing Example|
 |---|---|---|---|
