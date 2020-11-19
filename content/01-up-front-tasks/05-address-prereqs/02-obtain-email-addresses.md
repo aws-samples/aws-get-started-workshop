@@ -37,13 +37,13 @@ For example: [aws-account1+management@example.com](mailto:aws-account+management
 
 ## Management AWS account {#initial-aws-accounts}
 
-|AWS Account Name|Purpose|Email Address Example|Plus Addressing Example|
+|AWS Account Name|Purpose|Email Address Example|"+" Addressing Example|
 |---|---|---|---|
 |**`management`**|You'll either create a new management AWS account or reuse an existing compatible AWS account.|`aws-account-management@example.com`|`aws-account+management@example.com`|
 
 ## Foundational AWS accounts {#foundation-aws-accounts}
 
-|AWS Account Name|Purpose|Email Address Example|Plus Addressing Example|
+|AWS Account Name|Purpose|Email Address Example|"+" Addressing Example|
 |---|---|---|---|
 |**`Audit`**|Created by AWS Control Tower.|`aws-account-audit@example.com`|`aws-account+audit@example.com`|
 |**`Log archive`**|Created by AWS Control Tower.|`aws-account-log-archive@example.com`|`aws-account+log-archive@example.com`|
@@ -53,8 +53,8 @@ For example: [aws-account1+management@example.com](mailto:aws-account+management
 
 ## Other AWS accounts {#other-aws-accounts}
 
-|AWS Account Name|Purpose|Email Address Example|Plus Addressing Example|
+|AWS Account Name|Purpose|Email Address Example|"+" Addressing Example|
 |---|---|---|---|
 |**`dev-<team identifier>`**|A team development environment for your builder team that needs to experiment, develop, and perform early testing of their initial workloads.<br><br>You should 1) identify how many distinct teams will be developing and performing early testing of your initial workloads and 2) arrive at an AWS account name and email address for each team.|`aws-account-dev-<team identifier>@example.com`|`aws-account+dev-<team identifier>@example.com`|
-|**`workloads-test-<workload group identifier>`**|Formal test environments for your business-oriented workloads and data.<br><br>You should 1) identify how many distinct groups of related workloads you'll initially be supporting and 2) arrive at an AWS account name and email address for each distinct group.<br><br>For example `workloads-test-sap`, and `workloads-prod-sap`.|`aws-account-workloads-test-<workload-group-identifier>@example.com`|`aws-account+workloads-test-<workload-group-identifier>@example.com`|
+|**`workloads-test-<workload group identifier>`**|Formal test environments for your business-oriented workloads and data.<br><br>You should 1) identify how many distinct groups of related workloads you'll initially be supporting and 2) arrive at an AWS account name and email address for each distinct group.<br><br>For example `workloads-test-vdi` and `workloads-prod-vdi` for a set of accounts supporting virtual desktop infrastructure (VDI) workloads.|`aws-account-workloads-test-<workload-group-identifier>@example.com`|`aws-account+workloads-test-<workload-group-identifier>@example.com`|
 |**`workloads-prod-<workload group identifier>`**|Environment where your initial production workloads and data will reside.|`aws-account-workloads-prod-<workload-group-identifier>@example.com`|`aws-account+workloads-prod-<workload-group-identifier>@example.com`|
