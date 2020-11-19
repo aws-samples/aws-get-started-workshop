@@ -12,6 +12,12 @@ SPDX-License-Identifier: CC-BY-SA-4.0
 
 After you've established your team development environments to support experimentation, development, and early testing, you will soon need to support formal testing and eventually production hosting of your first few proof of value workloads.
 
+This step should take about 20 minutes to complete.
+
+{{< toc >}}
+
+## Overview
+
 The following diagram represents the addition of test and production AWS accounts to your initial AWS environment. A set of optional networks are also depicted.
 
 [![Initial Test and Production Environments in Single AWS Region](/images/04-test-prod/initial-foundation-test-prod-single-region.png?height=600px)](/images/04-test-prod/initial-foundation-test-prod-single-region.png)
@@ -72,11 +78,25 @@ Over time, if you apply automation to deploying and managing workloads, then you
 
 ## Networking
 
-If your initial proof of value workloads don't depend on networking, you can skip this section. For example, if your initial workload uses Amazon CloudFront for content delivery network (CDN) and Amazon S3 for static web site storage, then you may not need networking in your test and production accounts.  Similarly, use of many of the serverless services such as AWS Lambda and Amazon DynamoDB don't require networks in your environment.
+If your initial proof of value workloads don't depend on networking, you can skip this section. For example, if your initial workload uses Amazon CloudFront for content delivery network (CDN) and Amazon S3 for static web site storage, then you may not need networking in your test and production accounts.  Similarly, use of many of the serverless services such as AWS Lambda and Amazon DynamoDB don't require the use of VPCs.
+
+### Test and production mirror each other
+
+We recommend that your test and production network design mirror each other so that your teams can test changes to their workloads in a production-like test environment.  Doing so will help your teams discover and address issues before you deploy changes to the production environments.
 
 ### Dedicated VPC per account
 
-If the workload does require a VPC, your Network Administrators will create a VPC that resides in the test and prod workload accounts.  This will allow for more isolation and workload-specific VPC configuration than you would typically need in development scenarios
+In support of your first few test and production AWS environments, we recommend that you start with a dedicated VPC for each environment. Use of dedicated VPCs helps enable further isolation between your test and production environments. 
+
+Additionally, as you expand your use of AWS and potentially create more test and production environments for different workloads, use of a dedicated VPC per test and production environment will help you further isolate different workloads from each other.
+
+{{% notice info %}}
+**Why not use shared subnets for test and production?** In support of team development environments, use of shared subnets across different team development environments may meet your requirements given that you might not have as strict of isolation requirements between team development environments. In this case, shared subnets can make it easier for you to centrally manage the VPC resources supporting the team development environments.
+{{% /notice %}}
+
+{{% notice tip %}}
+**Learn more about sharing VPC resources** If you'd like to consider using shared subnets for your initial test and production environments see [NET320-R1 - The right AWS network architecture for the right reason](https://youtu.be/Ot1kcQfUIdg?t=1003) for more background on the benefits and practical considerations of sharing VPC resources. Also see [Using VPC Sharing for a Cost-Effective Multi-Account Microservice Architecture](https://aws.amazon.com/blogs/architecture/using-vpc-sharing-for-a-cost-effective-multi-account-microservice-architecture/) for an example use case.
+{{% /notice %}}
 
 ### Secure internet integration
 

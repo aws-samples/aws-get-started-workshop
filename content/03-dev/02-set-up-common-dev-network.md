@@ -16,7 +16,7 @@ This step should take about 60 minutes to complete.
 
 {{< toc >}}
 
-## 1. Review Initial Network Design
+## 1. Review initial network design
 
 As mentioned in the [Initial Development Environment Solution Overview]({{< relref "01-review-dev-solution" >}}), it's recommended that you start with a single centrally managed development VPC that has a set of public and private subnets of which only the private subnets will be shared across all team development AWS accounts.
 
@@ -30,7 +30,7 @@ At least one public subnet will have a NAT Gateway that enables workloads in any
 
 [![Centrally Managed Development Network Details](/images/03-dev/initial-foundation-dev-network-details.png)](/images/03-dev/initial-foundation-dev-network-details.png)
 
-## 2. Create network-prod AWS Account
+## 2. Create network-prod AWS account
 
 In AWS Control Tower, provision a new **network-prod** AWS account that will initially contain the centrally managed development VPC.
 
@@ -66,11 +66,11 @@ It will take a few minutes to enroll the new account. You can check the status i
 **You can change AWS account settings later:** Configuration settings of the AWS accounts you provision via Account Factory shouldn’t be considered static.  Nearly every part of an AWS account can be changed and updated at a later date. See [Account Factory](https://docs.aws.amazon.com/controltower/latest/userguide/account-factory.html) for more details.
 {{% /notice %}}
 
-## 3. Perform Post AWS Account Creation User Configuration
+## 3. Perform post AWS account creation user configuration
 
 Once you create a new AWS account using Account Factory, there are several user account related tasks that you should perform to enhance the security of your environment.
 
-### Remove Individual Access to the New AWS Account
+### Remove individual access to the new AWS account
 
 Since AWS Control Tower's Account Factory automatically grants the AWS SSO user specified in the Account Factory parameters administrative access to the newly created AWS account, you should remove this individual access.  Since you'll grant your Cloud Administrators access to the new AWS account using their AWS SSO group in a subsequent step, there's no need to leave this individual access in place.
 
@@ -80,13 +80,13 @@ Since AWS Control Tower's Account Factory automatically grants the AWS SSO user 
 4. Select **`Remove access`** from the **`User/group`** entry that matches the AWS SSO email address you supplied in the previous step.
 5. Select **`Remove access`** to confirm removal.
 
-### Initialize AWS Account's Root User  
+### Initialize AWS account's root user  
 
 1. **Set AWS Account Root User Password**: See [Log In as Root User](https://docs.aws.amazon.com/controltower/latest/userguide/best-practices.html#root-login) in the AWS Control Tower documentation for instructions to set the root user’s password.
 
 2. **Enable Multi-Factor Authentication (MFA)**: See [Enable MFA on the AWS Account Root User](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html#id_root-user_manage_mfa) for instructions to enable MFA.
 
-## 4. Enable Foundation Team Members Access
+## 4. Enable foundation team members access
 
 Since Cloud Administrators won't automatically be granted sufficient access to the newly created AWS account, you need to enable this access each time you create a new AWS account via AWS Control Tower's Account Factory.
 
@@ -102,17 +102,18 @@ Since Cloud Administrators won't automatically be granted sufficient access to t
 
 Now you've enabled all users who are part of the Cloud Administrator group in AWS SSO administrator access to the **network-prod** AWS account.
 
-## 5. Determine IP Address CIDR Blocks {#dev-cidr}
+## 5. Determine IP Address CIDR blocks {#dev-cidr}
 
 If you're just experimenting and don't care which IP address CIDR block is used to build the centrally managed development VPC, you can move to the next step, [Provision Development VPC]({{< relref "#provision-dev-vpc" >}}).
 
 Otherwise, if you have a formally assigned CIDR block to use, in this step you'll:
 
-1. Review Default VPC Topology
-2. Determine VPC CIDR Block
-3. Determine Subnet CIDR Blocks
+1. Review VPC topology
+2. Determine VPC CIDR block
+3. Determine subnet CIDR blocks
+4. Document CIDR block usage
 
-### Review Default VPC Topology
+### 5.1 Review VPC topology
 
 The default parameters of the AWS CloudFormation template that you will use in the next step will result in a VPC with:
 * 2 tiers of subnets:
@@ -121,17 +122,20 @@ The default parameters of the AWS CloudFormation template that you will use in t
 * 3 subnets for each tier.
 * Subnets are mapped across 3 Availability Zones (AZs).
 
-The CloudFormation template requires you to supply a CIDR block for each of the following:
-
+Using the default parameters, the CloudFormation template requires you to supply a CIDR block for each of the following:
 * Overall VPC
 * Public subnets 1, 2, and 3
 * Private subnets 1, 2, and 3
 
 To keep things simple, you can size the subnets identically.
 
-### Determine VPC CIDR Block
+### 5.2 Determine VPC CIDR block
 
-If your Network team has supplied a relatively large non-overlapping CIDR block, for example a `/16` - `/20`, you should consider using only a subset of that block for your centrally managed development VPC so that the remaining address space can be used in support of test and production networks.  Otherwise, if you've been allocated a `/21` - `/22`, then you should use the entire block for the centrally managed development VPC.
+As a result of your up front tasks to [Obtain a Non-Overlapping IP Address Block]({{< relref "03-obtain-ip-address-range" >}}), your Network team may have already supplied a relatively large non-overlapping CIDR block for your use of AWS.
+
+You should use only a subset of the overall block for your centrally managed development VPC so that the remaining address space can be used in support of test and production networks.
+
+Since you will be subdividing the CIDR block for your centrally managed development across 6 subnets: 3 public + 3 private and you may have multiple teams sharing the common development network, you should allocate at least a `/19` or `/20` CIDR block for your centrally managed development.
 
 If you need to break down a larger block:
 
@@ -141,11 +145,9 @@ If you need to break down a larger block:
 4. Click **`Update`**.  
 5. In the table at the bottom, click the **`Divide`** link to break down the block into smaller blocks.  
 
-When you've reached block sizes from **`/20`** - **`/22`**, select a block size of most interest to you and record that CIDR range so that you can use it in the next step.
+### 5.3 Determine subnet CIDR blocks
 
-### Determine Subnet CIDR Blocks
-
-Once you've determined the VPC CIDR block, breaking it down into an equal size block per subnets is straightforward.
+Once you've determined the VPC CIDR block, you can use the following steps to break it down into an equal size block per subnet:
 
 1. Access the [Visual Subnet Calculator](http://www.davidc.net/sites/default/subnets/subnets.html)
 2. Enter your network address without the mask portion **`/nn`** the **`Network Address`** field.
@@ -154,7 +156,11 @@ Once you've determined the VPC CIDR block, breaking it down into an equal size b
 5. In the table at the bottom, click the **`Divide`** links to start subdividing the larger block into 6 blocks of equal size.
 6. Note the first 6 blocks and supply them as the subnet CIDR blocks in the next step.
 
-## 6. Provision Development VPC {#provision-dev-vpc}
+### 5.4 Document CIDR block usage
+
+Once you've determine the CIDR block allocations for your team development VPC, you should document the allocation in your system configuration documentation. If you use an IP Address Management (IPAM) tool, you should also be able to register the use of these CIDR blocks in that tool.
+
+## 6. Provision development VPC {#provision-dev-vpc}
 
 You can use this [sample AWS CloudFormation template](https://github.com/aws-samples/vpc-multi-tier) to easily deploy your centrally managed development network.
 
@@ -174,7 +180,7 @@ Now create a new AWS CloudFormation stack using the sample template you download
 3. Select **`Upload a template file`**.
 4. Select **`Choose file`** to select the downloaded template file from your desktop.
 5. Select **`Next`**.
-6. Enter a **`Stack name`**. For example, **`dev-infra-shared-vpc`**.
+6. Enter a **`Stack name`**. For example, **`infra-dev-shared-vpc`**.
 7. In **`Parameters`**:
 
 |Parameter|Guidance|
@@ -192,7 +198,7 @@ Leave all of the other parameters at their default settings unless you're comfor
 
 In the **`Events`** tab, monitor the progress of the stack creation process. After 5 or so minutes, creation of the stack should complete.
 
-## 7. Review Development VPC
+## 7. Review development VPC
 
 Review the newly created VPC and associated resources.
 
@@ -207,11 +213,11 @@ Review the newly created VPC and associated resources.
 9. Select the log group associated with the VPC Flow Logs. For example, `/infra/dev-shared/flowlogs`.
 10. Explore the log streams. You should see a log stream for each Elastic Network Interface (ENI) used in the VPC. For example, each NAT Gateway has one ENI. Each entry in a log stream represents the source, destination, and other overall information about the network traffic flowing through the ENI.
 
-## 8. Share Private Subnets With Development OUs {#share-dev-subnets}
+## 8. Share private subnets With development OUs {#share-dev-subnets}
 
 Now that the centrally managed development VPC has been provisioned, your next step is to share the private subnets with all of the AWS accounts that will become part of the development OUs that you created earlier.  
 
-### Enable Resource Sharing in AWS Organizations
+### Enable resource sharing in AWS organizations
 
 This is a one-time operation.
 
@@ -222,7 +228,7 @@ This is a one-time operation.
 5. Select **`Settings`**.
 6. Select **`Enable sharing with AWS Organizations`**.
 
-### Obtain the IDs of the Development OUs
+### Obtain the IDs of the development OUs
 
 While you're in the master AWS account, obtain and record the resource ID of each of the two development OUs:
 
@@ -235,7 +241,7 @@ While you're in the master AWS account, obtain and record the resource ID of eac
 4. Copy the **`ID`** of the form `ou-szfb-rixl8jqc` (example) so that you can refer to it in the next step.
 5. Perform the same task for the **`workloads_dev`** OU to make a copy of its OU ID.
 
-### Create a Resource Share
+### Create a resource share
 
 1. As a Cloud Administrator, use your personal user to log into AWS SSO.
 2. Select the **`network-prod`** AWS account.

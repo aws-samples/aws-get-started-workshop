@@ -10,10 +10,6 @@ Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 SPDX-License-Identifier: CC-BY-SA-4.0
 {{% /comment %}}
 
-{{% notice note %}}
-Review Note: This section is an early draft and undergoing reviewing and editing.
-{{% /notice %}}
-
 In this section your Security and Cloud Administrators will provision an initial set of security guardrails for controlling access within your test and production workloads AWS accounts.
 
 {{% notice tip %}}

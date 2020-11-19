@@ -10,10 +10,6 @@ Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 SPDX-License-Identifier: CC-BY-SA-4.0
 {{% /comment %}}
 
-{{% notice note %}}
-Draft Review Note: This section is an early draft and undergoing reviewing and editing.
-{{% /notice %}}
-
 If you've followed this guide, you've already created the Organizational Units (OUs) for your workload, and provisioned an initial account in the `workloads_dev` OU.  This step assumes you are ready to provision In this step your Cloud Administrators will create new AWS accounts dedicated for your workload via AWS Control Tower's Account Factory.  
 
 For purposes of this guide, we presume to create one production and one test account for the given workload.  If you've followed the steps closely so far, you've created a foundation that will scale to manage many accounts with a minimum of overhead.  

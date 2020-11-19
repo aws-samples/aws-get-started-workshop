@@ -10,19 +10,25 @@ Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 SPDX-License-Identifier: CC-BY-SA-4.0
 {{% /comment %}}
 
+After you've established your base foundation, you can optionally establish the foundation for your team development environments.
+
+This step should take about 20 minutes to complete.
+
+{{< toc >}}
+
+## Overview
+
 The following diagram represents the recommended configuration of an initial set of team development environments.
 
 [![Initial Development Environment](/images/03-dev/initial-foundation-dev.png?height=600px)](/images/03-dev/initial-foundation-dev.png)
 
-Key aspects of the initial solution include:
-
-## Team Development AWS Accounts
+## Team development AWS accounts
 
 Each builder team is allocated a distinct team development AWS account to act as a resource container for the AWS resources a team creates and manages on its own.  Since AWS service costs are automatically reported for each AWS account, using a distinct AWS account for each team’s development needs is a convenient way to make costs visible and attributable to each team.
 
 In addition to your initial application and data engineering teams that need access to the AWS platform, you should view your initial cloud and security administrators as a team of builders in its own right that should have its own AWS account for its own work to iterate on, develop, and perform early testing of changes to the foundation.
 
-## Common Development Network {#common-development-network}
+## Common development network {#common-development-network}
 
 A centrally managed development network in the form of an AWS Virtual Private Cloud (VPC) is used to support the networking needs of builder teams for their development tasks.  Your Cloud Administrators will provision this centrally managed VPC to a new "Network" AWS account and share a common set of private subnets with team development AWS accounts.
 

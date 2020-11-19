@@ -10,10 +10,6 @@ Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 SPDX-License-Identifier: CC-BY-SA-4.0
 {{% /comment %}}
 
-{{% notice note %}}
-Draft Review Note: This section is an early draft and undergoing reviewing and editing.
-{{% /notice %}}
-
 In this step your Security and Cloud Administrators will provision resources to control the extent of access workload administrators have in your test and production workload AWS accounts.
 
 This step should take about 10 minutes to complete.

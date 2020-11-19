@@ -10,65 +10,71 @@ Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 SPDX-License-Identifier: CC-BY-SA-4.0
 {{% /comment %}}
 
-{{% notice note %}}
-Review Note: This section is an early draft and undergoing reviewing and editing.
-{{% /notice %}}
-
 In this step your Cloud Administrators will review the solution's networking requirements and provision VPCs in the workload accounts if required.
+
+{{% notice tip %}}
+If you've determined that your initial workloads do not require VPC networking support, you can skip this section and proceed to [Onboard Workload Admins to Test and Production AWS Accounts]({{< relref "06-onboard-workload-admins" >}}).
+{{% /notice %}}
 
 This step should take about 60 minutes to complete.
 
 {{< toc >}}
 
-## 1. Review Networking Requirements
-{{% notice tip %}}
-If you've determined that the workload will not require VPC networking support, you can skip this step.
+## 1. Determine initial network design
+
+First, determine the overall topology of your VPC design in support of your test and production environments.
+
+### Dedicated VPC for each test and production environment
+
+As mentioned in the [Review Test and Production Environments Solution]({{< relref "01-review-test-prod-solution" >}}), it's recommended that you start with using a dedicated VPC per test and production environment.
+
+### Availability zones
+
+In those AWS regions in which at least 3 Availability Zones (AZs) are available for customer use, it's recommended that your initial set of VPCs have subnets in each of the 3 AZs so that your teams can leverage deployment architectures and AWS services that can take advantage of 3 AZs. At a minimum, we recommend using at least 2 AZs in each tier of your VPC.
+
+### Public and private subnets
+
+If you workloads in your test and production environments require either egress or ingress access to the internet, then it's recommended that you either establish a set of public subnets in your test and production VPCs or you consider alternative architectures.
+
+As a starting point, the following steps walk you through setting up test and production VPCs that contain only private subnets.  Depending on your needs for internet integration, you can include public subnets and other resources in your initial VPC topology.
+
+{{% notice note %}}
+**Options for internet integration:** Draft Review Note: Provide references to existing AWS documentation, guides, and/or session videos that walk through the internet integration scenarios.
 {{% /notice %}}
 
-### Dedicated VPCs
-Unlike the development/sandbox accounts, test and production environments would typically call for dedicated VPCs.  Dedicated VPCs increase isolation of the accounts and provide additional flexibility in certain deployment scenarios.
+[![Test and Production Network Details](/images/04-test-prod/initial-foundation-test-prod-single-region.png?height=600px)](/images/04-test-prod/initial-foundation-test-prod-single-region.png)
 
-### Subnets and Availability Zones
-In those AWS regions in which at least 3 Availability Zones (AZs) are available for customer use, it's recommended that your initial set of VPCs have subnets in each of the 3 AZs so that your builder teams can experiment with and perform early testing of workloads and AWS services that can take advantage of 3 AZs.
+## 2. Determine IP address CIDR blocks
 
-### Public and Private Subnets
-At least one public subnet will have a NAT Gateway that enables workloads in any of the private subnets to send traffic outbound to the Internet. For example, to enable workloads to download content from Internet accessible source code and package repositories.
-
-{{% notice tip %}}
-**Option to filter outbound Internet traffic:** As you progress in your journey, you may transition from this initial approach of providing builder teams with unfiltered outbound or egress Internet access via the initial set of public subnets and NAT Gateway to a more secure architecture where all Internet egress traffic is routed through your standard enterprise edge security services so that all egress traffic is inspected for compliance. This capability is highlighted in the [optional capabilities]({{< relref "05-extend" >}}).
-{{% /notice %}}
-
-[![Test and Production Network Details](/images/04-test-prod/initial-foundation-test-prod-single-region.png)](/images/04-test-prod/initial-foundation-test-prod-single-region.png)
-
-## 2. Determine IP Address CIDR Blocks
 If you have a formally assigned CIDR block to use, in this step you'll:
+1. Review VPC topology
+2. Determine VPC CIDR block
+3. Determine subnet CIDR blocks
+4. Document CIDR block usage
 
-1. Review Default VPC Topology
-2. Determine VPC CIDR Block
-3. Determine Subnet CIDR Blocks
+### 2.1 Review VPC topology
 
-### Review Default VPC Topology
+At a minimum, we recommend that you provision a topology of:
+* A private tier of subnets
+* 3 subnets for each tier
+* Each subnet is associated with an Availability Zone (AZ) resulting in the use of 3 AZs.
 
-The default parameters of the AWS CloudFormation template that you will use in the next step will result in a VPC with:
-* 2 tiers of subnets:
-  * Public tier
-  * Private tier
-* 3 subnets for each tier.
-* Subnets are mapped across 3 Availability Zones (AZs).
-
-The CloudFormation template requires you to supply a CIDR block for each of the following:
+In support of this topology, you will need to supply a CIDR block for each of the following:
 
 * Overall VPC
-* Public subnets 1, 2, and 3
 * Private subnets 1, 2, and 3
 
 To keep things simple, you can size the subnets identically.
 
-### Determine VPC CIDR Block
-{{% notice tip %}}
-Allocate a distinct CIDR range for each AWS account if possible to allow for ease of future VPC peering and/or hybrid connectivity scenarios.  As you will be subdividing this CIDR block into six different subnets, please try and allocate at minimum a `/20` and ideally a `/18` for each workload account to allow for scale-out.
-{{% /notice %}}
-If you followed earlier instructions, your Network team has supplied a relatively large non-overlapping CIDR block, for example a `/16` - `/20`. You should strive to use a distinct CIDR range for each VPC you build, so make sure it's different from what you've previously used for [your shared development VPC]({{< relref "02-set-up-common-dev-network#dev-cidr" >}})
+If you need to provide internet access to workloads in your test and production VPCs, you'll need to account for a set of public subnets to be deployed in each AZ.
+
+### 2.2 Determine VPC CIDR block
+
+As a result of your up front tasks to [Obtain a Non-Overlapping IP Address Block]({{< relref "03-obtain-ip-address-range" >}}), your Network team may have already supplied a relatively large non-overlapping CIDR block for your use of AWS. 
+
+Since you should strive to use non-overlapping CIDR ranges across all of your VPCs in AWS and your on-premises environments, you'll want to ensure that you identify a distinct set of CIDR blocks for your test and production VPCs.
+
+Since you will be subdividing the CIDR block for each account into either 3 (private subnets only) or 6 (public + private subnets) subnets, try to allocate at least either a `/20` in the case of private only subnets or `/19` in the case of public + private subnets.
 
 If you need to break down a larger block:
 
@@ -78,56 +84,55 @@ If you need to break down a larger block:
 4. Click **`Update`**.  
 5. In the table at the bottom, click the **`Divide`** link to break down the block into smaller blocks.  
 
-When you've reached block sizes from **`/20`** - **`/22`**, select a block size of most interest to you and record that CIDR range so that you can use it in the next step.
+### 2.3 Determine subnet CIDR blocks
 
-### Determine Subnet CIDR Blocks
-
-Once you've determined the VPC CIDR block, breaking it down into an equal size block per subnets is straightforward.
+Once you've determined the VPC CIDR block, you can use the following steps to break it down into an equal size block per subnet:
 
 1. Access the [Visual Subnet Calculator](http://www.davidc.net/sites/default/subnets/subnets.html)
 2. Enter your network address without the mask portion **`/nn`** the **`Network Address`** field.
 3. Enter the size of allocated block in the **`Mask bits`** field.
 4. Click **`Update`**.  
 5. In the table at the bottom, click the **`Divide`** links to start subdividing the larger block into 6 blocks of equal size.
-6. Note the first 6 blocks and supply them as the subnet CIDR blocks in the next step.
+6. Note the first 3 or 6 blocks and supply them as the subnet CIDR blocks in the next step.
 
-## 3. Provision Prod Workload VPC {#provision-prod-vpc}
+### 2.4 Document CIDR block usage
 
-You can use this [sample AWS CloudFormation template](https://github.com/aws-samples/vpc-multi-tier) to easily deploy your centrally managed development network.
+Once you've determine the CIDR block allocations for your test and production VPCs, you should document these allocations in your system configuration documentation. If you use an IP Address Management (IPAM) tool, you should also be able to register the use of these CIDR blocks in that tool.
+
+## 3. Provision test workloads VPC {#provision-test-vpc}
+
+You can use this [sample AWS CloudFormation template](https://github.com/aws-samples/vpc-multi-tier) to provision a VPC to your test environment.
 
 Download the sample AWS CloudFormation template [vpc-multi-tier.yml](https://raw.githubusercontent.com/aws-samples/vpc-multi-tier/master/vpc-multi-tier.yml) to your desktop. You can review the [README](https://github.com/aws-samples/vpc-multi-tier/blob/master/README.md) to understand the role of this template.
 
-Next, access the `workload-prod` AWS account:
+Next, access the `workloads-test-<workload-id>` AWS account:
 
 1. As a Cloud Administrator, use your personal user to log into AWS SSO.
-2. Select the **`workload-prod-<workloadId>`** AWS account.
+2. Select the **`workloads-test-<workload-id>`** AWS account.
 3. Select **`Management console`** associated with the **`AWSAdministratorAccess`** role.
 4. Select the appropriate AWS region.
 
-Now create a new AWS CloudFormation stack using the sample template you downloaded to your desktop:
+Create a new AWS CloudFormation stack using the sample template you downloaded to your desktop:
 
 1. Navigate to **`CloudFormation`**.
 2. Select **`Create stack`** and **`With new resources`**.
 3. Select **`Upload a template file`**.
 4. Select **`Choose file`** to select the downloaded template file from your desktop.
 5. Select **`Next`**.
-6. Enter a **`Stack name`**. For example, **`prod-infra-vpc`**.
+6. Enter a **`Stack name`**. For example, **`infra-test-<workload-id>-vpc`** or **`infra-prod-<workload-id>-vpc`** depending on the context.
 7. In **`Parameters`**:
 
 |Parameter|Guidance|
 |---------|--------|
 |**`Business Scope`**|Replace `example` with your organization identifier or stock ticker if that applies. This value is used as a prefix in the name of some of the VPC-related cloud resources. For example, in the name of the IAM role used to support VPC flow logs.|
-|**`VPC Name`**|Change to **`prod`**|
-|**`Cidr`**|Enter values for the `pVpcCidr`, `pTier1..`, and `pTier2...` CIDR blocks from the prior step. You can ignore the `pTier3...` parameters because only two tiers - public and private - are being provisioned by default.|
+|**`VPC Name`**|Change to **`test-<workload-id>`** or **`prod-<workload-id>`** depending on the context.|
+|**`VPC CIDR Block`**|Enter the overall CIDR block to be assigned to this VPC.|
+|**`Create Internet Gateway?`**|Set to `false` if you're not provisioning a tier of public subnets.|
+|**` Create NAT Gateways?`**|Set to `false` if you're not provisioning a tier of public subnets.|
+|**`Tier 1 Create?`**|Set to `false` if you're not provisioning a tier of public subnets.|
+|**`Tier 2 AZ n - CIDR`**|Enter the CIDR block for each of the private tier subnets.|
 
-Leave all of the other parameters at their default settings unless you're comfortable changing them.  You can always easily create another stack to experiment with other parameter values. Review the [README](https://github.com/aws-samples/vpc-multi-tier/blob/master/README.md) for details on parameters.
-
-{{% notice info %}}
-**If you have reviewed guidance above and you do not need public subnets, set the following parameters:**
-- `pTier1Create`: false
-- `pCreateNatGateways`: false
-- `pCreateInternetGateways`: false
-{{% /notice %}}
+Leave all of the other parameters at their default settings unless you're comfortable changing them.  For example, if you intend to set up a public tier of subnets. You can always easily create another stack to experiment with other parameter values. Review the [README](https://github.com/aws-samples/vpc-multi-tier/blob/master/README.md) for details on parameters.
 
 8. Select **`Next`**.
 9. Select **`Next`**.
@@ -136,6 +141,10 @@ Leave all of the other parameters at their default settings unless you're comfor
 
 In the **`Events`** tab, monitor the progress of the stack creation process. After 5 or so minutes, creation of the stack should complete.
 
-## 4. Provision Test Workload VPCs {#provision-test-vpc}
+## 4. Provision production workloads VPCs {#provision-prod-vpc}
 
-Repeat steps 1-3 above for the `workloads-test-<workloadId>` account.
+Repeat step 3 to provision a VPC with an identical topology, but with a different CIDR block in your `workloads-prod-<workload-id>` account.
+
+## 5. Optionally integrate with your on-premises network environment
+
+See [Connecting Your On-Premises Network to Your AWS Environment]({{< relref "01-hybrid-networking" >}}) if you have a need to connect your test and production workloads with resources in your on-premises environment.
