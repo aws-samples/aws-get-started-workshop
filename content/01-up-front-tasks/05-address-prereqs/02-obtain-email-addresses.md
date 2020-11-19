@@ -31,9 +31,9 @@ Use your standard internal process to request either DLs or shared mailboxes bas
 
 ## Use of “+” style email addresses
 
-If your email system supports the use of “+” style email addresses (also known as plus addressing or subaddressing) in which email multiple email addresses are aliased to the same email account or distribution list, then you might find it beneficial to use this form to consolidate the root user email addresses for either all or collections of AWS accounts to either one or a few actual email accounts.
+Your email system might support the use of “+” style email addresses (also known as plus addressing or subaddressing) in which multiple email addresses are aliased to the same email account or distribution list. If this is the case, then you might find it beneficial to use this feature to reduce the number of email accounts or DLs that you need to create in support of your AWS accounts.
 
-For example: [aws-account1+management@example.com](mailto:aws-account+management@example.com) and [aws-account1+audit@example.com](mailto:aws-account+audit@example.com) will be treated as unique addresses in AWS but your mail system would deliver messages for both of these addresses to the same [aws-account1@example.com](mailto:aws-account@example.com) email account or distribution list.
+For example, the addresses [aws-account1+management@example.com](mailto:aws-account+management@example.com) and [aws-account1+audit@example.com](mailto:aws-account+audit@example.com) will be treated as unique addresses in AWS, but with the use of plus addressing, your mail system would deliver messages for both of these addresses to the same [aws-account1@example.com](mailto:aws-account@example.com) email account or distribution list.
 
 ## AWS accounts and example email addresses
 
