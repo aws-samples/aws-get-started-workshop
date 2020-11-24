@@ -35,6 +35,8 @@ Your email system might support the use of “+” style email addresses (also k
 
 For example, the addresses [aws-account1+management@example.com](mailto:aws-account+management@example.com) and [aws-account1+audit@example.com](mailto:aws-account+audit@example.com) will be treated as unique addresses in AWS, but with the use of plus addressing, your mail system would deliver messages for both of these addresses to the same [aws-account1@example.com](mailto:aws-account@example.com) email account or distribution list.
 
+In 2020, Microsoft 365 introduced support for [plus addressing in Exchange Online](https://docs.microsoft.com/en-us/exchange/recipients-in-exchange-online/plus-addressing-in-exchange-online).
+
 ## AWS accounts and example email addresses
 
 ### Management AWS account {#initial-aws-accounts}
