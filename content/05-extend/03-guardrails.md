@@ -16,9 +16,9 @@ This section introduces guardrails, highlights how a set of predefined guardrail
 
 ## Introduction to guardrails
 
-Guardrails are governance rules for security, operations, and compliance that customers can select and apply enterprise-wide or to specific groups of accounts. 
+Guardrails are governance rules for security, operations, and compliance that you can define and apply either across your AWS environment or to specific groups of accounts.
 
-Guardrails protect users from making dangerous choices. While they can generally be overridden, we recommend that you make guardrails visible to the users of your AWS environment, so that they understand the choices they are making. A good guardrail should focus on the threat model and help mitigate a threat while using the underlying capability. As opposed to the guardrail either summarily denying use of a capability or making it impractical to use the capability.
+Guardrails protect users from making choices that aren't aligned with your overall requirements. While they can generally be overridden, we recommend that you make guardrails visible to the users of your AWS environment, so that they understand the choices they are making. A good guardrail should focus on the threat model and help mitigate a threat while using the underlying capability. As opposed to the guardrail either summarily denying use of a capability or making it impractical to use the capability.
 
 ## Types of guardrails
 
@@ -43,6 +43,8 @@ If you used this guide to set up your team development environments, you've alre
 You should review [Service control policies](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps.html) for an introduction to SCPs.  Additionally, review [Strategies for using SCPs](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps_strategies.html) to learn more about the differences between allow and deny lists.
 
 Since an SCP that is applied to an AWS Organizations OU will automatically apply to every account in the OU, you should be careful about testing and applying SCPs.
+
+See [AWS re:Inforce 2019 - Enforcing Security Invariants with AWS Organizations (SDD314)](https://www.youtube.com/watch?v=W30sx0hpY0Y) for an introduction to using guardrails via SCPs in a multi-account environment.
 
 ## AWS Control Tower and guardrails
 
