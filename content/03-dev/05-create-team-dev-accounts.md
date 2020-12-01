@@ -50,7 +50,7 @@ You'll follow these steps twice: Once to create the initial builder team develop
 |-----|---------------|
 |**`Account email`**|Consult the [set of AWS account root user email addresses]({{< relref "02-obtain-email-addresses" >}}) that you established earlier.|
 |**`Display name`**|**`dev-infra`** or **`dev-<team identifier>`**|
-|**`AWS SSO email`**|Use the email address of your **`AWS Control Tower Admin`** user in AWS SSO.  As long as you reference an existing AWS SSO user, the Account Factory will not create another AWS SSO user for this new AWS account.|
+|**`AWS SSO email`**|Provide the email address of one of your cloud administrators as registered in AWS SSO. As long as you reference an existing AWS SSO user, the Account Factory will not create another AWS SSO user for this new AWS account.|
 |**`AWS SSO First Name`**|**`AWS Control Tower`**|
 |**`AWS SSO Last Name`**|**`Admin`**|
 |**`Organizational unit`**|Select either **`infrastructure_dev`** or **`workloads_dev`**.|
@@ -79,9 +79,9 @@ Repeat these steps for the **`dev-<team identifier>`** AWS account.
 
 Perform the following steps for each of the new AWS accounts:
 
-1. **Set AWS Account Root User Password**: See [Log In as Root User](https://docs.aws.amazon.com/controltower/latest/userguide/best-practices.html#root-login) in the AWS Control Tower documentation for instructions to set the root user’s password.
+1. **Set AWS account root user password**: See [Log In as Root User](https://docs.aws.amazon.com/controltower/latest/userguide/best-practices.html#root-login) in the AWS Control Tower documentation for instructions to set the root user’s password.
 
-2. **Enable Multi-Factor Authentication (MFA)**: See [Enable MFA on the AWS Account Root User](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html#id_root-user_manage_mfa) for instructions to enable MFA.
+2. **Enable multi-factor authentication (MFA)**: See [Enable MFA on the AWS Account Root User](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html#id_root-user_manage_mfa) for instructions to enable MFA.
 
 ## 4. Provide Cloud Administrators Access to New AWS Accounts
 

@@ -48,7 +48,7 @@ Use AWS Control Tower Account Factory to provision the required production workl
 |-----|---------------|
 |**`Account email`**|Use email address that you've already identified.|
 |**`Display name`**|`workloads-test-<workload-id>`|
-|**`AWS SSO email`**|Use the email address of your **`AWS Control Tower Admin`** user in AWS SSO.  As long as you reference an existing AWS SSO user, the Account Factory will not create another AWS SSO user for this new AWS account.|
+|**`AWS SSO email`**|Provide the email address of one of your cloud administrators as registered in AWS SSO. As long as you reference an existing AWS SSO user, the Account Factory will not create another AWS SSO user for this new AWS account.|
 |**`AWS SSO First Name`**|**`AWS Control Tower`**|
 |**`AWS SSO Last Name`**|**`Admin`**|
 |**`Organizational unit`**|**`workloads_test`**.|
@@ -73,9 +73,9 @@ Since AWS Control Tower's Account Factory automatically grants the AWS SSO user 
 
 ### 3.2 Initialize AWS accounts' root user 
 
-1. **Set AWS Account Root User Password**: See [Log In as Root User](https://docs.aws.amazon.com/controltower/latest/userguide/best-practices.html#root-login) in the AWS Control Tower documentation for instructions to set the root user’s password.
+1. **Set AWS account root user password**: See [Log In as Root User](https://docs.aws.amazon.com/controltower/latest/userguide/best-practices.html#root-login) in the AWS Control Tower documentation for instructions to set the root user’s password.
 
-2. **Enable Multi-Factor Authentication (MFA)**: See [Enable MFA on the AWS Account Root User](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html#id_root-user_manage_mfa) for instructions to enable MFA.
+2. **Enable multi-factor authentication (MFA)**: See [Enable MFA on the AWS Account Root User](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html#id_root-user_manage_mfa) for instructions to enable MFA.
 
 ## 4. Create production workloads AWS account
 
