@@ -24,7 +24,7 @@ Be sure that your Active Directory domain is configured with granular AD groups 
 	* Some Granular Examples: AWS_Network_Administrators, AWS_SharedServices_Administrators, AWS_Master_BillingAdmins, AWS_Network_NetworkAdmins
 	* Some "overarching" Examples: AWS_GlobalAdministrators, AWS_GlobalNetworkAdmins, AWS_GlobalSecurityAdmins
 * Considering creating new AD groups and permission sets for personas that don't come out of the box -- Developers, for example.
-* Don't simply grant full Administrator to all users for an account. Taking the time to build out role-based access contributes to defense in depth, ensuring a more secure environment.
+* Don't simply grant full Administrator to all users for an account. Taking the time to build out role-based access contributes to defense in depth, helping to secure your environment.
 
 When you are ready to change AWS SSO over from the internal directory to Active Directory or a Third Party Identity Provider, take note of the implications of such a change **most notably** all existing entitlements will be lost -- so have your AD groups configured and your management account root username, password and MFA handy in case you are logged out. Alternatively you could use an IAM User in the management account as a backup. [Follow this guide](https://docs.aws.amazon.com/singlesignon/latest/userguide/manage-your-identity-source-change.html) to switch your AWS SSO identity source.
 

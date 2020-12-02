@@ -36,7 +36,7 @@ Once you’ve either identified a compatible existing AWS account or signed up f
 
 Your management AWS account will be the place in which your cloud administrators will use AWS Control Tower’s [Account Factory](https://docs.aws.amazon.com/controltower/latest/userguide/account-factory.html) via AWS Service Catalog to create new team development accounts.  You will use AWS Single Sign-On (AWS SSO) to create and manage groups and users in a locally managed directory.
 
-AWS Control Tower sets up a Log Archive AWS account to securely store logs such as AWS CloudTrail logs that record access to all AWS APIs across your AWS accounts and AWS Config logs that record all changes to AWS resources across your AWS accounts.
+AWS Control Tower sets up a Log Archive AWS account to help securely store logs such as AWS CloudTrail logs that record access to all AWS APIs across your AWS accounts and AWS Config logs that record all changes to AWS resources across your AWS accounts.
 
 ## Standard AWS Control Tower Guardrails
 

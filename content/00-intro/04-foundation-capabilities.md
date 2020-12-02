@@ -46,7 +46,7 @@ Initial degrees of foundational capabilities addressed by this guide include:
 **Security**
 * AWS account hardening
 * An initial set of guardrails to help ehance the security of your overall AWS environment
-* Centralized secure logging of AWS API calls and AWS resource configuration changes
+* Centralized logging of AWS API calls and AWS resource configuration changes
 * Federated access to help manage human user access to your AWS environment
 * Policies to help manage access to AWS accounts:
   * Cloud platform team access including cloud and security administration, audit, and finance

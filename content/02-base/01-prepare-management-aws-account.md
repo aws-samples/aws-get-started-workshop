@@ -18,7 +18,7 @@ This step should take about 20 minutes to create a new AWS management account an
 
 ## 1. Review the benefits of using multiple AWS accounts
 
-AWS accounts are coarse grained resource containers that help you isolate and secure different collections of cloud resources and data. Use of multiple AWS accounts can make your use of cloud more secure by providing clear ownership and control boundaries and lowering the blast radius of any particular set of cloud resources. 
+AWS accounts are coarse grained resource containers that help you isolate and help secure different collections of cloud resources and data. Use of multiple AWS accounts can help make your use of cloud more secure by providing clear ownership and control boundaries and lowering the blast radius of any particular set of cloud resources. 
 
 In support of your initial need for team development environments, this guide first leads you through the process to create an initial set of foundation and builder team development AWS accounts.  Later in the guide, you will create a series of test and production AWS accounts to isolate the formal test and production environments from your development environments.
 
@@ -47,7 +47,7 @@ Visit [Create an AWS Account](https://portal.aws.amazon.com/billing/signup#/star
 |Field|Description|Tips|
 |-----|------------|---|
 |**Email address**|A unique email address that identifies the AWS account and is the name of the AWS account root user.|Use the management AWS account [root user email address]({{< relref "02-obtain-email-addresses" >}}) that you already established. Since this email address is used to initially access your AWS account, be very careful that you enter the correct email address and that you have access to the email account.|
-|**Password**|A password for the AWS account root user.|Ensure that you secure this value. In a later step, you'll have the option to enable Multi-factor Authentication (MFA) - a highly recommended approach to secure your AWS account.|
+|**Password**|A password for the AWS account root user.|Ensure that you secure this value. In a later step, you'll have the option to enable Multi-factor Authentication (MFA) - a highly recommended approach to help secure your AWS account.|
 |**AWS account name**|A brief identifier for the AWS account.|For example, **`management`**. This value does not have to be unique and can be modified later on.|
 
 ### Set personal or professional
