@@ -11,7 +11,7 @@ SPDX-License-Identifier: CC-BY-SA-4.0
 
 Based on almost 14 years of experience in helping customers obtain business benefits of cloud adoption, AWS has defined the following mental model to represent the [stages of cloud adoption](https://aws.amazon.com/blogs/enterprise-strategy/the-journey-toward-cloud-first-the-stages-of-adoption/). 
 
-![Stages of Cloud Adoption](/images/00-intro/initial-foundation-stages-of-adoption.png)
+[![Stages of Cloud Adoption](/images/00-intro/initial-foundation-stages-of-adoption.png?height=500px)](/images/00-intro/initial-foundation-stages-of-adoption.png)
 
 Organizations leveraging this guide are typically in the “Project” stage of adoption during which they are starting with a relatively small set of people and a few projects to begin to understand how they can leverage the cloud to meet a business need.
 

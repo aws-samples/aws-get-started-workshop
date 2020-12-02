@@ -32,7 +32,7 @@ The guide also addresses a set of common additional capabilities that, for some 
 
 Later, after you've demonstrated success with the initial few projects, you will likely make larger investments during the foundation stage of your journey to support cloud adoption at scale.
 
-![Cloud Foundation](/images/00-intro/initial-foundation-foundation.png)
+[![Cloud Foundation](/images/00-intro/initial-foundation-foundation.png?height=600px)](/images/00-intro/initial-foundation-foundation.png)
 
 ## Foundation capabilities in scope
 
