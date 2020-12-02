@@ -10,31 +10,27 @@ Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 SPDX-License-Identifier: CC-BY-SA-4.0
 {{% /comment %}}
 
-In this step your Security and Cloud Administrators will provision resources to control the extent of access workload administrators have in your test and production workload AWS accounts.
+In this step your Security and Cloud Administrators will define and provision policies to control the extent of access workload administrators have in your test and production workload AWS accounts.
 
-This step should take about 10 minutes to complete.
+Depending on the extent of your workload administrator policy needs, this step can take 30 minutes to several hours to complete.
 
-## 1. Review and adjust example policy for workload administrators
+{{< toc >}}
 
-Depending on your requirements for controlling who can make changes to your production environments, you will likely need to modify the sample workload administrator access permissions applied in this section.
+## 1. Define IAM policies for your workload administrators
+
+You'll first need to define a set of IAM policies that can form the basis of an AWS SSO permission set that can be used to grant your workload administrators sufficient access to get their work done in their test and production environments.
+
+Since the permissions provided by these policies are largely dependent on the type of workload and the supporting AWS resources, this guide does not provide you with an example set of policies.
+
+See [Access management for AWS resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html) for an introduction to managing access via IAM.
+
+AWS provides predefined, AWS managed policies for common sets of permissions associated with many of the AWS services. You can browse the AWS managed policies by accessing the IAM service in the AWS management console and selecting **`Policies`**.
+
+Depending on the AWS services your initial workloads use, you might be able to reuse some of the AWS managed policies combined with custom policies that you create to suit your particular needs.
 
 ## 2. Create workload administrator permission set in AWS SSO
 
-Next, you'll create a custom permission set in AWS SSO to represent the initial iteration of an AWS IAM policy under which workload administrators will work in the workload specific AWS accounts.
-
-### Download and Customize Sample IAM Policy
-
-{{% notice note %}}
-Draft Review Note: We need to move away from using the team development example policy and provide an example that is more tailored toward the role of a workload administrator.
-{{% /notice %}}
-
-{{% notice note %}}
-To Do: Deliver the example policy and permission set as a CloudFormation template.
-{{% /notice %}}
-
-1. Download the sample policy [`example-infra-team-dev-saml.json`](/code-samples/iam-policies/example-infra-team-dev-saml.json) to your desktop.
-2. Open the file and replace all occurrences of **`example`** with a reference to your own organization's identifier.
-3. Replace **`infra-team-dev-boundary`** with **`infra-test-prod-boundary`**
+Once you've identified a set of policies that are suitable for your workload administrators, you'll need to create a permission set in AWS SSO so that you can assign the permissions to the test and production accounts and grant the appropriate team members access to those accounts using those permissions.
 
 ### Log in as a cloud administrator
 
@@ -51,15 +47,15 @@ To Do: Deliver the example policy and permission set as a CloudFormation templat
 5. Enter a **`Name`**. For example, **`example-infra-workload-admin`**. Replace **`example`** with your organization identifier.
 6. Enter a **`Description`**. For example, **`Day-to-day permissions used workload administrators in their test and prod AWS accounts`**.
 7. Set the **`Session duration`** to the desired value.
-8. Select the checkbox **`Create a custom permissions policy`**.
-9. Open the sample policy file that you just customized in a text editor, copy, and paste the content.
-
-{{% notice warning %}}
-**Replace `example` with your own identifier:** Before you select **`Create`**, in the permissions policy, ensure that you replace all occurrences of **`example`** with your own organization's identifier.  Otherwise, the permission set will not work as expected.
-{{% /notice %}}
-
-10. Select **`Next: Tags`**
-11. Select **`Next: Review`**
-12. Select **`Create`**
+8. Depending on whether you're starting with the use of AWS managed policies and/or using a policy that you've defined:
+  * Select **`Attach managed policies`** and select the AWS managed policies of interest.
+  * Select **`Create a custom permissions policy`** and paste the content of your custom policy.
+9. Select **`Next: Tags`**
+10. Select **`Next: Review`**
+11. Select **`Create`**
 
 Later, when you onboard the people who are playing the role of workload administrators to the new workload AWS accounts, you'll reference this permission set.
+
+## 3. Iterate on the workload administrator policy
+
+In the next section, after you've created the initial test and production AWS accounts, you should test the workload administrator permission set and supporting policies. You should adjust the policies based on the results of your testing and be prepared to evolve the policies over time.
