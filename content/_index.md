@@ -10,7 +10,7 @@ SPDX-License-Identifier: CC-BY-SA-4.0
 
 # Get Started with AWS for Production Workloads
 
-This guide helps you establish an initial environment in AWS that can help form the basis for hosting your first few proof of value workloads in production.
+This guide is intended to help you establish an initial environment in AWS that can help form the basis for delivering your first few proof of value workloads in production.
 
 {{% children showhidden="false" %}}
 
