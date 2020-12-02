@@ -1,8 +1,8 @@
 ---
 title: "Map People to Foundational Functional Roles"
-menuTitle: "4. Map People to Roles"
+menuTitle: "3. Map People to Roles"
 disableToc: true
-weight: 40
+weight: 30
 ---
 
 {{% comment %}}

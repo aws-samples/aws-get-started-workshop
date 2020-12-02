@@ -29,7 +29,7 @@ If your team needs to move very quickly in a matter of 1-2 days to establish you
 
 ## 2. Map Foundation Functional Roles to Existing AWS Groups {#map-foundation-functional-roles}
 
-Earlier in this guide you should have mapped your foundation team members to the [initial set of functional roles]({{< relref "04-map-people-to-foundation-roles.md" >}}) to be played in support of your AWS environment. 
+Earlier in this guide you should have mapped your foundation team members to the [initial set of functional roles]({{< relref "03-map-people-to-foundation-roles.md" >}}) to be played in support of your AWS environment. 
 
 The following table represents a mapping of those functional roles to a set of AWS SSO groups and permissions. Although AWS Control Tower automatically provisioned most of the AWS SSO groups, several of the groups in the table are not pre-defined. You will create these custom groups later in this section.
 
