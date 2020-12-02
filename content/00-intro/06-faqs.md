@@ -22,6 +22,12 @@ See [Project Information]({{< relref "06-project" >}})
 
 See [Change History]({{< relref "07-change-history" >}})
 
+### Q: How does this guide relate to AWS Control Tower immersion days?
+
+This guide leverages AWS Control Tower as a key enabler, but it does not dive deeply into AWS Control Tower features. This guide complements AWS Control Tower immersion days by focusing on helping customers establish a working end-to-end foundational AWS environment in support of their initial proof of value production workloads.  The foundation is based on an example reference implementation that represents a working real-world AWS environment.
+
+You don't need to participate in an AWS Control Tower immersion day in order to use this guide. However, you'll likely gain value from experiencing an AWS Control Tower immersion day so that you can learn how to take advantage of the broader set of AWS Control Tower features.
+
 ## Federated Access to AWS Platform
 
 ### Q: Why isn't federated access with an existing identity store addressed from the start?

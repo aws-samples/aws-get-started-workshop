@@ -56,6 +56,6 @@ Once you've identified a set of policies that are suitable for your workload adm
 
 Later, when you onboard the people who are playing the role of workload administrators to the new workload AWS accounts, you'll reference this permission set.
 
-## 3. Iterate on the workload administrator policy
+## 3. Iterate on the workload administrator permissions
 
 In the next section, after you've created the initial test and production AWS accounts, you should test the workload administrator permission set and supporting policies. You should adjust the policies based on the results of your testing and be prepared to evolve the policies over time.
