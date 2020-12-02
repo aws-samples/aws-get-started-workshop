@@ -10,7 +10,7 @@ Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 SPDX-License-Identifier: CC-BY-SA-4.0
 {{% /comment %}}
 
-This guide helps you establish a set of AWS foundational capabilities to help support your use of development, test, and production environments to host your first few initial workloads.  
+This guide helps you establish a set of AWS foundational capabilities to help support your use of development, test, and production environments to deliver your first few proof-of-value workloads in production. 
 
 {{< toc >}}
 
