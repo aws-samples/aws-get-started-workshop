@@ -14,25 +14,29 @@ This guide helps you establish a set of AWS foundational capabilities to help su
 
 {{< toc >}}
 
-## Workload-specific Capabilities
+## Workload-specific capabilities
 
 Other capabilities that are specific to your workloads and your desired Software Development Lifecycle (SDLC) and operational processes including supporting tools are not currently addressed by this guide. You'll layer those capabilities and solutions on top of the initial foundation capabilities addressed in this guide.
 
-## An Initial Foundation
+## An initial foundation
 
-Even in the early project stage of adoption, AWS recommends that an initial foundation be established that can be extended over time as you transition into the foundation stage to prepare for larger scale cloud adoption. This guide will help you establish the beginning of a secure foundation on AWS in support of your initial few projects.
+Even in the early project stage of adoption, AWS recommends that an initial foundation be established that can be extended over time as you transition into the foundation stage to prepare for larger scale cloud adoption. This guide will help you establish the beginning of a foundation on AWS in support of your initial few proof of value workloads in production.
 
-The guide starts with establishing an initial foundation in support of several development environments before it addresses how to extend your foundation to support deploying your first few workloads to test and production environments.  
+The guide leads you through the process of:
+1. Addressing a series of up front tasks that may require lead time depending on your internal processes.
+2. Setting up a base foundation of your new AWS environment.
+3. Extending the foundation to support team development environments.
+4. Extending the foundation to support of your first set of test and production environments.
 
-The guide also address a set of "fast follow" capabilities that, for some organizations, are required before those organizations either perform formal experiments and development in the cloud or move an initial set of workloads into production.
+The guide also addresses a set of common additional capabilities that, for some organizations, are required before those organizations either perform formal experiments and development in the cloud or move an initial set of workloads into production.
 
 Later, after you've demonstrated success with the initial few projects, you will likely make larger investments during the foundation stage of your journey to support cloud adoption at scale.
 
-![Cloud Foundation](/images/00-intro/foundation.png)
+![Cloud Foundation](/images/00-intro/initial-foundation-foundation.png)
 
-## Foundation Capabilities in Scope
+## Foundation capabilities in scope
 
-Initial forms of foundation capabilities addressed by this guide include:
+Initial degrees of foundational capabilities addressed by this guide include:
 
 **Your Initial Overall AWS Environment**
 * An initial AWS account structure
@@ -41,28 +45,18 @@ Initial forms of foundation capabilities addressed by this guide include:
 
 **Security**
 * AWS account hardening
-* Guardrails for overall AWS environment security
+* An initial set of guardrails to help ehance the security of your overall AWS environment
 * Centralized secure logging of AWS API calls and AWS resource configuration changes
-* Federated access to the AWS platform
-* Policies for managing access to AWS accounts:
+* Federated access to help manage human user access to your AWS environment
+* Policies to help manage access to AWS accounts:
   * Cloud platform team access including cloud and security administration, audit, and finance
   * Builder team access to team development environments
   * Least privileged workload administrative access to test and production environments
 
 **Networking**
-* Virtual networking for hosting workloads
-* On-premises network connectivity
+* Virtual networking for workloads that depend on networking
+* Hybrid on-premises network connectivity
 * Internet integration
 
 **Cost Management**
 * Centralized billing and cost management
-
-{{% notice note %}}
-**Review Note:** Insert a layered architecture diagram to highlight the foundational capabilities that you will establish via this guide in support of your first few workloads moving into production will be just the start of an ongoing establishment of foundational capabilities.  The upper layers of the diagram will show capabilites that are more workload and perhaps origanizational tool specific that are not addressed by the guide.  For example, what the customer puts into their team development AWS accounts is outside the scope of the guide.
-{{% /notice %}}
-
-## Progression of Foundation Capabilities
-
-{{% notice note %}}
-**Review Note:** This section will use the familiar notion of "crawl, walk, run" to emphasize that the initial set of capabilities and their degrees of realization as addressed in this guide is more akin to the "crawl" stage of cloud adoption and that further investment in the foundation is often needed as adoption expands. 
-{{% /notice %}}
