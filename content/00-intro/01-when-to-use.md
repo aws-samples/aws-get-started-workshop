@@ -12,8 +12,6 @@ SPDX-License-Identifier: CC-BY-SA-4.0
 
 This guide is intended to address the following use cases:
 
-{{< toc >}}
-
 ## You need to establish a new AWS environment for production workloads
 
 This guide is primarily intended for AWS customers who need to get an initial proof of value workload into production, but don't already have a suitable AWS environment established.

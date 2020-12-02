@@ -17,4 +17,4 @@ Organizations leveraging this guide are typically in the “Project” stage of 
 
 Once an organization has gained some benefit from the cloud by taking a few projects to production, an organization tends to move toward the "Foundation" stage in which they makes more extensive investments in their people, processes, and cloud foundation in support of scaling cloud adoption across the organization with the goal of gaining more extensive business benefits.
 
-This guide is focused on the helping organizations establish their initial AWS environment in the project stage of adoption. Typically, this is done in support of delivering a initial few proof-of-value workloads into production.
+This guide is focused on the helping organizations establish their initial AWS environment in the project stage of adoption. Typically, this is done in support of delivering a initial few proof of value workloads into production.
