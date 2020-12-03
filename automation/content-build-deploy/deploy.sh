@@ -10,7 +10,7 @@ set +vx
 if [ "$CUSTOM_CODEBUILD_GIT_PR" != '' ] ; then
   export DEPLOY_DIR="temp/prs/${CUSTOM_CODEBUILD_GIT_PR}";
 else
-  if [ "$CUSTOM_CODEBUILD_GIT_BRANCH_CLEAN" != 'master' ] ; then
+  if [ "$CUSTOM_CODEBUILD_GIT_BRANCH_CLEAN" != 'main' ] ; then
     export DEPLOY_DIR="temp/branches/${CUSTOM_CODEBUILD_GIT_BRANCH_CLEAN}";
   else
     export DEPLOY_DIR='';
