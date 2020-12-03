@@ -111,7 +111,7 @@ The following scenarios are just a few examples of when a builder team would ass
 * Deploy containers to Amazon ECS and EKS container orchestration services.
 
 {{% notice tip %}}
-**Best practice to use IAM service roles vs "service accounts":** In all of these examples, it's a best practice to use customer managed IAM service roles and policies and the associated short-term credentials to permit the workload access to other cloud resources on which they depend. This approach is more manageable and secure than the complexity and risks associated with managing and using workload specific "service accounts" in the form of IAM users and long-term  AWS access keys.
+**Best practice to use IAM service roles vs "service accounts":** In all of these examples, it's a best practice to use customer managed IAM service roles and policies and the associated short-term credentials to permit the workload access to other cloud resources on which they depend. This approach is more manageable and can be more secure than the complexity and risks associated with managing and using workload specific "service accounts" in the form of IAM users and long-term  AWS access keys.
 {{% /notice %}}
 
 ## Sample Implementation

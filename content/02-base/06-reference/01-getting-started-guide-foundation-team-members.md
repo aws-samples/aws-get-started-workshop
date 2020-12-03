@@ -57,7 +57,7 @@ When you make changes to AWS account names and AWS Organizations OU names outsid
 
 By following this guide, your foundation team has already established a foundation for security:
 
-* Leveraged AWS Control Tower to set up and govern a secure, compliant, multi-account AWS environment based on best practices established by working with thousands of enterprises.
+* Leveraged AWS Control Tower to set up and govern a compliant multi-account AWS environment based on best practices established by working with thousands of enterprises.
 * Established mandatory [Guardrails](https://docs.aws.amazon.com/controltower/latest/userguide/guardrails.html) to provide ongoing governance for your overall AWS environment. Additional guardrails are available and should be reviewed by your security administrator and team.
 * Established [AWS CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html) logging to capture all actions taken by users, roles and services across all of your AWS accounts.
 * Secured the root user of your AWS accounts with multi-factor authentication (MFA).
