@@ -30,7 +30,7 @@ Parameters:
   pBranch:
     Type: String
     Description: branch name to monitor
-    Default: master
+    Default: main
 
   FullRepoURL:
     Type: String
