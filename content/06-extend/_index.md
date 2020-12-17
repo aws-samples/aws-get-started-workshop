@@ -1,8 +1,8 @@
 ---
 title: 'Extend Your Foundation with Additional Capabilities'
-menuTitle: 'Common Additional Capabilities'
+menuTitle: 'Additional Capabilities'
 disableToc: true
-weight: 50
+weight: 60
 ---
 
 {{% comment %}}

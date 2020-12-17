@@ -56,7 +56,7 @@ AWS SSO includes the ability to manage permission sets that define which groups 
 
 ## Team Development Environments
 
-This guide provides you with the option to set up the foundation for team development environments. Even if your initial proof of value workloads don't involve traditional application development teams, your technologists or builders will likely benefit from having access to team development environments. You're encouraged to review the benefits of [Establishing Team Development Environments]({{< relref "03-dev" >}}) before making a decision to skip setting up these environments. If you still decide to defer setting up team development environments, you can return to this guide later and follow the set up instructions.
+This guide provides you with the option to set up the foundation for team development environments. Even if your initial proof of value workloads don't involve traditional application development teams, your technologists or builders will likely benefit from having access to team development environments. You're encouraged to review the benefits of [Establishing Team Development Environments]({{< relref "04-dev" >}}) before making a decision to skip setting up these environments. If you still decide to defer setting up team development environments, you can return to this guide later and follow the set up instructions.
 
 This guide recommends that each builder team be allocated a distinct team development AWS account to act as a resource container for the AWS resources a team creates and manages on its own.  Since AWS service costs are automatically reported for each AWS account, using a distinct AWS account for each team’s development needs is a convenient way to make costs visible and attributable to each team.
 

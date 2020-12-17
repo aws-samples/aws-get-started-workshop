@@ -42,7 +42,7 @@ As a starting point, the following steps walk you through setting up test and pr
 **Options for internet integration:** Draft Review Note: Provide references to existing AWS documentation, guides, and/or session videos that walk through the internet integration scenarios.
 {{% /notice %}}
 
-[![Test and Production Network Details](/images/04-test-prod/initial-foundation-test-prod-single-region.png?height=600px)](/images/04-test-prod/initial-foundation-test-prod-single-region.png)
+[![Test and Production Network Details](/images/05-test-prod/initial-foundation-test-prod-single-region.png?height=600px)](/images/05-test-prod/initial-foundation-test-prod-single-region.png)
 
 ## 2. Determine IP address CIDR blocks
 

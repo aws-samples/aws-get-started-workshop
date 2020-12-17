@@ -29,7 +29,7 @@ The overall configuration in this guide is patterned after the example [Isolated
 
 The following diagram represents a transit gateway and related resources that enable defined connectivity between VPCs and your on-premises network.  Based on the configuration of the transit gateway routing tables, you have control over which VPCs have connectivity to each other and with your on-premises network.
 
-[![Site-to-Site VPN with Transit Gateway](/images/05-extend/01-hybrid-networking/site-to-site-vpn-tgw-route-tables.png?height=500px)](/images/05-extend/01-hybrid-networking/site-to-site-vpn-tgw-route-tables.png)
+[![Site-to-Site VPN with Transit Gateway](/images/06-extend/01-hybrid-networking/site-to-site-vpn-tgw-route-tables.png?height=500px)](/images/06-extend/01-hybrid-networking/site-to-site-vpn-tgw-route-tables.png)
 
 The transit gateway and routing configuration shown in the diagram above supports the following connectivity scenarios:
 

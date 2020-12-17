@@ -50,7 +50,7 @@ The following decision tree provides a summary of your options based on your req
 
 If you have specific SAML IdP needs that can't be met via integration with AWS SSO, then it's likely that you can use your SAML IdP directly with AWS IAM.  For example, if you need to integrate multiple SAML IdPs, then you would integrate those IdPs directly with AWS IAM.
 
-[![Federated Access Options](/images/05-extend/02-federated-access-to-aws/federated-access-to-aws-decision-tree.png?height=500px)](/images/05-extend/02-federated-access-to-aws/federated-access-to-aws-decision-tree.png)
+[![Federated Access Options](/images/06-extend/02-federated-access-to-aws/federated-access-to-aws-decision-tree.png?height=500px)](/images/06-extend/02-federated-access-to-aws/federated-access-to-aws-decision-tree.png)
 
 ### SAML 2.0 Identity Provider with AWS SSO
 

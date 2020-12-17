@@ -1,8 +1,8 @@
 ---
 title: 'Establish Foundation for Development Environments'
-menuTitle: '3. Foundation for Development'
+menuTitle: '4. Development Foundation'
 disableToc: true
-weight: 30
+weight: 40
 ---
 
 {{% comment %}}
@@ -24,7 +24,7 @@ As your use of the cloud matures, your builders are encouraged to begin using In
 
 ## Deferring set up of team development environments
 
-You're encouraged to set up your initial team development environments at this time. If you'd like to defer setting up development environments, you can skip forward to [Establishing Foundation for Test and Production Environments]({{< relref "04-test-prod" >}}). Later, you can come back to this section and set up your team development environments.
+You're encouraged to set up your initial team development environments at this time. If you'd like to defer setting up development environments, you can skip forward to [Establishing Foundation for Test and Production Environments]({{< relref "05-test-prod" >}}). Later, you can come back to this section and set up your team development environments.
 
 ## Establishing team development environments
 

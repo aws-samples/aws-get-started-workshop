@@ -14,5 +14,5 @@ This guide is intended to help you establish an initial environment in AWS that 
 
 {{% children showhidden="false" %}}
 
-[![Initial Test and Production Environments in Single AWS Region](/images/04-test-prod/initial-foundation-test-prod-single-region.png?height=600px)](/images/04-test-prod/initial-foundation-test-prod-single-region.png)
+[![Initial Test and Production Environments in Single AWS Region](/images/05-test-prod/initial-foundation-test-prod-single-region.png?height=600px)](/images/05-test-prod/initial-foundation-test-prod-single-region.png)
 

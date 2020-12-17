@@ -20,7 +20,7 @@ This step should take about 20 minutes to complete.
 
 The following diagram represents the recommended configuration of an initial set of team development environments.
 
-[![Initial Development Environment](/images/03-dev/initial-foundation-dev.png?height=600px)](/images/03-dev/initial-foundation-dev.png)
+[![Initial Development Environment](/images/04-dev/initial-foundation-dev.png?height=600px)](/images/04-dev/initial-foundation-dev.png)
 
 ## Team development AWS accounts
 

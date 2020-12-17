@@ -20,7 +20,7 @@ This step should take about 20 minutes to complete.
 
 The following diagram represents the addition of test and production AWS accounts to your initial AWS environment. A set of optional networks are also depicted.
 
-[![Initial Test and Production Environments in Single AWS Region](/images/04-test-prod/initial-foundation-test-prod-single-region.png?height=600px)](/images/04-test-prod/initial-foundation-test-prod-single-region.png)
+[![Initial Test and Production Environments in Single AWS Region](/images/05-test-prod/initial-foundation-test-prod-single-region.png?height=600px)](/images/05-test-prod/initial-foundation-test-prod-single-region.png)
 
 ## AWS account design
 
@@ -110,4 +110,4 @@ If your initial workload requires access either to or from the internet, then we
 
 ### On-premises network integration
 
-Your test and production workloads might require connectivity to on-premises resources and services over a private connection. If you have not already established this connectivity, see [Hybrid Networking]({{<ref "/05-extend/01-hybrid-networking/" >}}) for an overview of your options and detailed step-by-step instructions for setting up a site-to-site VPN connection.
+Your test and production workloads might require connectivity to on-premises resources and services over a private connection. If you have not already established this connectivity, see [Hybrid Networking]({{<ref "/06-extend/01-hybrid-networking/" >}}) for an overview of your options and detailed step-by-step instructions for setting up a site-to-site VPN connection.

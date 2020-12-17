@@ -21,7 +21,7 @@ This section explores the detailed design to connect AWS SSO with Self-Managed A
 In this configuration, AWS SSO is configured to use AD Connector as an identity source. AD Connector is running in shared subnets from the Infrastructure Shared Services VPC. 
 
 The subnets are shared using [Resource Access Manager](https://aws.amazon.com/ram/) from the Shared Services account to the management account. To learn how to share subnets (or other resources), review the [RAM Documentation](https://docs.aws.amazon.com/ram/latest/userguide/getting-started-sharing.html) or review the existing ["Getting Started" guidance on sharing subnets]({{< relref "02-set-up-common-dev-network#share-dev-subnets" >}}). This keeps Active Directory in an Infrastructure Shared Services VPC and does not require a dedicated VPC in the management account, which simplifies the network. Consider the following diagram:
-[![AWS SSO Managed AD](/images/05-extend/02-federated-access-to-aws/awsssomad.png)](/images/05-extend/02-federated-access-to-aws/awsssomad.png)
+[![AWS SSO Managed AD](/images/06-extend/02-federated-access-to-aws/awsssomad.png)](/images/06-extend/02-federated-access-to-aws/awsssomad.png)
 In this diagram, we have an on-premises data center on the left with two self-managed Active Directory Domain Controllers configured in an Active Directory Site (let's call it CorpDC). It is connected to an AWS Network account over a VPN or Direct Connect connection. For most customers starting off, VPN will work fine here and is the faster option to set up. See [On-premises Network Integration]({{< relref "01-hybrid-networking" >}}) for details on establishing a site-to-site VPN connection.
 
 A Transit Gateway (TGW) is hosted in the Network account and is shared using Resource Access Manager with the Infrastructure Shared Services account. The Transit Gateway has an attachment to the Infrastructure Shared Services VPC. The Transit Gateway Route Tables (not shown) allow communication with On-Premises over the VPN or Direct Connect connection, and the Infrastructure Shared Services Account VPC has route tables allowing communication with On-Premises subnets over the Transit Gateway attachment. You have configured AWS Managed Active Directory in the Shared Services and it is deployed across multiple Availability Zones.
@@ -39,7 +39,7 @@ You do not have "Domain Admin" or "Enterprise Admin" permissions in AWS Managed 
 ## AWS SSO and On-Premises Self-Managed Active Directory
 
 This is a similar configuration to above, simply replacing AWS Managed Active Directory with self-managed Active Directory.
-[![AWS SSO Managed AD](/images/05-extend/02-federated-access-to-aws/AWSSSO_AD.png)](/images/05-extend/02-federated-access-to-aws/AWSSSO_AD.png)
+[![AWS SSO Managed AD](/images/06-extend/02-federated-access-to-aws/AWSSSO_AD.png)](/images/06-extend/02-federated-access-to-aws/AWSSSO_AD.png)
 
 In this diagram, we have an on-premises data center on the left with two self-managed Active Directory Domain Controllers configured in an Active Directory Site (let's call it CorpDC). It is connected to an AWS Network account over a VPN or Direct Connect connection. Transit Gateway is shared across 2 AWS accounts: Network and Shared Services with attachments to VPCs hosted in each account (attachments not shown for diagram clarity). Appropriate route tables are in place on the Transit Gateway and the VPCs to allow on-premises and communication from Shared Services VPC (ie, they must be part of the same TGW propagation table).
 

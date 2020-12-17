@@ -1,8 +1,8 @@
 ---
 title: 'Establish Foundation for Test and Production Environments'
-menuTitle: '4. Foundation for Test and Prod'
+menuTitle: '5. Test and Prod Foundation'
 disableToc: true
-weight: 40
+weight: 50
 ---
 
 {{% comment %}}
