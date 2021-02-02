@@ -40,7 +40,6 @@ phases:
       - ./hugo -D --enableGitInfo
       - HTML_PROOFER="$(gem contents html-proofer | grep '/bin/')"
       - echo running html-proofer
-      # Disabled due to errors, need to correct content
-      # - $HTML_PROOFER  ./public --check-html --empty-alt-ignore --allow-hash-href
+      - $HTML_PROOFER  ./public --check-html --empty-alt-ignore --allow-hash-href
       # fail if proofer has issues... if you want to deploy anyway, move these back to post_build
       - deploy.sh

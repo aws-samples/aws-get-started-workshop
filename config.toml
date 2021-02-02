@@ -24,7 +24,7 @@ pygmentsUseClasses = true
 pygmentsStyle = "monokailight"
 
 [params]
-editURL = "https://github.com/aws-samples/aws-get-started-workshop/edit/master/content/"
+editURL = "https://github.com/aws-samples/aws-get-started-workshop/edit/main/content/"
 showVisitedLinks = false
 disableInlineCopyToClipBoard = true
 themeVariant = "mine"
