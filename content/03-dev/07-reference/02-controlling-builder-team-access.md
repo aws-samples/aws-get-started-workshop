@@ -353,7 +353,7 @@ Ensure that foundation related CloudFormation stack instances that have been cre
                 "cloudformation:DeleteStack",
                 "cloudformation:UpdateStack"
             ],
-            "Resource": "arn:aws:cloudformation::*:stack/StackSet-*"
+            "Resource": "arn:aws:cloudformation:*:*:stack/StackSet-*"
         },
 ```
 
@@ -392,7 +392,7 @@ The main difference is that write access to all IAM resources is disallowed in t
                 "cloudformation:DeleteStack",
                 "cloudformation:UpdateStack"
               ],
-              "Resource": "arn:aws:cloudformation::*:stack/StackSet-*"
+              "Resource": "arn:aws:cloudformation:*:*:stack/StackSet-*"
             },
             {
               "Sid": "DenyVPCWrite",
