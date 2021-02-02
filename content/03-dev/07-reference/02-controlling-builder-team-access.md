@@ -517,3 +517,4 @@ Builders testing IAM policies via the [IAM Policy Simulator](https://docs.aws.am
   * Adding and removing inline policies.
 * Creating and deleting IAM SAML providers.
 * Creating, updating, and deleting IAM users and groups.
+* Deleting AWS CloudFormation stack instances provisioned as part of stack sets.
