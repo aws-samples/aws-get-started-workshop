@@ -77,7 +77,7 @@ Resources:
                 "cloudformation:DeleteStack",
                 "cloudformation:UpdateStack"
               ],
-              "Resource": "arn:aws:cloudformation::*:stack/StackSet-*"
+              "Resource": "arn:aws:cloudformation:*:*:stack/StackSet-*"
             }
          ]
       }
