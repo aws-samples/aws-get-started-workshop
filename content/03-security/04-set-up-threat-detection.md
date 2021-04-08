@@ -34,13 +34,6 @@ This section addresses how to set up the [Amazon GuardDuty](https://aws.amazon.c
 
 
 
-However, in your environment, you'll use the security tooling account that you just created instead of the 
-
-See [Setting up](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_settingup.html) in the Amazon GuardDuty user guide.
-
-
-
-
 
 
 

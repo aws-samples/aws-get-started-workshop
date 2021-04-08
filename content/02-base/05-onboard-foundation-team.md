@@ -48,13 +48,23 @@ Their initial sign on experience will consist of:
 
 Inform the foundation team members that use of MFA is required and how they can [register an MFA device](https://docs.aws.amazon.com/singlesignon/latest/userguide/how-to-register-device.html) on their own via the AWS SSO service.
 
-## 3. Delete the AWS Control Tower administrative user
+## 3. Sign out of the AWS Control Tower Administrator user and sign in with your individual user
 
-Since you've onboarded foundation team members with the appropriate permissions, as a security and compliance best practice, there's no longer any reason for your Cloud Administrators to use the AWS Control Tower Administrator user. 
+Since you've onboarded yourself and your Cloud Admin team members to the Cloud Admin group that has permissions to log into the current set of AWS accounts, you should log out of the `AWS Control Tower Administrator` user and log in using your own user.
 
-From this point forward, the vast majority of your work to administer and manage your AWS environment should be done via your personal users that are defined in AWS SSO.  By using personal users, all operations will be auditable and tied to specific individuals.
+1. Sign out of the AWS SSO landing page.
+1. Sign in to the AWS SSO URL for your environment using your individual user account.
+2. Select the AWS **`management`** account.
+3. Select **`Management console`** associated with the **`AWSAdministratorAccess`** role.
+4. Select the appropriate AWS region.
 
-### Delete the AWS Control Tower Administrator user
+## 4. Delete the AWS Control Tower Admin user and associated group in AWS SSO
+
+In this step you'll delete the AWS Control Admin user and the associated group from AWS SSO.
+
+Since you've onboarded foundation team members with the appropriate permissions, there's no longer any reason for your Cloud Administrators to use the AWS Control Tower Administrator user. From this point forward, the vast majority of your work done by your cloud administrators should be done via their individual user accounts that are defined in AWS SSO.  By using individual users accounts, all operations will be auditable and tied to specific individuals.
+
+### 4.1 Delete the `AWS Control Tower Administrator` user
 
 1. Navigate to **`AWS SSO`**.
 2. Access **`Users`** in AWS SSO.
@@ -62,6 +72,20 @@ From this point forward, the vast majority of your work to administer and manage
 4. Select **`Delete users`**.
 5. Delete the user.
 
-## 4. Brief foundation team members
+### 4.2 Delete the `AWSControlTowerAdmins` group
+
+Since you already have a cloud administrators group in AWS SSO, you no longer need the `AWSControlTowerAdmins` group.
+
+You can safely delete this group from AWS SSO and instead use the  **`example-cloud-admin`** or equivalent group that you've already established.
+
+### 4.3 Delete the `AWSControlTowerAdmins` group permission sets from the AWS accounts
+
+1. Navigate to **`AWS SSO`**.
+2. Access **`Users`** in AWS SSO.
+3. Select the checkbox next to the **`AWS Control Tower Administrator`** user.
+4. Select **`Delete users`**.
+5. Delete the user.
+
+## 5. Brief foundation team members
 
 Meet with the foundation team members to brief them on their access, responsibilities, and other topics covered in the [Example Getting Started Guide for Foundation Team Members]({{< relref "01-getting-started-guide-foundation-team-members.md" >}}).

@@ -24,7 +24,7 @@ phases:
       - git submodule init
       - git submodule update --recursive --remote --merge
       - echo Install Hugo
-      # Use known tested version of Hugo
+      # Latest version of Hugo
       - curl -s https://api.github.com/repos/gohugoio/hugo/releases/latest | grep "download_url.*Linux-64bit.tar.gz" | grep -v "extended" | cut -d '"' -f 4 | wget -qi -
       - HUGO_TAR="$(find . -name "*Linux-64bit.tar.gz")"
       - tar -xzf $HUGO_TAR

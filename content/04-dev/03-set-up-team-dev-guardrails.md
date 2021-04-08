@@ -17,7 +17,7 @@ Service control policies (SCPs) are used to constrain the ability to modify clou
 This step should take about 20 minutes to complete.
 
 {{% notice tip %}}
-**Learn more about guardrails:** See [Environment Guardrails]({{< relref "03-guardrails" >}}) for an introduction to the use of guardrails that you can apply to your AWS environments.  Guardrails are governance rules for security, operations, and compliance that customers can select and apply enterprise-wide or to specific groups of accounts. You might start with a basic set of guardrails and expand them as you gain experience and your needs evolve.
+**Learn more about guardrails:** See [Environment Guardrails]({{< relref "05-set-up-initial-guardrails" >}}) for an introduction to the use of guardrails that you can apply to your AWS environments.  Guardrails are governance rules for security, operations, and compliance that customers can select and apply enterprise-wide or to specific groups of accounts. You might start with a basic set of guardrails and expand them as you gain experience and your needs evolve.
 {{% /notice %}}
 
 {{< toc >}}

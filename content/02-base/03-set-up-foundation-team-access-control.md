@@ -16,7 +16,7 @@ This step should take about 30 minutes to complete.
 
 {{< toc >}}
 
-## 1. Temporarily Use AWS SSO Locally Managed Users and Groups
+## 1. Temporarily use AWS SSO locally managed users and groups
 
 If your team needs to move very quickly in a matter of 1-2 days to establish your initial development environments and does not have an immediate requirement to integrate your existing enterprise identity management system to help control access to the AWS platform, then it’s recommended that:
 
@@ -27,7 +27,7 @@ If your team needs to move very quickly in a matter of 1-2 days to establish you
 **What about AWS IAM users and groups?:** Although the AWS Identity and Access Management (AWS IAM) service supports management of locally defined users and groups, it’s generally not recommended that customers depend on this capability to help manage human user access to the AWS platform _at scale_. Instead, AWS recommends that you reuse your preferred enterprise identity management system and associated processes to act as the basis for human user access to the AWS platform.
 {{% /notice %}}
 
-## 2. Map Foundation Functional Roles to Existing AWS Groups {#map-foundation-functional-roles}
+## 2. Map foundation functional roles to existing AWS groups {#map-foundation-functional-roles}
 
 Earlier in this guide you should have mapped your foundation team members to the [initial set of functional roles]({{< relref "03-map-people-to-foundation-roles.md" >}}) to be played in support of your AWS environment. 
 
@@ -35,9 +35,8 @@ The following table represents a mapping of those functional roles to a set of A
 
 |Foundation Functional Role|AWS SSO Groups|Effective Permissions|
 |---	|---	|--- |
-|**Cloud Administration**|`AWSControlTowerAdmins`|[Administrator](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_job-functions.html#jf_administrator) access in the master, log archive, and audit accounts.|
+|**Cloud Administration**|`example-cloud-admin`|[Administrator](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_job-functions.html#jf_administrator) access in all AWS accounts within the organization.|
 | |`AWSAccountFactory`|Ability to use the Account Factory product via AWS Service Catalog.|
-| |`example-cloud-admin`|[Administrator](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_job-functions.html#jf_administrator) access in all other AWS accounts.
 |**Security Administration**|`AWSAuditAccountAdmins`|[Administrator](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_job-functions.html#jf_administrator) access in the audit account.|
 | |`AWSLogArchiveAdmins`|[Administrator](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_job-functions.html#jf_administrator) access in the log archive account.|
 |**Cost Management**|`example-cost-mgmt`|[Billing and cost management](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_job-functions.html#jf_accounts-payable) access in the management account.|
@@ -47,7 +46,7 @@ The following table represents a mapping of those functional roles to a set of A
 **Your AWS platform access permissions will evolve:** The initial mapping of functional roles to groups in AWS SSO and the underlying permissions associated with those groups shown in the table above is only a simple starting point for your AWS platform access permissions for foundation team members. As you progress on your journey, you will evolve these groups and underlying permissions to meet your needs.
 {{% /notice %}}
 
-## 3. Access AWS SSO Using Your AWS Control Tower Administrator User
+## 3. Access AWS SSO using your AWS Control Tower Administrator user
 
 You'll need to use the AWS SSO service to add a new groups for Cloud Administrators and Cost Managers and create users for foundation team members.
 
@@ -65,7 +64,7 @@ Access the AWS SSO service:
 **Permissions error:** If you encounter a permissions error when attempting to access AWS SSO via the AWS Management Console, ensure that you've selected the proper AWS account and role, `AWSAdministratorAccess`.
 {{% /notice %}}
 
-## 4. Customize AWS SSO Portal URL
+## 4. Customize your AWS SSO portal URL
 
 As an optional step, you may want to customize the URL that you use to access the AWS SSO portal.  
 
@@ -78,9 +77,11 @@ The default form the portal URL is similar to this example of: `https://d-3a274d
 3. Under **`User portal`**, select **`Customize`**.
 4. Set the first portion of the URL to a unique value.  Use your identifier, stock ticker symbol, or another identifier that you use as an abbreviated reference to your environments.
 
-## 5. Add a Cloud Admin Group in AWS SSO
+## 5. Add a Cloud Admin group and assign permissions in AWS SSO
 
 Since Cloud Administrators don't have administrator access to newly created AWS accounts, you'll need to start laying the groundwork for this access by adding a new group in AWS SSO. In a subsequent step, you'll add Cloud Administrator team members to the new group. Later on, after the initial set of team development AWS account are created, you will assign this group and a permission set to each of those new accounts so that the Cloud Administrators can gain administrator level access to manage those accounts. 
+
+### Add Cloud Admin group in AWS SSO
 
 1. Access **`Groups`** in AWS SSO.
 2. Select **`Create group`**.
@@ -96,13 +97,29 @@ Since Cloud Administrators don't have administrator access to newly created AWS 
 **Cloud Resource Naming - Lower Case, Camel Case, etc:** Most AWS cloud resource names support using a range of characters and cases.  Typically, AWS-managed resources use camel case, but organizations often standardize on one style and strive to use that style throughout their cloud environment.
 {{% /notice %}}
 
-## 6. Add a Cost Management Group and Assign Permissions in AWS SSO
+### Associate Cloud Admin group and permission set with the AWS accounts
+
+1. Access **`AWS accounts`** in AWS SSO.
+2. Select the checkbox next to the following AWS accounts:
+  * **`management`**
+  * **`Audit`**
+  * **`Log archive`**
+3. Select **`Assign users`**.
+4. Select **`Groups`**.
+5. Select the checkbox next to **`example-cloud-admin`** or similar.
+6. Select **`Next: Permission sets`**.
+7. Select **`AWSAdministratorAccess`**
+8. Select **`Finish`**.
+
+AWS SSO will deploy the selected permission set to the selected AWS accounts. In a later section, you will add your Cloud Admin team members to the newly created Cloud Admin group so that they will have access to these accounts using their individual user accounts.
+
+## 6. Add a Cost Management group and assign permissions in AWS SSO
 
 Since there's no suitable predefined AWS SSO group for cost management team members, you need to add a new group in AWS SSO and associate the necessary permissions with that group. In a subsequent step, you'll add cost management team members to the new group. 
 
 In the spirit of least privilege access, the resulting permissions will enable cost management team members to access only your master AWS account and only the cost management and billing resources and data accessible within that AWS account.
 
-### Add Cost Management Group in AWS SSO
+### Add Cost Management group in AWS SSO
 
 1. Access **`Groups`** in AWS SSO.
 2. Select **`Create group`**.
@@ -110,7 +127,7 @@ In the spirit of least privilege access, the resulting permissions will enable c
 4. Provide a description. For example, **'Cost management and billing`**.
 5. Select **`Create`**.
 
-### Associate Group and Permission Set with AWS Management Account
+### Associate Cost Management group and permission set with the management AWS account
 
 1. Access **`AWS accounts`** in AWS SSO.
 2. Select the checkbox next to your **`management`** AWS account.
@@ -119,7 +136,7 @@ In the spirit of least privilege access, the resulting permissions will enable c
 5. Select the checkbox next to **`example-cost-mgmt`** or similar.
 6. Select **`Next: Permission sets`**.
 
-### Create New Permission Set for Billing
+### Create new permission set for billing
 
 7. Select **`Use an existing job function policy`**.
 8. Select **`Next: Details`**.
@@ -128,9 +145,9 @@ In the spirit of least privilege access, the resulting permissions will enable c
 11. Select **`Next: Review`**.
 12. Select **`Create`**. 
 
-### Associate Billing Permission Set 
+### Associate billing permission set 
 
 13. Select the checkbox next to **`Billing`**.
 14. Select **`Finish`**.
 
-AWS SSO deploys the selected permission set to the selected AWS account.
+AWS SSO will deploy the selected permission set to the selected AWS account.

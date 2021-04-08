@@ -70,14 +70,15 @@ In the following steps, you will modify your AWS SSO configuration to align with
 5. Select the appropriate AWS region.
 6. Navigate to **`AWS Single Sign-on`**.
 7. Select **`Settings`** in AWS SSO.
-8. Set the following settings to the recommended values:
+8. Under **`Multi-Factor Authentication`**, select **`Configure`**.
+9. Set the following settings to the recommended values:
 
 |Setting|Recommended Value|
 |-------|-----------------|
-|`Multi-factor authentication`|`Configure`|
 |`Users should be prompted for multi-factor authentication (MFA)`|`Every time they sign in (always-on)`|
-|`When prompted for a MFA code`|`Require them to provide a one-time password sent by email`|
-|`Who can manage MFA devices`|`Users and administrators can add and manage MFA devices`|
+|`Users can authenticate with these MFA types`|`Authenticator apps`|
+|`If a user does not yet have a registered MFA device`|`Require them to provide a one-time password sent by email to sign-in`|
+|`Who can manage MFA devices`|`Users can add and manage their own MFA devices`|
 
 9. Select **`Save changes`**.
 
@@ -85,11 +86,7 @@ In the following steps, you will modify your AWS SSO configuration to align with
 **Auditing use of MFA:** The configuration shown above does not force the use of MFA, but it does impose an additional overhead of a one-time password sent via email for users that have not yet registered an MFA device. You will likely want to establish either manual or automatic recurring audits to help ensure that your users have registered an MFA device.
 {{% /notice %}}
 
-## 6. Enable MFA via AWS SSO for Control Tower Administrator User
-
-Follow the instruction in [How to Register a Device for Use with Multi-Factor Authentication](https://docs.aws.amazon.com/singlesignon/latest/userguide/user-device-registration.html).
-
-## 7. Receive and Process AWS Email Messages
+## 6. Receive and Process AWS Email Messages
 
 ### AWS Organizations Email Verification Request
 
@@ -99,7 +96,7 @@ You will receive one more email with subject AWS Organizations email verificatio
 
 The email address you provided for the audit account will receive AWS Notification - Subscription Confirmation emails from every AWS Region supported by AWS Control Tower. To receive compliance emails in your audit account, you must choose the Confirm subscription link within each email from each AWS Region supported by AWS Control Tower.
 
-## 8. Review Role of New AWS Accounts
+## 7. Review Role of New AWS Accounts
 
 AWS Control Tower created several new AWS accounts when it set up the landing zone.
 
@@ -108,13 +105,13 @@ AWS Control Tower created several new AWS accounts when it set up the landing zo
 |**Audit**|This AWS account is a restricted account that's designed to give your security and compliance teams read and write access to all accounts in your landing zone. From the audit account, you have programmatic access to review accounts, by means of a role that is granted to Lambda functions only. The audit account does not allow you to log in to other accounts manually. |
 |**Log archive**|This AWS account works as a repository for logs of API activities and resource configurations from all accounts in the landing zone. |
 
-## 9. Disable Account Factory VPC Provisioning
+## 8. Disable Account Factory VPC Provisioning
 
 Since you will be provisioning VPCs directly using AWS CloudFormation, you need to ensure that the AWS Control Tower Account Factory network configuration is set to disable creation of a VPC when creating a new AWS account.  Otherwise, the Account Factory will attempt to create a VPC each time you provision a new AWS account.
 
-See [Configuring AWS Control Tower Without a VPC](https://docs.aws.amazon.com/controltower/latest/userguide/configure-without-vpc.html) for details on disabling automatic creation of VPCs.
+See [Configuring AWS Control Tower Without a VPC](https://docs.aws.amazon.com/controltower/latest/userguide/configure-without-vpc.html) for details on disabling automatic creation of VPCs and deleting a default VPC established by AWS Control Tower.
 
-## 10. Review AWS Control Tower Best Practices for Administrators
+## 9. Review AWS Control Tower Best Practices for Administrators
 
 Now that you've set up your initial landing zone, take a few minutes to review [Best Practices for Account Administrators](https://docs.aws.amazon.com/controltower/latest/userguide/best-practices.html#tips-for-admin-maint) so that you understand temporary limitations and other considerations when working with AWS Control Tower.
 

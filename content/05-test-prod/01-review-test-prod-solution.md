@@ -46,7 +46,7 @@ Moving workloads into a production phase often requires increased levels of gove
 
 Guardrails are governance rules for security, operations, and compliance that customers can select and apply enterprise-wide or to specific groups of accounts. You might start with a basic set of guardrails and expand them as you gain experience and your needs evolve.
 
-See [Environment Guardrails]({{< relref "03-guardrails" >}}) for an introduction to the use of guardrails that you can apply to your AWS environments.
+See [Environment Guardrails]({{< relref "05-set-up-initial-guardrails" >}}) for an introduction to the use of guardrails that you can apply to your AWS environments.
 
 ## Access control
 
@@ -110,4 +110,4 @@ If your initial workload requires access either to or from the internet, then we
 
 ### On-premises network integration
 
-Your test and production workloads might require connectivity to on-premises resources and services over a private connection. If you have not already established this connectivity, see [Hybrid Networking]({{<ref "/06-extend/01-hybrid-networking/" >}}) for an overview of your options and detailed step-by-step instructions for setting up a site-to-site VPN connection.
+Your test and production workloads might require connectivity to on-premises resources and services over a private connection. If you have not already established this connectivity, see [Hybrid Networking]({{< relref "01-hybrid-networking" >}}) for an overview of your options and detailed step-by-step instructions for setting up a site-to-site VPN connection.

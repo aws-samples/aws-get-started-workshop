@@ -353,7 +353,7 @@ Ensure that foundation related CloudFormation stack instances that have been cre
                 "cloudformation:DeleteStack",
                 "cloudformation:UpdateStack"
             ],
-            "Resource": "arn:aws:cloudformation::*:stack/StackSet-*"
+            "Resource": "arn:aws:cloudformation:*:*:stack/StackSet-*"
         },
 ```
 
@@ -392,7 +392,7 @@ The main difference is that write access to all IAM resources is disallowed in t
                 "cloudformation:DeleteStack",
                 "cloudformation:UpdateStack"
               ],
-              "Resource": "arn:aws:cloudformation::*:stack/StackSet-*"
+              "Resource": "arn:aws:cloudformation:*:*:stack/StackSet-*"
             },
             {
               "Sid": "DenyVPCWrite",
@@ -517,3 +517,4 @@ Builders testing IAM policies via the [IAM Policy Simulator](https://docs.aws.am
   * Adding and removing inline policies.
 * Creating and deleting IAM SAML providers.
 * Creating, updating, and deleting IAM users and groups.
+* Deleting AWS CloudFormation stack instances provisioned as part of stack sets.

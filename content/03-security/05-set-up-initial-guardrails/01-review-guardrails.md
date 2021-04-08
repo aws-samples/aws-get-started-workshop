@@ -1,8 +1,8 @@
 ---
-title: 'Security, Operations, and Compliance Guardrails for Your AWS Environment'
-menuTitle: 'Environment Guardrails'
+title: 'Review Concept of Security, Operations, and Compliance Guardrails for Your AWS Environment'
+menuTitle: '1. Review Concept of Guardrails'
 disableToc: true
-weight: 30
+weight: 10
 ---
 
 {{% comment %}}
