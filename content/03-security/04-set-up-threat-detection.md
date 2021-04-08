@@ -12,6 +12,8 @@ SPDX-License-Identifier: CC-BY-SA-4.0
 
 This section addresses how to set up the [Amazon GuardDuty](https://aws.amazon.com/guardduty/) threat detection service across your all of the accounts in our AWS environment.
 
+To Do: Factor this blog post into this section: https://aws.amazon.com/blogs/mt/automating-amazon-guardduty-deployment-in-aws-control-tower/
+
 {{< toc >}}
 
 ## 1. Delegate the security tooling account as the GuardDuty administrator
