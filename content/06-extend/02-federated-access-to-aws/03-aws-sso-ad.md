@@ -51,7 +51,6 @@ The advantage of this design is that customers retain Domain Admin / Enterprise 
 The disadvantage of this design is the added overhead for you to patch and maintain the Domain Controller EC2 instances.
 
 To get started with a step-by-step guide, here are some resources:
-* [Extend a self-managed Active Directory to AWS Control Tower](https://aws.amazon.com/blogs/mt/extend-a-self-managed-active-directory-to-aws-control-tower/)
 * [Connect AWS SSO to AWS Managed Active Directory](https://docs.aws.amazon.com/singlesignon/latest/userguide/connectawsad.html) running in a VPC in the management account
 * [Connect AWS SSO to an On-Premises Active Directory](https://docs.aws.amazon.com/singlesignon/latest/userguide/connectonpremad.html) using a VPC in the management Account that has an established VPN or Direct Connect connection to the on-premises datac enter.
 * [How to Connect Your On-Premises Active Directory Using AD Connector](https://aws.amazon.com/blogs/security/how-to-connect-your-on-premises-active-directory-to-aws-using-ad-connector/)
