@@ -17,13 +17,13 @@ This section addresses how to set up restrictions as to which AWS Regions can be
 ## 1. ...
 
 
-https://controltower.aws-management.tools/security/restrict_regions/
-https://aws-samples.github.io/aws-iam-permissions-guardrails/
-https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps_examples.html#examples_general
-https://aws.amazon.com/blogs/security/how-to-use-service-control-policies-to-set-permission-guardrails-across-accounts-in-your-aws-organization/
-https://asecure.cloud/a/scp_whitelist_region/
+controltower.aws-management.tools/security/restrict_regions/
+aws-samples.github.io/aws-iam-permissions-guardrails/
+docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps_examples.html#examples_general
+aws.amazon.com/blogs/security/how-to-use-service-control-policies-to-set-permission-guardrails-across-accounts-in-your-aws-organization/
+asecure.cloud/a/scp_whitelist_region/
 
-sample: (https://forums.aws.amazon.com/thread.jspa?messageID=896784)
+sample: (forums.aws.amazon.com/thread.jspa?messageID=896784)
 {
 "Version": "2012-10-17",
 "Statement": [
@@ -58,8 +58,8 @@ sample: (https://forums.aws.amazon.com/thread.jspa?messageID=896784)
 
 
 
-
-https://aws-samples.github.io/aws-iam-permissions-guardrails/
+Example:
+aws-samples.github.io/aws-iam-permissions-guardrails/
 
 
 
