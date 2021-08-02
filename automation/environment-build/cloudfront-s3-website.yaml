@@ -32,7 +32,11 @@ Resources:
     Type: AWS::S3::Bucket
     Properties:
       BucketName: !Join ['', [ !Ref 'WorkshopHostname', '.', !Ref 'DomainName']]
-      AccessControl: "BucketOwnerFullControl"  
+      AccessControl: "BucketOwnerFullControl"
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+          - ServerSideEncryptionByDefault:
+              SSEAlgorithm: 'AES256'
     
   WebsiteBucketPolicy:
     Type: AWS::S3::BucketPolicy
