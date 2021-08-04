@@ -33,6 +33,8 @@ Resources:
     Properties:
       BucketName: !Join ['', [ !Ref 'WorkshopHostname', '.', !Ref 'DomainName']]
       AccessControl: "BucketOwnerFullControl"
+      VersioningConfiguration:
+        Status: Enabled
       BucketEncryption:
         ServerSideEncryptionConfiguration:
           - ServerSideEncryptionByDefault:
