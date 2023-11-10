@@ -2,7 +2,7 @@
 
 # Populate environment variables with Git repo values so that we can support
 # building feature branches and PRs.
-
+#
 export CUSTOM_CODEBUILD_GIT_BRANCH="$(git symbolic-ref HEAD --short 2>/dev/null)"
 
 if [ "$CUSTOM_CODEBUILD_GIT_BRANCH" = "" ] ; then
